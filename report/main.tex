@@ -432,12 +432,14 @@ Linear Regression is the simplest baseline model that assumes the relationship b
 \begin{equation}
 \hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n
 \end{equation}
-where:
+\noindent where:
+\begin{quote}
 \begin{itemize}
     \item $\beta_0$ is the intercept (bias term)
     \item $\beta_i$ are the coefficients (weights) learned via ordinary least squares minimization
     \item $x_i$ are the input features
 \end{itemize}
+\end{quote}
 
 \subsubsection{Ridge Regression}
 Ridge Regression adds L2 regularization to the linear model to reduce overfitting and stabilize coefficient estimates. It is more robust than standard Linear Regression when dealing with many correlated features, which is the case in this study.
@@ -446,12 +448,14 @@ Ridge Regression adds L2 regularization to the linear model to reduce overfittin
 \begin{equation}
 \min_{\beta} \left( \| y - X\beta \|^2 + \alpha \| \beta \|^2 \right)
 \end{equation}
-where:
+\noindent where:
+\begin{quote}
 \begin{itemize}
     \item $\alpha$ controls the strength of L2 regularization
     \item $\| y - X\beta \|^2$ is the residual sum of squares
     \item $\| \beta \|^2$ is the L2 norm of the coefficient vector
 \end{itemize}
+\end{quote}
 
 \textbf{Key Hyperparameters (Tuned):}
 \begin{itemize}
@@ -469,13 +473,16 @@ SVR finds a function $f(x)$ by solving the following optimization problem:
 \begin{equation}
 \min_{w, b, \xi, \xi^*} \left( \frac{1}{2} \| w \|^2 + C \sum_{i=1}^{n} (\xi_i + \xi_i^*) \right)
 \end{equation}
-subject to the constraints:
+\noindent subject to the constraints:
+\begin{quote}
 \begin{align}
-y_i - (w \cdot x_i + b) &\leq \varepsilon + \xi_i \\
-(w \cdot x_i + b) - y_i &\leq \varepsilon + \xi_i^* \\
-\xi_i, \xi_i^* &\geq 0
+y_i - (w \cdot x_i + b) &\leq \varepsilon + \xi_i \nonumber\\
+(w \cdot x_i + b) - y_i &\leq \varepsilon + \xi_i^* \nonumber\\
+\xi_i, \xi_i^* &\geq 0 \nonumber
 \end{align}
-where:
+\end{quote}
+\noindent where:
+\begin{quote}
 \begin{itemize}
     \item $w$ is the weight vector
     \item $b$ is the bias term
@@ -483,6 +490,7 @@ where:
     \item $\varepsilon$ defines the epsilon-insensitive tube
     \item $\xi_i$ and $\xi_i^*$ are slack variables for points outside the tube
 \end{itemize}
+\end{quote}
 
 \textbf{Kernel Used:}
 \begin{itemize}
@@ -506,11 +514,13 @@ The Random Forest prediction is the average of all individual tree predictions:
 \begin{equation}
 \hat{y} = \frac{1}{T} \sum_{t=1}^{T} f_t(x)
 \end{equation}
-where:
+\noindent where:
+\begin{quote}
 \begin{itemize}
     \item $T$ is the total number of trees in the forest
     \item $f_t(x)$ is the prediction of the $t$-th decision tree
 \end{itemize}
+\end{quote}
 
 \textbf{Hyperparameters (Tuned):}
 \begin{itemize}
@@ -530,12 +540,14 @@ At each boosting iteration $m$, the model is updated as:
 \begin{equation}
 F_m(x) = F_{m-1}(x) + \nu \cdot h_m(x)
 \end{equation}
-where:
+\noindent where:
+\begin{quote}
 \begin{itemize}
     \item $F_{m-1}(x)$ is the ensemble prediction from the previous iteration
     \item $h_m(x)$ is the new tree fitted to the negative gradient (pseudo-residuals)
     \item $\nu$ is the learning rate (shrinkage factor) that controls the contribution of each tree
 \end{itemize}
+\end{quote}
 
 \textbf{Hyperparameters (Tuned):}
 \begin{itemize}
@@ -553,21 +565,25 @@ XGBoost minimizes the following regularized objective function:
 \begin{equation}
 \mathcal{L} = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k)
 \end{equation}
-where:
+\noindent where:
+\begin{quote}
 \begin{itemize}
     \item $l(y_i, \hat{y}_i)$ is the loss function measuring the difference between actual and predicted values
     \item $\Omega(f_k)$ is the regularization term for the $k$-th tree, defined as:
 \end{itemize}
+\end{quote}
 \begin{equation}
 \Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T} w_j^2
 \end{equation}
-where:
+\noindent where:
+\begin{quote}
 \begin{itemize}
     \item $T$ is the number of leaves in the tree
     \item $w_j$ is the weight (score) of the $j$-th leaf
     \item $\gamma$ controls the minimum loss reduction required to make a split
     \item $\lambda$ is the L2 regularization term on leaf weights
 \end{itemize}
+\end{quote}
 
 \textbf{Hyperparameters (Tuned):}
 \begin{itemize}
@@ -578,6 +594,344 @@ where:
     \item \texttt{colsample\_bytree}: Fraction of features used per tree
     \item \texttt{gamma}: Minimum loss reduction for a split
 \end{itemize}
+
+\subsection{Deep Learning Models}
+To model the nonlinear, temporal, and sequential characteristics of feeder load data, three deep learning architectures were implemented. These models were trained on sliding windows of historical hourly sequences, allowing the networks to learn both short-term and long-term dependencies in the dataset.
+
+The models developed are:
+\begin{enumerate}
+    \item Multi-Layer Perceptron (MLP)
+    \item Long Short-Term Memory (LSTM)
+    \item Gated Recurrent Unit (GRU)
+\end{enumerate}
+
+All models were trained with the Adam optimizer, early stopping, and sequence-based inputs where applicable.
+
+\subsubsection{Multi-Layer Perceptron (MLP)}
+The MLP is a feed-forward network consisting of multiple fully connected layers. Although it does not inherently model temporal order, it can extract nonlinear patterns from feature-engineered inputs. In this study, the MLP receives sequences flattened into a fixed-size input vector.
+
+\textbf{Mathematical Formulation:}
+
+Hidden layer activation:
+\begin{equation}
+h = \sigma(W_1 x + b_1)
+\end{equation}
+
+Output layer:
+\begin{equation}
+\hat{y} = W_2 h + b_2
+\end{equation}
+\noindent where:
+\begin{quote}
+\begin{itemize}
+    \item $\sigma$ is the activation function (ReLU in this implementation)
+    \item $W_1, W_2$ are weight matrices for the hidden and output layers respectively
+    \item $b_1, b_2$ are bias terms
+    \item $x$ is the input feature vector
+    \item $h$ is the hidden layer output
+\end{itemize}
+\end{quote}
+
+\subsubsection{Long Short-Term Memory (LSTM)}
+LSTM networks are designed to maintain contextual memory over long sequences through a gating mechanism that controls information flow. This makes them naturally suited for load forecasting, where consumption patterns depend on previous hours. The LSTM architecture addresses the vanishing gradient problem that affects standard RNNs.
+
+\textbf{Mathematical Formulation:}
+
+At each time step $t$, the LSTM computes the following:
+
+Forget gate (determines what information to discard from cell state):
+\begin{equation}
+f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)
+\end{equation}
+
+Input gate (determines what new information to store):
+\begin{equation}
+i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)
+\end{equation}
+
+Candidate cell state (creates new candidate values):
+\begin{equation}
+\tilde{c}_t = \tanh(W_c \cdot [h_{t-1}, x_t] + b_c)
+\end{equation}
+
+Cell state update (combines old and new information):
+\begin{equation}
+c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t
+\end{equation}
+
+Output gate (determines what to output):
+\begin{equation}
+o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)
+\end{equation}
+
+Hidden state (final output at time step $t$):
+\begin{equation}
+h_t = o_t \odot \tanh(c_t)
+\end{equation}
+\noindent where:
+\begin{quote}
+\begin{itemize}
+    \item $\sigma$ is the sigmoid activation function
+    \item $\tanh$ is the hyperbolic tangent activation function
+    \item $\odot$ denotes element-wise (Hadamard) product
+    \item $[h_{t-1}, x_t]$ represents concatenation of the previous hidden state and current input
+    \item $W_f, W_i, W_c, W_o$ are weight matrices for each gate
+    \item $b_f, b_i, b_c, b_o$ are bias vectors for each gate
+    \item $c_t$ is the cell state that carries long-term memory
+    \item $h_t$ is the hidden state output
+\end{itemize}
+\end{quote}
+
+\subsubsection{Gated Recurrent Unit (GRU)}
+GRU is a streamlined version of LSTM with fewer parameters, combining the forget and input gates into a single update gate and merging the cell state with the hidden state. It often trains faster while achieving comparable performance to LSTM.
+
+\textbf{Mathematical Formulation:}
+
+At each time step $t$, the GRU computes the following:
+
+Update gate (controls how much past information to keep):
+\begin{equation}
+z_t = \sigma(W_z \cdot [h_{t-1}, x_t] + b_z)
+\end{equation}
+
+Reset gate (determines how much past information to forget):
+\begin{equation}
+r_t = \sigma(W_r \cdot [h_{t-1}, x_t] + b_r)
+\end{equation}
+
+Candidate hidden state (computes new candidate activation):
+\begin{equation}
+\tilde{h}_t = \tanh(W_h \cdot [r_t \odot h_{t-1}, x_t] + b_h)
+\end{equation}
+
+Final hidden state (interpolates between previous and candidate state):
+\begin{equation}
+h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t
+\end{equation}
+\noindent where:
+\begin{quote}
+\begin{itemize}
+    \item $\sigma$ is the sigmoid activation function
+    \item $\tanh$ is the hyperbolic tangent activation function
+    \item $\odot$ denotes element-wise (Hadamard) product
+    \item $[h_{t-1}, x_t]$ represents concatenation of the previous hidden state and current input
+    \item $W_z, W_r, W_h$ are weight matrices for the update gate, reset gate, and candidate state
+    \item $b_z, b_r, b_h$ are bias vectors
+    \item $z_t$ controls the balance between old and new information
+    \item $r_t$ controls how much of the previous state influences the candidate
+\end{itemize}
+\end{quote}
+
+\section{Model Training and Validation}
+This stage focuses on how both machine learning (ML) and deep learning (DL) models were trained, tuned, validated, and prepared for final performance comparison. Since ML and DL models require different handling, the training process is presented in two separate parts.
+
+\subsection{Training of Machine Learning Models}
+The machine learning models trained in this study include:
+\begin{enumerate}
+    \item Support Vector Regression (SVR)
+    \item Random Forest Regressor (RF)
+    \item Gradient Boosting Regressor (GBR)
+    \item Extreme Gradient Boosting (XGBoost)
+    \item Linear Regression and Ridge Regression (baseline models)
+\end{enumerate}
+All models used the same final preprocessed dataset described earlier, containing weather features, temporal encodings, and cleaned load values.
+
+\subsubsection{Input Preparation}
+For ML models, the dataset was used in a tabular format:
+\begin{enumerate}
+    \item \textbf{Features (X):} Time features (hour, month, weekday), cyclical encodings, weather variables, and lag features if applied.
+    \item \textbf{Target (y):} Load at the next hour.
+\end{enumerate}
+Since ML models do not operate on sequences, no sliding window was required.
+
+\subsubsection{Data Splitting}
+The dataset was split into 80 percent for training and 20 percent for testing. Shuffling was applied during the split to prevent temporal clustering and to ensure that the machine learning models were exposed to a diverse mix of seasonal and temporal patterns during training.
+
+\subsubsection{Feature Scaling}
+Some models required normalized inputs, so StandardScaler was applied to Linear Regression, Ridge, and SVR. Tree-based models such as Random Forest, Gradient Boosting, and XGBoost did not require any scaling.
+
+\subsubsection{Training Procedure}
+Each model was trained using its corresponding optimization approach:
+\begin{itemize}
+    \item Least squares optimization for Linear Regression and Ridge
+    \item Kernel-based optimization for SVR
+    \item Ensemble tree learning for Random Forest and Gradient Boosting
+    \item Gradient-boosted tree optimization for XGBoost
+\end{itemize}
+The training process involved fitting the models on the training set, generating predictions on the test set, and evaluating performance using RMSE, MAE, MAPE, MSE, and R².
+
+\subsubsection{Hyperparameter Tuning}
+All machine learning models were fine-tuned using GridSearchCV, which tested different combinations of hyperparameters:
+\begin{itemize}
+    \item \textbf{SVR:} C, epsilon, and gamma
+    \item \textbf{Random Forest and Gradient Boosting:} n\_estimators, max\_depth, and min\_samples\_split
+    \item \textbf{XGBoost:} learning\_rate, max\_depth, subsample, and colsample\_bytree
+    \item \textbf{Ridge:} alpha
+\end{itemize}
+The best configurations were selected based on the lowest validation error.
+
+\subsection{Training of Deep Learning Models}
+Three deep learning models were implemented:
+\begin{enumerate}
+    \item Multi-Layer Perceptron (MLP)
+    \item Long Short-Term Memory (LSTM)
+    \item Gated Recurrent Unit (GRU)
+\end{enumerate}
+Since deep learning models learn from sequences rather than static features, the training process follows a different pipeline.
+
+\subsubsection{Sequence Construction}
+A sliding window method was used in which the model received the past $N$ hours as input and predicted the load for the next hour. A typical window size of 24 hours was used, although this value can be adjusted in the implementation.
+
+\subsubsection{Train--Validation--Test Split}
+Deep learning models require sequential integrity, so the dataset was split chronologically:
+\begin{itemize}
+    \item 80 percent for training
+    \item 10 percent for validation
+    \item 10 percent for testing
+\end{itemize}
+No shuffling was applied, ensuring that the model learned from the natural temporal progression of the data.
+
+\subsubsection{Model Training Configuration}
+All deep learning models were trained with the following configuration:
+\begin{itemize}
+    \item \textbf{Optimizer:} Adam
+    \item \textbf{Loss Function:} Mean Squared Error (MSE)
+    \item \textbf{Batch Size:} Typically 32 or 64
+    \item \textbf{Epochs:} Training continued for multiple epochs until early stopping criteria were met
+    \item \textbf{Weight Initialization:} Xavier/Glorot initialization (TensorFlow defaults)
+\end{itemize}
+
+\subsubsection{Regularization and Stability}
+To avoid overfitting, several regularization techniques were applied:
+\begin{itemize}
+    \item Dropout layers were included in the MLP and LSTM-based models
+    \item Batch normalization was applied where appropriate
+    \item Early stopping was used to monitor validation loss, and training automatically stopped when the validation loss stopped improving for several consecutive epochs
+\end{itemize}
+
+\subsubsection{Model-Specific Training Notes}
+\begin{itemize}
+    \item \textbf{MLP:} Used flattened inputs from the sliding window and relied on dense layers to learn nonlinear mappings. Generally converged quickly during training.
+    \item \textbf{LSTM:} Captured long-term temporal dependencies but required more computation. Performed best when extended historical context was important.
+    \item \textbf{GRU:} Provided a faster and lighter alternative to LSTM, often achieving comparable accuracy while offering a strong balance for medium-complexity time-series tasks.
+\end{itemize}
+
+\subsection{Validation Approach}
+A consistent evaluation strategy was applied across all models:
+
+\textbf{Machine Learning Models:}
+\begin{itemize}
+    \item Validated using GridSearchCV with five-fold cross-validation
+    \item Best hyperparameters were chosen based on the minimum validation loss
+\end{itemize}
+
+\textbf{Deep Learning Models:}
+\begin{itemize}
+    \item Validated using a 10 percent validation split
+    \item Early stopping was used to prevent overfitting
+    \item Best-performing model weights were preserved through checkpointing
+\end{itemize}
+
+\section{Performance Evaluation}
+To compare the machine learning and deep learning models fairly, a consistent set of standard error metrics was used. These metrics measure the difference between the predicted load values and the actual observed load. In this study, five commonly used regression evaluation metrics were selected:
+\begin{enumerate}
+    \item Mean Absolute Error (MAE)
+    \item Mean Squared Error (MSE)
+    \item Root Mean Squared Error (RMSE)
+    \item Mean Absolute Percentage Error (MAPE)
+    \item Coefficient of Determination (R² Score)
+\end{enumerate}
+These metrics help assess accuracy, robustness, and the overall predictive performance of the forecasting models.
+
+\subsection{Mean Absolute Error (MAE)}
+MAE represents the average magnitude of errors between forecasted and actual values, without considering direction. It is simple and easy to interpret.
+
+\textbf{Formula:}
+\begin{equation}
+\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+\end{equation}
+\noindent where:
+\begin{quote}
+\begin{itemize}
+    \item $n$ is the total number of samples
+    \item $y_i$ is the actual load value
+    \item $\hat{y}_i$ is the predicted load value
+\end{itemize}
+\end{quote}
+
+\textbf{Interpretation:} Lower MAE indicates that the model's predictions are consistently closer to the actual load. This metric is robust against the influence of individual large errors.
+
+\subsection{Mean Squared Error (MSE)}
+MSE squares the prediction errors before averaging, which penalizes larger deviations more strongly.
+
+\textbf{Formula:}
+\begin{equation}
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+\end{equation}
+\noindent where:
+\begin{quote}
+\begin{itemize}
+    \item $n$ is the total number of samples
+    \item $y_i$ is the actual load value
+    \item $\hat{y}_i$ is the predicted load value
+\end{itemize}
+\end{quote}
+
+\textbf{Interpretation:} This metric is very sensitive to large errors, making it particularly useful in situations where significant forecasting deviations are unacceptable.
+
+\subsection{Root Mean Squared Error (RMSE)}
+RMSE is the square root of MSE. It is one of the most widely used metrics in load forecasting, and its units are the same as the original POWER (MW) values.
+
+\textbf{Formula:}
+\begin{equation}
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+\end{equation}
+\noindent where:
+\begin{quote}
+\begin{itemize}
+    \item $n$ is the total number of samples
+    \item $y_i$ is the actual load value
+    \item $\hat{y}_i$ is the predicted load value
+\end{itemize}
+\end{quote}
+
+\textbf{Interpretation:} Lower RMSE reflects a more accurate model overall. Because it strongly penalizes large errors, it serves as a stricter evaluation metric than MAE.
+
+\subsection{Mean Absolute Percentage Error (MAPE)}
+MAPE expresses the prediction error as a percentage of the actual value. This makes it easy to compare forecasting performance across different feeders or scales.
+
+\textbf{Formula:}
+\begin{equation}
+\text{MAPE} = \frac{100}{n} \sum_{i=1}^{n} \left| \frac{y_i - \hat{y}_i}{y_i} \right|
+\end{equation}
+\noindent where:
+\begin{quote}
+\begin{itemize}
+    \item $n$ is the total number of samples
+    \item $y_i$ is the actual load value
+    \item $\hat{y}_i$ is the predicted load value
+\end{itemize}
+\end{quote}
+
+\textbf{Interpretation:} This metric shows the average percentage deviation between predictions and actual values, with lower values indicating better performance. It becomes undefined when the actual load equals zero, though this was not an issue here since the feeder load never drops to zero.
+
+\subsection{Coefficient of Determination (R² Score)}
+R² indicates how much of the variance in the actual load values is explained by the model.
+
+\textbf{Formula:}
+\begin{equation}
+R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
+\end{equation}
+\noindent where:
+\begin{quote}
+\begin{itemize}
+    \item $y_i$ is the actual load value
+    \item $\hat{y}_i$ is the predicted load value
+    \item $\bar{y}$ is the mean of actual values
+\end{itemize}
+\end{quote}
+
+\textbf{Interpretation:} An R² value of 1 represents perfect prediction, while a value of 0 indicates that the model performs no better than simply using the average load. Higher R² values therefore indicate better model performance. Negative R² values are possible when the model performs worse than the mean baseline.
 
 \chapter{Experimental Setup (if any)}
 In this section, you describe how the experiment was done and summarize how the data was taken. One typically describes the instruments and detectors that were used. Describe the procedure that was followed to collect the data etc.

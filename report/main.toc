@@ -4,11 +4,11 @@
 \contentsline {chapter}{\hbox to\@tempdima {\hfil }Copyright}{v}{}%
 \contentsline {chapter}{\hbox to\@tempdima {\hfil }Acknowledgements}{vi}{}%
 \contentsline {chapter}{\hbox to\@tempdima {\hfil }Abstract}{vii}{}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }Contents}{ix}{}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Figures}{x}{}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Tables}{xi}{}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Abbreviations}{xii}{}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Units and conversions}{xiii}{}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Contents}{x}{}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Figures}{xi}{}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Tables}{xii}{}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Abbreviations}{xiii}{}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Units and conversions}{xiv}{}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{}%
 \contentsline {section}{\numberline {1.1}Background}{1}{}%
 \contentsline {section}{\numberline {1.2}Problem Statement}{2}{}%
@@ -54,9 +54,33 @@
 \contentsline {subsubsection}{Random Forest Regressor}{19}{}%
 \contentsline {subsubsection}{Gradient Boosting Regressor}{20}{}%
 \contentsline {subsubsection}{XGBoost Regressor}{21}{}%
-\contentsline {chapter}{\numberline {4}Experimental Setup (if any)}{22}{}%
-\contentsline {chapter}{\numberline {5}Results \& Discussion}{23}{}%
-\contentsline {chapter}{\numberline {6}Conclusions \& Recommendations}{24}{}%
-\contentsline {chapter}{\numberline {7}Limitations and Future enhancement}{25}{}%
-\contentsline {section}{References}{25}{}%
-\contentsline {section}{APPENDICES}{27}{}%
+\contentsline {subsection}{\numberline {3.5.2}Deep Learning Models}{22}{}%
+\contentsline {subsubsection}{Multi-Layer Perceptron (MLP)}{22}{}%
+\contentsline {subsubsection}{Long Short-Term Memory (LSTM)}{23}{}%
+\contentsline {subsubsection}{Gated Recurrent Unit (GRU)}{24}{}%
+\contentsline {section}{\numberline {3.6}Model Training and Validation}{24}{}%
+\contentsline {subsection}{\numberline {3.6.1}Training of Machine Learning Models}{25}{}%
+\contentsline {subsubsection}{Input Preparation}{25}{}%
+\contentsline {subsubsection}{Data Splitting}{25}{}%
+\contentsline {subsubsection}{Feature Scaling}{25}{}%
+\contentsline {subsubsection}{Training Procedure}{26}{}%
+\contentsline {subsubsection}{Hyperparameter Tuning}{26}{}%
+\contentsline {subsection}{\numberline {3.6.2}Training of Deep Learning Models}{26}{}%
+\contentsline {subsubsection}{Sequence Construction}{26}{}%
+\contentsline {subsubsection}{Train--Validation--Test Split}{27}{}%
+\contentsline {subsubsection}{Model Training Configuration}{27}{}%
+\contentsline {subsubsection}{Regularization and Stability}{27}{}%
+\contentsline {subsubsection}{Model-Specific Training Notes}{27}{}%
+\contentsline {subsection}{\numberline {3.6.3}Validation Approach}{28}{}%
+\contentsline {section}{\numberline {3.7}Performance Evaluation}{28}{}%
+\contentsline {subsection}{\numberline {3.7.1}Mean Absolute Error (MAE)}{28}{}%
+\contentsline {subsection}{\numberline {3.7.2}Mean Squared Error (MSE)}{29}{}%
+\contentsline {subsection}{\numberline {3.7.3}Root Mean Squared Error (RMSE)}{29}{}%
+\contentsline {subsection}{\numberline {3.7.4}Mean Absolute Percentage Error (MAPE)}{30}{}%
+\contentsline {subsection}{\numberline {3.7.5}Coefficient of Determination (R² Score)}{30}{}%
+\contentsline {chapter}{\numberline {4}Experimental Setup (if any)}{31}{}%
+\contentsline {chapter}{\numberline {5}Results \& Discussion}{32}{}%
+\contentsline {chapter}{\numberline {6}Conclusions \& Recommendations}{33}{}%
+\contentsline {chapter}{\numberline {7}Limitations and Future enhancement}{34}{}%
+\contentsline {section}{References}{34}{}%
+\contentsline {section}{APPENDICES}{36}{}%
