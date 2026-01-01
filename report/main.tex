@@ -418,6 +418,167 @@ Scatter plots were used to examine how load responds to different weather variab
 \subsection{Correlation Analysis}
 A correlation matrix was computed using all numerical features in the dataset. The analysis showed that Hour had the strongest correlation with POWER (MW) at +0.457, while global solar radiation contributed a moderate positive correlation of +0.307. Temperature and humidity exhibited weaker correlations, ranging from about +0.18 to --0.18, and calendar-related features such as Month, IsWeekend, and DayOfWeek displayed weak but meaningful trends. Overall, the correlation analysis supported the decision to retain both weather variables and time-based features in the modeling process.
 
+\section{Model Development}
+Machine learning models were first developed to establish strong baseline performance and evaluate how well traditional ML algorithms can capture the nonlinear, multi-feature dependencies present in feeder load data. All models were trained on the cleaned and feature-engineered dataset described in the earlier sections. Each model received the same input feature set to ensure fair comparison.
+
+The machine learning pipeline involved standard scaling of the numerical features, an 80--20 train--test split, and hyperparameter tuning performed using GridSearchCV. Model performance was evaluated using RMSE, MAE, MAPE, MSE, and R². The following subsections describe each machine learning model used in the study.
+
+\subsection{Machine Learning Models}
+
+\subsubsection{Linear Regression}
+Linear Regression is the simplest baseline model that assumes the relationship between input features and the target load value is linear. Although load patterns are nonlinear, this model helps establish a reference point for evaluating more complex methods.
+
+\textbf{Mathematical Formulation:}
+\begin{equation}
+\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n
+\end{equation}
+where:
+\begin{itemize}
+    \item $\beta_0$ is the intercept (bias term)
+    \item $\beta_i$ are the coefficients (weights) learned via ordinary least squares minimization
+    \item $x_i$ are the input features
+\end{itemize}
+
+\subsubsection{Ridge Regression}
+Ridge Regression adds L2 regularization to the linear model to reduce overfitting and stabilize coefficient estimates. It is more robust than standard Linear Regression when dealing with many correlated features, which is the case in this study.
+
+\textbf{Mathematical Formulation:}
+\begin{equation}
+\min_{\beta} \left( \| y - X\beta \|^2 + \alpha \| \beta \|^2 \right)
+\end{equation}
+where:
+\begin{itemize}
+    \item $\alpha$ controls the strength of L2 regularization
+    \item $\| y - X\beta \|^2$ is the residual sum of squares
+    \item $\| \beta \|^2$ is the L2 norm of the coefficient vector
+\end{itemize}
+
+\textbf{Key Hyperparameters (Tuned):}
+\begin{itemize}
+    \item \texttt{alpha}: Regularization strength
+    \item \texttt{fit\_intercept}: Whether to calculate the intercept
+    \item \texttt{solver}: Algorithm used for optimization
+\end{itemize}
+
+\subsubsection{Support Vector Regression (SVR)}
+SVR models nonlinear relationships by mapping features into a high-dimensional space using kernel functions. It works well for complex regression problems with moderate dataset sizes.
+
+\textbf{Mathematical Formulation:}
+
+SVR finds a function $f(x)$ by solving the following optimization problem:
+\begin{equation}
+\min_{w, b, \xi, \xi^*} \left( \frac{1}{2} \| w \|^2 + C \sum_{i=1}^{n} (\xi_i + \xi_i^*) \right)
+\end{equation}
+subject to the constraints:
+\begin{align}
+y_i - (w \cdot x_i + b) &\leq \varepsilon + \xi_i \\
+(w \cdot x_i + b) - y_i &\leq \varepsilon + \xi_i^* \\
+\xi_i, \xi_i^* &\geq 0
+\end{align}
+where:
+\begin{itemize}
+    \item $w$ is the weight vector
+    \item $b$ is the bias term
+    \item $C$ is the regularization parameter controlling the trade-off between flatness and tolerance of deviations
+    \item $\varepsilon$ defines the epsilon-insensitive tube
+    \item $\xi_i$ and $\xi_i^*$ are slack variables for points outside the tube
+\end{itemize}
+
+\textbf{Kernel Used:}
+\begin{itemize}
+    \item RBF (Radial Basis Function): Best suited for capturing nonlinear patterns in load data
+\end{itemize}
+
+\textbf{Hyperparameters (Tuned):}
+\begin{itemize}
+    \item \texttt{C}: Regularization parameter
+    \item \texttt{epsilon}: Width of the epsilon-insensitive tube
+    \item \texttt{gamma}: Kernel coefficient for RBF
+    \item \texttt{kernel}: Set to `rbf'
+\end{itemize}
+
+\subsubsection{Random Forest Regressor}
+Random Forest is an ensemble method consisting of multiple decision trees. Each tree is trained on a random subset of features and samples (bootstrap aggregating). It is robust, stable, and handles nonlinearity effectively.
+
+\textbf{Mathematical Formulation:}
+
+The Random Forest prediction is the average of all individual tree predictions:
+\begin{equation}
+\hat{y} = \frac{1}{T} \sum_{t=1}^{T} f_t(x)
+\end{equation}
+where:
+\begin{itemize}
+    \item $T$ is the total number of trees in the forest
+    \item $f_t(x)$ is the prediction of the $t$-th decision tree
+\end{itemize}
+
+\textbf{Hyperparameters (Tuned):}
+\begin{itemize}
+    \item \texttt{n\_estimators}: Number of trees in the forest
+    \item \texttt{max\_depth}: Maximum depth of each tree
+    \item \texttt{min\_samples\_split}: Minimum samples required to split an internal node
+    \item \texttt{min\_samples\_leaf}: Minimum samples required at a leaf node
+    \item \texttt{max\_features}: Number of features considered for the best split
+\end{itemize}
+
+\subsubsection{Gradient Boosting Regressor}
+Gradient Boosting builds trees sequentially, with each new tree correcting the errors (residuals) of the previous ensemble. It is particularly effective for structured tabular data like load forecasting.
+
+\textbf{Mathematical Formulation:}
+
+At each boosting iteration $m$, the model is updated as:
+\begin{equation}
+F_m(x) = F_{m-1}(x) + \nu \cdot h_m(x)
+\end{equation}
+where:
+\begin{itemize}
+    \item $F_{m-1}(x)$ is the ensemble prediction from the previous iteration
+    \item $h_m(x)$ is the new tree fitted to the negative gradient (pseudo-residuals)
+    \item $\nu$ is the learning rate (shrinkage factor) that controls the contribution of each tree
+\end{itemize}
+
+\textbf{Hyperparameters (Tuned):}
+\begin{itemize}
+    \item \texttt{n\_estimators}: Number of boosting stages
+    \item \texttt{learning\_rate}: Shrinkage factor
+    \item \texttt{max\_depth}: Maximum depth of individual trees
+\end{itemize}
+
+\subsubsection{XGBoost Regressor}
+XGBoost (Extreme Gradient Boosting) is an optimized and regularized implementation of gradient boosting designed for efficiency, scalability, and high accuracy. It was one of the best-performing ML models in this study.
+
+\textbf{Mathematical Formulation:}
+
+XGBoost minimizes the following regularized objective function:
+\begin{equation}
+\mathcal{L} = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k)
+\end{equation}
+where:
+\begin{itemize}
+    \item $l(y_i, \hat{y}_i)$ is the loss function measuring the difference between actual and predicted values
+    \item $\Omega(f_k)$ is the regularization term for the $k$-th tree, defined as:
+\end{itemize}
+\begin{equation}
+\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T} w_j^2
+\end{equation}
+where:
+\begin{itemize}
+    \item $T$ is the number of leaves in the tree
+    \item $w_j$ is the weight (score) of the $j$-th leaf
+    \item $\gamma$ controls the minimum loss reduction required to make a split
+    \item $\lambda$ is the L2 regularization term on leaf weights
+\end{itemize}
+
+\textbf{Hyperparameters (Tuned):}
+\begin{itemize}
+    \item \texttt{n\_estimators}: Number of boosting rounds
+    \item \texttt{learning\_rate}: Step size shrinkage
+    \item \texttt{max\_depth}: Maximum tree depth
+    \item \texttt{subsample}: Fraction of samples used per tree
+    \item \texttt{colsample\_bytree}: Fraction of features used per tree
+    \item \texttt{gamma}: Minimum loss reduction for a split
+\end{itemize}
+
 \chapter{Experimental Setup (if any)}
 In this section, you describe how the experiment was done and summarize how the data was taken. One typically describes the instruments and detectors that were used. Describe the procedure that was followed to collect the data etc.
 \chapter{Results \& Discussion}

@@ -46,9 +46,17 @@
 \contentsline {subsection}{\numberline {3.4.5}Weather Variable Behaviour}{16}{}%
 \contentsline {subsection}{\numberline {3.4.6}Load vs. Weather Relationships}{17}{}%
 \contentsline {subsection}{\numberline {3.4.7}Correlation Analysis}{17}{}%
-\contentsline {chapter}{\numberline {4}Experimental Setup (if any)}{18}{}%
-\contentsline {chapter}{\numberline {5}Results \& Discussion}{19}{}%
-\contentsline {chapter}{\numberline {6}Conclusions \& Recommendations}{20}{}%
-\contentsline {chapter}{\numberline {7}Limitations and Future enhancement}{21}{}%
-\contentsline {section}{References}{21}{}%
-\contentsline {section}{APPENDICES}{23}{}%
+\contentsline {section}{\numberline {3.5}Model Development}{17}{}%
+\contentsline {subsection}{\numberline {3.5.1}Machine Learning Models}{17}{}%
+\contentsline {subsubsection}{Linear Regression}{17}{}%
+\contentsline {subsubsection}{Ridge Regression}{18}{}%
+\contentsline {subsubsection}{Support Vector Regression (SVR)}{18}{}%
+\contentsline {subsubsection}{Random Forest Regressor}{19}{}%
+\contentsline {subsubsection}{Gradient Boosting Regressor}{20}{}%
+\contentsline {subsubsection}{XGBoost Regressor}{21}{}%
+\contentsline {chapter}{\numberline {4}Experimental Setup (if any)}{22}{}%
+\contentsline {chapter}{\numberline {5}Results \& Discussion}{23}{}%
+\contentsline {chapter}{\numberline {6}Conclusions \& Recommendations}{24}{}%
+\contentsline {chapter}{\numberline {7}Limitations and Future enhancement}{25}{}%
+\contentsline {section}{References}{25}{}%
+\contentsline {section}{APPENDICES}{27}{}%
