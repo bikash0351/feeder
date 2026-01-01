@@ -293,7 +293,75 @@ Kwon et al. (2020) conducted extensive research on learning models combined with
 
 Nabavi et al. (2024) combined Discrete Wavelet Transform with LSTM to improve electricity load forecasting accuracy. The DWT decomposed load series into multiple frequency components, allowing LSTM to learn from denoised and structured representations. Their research demonstrated that preprocessing techniques significantly enhanced deep learning model performance, particularly for datasets with high noise levels and irregular patterns.
 \chapter{Methodology}
-This chapter includes a discussion about the way you conducted your thesis research to meet the objectives. The methodology should be summarized in the form of a block diagram /flowchart. The selected method should be discussed in detail along with the justification for selecting the methodology. Each method used in the thesis should be directly and specifically linked with the research objectives. It should include research design (historical research, experimental research, field research, and survey research), research approaches (qualitative, quantitative), study area, study population, sample selection (sample selection methods), sample size, methods of data collection (Key Informant Interview, Focused Group Discussion, questionnaire survey, modeling, observation, measurement) and data analysis approach \& tools.
+This chapter describes the overall research methodology adopted to achieve the objectives of the thesis. It outlines the research design, data acquisition process, preprocessing techniques, and modeling approaches used for short-term electrical load forecasting. The methodology is structured to ensure a systematic analysis, with each step directly linked to the research objectives. A flowchart is used to summarize the overall framework, followed by a detailed explanation of the selected machine learning and deep learning models and the evaluation techniques employed in this study.
+
+\section{Overall Workflow}
+The forecasting framework used in this thesis follows a clear and systematic workflow. Each stage builds on the previous one to ensure that the final model is both reliable and reproducible. The complete process can be broken into six major steps:
+
+\begin{enumerate}
+    \item \textbf{Data Acquisition:} Hourly historical load data from the Baneshwor Feeder is collected alongside weather variables (temperature, humidity, rainfall) and calendar information (weekday/weekend, holidays). These serve as the core inputs to the forecasting models.
+    
+    \item \textbf{Data Preprocessing:} The raw dataset often contains missing readings, outliers, and format inconsistencies. This stage involves cleaning the data, handling missing values, treating outliers, converting timestamps, and engineering new time-based and cyclical features. This step ensures that the dataset is suitable for model development.
+    
+    \item \textbf{Exploratory Data Analysis (EDA):} The cleaned dataset is examined to understand load trends, seasonal patterns, hourly variations, and correlations with weather variables. EDA helps identify which features influence load demand the most and guides feature selection.
+    
+    \item \textbf{Model Development:} Both machine learning models (SVR, Random Forest, XGBoost) and deep learning models (LSTM, GRU) are designed. Input features are standardized and structured depending on the model type---tabular matrices for ML models and sequential inputs for DL models.
+    
+    \item \textbf{Model Training and Validation:} Models are trained using training data and validated using walk-forward validation or hold-out testing. Hyperparameters are optimized (GridSearchCV for ML models and iterative tuning for DL models). This ensures that the models generalize well and avoid overfitting.
+    
+    \item \textbf{Performance Evaluation and Comparison:} All models are evaluated using RMSE, MAE, MAPE, MSE, and R². Their forecasting accuracy, stability, and computational efficiency are compared. The best-performing model is then recommended for operational forecasting in the Baneshwor Feeder.
+\end{enumerate}
+This workflow provides a complete pipeline from raw data to final recommendation and supports both machine learning and deep learning approaches. The overall diagram of the methodology is shown in Figure 3.1.
+
+\section{Data Acquisition}
+The first step of our methodology is data acquisition. Hourly historical load data from Baneshwor Feeder will be collected. Weather data such as temperature, humidity, and rainfall data will be collected from the Department of Hydrology and Meteorology, Nepal. And finally, the information on weekdays, weekends are obtained from official government calendars.
+The study relies on two primary datasets:
+\begin{enumerate}
+    \item Hourly electrical load data for the Baneshwor Feeder
+    \item Hourly weather data (temperature, humidity, and solar radiation)
+\end{enumerate}
+Since both datasets were obtained as raw Excel files with irregular formats, inconsistent timestamps, missing entries, and multiple sheets per day/month, a multi-stage acquisition and structuring pipeline was developed. The sources of both datasets are listed below.
+
+\subsection{Data Sources}
+\begin{enumerate}
+    \item[a)] \textbf{Electrical Load Data:} The electrical load data used in this study was obtained from the Baneshwor Substation, which operates under the Nepal Electricity Authority (NEA). Hourly feeder load readings were collected from archived operational log sheets maintained by the substation for the years 2079 to 2082 BS. These records provided raw POWER (MW) measurements for the Baneshwor Feeder, along with associated timestamp information. Since the data originated from manually recorded and distributed Excel files, several preprocessing steps---such as header correction, timestamp standardization, and quality checks---were required before the dataset could be used for modeling. This substation-provided dataset forms the core of the forecasting analysis, representing real operational feeder behavior across multiple years.
+    
+    \item[b)] \textbf{Weather Data:} Weather data was sourced from Nepal's Department of Hydrology and Meteorology (DHM), the official governmental agency responsible for climate and atmospheric measurements. The dataset included hourly records of air temperature, relative humidity, and global solar radiation for the corresponding study period. These variables were essential for capturing the environmental conditions influencing electricity consumption patterns. The DHM dataset required timestamp alignment, interpolation for missing values, and smoothing of extreme readings to ensure compatibility with the load dataset. Once cleaned and synchronized, the weather data served as an important set of exogenous features for both machine learning and deep learning models.
+\end{enumerate}
+Because the raw files came in varying formats---different months, unpredictable sheet names, Bikram Sambat (BS) dates, mixed day formats, half-hour readings, inconsistent header rows, and multiple sheets per month---a custom data acquisition pipeline was required.
+
+\subsection{Load Data Acquisition and Structuring Process}
+The original NEA-provided Excel files were not uniform. Each month contained multiple workbooks, each workbook contained several sheets, and each sheet sometimes mixed headers, irrelevant rows, or inconsistent timestamp formats.
+To convert all raw data into a single unified structure, the following pipeline was implemented:
+
+\begin{enumerate}
+    \item[a)] \textbf{Month-wise Sheet Extraction:} The script automatically scanned each monthly folder, such as those inside dataset/2082MW, and identified all sheets whose names contained ``11KV'' or variations of it. From there, it matched the sheet names to the correct year--month to ensure proper alignment during extraction. Only rows with timestamps ending in HH:00 were selected, and half-hour readings like 7:30 were intentionally ignored. For every sheet, the script compiled a list of valid hourly entries and then stored the extracted results month-wise inside the corresponding extractedDataset/YYYYMM folders. This step produced a clean per-month dataset, but timestamps were still in Nepali calendar (BS) and formats varied.
+    
+    \item[b)] \textbf{Converting BS Dates, Normalizing Hours, and Structuring Daily Sheets:} The process began by extracting the BS date encoded inside each sheet name, such as 2079.02.15, and converting it to the AD calendar using Nepali date conversion libraries. Each sheet was read without assuming a fixed header position, allowing the script to dynamically detect both the Time column and the appropriate POWER (MW) value column. Every day was normalized to 24 hourly records by indexing hours from 1 to 24, and any missing hours were filled using linear interpolation. Clean timestamps were then constructed in the formats YYYY-MM-DD HH:00 and YYYY-MM-DD 24:00 for the final hour. Finally, one clean sheet was generated per day in the AD calendar, ensuring that each day contained exactly twenty-four readings aligned to a consistent timestamp system.
+    
+    \item[c)] \textbf{Combining All Structured Monthly Files:} The script scanned the four yearly folders from 2079 to 2082, and for each folder it opened every Excel file, extracted the valid Time and POWER (MW) columns, removed any remaining header fragments, and concatenated all sheets in that folder into a single file. After processing all four years, the resulting files were merged into one master dataset. At this stage, the study had a fully consolidated file containing all hourly POWER (MW) readings for the entire study period.
+\end{enumerate}
+
+\subsection{Weather Data Acquisition and Structuring}
+Weather data was also provided in raw format with mixed timestamps. Two scripts were developed to clean and align it with the load data.
+
+\begin{enumerate}
+    \item[a)] \textbf{Extracting and Cleaning Raw Weather File:} The script located the correct columns for time, temperature, humidity, and solar radiation, then removed any unusable rows. All timestamps were parsed into a consistent datetime format, after which the weather data was filtered to match the exact date range of the load dataset. The timestamps were then formatted as YYYY-MM-DD HH:MM. This stage produced a clean hourly weather dataset.
+    
+    \item[b)] \textbf{Structuring Weather Timestamp Alignment:} Timestamps were shifted so that values such as ``HH:45'' were aligned to the next hour at ``HH+1:00,'' and all ``24:00'' rollover cases were handled correctly. Missing or zero weather values were replaced using nearest-neighbor averages, while NaN solar radiation entries were set to zero. These steps produced the final clean weather file and ensured that all weather variables followed the exact hourly structure required for forecasting.
+\end{enumerate}
+
+\subsection{Final Merging of Load and Weather Data}
+The process involved parsing all load timestamps, including proper handling of ``24:00,'' and parsing the weather timestamps in a consistent format. Weather rows were then aligned precisely to the corresponding load timestamps, and any gaps in the weather variables were filled using linear interpolation. Finally, both datasets were merged into a single unified file. This produced the final dataset containing:
+\begin{enumerate}
+    \item Time
+    \item Power (MW)
+    \item Air Temperature
+    \item Global Solar Radiation
+    \item Relative Humidity
+\end{enumerate}
+
+This dataset is the core input for all ML/DL models used in the thesis.
 \chapter{Experimental Setup (if any)}
 In this section, you describe how the experiment was done and summarize how the data was taken. One typically describes the instruments and detectors that were used. Describe the procedure that was followed to collect the data etc.
 \chapter{Results \& Discussion}
