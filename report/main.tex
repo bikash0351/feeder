@@ -209,6 +209,14 @@ Short-Term Load Forecasting (STLF) typically focuses on horizons ranging from on
 Machine Learning models like Random Forest, Support Vector Regression, and XGBoost have shown strong results in several energy-related forecasting tasks. Their ability to capture nonlinear relationships makes them a natural fit for electricity load prediction. Likewise, Deep Learning approaches, especially recurrent neural networks such as LSTM and GRU, can learn temporal dependencies more effectively than traditional models.
 
 The Baneshwor Feeder of the Nepal Electricity Authority serves a mixed group of consumers in the Baneshwor region. Its load pattern reflects residential lifestyles, commercial activity, seasonal tourism impacts, and local weather changes. Daily and weekly cycles are clearly visible, but there are also irregularities that simple models fail to capture. As power consumption continues to grow and diversify, the ability to forecast the feeder's short-term load accurately has become even more important. This creates a strong motivation to investigate how modern ML and DL models can improve forecasting performance for this specific feeder.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{feederOutline.png}
+    \caption{Baneshwor Feeder View}
+    \label{fig:feeder_outline}
+\end{figure}
+
 \section{Problem Statement}
 The current forecasting practices for the Baneshwor Feeder rely heavily on manual estimation or basic statistical techniques. These methods do not fully capture the nonlinear and dynamic nature of the load profile, especially when multiple influencing factors, like temperature, humidity, rainfall, weekends, and special events come into play. As a result, prediction errors tend to increase during peak hours, sudden weather changes, and seasonal transitions.
 
@@ -217,6 +225,14 @@ Inaccurate short-term forecasts have several consequences. They can affect how g
 Despite the availability of historical load and weather data, there has not been a systematic study applying and comparing advanced machine learning and deep learning approaches specifically for the Baneshwor Feeder. The lack of a data-driven forecasting system means operators do not yet benefit from models that are capable of learning complex relationships within the data.
 
 This thesis aims to address these gaps by building a complete forecasting framework using multiple ML and DL models, evaluating their performance, and identifying the most suitable approach for accurate short-term load prediction of the Baneshwor Feeder.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{lineDiagram.png}
+    \caption{Substation \& Transmission Line Network Baneshwor}
+    \label{fig:line_diagram}
+\end{figure}
+
 \section{Objectives}
 To develop and evaluate machine learning and deep learning models for short-term electrical load forecasting of the Baneshwor Feeder to improve prediction accuracy and operational efficiency.
 
@@ -305,6 +321,13 @@ The forecasting framework used in this thesis follows a clear and systematic wor
     \item \textbf{Performance Evaluation and Comparison:} All models are evaluated using RMSE, MAE, MAPE, MSE, and R². Their forecasting accuracy, stability, and computational efficiency are compared. The best-performing model is then recommended for operational forecasting in the Baneshwor Feeder.
 \end{enumerate}
 This workflow provides a complete pipeline from raw data to final recommendation and supports both machine learning and deep learning approaches. The overall diagram of the methodology is shown in Figure 3.1.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{blockDiagram.png}
+    \caption{Methodology Block Diagram}
+    \label{fig:block_diagram}
+\end{figure}
 
 \section{Data Acquisition}
 The first step of our methodology is data acquisition. Hourly historical load data from Baneshwor Feeder will be collected. Weather data such as temperature, humidity, and rainfall data will be collected from the Department of Hydrology and Meteorology, Nepal. And finally, the information on weekdays, weekends are obtained from official government calendars.

@@ -11,82 +11,82 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{}%
 \contentsline {section}{\numberline {1.1}Background}{1}{}%
 \contentsline {section}{\numberline {1.2}Problem Statement}{2}{}%
-\contentsline {section}{\numberline {1.3}Objectives}{2}{}%
-\contentsline {section}{\numberline {1.4}Scope}{3}{}%
-\contentsline {section}{\numberline {1.5}Limitation}{3}{}%
-\contentsline {chapter}{\numberline {2}Literature Review}{5}{}%
-\contentsline {section}{\numberline {2.1}Related Work}{5}{}%
-\contentsline {subsection}{\numberline {2.1.1}Machine Learning Approaches}{5}{}%
-\contentsline {subsection}{\numberline {2.1.2}Deep Learning Architectures}{6}{}%
-\contentsline {subsection}{\numberline {2.1.3}Hybrid and Advanced Architectures}{7}{}%
-\contentsline {subsection}{\numberline {2.1.4}Transformer-Based Models}{7}{}%
-\contentsline {subsection}{\numberline {2.1.5}Comparative Studies and Ensemble Methods}{8}{}%
-\contentsline {chapter}{\numberline {3}Methodology}{9}{}%
-\contentsline {section}{\numberline {3.1}Overall Workflow}{9}{}%
-\contentsline {section}{\numberline {3.2}Data Acquisition}{10}{}%
-\contentsline {subsection}{\numberline {3.2.1}Data Sources}{10}{}%
-\contentsline {subsection}{\numberline {3.2.2}Load Data Acquisition and Structuring Process}{11}{}%
-\contentsline {subsection}{\numberline {3.2.3}Weather Data Acquisition and Structuring}{12}{}%
-\contentsline {subsection}{\numberline {3.2.4}Final Merging of Load and Weather Data}{12}{}%
-\contentsline {section}{\numberline {3.3}Data Preprocessing}{13}{}%
-\contentsline {subsection}{\numberline {3.3.1}Timestamp Parsing and Standardization}{13}{}%
-\contentsline {subsection}{\numberline {3.3.2}Handling Missing Values}{13}{}%
-\contentsline {subsection}{\numberline {3.3.3}Outlier Detection and Treatment}{14}{}%
-\contentsline {subsection}{\numberline {3.3.4}Weather Data Cleaning and Alignment}{14}{}%
-\contentsline {subsection}{\numberline {3.3.5}Temporal Feature Engineering}{14}{}%
-\contentsline {subsection}{\numberline {3.3.6}Correlation Analysis and Feature Selection}{14}{}%
-\contentsline {subsection}{\numberline {3.3.7}Train--Test Split}{15}{}%
-\contentsline {subsection}{\numberline {3.3.8}Final Processed Dataset Structure}{15}{}%
-\contentsline {section}{\numberline {3.4}Exploratory Data Analysis (EDA)}{15}{}%
-\contentsline {subsection}{\numberline {3.4.1}Overview of the Dataset}{15}{}%
-\contentsline {subsection}{\numberline {3.4.2}Time-Series Visualization}{16}{}%
-\contentsline {subsection}{\numberline {3.4.3}Hourly Load Pattern Analysis}{16}{}%
-\contentsline {subsection}{\numberline {3.4.4}Monthly Load Trends}{16}{}%
-\contentsline {subsection}{\numberline {3.4.5}Weather Variable Behaviour}{16}{}%
-\contentsline {subsection}{\numberline {3.4.6}Load vs. Weather Relationships}{17}{}%
-\contentsline {subsection}{\numberline {3.4.7}Correlation Analysis}{17}{}%
-\contentsline {section}{\numberline {3.5}Model Development}{17}{}%
-\contentsline {subsection}{\numberline {3.5.1}Machine Learning Models}{17}{}%
-\contentsline {subsubsection}{Linear Regression}{17}{}%
-\contentsline {subsubsection}{Ridge Regression}{18}{}%
-\contentsline {subsubsection}{Support Vector Regression (SVR)}{18}{}%
-\contentsline {subsubsection}{Random Forest Regressor}{19}{}%
-\contentsline {subsubsection}{Gradient Boosting Regressor}{20}{}%
-\contentsline {subsubsection}{XGBoost Regressor}{21}{}%
-\contentsline {subsection}{\numberline {3.5.2}Deep Learning Models}{22}{}%
-\contentsline {subsubsection}{Multi-Layer Perceptron (MLP)}{22}{}%
-\contentsline {subsubsection}{Long Short-Term Memory (LSTM)}{23}{}%
-\contentsline {subsubsection}{Gated Recurrent Unit (GRU)}{24}{}%
-\contentsline {section}{\numberline {3.6}Model Training and Validation}{24}{}%
-\contentsline {subsection}{\numberline {3.6.1}Training of Machine Learning Models}{25}{}%
-\contentsline {subsubsection}{Input Preparation}{25}{}%
-\contentsline {subsubsection}{Data Splitting}{25}{}%
-\contentsline {subsubsection}{Feature Scaling}{25}{}%
-\contentsline {subsubsection}{Training Procedure}{26}{}%
-\contentsline {subsubsection}{Hyperparameter Tuning}{26}{}%
-\contentsline {subsection}{\numberline {3.6.2}Training of Deep Learning Models}{26}{}%
-\contentsline {subsubsection}{Sequence Construction}{26}{}%
-\contentsline {subsubsection}{Train--Validation--Test Split}{27}{}%
-\contentsline {subsubsection}{Model Training Configuration}{27}{}%
-\contentsline {subsubsection}{Regularization and Stability}{27}{}%
-\contentsline {subsubsection}{Model-Specific Training Notes}{27}{}%
-\contentsline {subsection}{\numberline {3.6.3}Validation Approach}{28}{}%
-\contentsline {section}{\numberline {3.7}Performance Evaluation}{28}{}%
-\contentsline {subsection}{\numberline {3.7.1}Mean Absolute Error (MAE)}{28}{}%
-\contentsline {subsection}{\numberline {3.7.2}Mean Squared Error (MSE)}{29}{}%
-\contentsline {subsection}{\numberline {3.7.3}Root Mean Squared Error (RMSE)}{29}{}%
-\contentsline {subsection}{\numberline {3.7.4}Mean Absolute Percentage Error (MAPE)}{30}{}%
-\contentsline {subsection}{\numberline {3.7.5}Coefficient of Determination (R² Score)}{30}{}%
-\contentsline {chapter}{\numberline {4}Results \& Discussion}{31}{}%
-\contentsline {section}{\numberline {4.1}Results}{31}{}%
-\contentsline {subsection}{\numberline {4.1.1}Machine Learning Model Performance}{31}{}%
-\contentsline {subsubsection}{Discussion of Results}{31}{}%
-\contentsline {subsection}{\numberline {4.1.2}Deep Learning Model Performance}{32}{}%
-\contentsline {subsubsection}{Discussion of Results}{32}{}%
-\contentsline {chapter}{\numberline {5}Conclusion}{34}{}%
-\contentsline {section}{\numberline {5.1}Conclusion}{34}{}%
-\contentsline {section}{\numberline {5.2}Research Limitations}{34}{}%
-\contentsline {section}{\numberline {5.3}Implications}{35}{}%
-\contentsline {section}{\numberline {5.4}Future Work}{36}{}%
-\contentsline {section}{References}{36}{}%
-\contentsline {section}{APPENDICES}{39}{}%
+\contentsline {section}{\numberline {1.3}Objectives}{3}{}%
+\contentsline {section}{\numberline {1.4}Scope}{4}{}%
+\contentsline {section}{\numberline {1.5}Limitation}{4}{}%
+\contentsline {chapter}{\numberline {2}Literature Review}{6}{}%
+\contentsline {section}{\numberline {2.1}Related Work}{6}{}%
+\contentsline {subsection}{\numberline {2.1.1}Machine Learning Approaches}{6}{}%
+\contentsline {subsection}{\numberline {2.1.2}Deep Learning Architectures}{7}{}%
+\contentsline {subsection}{\numberline {2.1.3}Hybrid and Advanced Architectures}{8}{}%
+\contentsline {subsection}{\numberline {2.1.4}Transformer-Based Models}{8}{}%
+\contentsline {subsection}{\numberline {2.1.5}Comparative Studies and Ensemble Methods}{9}{}%
+\contentsline {chapter}{\numberline {3}Methodology}{10}{}%
+\contentsline {section}{\numberline {3.1}Overall Workflow}{10}{}%
+\contentsline {section}{\numberline {3.2}Data Acquisition}{11}{}%
+\contentsline {subsection}{\numberline {3.2.1}Data Sources}{12}{}%
+\contentsline {subsection}{\numberline {3.2.2}Load Data Acquisition and Structuring Process}{12}{}%
+\contentsline {subsection}{\numberline {3.2.3}Weather Data Acquisition and Structuring}{13}{}%
+\contentsline {subsection}{\numberline {3.2.4}Final Merging of Load and Weather Data}{14}{}%
+\contentsline {section}{\numberline {3.3}Data Preprocessing}{14}{}%
+\contentsline {subsection}{\numberline {3.3.1}Timestamp Parsing and Standardization}{14}{}%
+\contentsline {subsection}{\numberline {3.3.2}Handling Missing Values}{15}{}%
+\contentsline {subsection}{\numberline {3.3.3}Outlier Detection and Treatment}{15}{}%
+\contentsline {subsection}{\numberline {3.3.4}Weather Data Cleaning and Alignment}{15}{}%
+\contentsline {subsection}{\numberline {3.3.5}Temporal Feature Engineering}{15}{}%
+\contentsline {subsection}{\numberline {3.3.6}Correlation Analysis and Feature Selection}{16}{}%
+\contentsline {subsection}{\numberline {3.3.7}Train--Test Split}{16}{}%
+\contentsline {subsection}{\numberline {3.3.8}Final Processed Dataset Structure}{16}{}%
+\contentsline {section}{\numberline {3.4}Exploratory Data Analysis (EDA)}{17}{}%
+\contentsline {subsection}{\numberline {3.4.1}Overview of the Dataset}{17}{}%
+\contentsline {subsection}{\numberline {3.4.2}Time-Series Visualization}{17}{}%
+\contentsline {subsection}{\numberline {3.4.3}Hourly Load Pattern Analysis}{17}{}%
+\contentsline {subsection}{\numberline {3.4.4}Monthly Load Trends}{18}{}%
+\contentsline {subsection}{\numberline {3.4.5}Weather Variable Behaviour}{18}{}%
+\contentsline {subsection}{\numberline {3.4.6}Load vs. Weather Relationships}{18}{}%
+\contentsline {subsection}{\numberline {3.4.7}Correlation Analysis}{18}{}%
+\contentsline {section}{\numberline {3.5}Model Development}{19}{}%
+\contentsline {subsection}{\numberline {3.5.1}Machine Learning Models}{19}{}%
+\contentsline {subsubsection}{Linear Regression}{19}{}%
+\contentsline {subsubsection}{Ridge Regression}{19}{}%
+\contentsline {subsubsection}{Support Vector Regression (SVR)}{20}{}%
+\contentsline {subsubsection}{Random Forest Regressor}{21}{}%
+\contentsline {subsubsection}{Gradient Boosting Regressor}{22}{}%
+\contentsline {subsubsection}{XGBoost Regressor}{22}{}%
+\contentsline {subsection}{\numberline {3.5.2}Deep Learning Models}{23}{}%
+\contentsline {subsubsection}{Multi-Layer Perceptron (MLP)}{24}{}%
+\contentsline {subsubsection}{Long Short-Term Memory (LSTM)}{24}{}%
+\contentsline {subsubsection}{Gated Recurrent Unit (GRU)}{25}{}%
+\contentsline {section}{\numberline {3.6}Model Training and Validation}{26}{}%
+\contentsline {subsection}{\numberline {3.6.1}Training of Machine Learning Models}{26}{}%
+\contentsline {subsubsection}{Input Preparation}{27}{}%
+\contentsline {subsubsection}{Data Splitting}{27}{}%
+\contentsline {subsubsection}{Feature Scaling}{27}{}%
+\contentsline {subsubsection}{Training Procedure}{27}{}%
+\contentsline {subsubsection}{Hyperparameter Tuning}{28}{}%
+\contentsline {subsection}{\numberline {3.6.2}Training of Deep Learning Models}{28}{}%
+\contentsline {subsubsection}{Sequence Construction}{28}{}%
+\contentsline {subsubsection}{Train--Validation--Test Split}{28}{}%
+\contentsline {subsubsection}{Model Training Configuration}{29}{}%
+\contentsline {subsubsection}{Regularization and Stability}{29}{}%
+\contentsline {subsubsection}{Model-Specific Training Notes}{29}{}%
+\contentsline {subsection}{\numberline {3.6.3}Validation Approach}{29}{}%
+\contentsline {section}{\numberline {3.7}Performance Evaluation}{30}{}%
+\contentsline {subsection}{\numberline {3.7.1}Mean Absolute Error (MAE)}{30}{}%
+\contentsline {subsection}{\numberline {3.7.2}Mean Squared Error (MSE)}{31}{}%
+\contentsline {subsection}{\numberline {3.7.3}Root Mean Squared Error (RMSE)}{31}{}%
+\contentsline {subsection}{\numberline {3.7.4}Mean Absolute Percentage Error (MAPE)}{31}{}%
+\contentsline {subsection}{\numberline {3.7.5}Coefficient of Determination (R² Score)}{32}{}%
+\contentsline {chapter}{\numberline {4}Results \& Discussion}{33}{}%
+\contentsline {section}{\numberline {4.1}Results}{33}{}%
+\contentsline {subsection}{\numberline {4.1.1}Machine Learning Model Performance}{33}{}%
+\contentsline {subsubsection}{Discussion of Results}{33}{}%
+\contentsline {subsection}{\numberline {4.1.2}Deep Learning Model Performance}{34}{}%
+\contentsline {subsubsection}{Discussion of Results}{34}{}%
+\contentsline {chapter}{\numberline {5}Conclusion}{36}{}%
+\contentsline {section}{\numberline {5.1}Conclusion}{36}{}%
+\contentsline {section}{\numberline {5.2}Research Limitations}{36}{}%
+\contentsline {section}{\numberline {5.3}Implications}{37}{}%
+\contentsline {section}{\numberline {5.4}Future Work}{38}{}%
+\contentsline {section}{References}{38}{}%
+\contentsline {section}{APPENDICES}{41}{}%
