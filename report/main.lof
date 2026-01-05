@@ -8,14 +8,10 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Methodology Block Diagram}}{17}{}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Feature Correlation Matrix}}{21}{}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Daily Average Electricity Load Over Time}}{22}{}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Load Distribution by Hour}}{23}{}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Average Load by Hour of Day}}{23}{}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Average Load by Month}}{24}{}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Air Temperature vs Load}}{25}{}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Load vs Humidity}}{26}{}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Solar Radiation vs Load}}{26}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces XBoost (Tuned) Actual vs Predicted}}{35}{}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces LSTM Actual vs Predicted}}{37}{}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Daily Average Electricity Load Over Time}}{29}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Load Distribution by Hour}}{29}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Average Load by Month}}{30}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces XBoost (Tuned) Actual vs Predicted}}{33}{}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces LSTM Actual vs Predicted}}{35}{}%
 \addvspace {10\p@ }

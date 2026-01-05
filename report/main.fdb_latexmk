@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1767628443.79574 "main.aux" "main.bbl" "main" 1767628448.85786 0
+["bibtex main"] 1767630059.02442 "main.aux" "main.bbl" "main" 1767630063.05207 0
   "./ref.bib" 1767287073 6212 52997123093f94be6be72ffeb2a4ea3a ""
   "C:/Program Files/MiKTeX/bibtex/bst/bibtex/unsrt.bst" 1291864736 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1767628447 15165 6d0818555a25bf6f33c4924b660370c0 "pdflatex"
+  "main.aux" 1767630061 13898 d53e4f2ee934eabf8914729397e94f99 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1767628444.56289 "d:/Feeder/report/main.tex" "main.pdf" "main" 1767628448.85963 0
+["pdflatex"] 1767630059.59073 "d:/Feeder/report/main.tex" "main.pdf" "main" 1767630063.05535 0
   "C:/Program Files/MiKTeX/fonts/tfm/jknappen/ec/tcbx1200.tfm" 993062480 1460 c2cb5e454e8738f66affedaaf44788d5 ""
   "C:/Program Files/MiKTeX/fonts/tfm/jknappen/ec/tcbx1440.tfm" 993062480 1460 bb7e49f2ecbf94593fc07fcf6213d765 ""
   "C:/Program Files/MiKTeX/fonts/tfm/jknappen/ec/tcrm1200.tfm" 993062508 1444 95ffe0f19b974d50849790c8225c7ef7 ""
@@ -82,24 +82,20 @@
   "Images/feederOutline.png" 1767288031 3435788 3db635e3de6d32003a38e3e3146c7c84 ""
   "Images/gru.png" 1767290465 27089 3cb7353669cdd15a48a7d362f11a6d3e ""
   "Images/hourlyLoad.png" 1767289551 19590 c7324d3e36ecb7d82ecddd70225b3b88 ""
-  "Images/humandityLoad.png" 1767289652 179123 c53ba0cd5e5ec9a037ccb38457edbd25 ""
   "Images/lineDiagram.png" 1767288354 158009 c537a751cddfd5d709fa191ac712b701 ""
   "Images/lineGraphLoad.png" 1767289562 86541 3ae45664df470dc52cd2441c1ab4efb5 ""
-  "Images/loadByHour.png" 1767289570 36154 224dc449e52321da6a848cf24e869ef6 ""
   "Images/logotu.jpg" 1767281105 22156 305306caaa836f53129b4549e38ce87b ""
   "Images/lstm.png" 1767290453 29034 7c10226e988785617883b9387907dba9 ""
   "Images/lstmActual.png" 1767290900 36211 2b6aee8f31cc6c28310f0af92e86749b ""
   "Images/mlp.png" 1767290245 65812 55c29a177531ac4661ee93969e70697e ""
-  "Images/solarLoad.png" 1767289627 141269 afd4013f0472130bda6d370f883ddf56 ""
-  "Images/tempLoad.png" 1767289602 168964 dd4c96208ae96d52cbd8782ac250aeef ""
   "Images/xboostActual.png" 1767291295 6124225 813d509f26d901c5cadda651cae30e81 ""
-  "d:/Feeder/report/main.tex" 1767628438 81474 e64a98eb82cd96b6fe7d6febd20ee9e2 ""
-  "main.aux" 1767628447 15165 6d0818555a25bf6f33c4924b660370c0 "pdflatex"
-  "main.bbl" 1767628444 4734 46168484b49c8fe6bae2314dd008dca2 "bibtex main"
-  "main.lof" 1767628447 1541 055309ea11a56868bcea1a531b129cb7 "pdflatex"
-  "main.lot" 1767628447 307 3e78acd262d658f4727f824ccdd71048 "pdflatex"
-  "main.tex" 1767628438 81474 e64a98eb82cd96b6fe7d6febd20ee9e2 ""
-  "main.toc" 1767628447 5948 6bd865ede5c7181289c3fe7c49b31946 "pdflatex"
+  "d:/Feeder/report/main.tex" 1767630054 81185 9d7f1531028bea64cbb7161e5350ec9d ""
+  "main.aux" 1767630061 13898 d53e4f2ee934eabf8914729397e94f99 "pdflatex"
+  "main.bbl" 1767630059 4734 46168484b49c8fe6bae2314dd008dca2 "bibtex main"
+  "main.lof" 1767630061 1192 6dd391d934dede52821438f657989826 "pdflatex"
+  "main.lot" 1767630061 542 53157877f1fc0c26bc75746a813114de "pdflatex"
+  "main.tex" 1767630054 81185 9d7f1531028bea64cbb7161e5350ec9d ""
+  "main.toc" 1767630061 5359 08d45f46b47bfb2777cd7c442bc37049 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"

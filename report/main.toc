@@ -4,10 +4,10 @@
 \contentsline {chapter}{\hbox to\@tempdima {\hfil }Copyright}{v}{}%
 \contentsline {chapter}{\hbox to\@tempdima {\hfil }Acknowledgements}{vi}{}%
 \contentsline {chapter}{\hbox to\@tempdima {\hfil }Abstract}{vii}{}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }Contents}{x}{}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Figures}{xi}{}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Tables}{xii}{}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Abbreviations}{xiii}{}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Contents}{ix}{}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Figures}{x}{}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Tables}{xi}{}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Abbreviations}{xii}{}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{}%
 \contentsline {section}{\numberline {1.1}Background}{1}{}%
 \contentsline {section}{\numberline {1.2}Problem Statement}{2}{}%
@@ -41,44 +41,36 @@
 \contentsline {subsection}{\numberline {3.2.3}Weather Data Acquisition and Structuring}{19}{}%
 \contentsline {subsection}{\numberline {3.2.4}Final Merging of Load and Weather Data}{19}{}%
 \contentsline {section}{\numberline {3.3}Data Preprocessing}{20}{}%
-\contentsline {section}{\numberline {3.4}Exploratory Data Analysis (EDA)}{21}{}%
-\contentsline {subsection}{\numberline {3.4.1}Overview of the Dataset}{21}{}%
-\contentsline {subsection}{\numberline {3.4.2}Time-Series Visualization}{22}{}%
-\contentsline {subsection}{\numberline {3.4.3}Hourly Load Pattern Analysis}{22}{}%
-\contentsline {subsection}{\numberline {3.4.4}Monthly Load Trends}{24}{}%
-\contentsline {subsection}{\numberline {3.4.5}Weather Variable Behaviour}{24}{}%
-\contentsline {subsection}{\numberline {3.4.6}Load vs. Weather Relationships}{24}{}%
-\contentsline {subsection}{\numberline {3.4.7}Correlation Analysis}{27}{}%
-\contentsline {section}{\numberline {3.5}Model Development}{27}{}%
-\contentsline {section}{\numberline {3.6}Model Training and Validation}{27}{}%
-\contentsline {subsection}{\numberline {3.6.1}Training of Machine Learning Models}{27}{}%
-\contentsline {subsubsection}{Input Preparation}{28}{}%
-\contentsline {subsubsection}{Data Splitting}{28}{}%
-\contentsline {subsubsection}{Feature Scaling}{28}{}%
-\contentsline {subsubsection}{Training Procedure}{28}{}%
-\contentsline {subsubsection}{Hyperparameter Tuning}{29}{}%
-\contentsline {subsection}{\numberline {3.6.2}Training of Deep Learning Models}{29}{}%
-\contentsline {subsubsection}{Sequence Construction}{29}{}%
-\contentsline {subsubsection}{Train--Validation--Test Split}{29}{}%
-\contentsline {subsubsection}{Model Training Configuration}{30}{}%
-\contentsline {subsubsection}{Regularization and Stability}{30}{}%
-\contentsline {subsubsection}{Model-Specific Training Notes}{30}{}%
-\contentsline {subsection}{\numberline {3.6.3}Validation Approach}{30}{}%
-\contentsline {section}{\numberline {3.7}Performance Evaluation}{31}{}%
-\contentsline {subsection}{\numberline {3.7.1}Mean Absolute Error (MAE)}{31}{}%
-\contentsline {subsection}{\numberline {3.7.2}Root Mean Squared Error (RMSE)}{32}{}%
-\contentsline {subsection}{\numberline {3.7.3}Mean Absolute Percentage Error (MAPE)}{32}{}%
-\contentsline {subsection}{\numberline {3.7.4}Coefficient of Determination (R² Score)}{32}{}%
-\contentsline {chapter}{\numberline {4}Results \& Discussion}{34}{}%
-\contentsline {section}{\numberline {4.1}Results}{34}{}%
-\contentsline {subsection}{\numberline {4.1.1}Machine Learning Model Performance}{34}{}%
+\contentsline {section}{\numberline {3.4}Model Development}{21}{}%
+\contentsline {section}{\numberline {3.5}Model Training and Validation}{22}{}%
+\contentsline {subsection}{\numberline {3.5.1}Training of Machine Learning Models}{22}{}%
+\contentsline {subsubsection}{Input Preparation}{22}{}%
+\contentsline {subsubsection}{Data Splitting}{22}{}%
+\contentsline {subsubsection}{Feature Scaling}{22}{}%
+\contentsline {subsubsection}{Training Procedure}{23}{}%
+\contentsline {subsubsection}{Hyperparameter Tuning}{23}{}%
+\contentsline {subsection}{\numberline {3.5.2}Training of Deep Learning Models}{23}{}%
+\contentsline {subsubsection}{Sequence Construction}{23}{}%
+\contentsline {subsubsection}{Train--Validation--Test Split}{24}{}%
+\contentsline {subsubsection}{Model Training Configuration}{24}{}%
+\contentsline {subsubsection}{Regularization and Stability}{24}{}%
+\contentsline {subsubsection}{Model-Specific Training Notes}{24}{}%
+\contentsline {subsection}{\numberline {3.5.3}Validation Approach}{25}{}%
+\contentsline {section}{\numberline {3.6}Performance Evaluation}{25}{}%
+\contentsline {subsection}{\numberline {3.6.1}Mean Absolute Error (MAE)}{25}{}%
+\contentsline {subsection}{\numberline {3.6.2}Root Mean Squared Error (RMSE)}{26}{}%
+\contentsline {subsection}{\numberline {3.6.3}Mean Absolute Percentage Error (MAPE)}{26}{}%
+\contentsline {subsection}{\numberline {3.6.4}Coefficient of Determination (R² Score)}{26}{}%
+\contentsline {chapter}{\numberline {4}Results \& Discussion}{28}{}%
+\contentsline {section}{\numberline {4.1}Exploratory Data Analysis}{28}{}%
+\contentsline {section}{\numberline {4.2}Model Performance Results}{31}{}%
+\contentsline {subsection}{\numberline {4.2.1}Machine Learning Model Performance}{31}{}%
+\contentsline {subsubsection}{Discussion of Results}{32}{}%
+\contentsline {subsection}{\numberline {4.2.2}Deep Learning Model Performance}{33}{}%
 \contentsline {subsubsection}{Discussion of Results}{34}{}%
-\contentsline {subsection}{\numberline {4.1.2}Deep Learning Model Performance}{35}{}%
-\contentsline {subsubsection}{Discussion of Results}{36}{}%
-\contentsline {chapter}{\numberline {5}Conclusion}{38}{}%
-\contentsline {section}{\numberline {5.1}Conclusion}{38}{}%
-\contentsline {section}{\numberline {5.2}Research Limitations}{38}{}%
-\contentsline {section}{\numberline {5.3}Implications}{39}{}%
-\contentsline {section}{\numberline {5.4}Future Work}{40}{}%
-\contentsline {section}{References}{40}{}%
-\contentsline {section}{APPENDICES}{43}{}%
+\contentsline {chapter}{\numberline {5}Conclusion}{36}{}%
+\contentsline {section}{\numberline {5.1}Conclusion}{36}{}%
+\contentsline {section}{\numberline {5.2}Research Limitations}{36}{}%
+\contentsline {section}{\numberline {5.3}Implications}{37}{}%
+\contentsline {section}{\numberline {5.4}Future Work}{38}{}%
+\contentsline {section}{References}{38}{}%
