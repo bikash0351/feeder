@@ -185,7 +185,6 @@ Keywords: \textit{short-term load forecasting, machine learning, XGBoost, Random
 \textbf{GBR}     &  Gradient Boosting Regressor\\
 \textbf{XGBoost} &  Extreme Gradient Boosting\\
 \textbf{MAE}     &  Mean Absolute Error\\
-\textbf{MSE}     &  Mean Squared Error\\
 \textbf{RMSE}    &  Root Mean Squared Error\\
 \textbf{MAPE}    &  Mean Absolute Percentage Error\\
 \textbf{SMAPE}   &  Symmetric Mean Absolute Percentage Error\\
@@ -241,14 +240,14 @@ To develop and evaluate machine learning and deep learning models for short-term
     \item To analyze consumption patterns and influencing factors (e.g., time, weather, festivals).
     \item To implement various machine learning models, including Support Vector Regression (SVR), Random Forest (RF), and XGBoost, for load forecasting.
     \item To design and train deep learning models such as Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) networks to capture temporal dependencies in load data.
-    \item To evaluate and compare the performance of ML and DL models using standard error metrics (e.g., RMSE, MAPE, MAE, MSE, R-squared).
+    \item To evaluate and compare the performance of ML and DL models using standard error metrics (e.g., RMSE, MAPE, MAE, R-squared).
     \item To compare and select the most effective forecasting model.
     \item To recommend the most suitable forecasting model for operational use in the Baneshwor Feeder.
 \end{enumerate}
 \section{Scope}
 This study is geographically limited to the Baneshwor Feeder under the Nepal Electricity Authority. The temporal scope focuses on short-term load forecasting with a prediction horizon of up to 24 hours ahead, utilizing historical hourly load data as the primary foundation for model development. The dataset encompasses historical load data from the Baneshwor Feeder, complemented by weather data including temperature, humidity, and rainfall, along with calendar data distinguishing weekdays, weekends, and holidays.
 
-From a technical perspective, the research implements several machine learning models including Support Vector Regression (SVR), Random Forest, and XGBoost, alongside deep learning architectures such as Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) networks. The performance of these models is rigorously evaluated using standard metrics including Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE), Mean Absolute Error (MAE), Mean Squared Error (MSE), and the coefficient of determination (R-squared). It should be noted that the accuracy of forecasts is inherently dependent on the quality and completeness of the historical data available. Additionally, this study does not extend to medium-term or long-term forecasting horizons, and the scope explicitly excludes renewable generation forecasting from its analysis.
+From a technical perspective, the research implements several machine learning models including Support Vector Regression (SVR), Random Forest, and XGBoost, alongside deep learning architectures such as Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) networks. The performance of these models is rigorously evaluated using standard metrics including Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE), Mean Absolute Error (MAE), and the coefficient of determination (R-squared). It should be noted that the accuracy of forecasts is inherently dependent on the quality and completeness of the historical data available. Additionally, this study does not extend to medium-term or long-term forecasting horizons, and the scope explicitly excludes renewable generation forecasting from its analysis.
 \section{Limitation}
 Despite the promising results obtained in this study, certain limitations were encountered, primarily related to data availability, model assumptions, and scope of analysis.
 \begin{enumerate}
@@ -301,26 +300,197 @@ Banik \& Biswas \cite{banik2024stacked} developed an enhanced stacked ensemble m
 Kwon et al. \cite{kwon2020electricity} conducted extensive research on learning models combined with data clustering and dimensionality reduction for short-term electricity load forecasting. They adapted k-means clustering for data grouping and utilized kernel PCA, UMAP, and t-SNE for dimensionality reduction. Applied to neural network-based models on large-scale electricity usage data from 4,710 households, their approach demonstrated improved forecasting performance through effective data preprocessing and feature engineering.
 
 Nabavi et al. \cite{nabavi2024wavelet} combined Discrete Wavelet Transform with LSTM to improve electricity load forecasting accuracy. The DWT decomposed load series into multiple frequency components, allowing LSTM to learn from denoised and structured representations. Their research demonstrated that preprocessing techniques significantly enhanced deep learning model performance, particularly for datasets with high noise levels and irregular patterns.
+
+\section{Theoretical Background of Forecasting Models}
+This section provides the theoretical foundations of the machine learning and deep learning models employed in this study. Understanding the mathematical formulations and working principles of these models is essential for interpreting their performance in short-term load forecasting applications.
+
+\subsection{Machine Learning Models}
+
+\subsubsection{Linear Regression}
+Linear Regression is the simplest baseline model that assumes the relationship between input features and the target load value is linear. Although load patterns are nonlinear, this model helps establish a reference point for evaluating more complex methods.
+
+\textbf{Mathematical Formulation:}
+\begin{equation}
+\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n
+\end{equation}
+\noindent where $\beta_0$ is the intercept (bias term), $\beta_i$ are the coefficients (weights) learned via ordinary least squares minimization, and $x_i$ are the input features.
+
+\subsubsection{Ridge Regression}
+Ridge Regression adds L2 regularization to the linear model to reduce overfitting and stabilize coefficient estimates. It is more robust than standard Linear Regression when dealing with many correlated features, which is the case in this study.
+
+\textbf{Mathematical Formulation:}
+\begin{equation}
+\min_{\beta} \left( \| y - X\beta \|^2 + \alpha \| \beta \|^2 \right)
+\end{equation}
+\noindent where $\alpha$ controls the strength of L2 regularization, $\| y - X\beta \|^2$ is the residual sum of squares, and $\| \beta \|^2$ is the L2 norm of the coefficient vector.
+
+\subsubsection{Support Vector Regression (SVR)}
+SVR models nonlinear relationships by mapping features into a high-dimensional space using kernel functions. It works well for complex regression problems with moderate dataset sizes.
+
+\textbf{Mathematical Formulation:}
+
+SVR finds a function $f(x)$ by solving the following optimization problem:
+\begin{equation}
+\min_{w, b, \xi, \xi^*} \left( \frac{1}{2} \| w \|^2 + C \sum_{i=1}^{n} (\xi_i + \xi_i^*) \right)
+\end{equation}
+\noindent subject to the constraints:
+\begin{quote}
+\begin{align}
+y_i - (w \cdot x_i + b) &\leq \varepsilon + \xi_i \nonumber\\
+(w \cdot x_i + b) - y_i &\leq \varepsilon + \xi_i^* \nonumber\\
+\xi_i, \xi_i^* &\geq 0 \nonumber
+\end{align}
+\end{quote}
+\noindent where $w$ is the weight vector, $b$ is the bias term, $C$ is the regularization parameter controlling the trade-off between flatness and tolerance of deviations, $\varepsilon$ defines the epsilon-insensitive tube, and $\xi_i$ and $\xi_i^*$ are slack variables for points outside the tube.
+
+\subsubsection{Random Forest Regressor}
+Random Forest is an ensemble method consisting of multiple decision trees. Each tree is trained on a random subset of features and samples (bootstrap aggregating). It is robust, stable, and handles nonlinearity effectively.
+
+\textbf{Mathematical Formulation:}
+
+The Random Forest prediction is the average of all individual tree predictions:
+\begin{equation}
+\hat{y} = \frac{1}{T} \sum_{t=1}^{T} f_t(x)
+\end{equation}
+\noindent where $T$ is the total number of trees in the forest and $f_t(x)$ is the prediction of the $t$-th decision tree.
+
+\subsubsection{Gradient Boosting Regressor}
+Gradient Boosting builds trees sequentially, with each new tree correcting the errors (residuals) of the previous ensemble. It is particularly effective for structured tabular data like load forecasting.
+
+\textbf{Mathematical Formulation:}
+
+At each boosting iteration $m$, the model is updated as:
+\begin{equation}
+F_m(x) = F_{m-1}(x) + \nu \cdot h_m(x)
+\end{equation}
+\noindent where $F_{m-1}(x)$ is the ensemble prediction from the previous iteration, $h_m(x)$ is the new tree fitted to the negative gradient (pseudo-residuals), and $\nu$ is the learning rate (shrinkage factor) that controls the contribution of each tree.
+
+\subsubsection{XGBoost Regressor}
+XGBoost (Extreme Gradient Boosting) is an optimized and regularized implementation of gradient boosting designed for efficiency, scalability, and high accuracy. It was one of the best-performing ML models in this study.
+
+\textbf{Mathematical Formulation:}
+
+XGBoost minimizes the following regularized objective function:
+\begin{equation}
+\mathcal{L} = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k)
+\end{equation}
+\noindent where $l(y_i, \hat{y}_i)$ is the loss function measuring the difference between actual and predicted values, and $\Omega(f_k)$ is the regularization term for the $k$-th tree, defined as:
+\begin{equation}
+\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T} w_j^2
+\end{equation}
+\noindent where $T$ is the number of leaves in the tree, $w_j$ is the weight (score) of the $j$-th leaf, $\gamma$ controls the minimum loss reduction required to make a split, and $\lambda$ is the L2 regularization term on leaf weights.
+
+\subsection{Deep Learning Models}
+To model the nonlinear, temporal, and sequential characteristics of feeder load data, three deep learning architectures were implemented: Multi-Layer Perceptron (MLP), Long Short-Term Memory (LSTM), and Gated Recurrent Unit (GRU). These models were trained on sliding windows of historical hourly sequences, allowing the networks to learn both short-term and long-term dependencies in the dataset. All models were trained with the Adam optimizer, early stopping, and sequence-based inputs where applicable.
+
+\subsubsection{Multi-Layer Perceptron (MLP)}
+The MLP is a feed-forward network consisting of multiple fully connected layers. Although it does not inherently model temporal order, it can extract nonlinear patterns from feature-engineered inputs. In this study, the MLP receives sequences flattened into a fixed-size input vector.
+
+\textbf{Mathematical Formulation:}
+
+Hidden layer activation:
+\begin{equation}
+h = \sigma(W_1 x + b_1)
+\end{equation}
+
+Output layer:
+\begin{equation}
+\hat{y} = W_2 h + b_2
+\end{equation}
+\noindent where $\sigma$ is the activation function (ReLU in this implementation), $W_1$ and $W_2$ are weight matrices for the hidden and output layers respectively, $b_1$ and $b_2$ are bias terms, $x$ is the input feature vector, and $h$ is the hidden layer output.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{mlp.png}
+    \caption{Architecture MLP}
+    \label{fig:mlp_architecture}
+\end{figure}
+
+\subsubsection{Long Short-Term Memory (LSTM)}
+LSTM networks are designed to maintain contextual memory over long sequences through a gating mechanism that controls information flow. This makes them naturally suited for load forecasting, where consumption patterns depend on previous hours. The LSTM architecture addresses the vanishing gradient problem that affects standard RNNs.
+
+\textbf{Mathematical Formulation:}
+
+At each time step $t$, the LSTM computes the following:
+
+Forget gate (determines what information to discard from cell state):
+\begin{equation}
+f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)
+\end{equation}
+
+Input gate (determines what new information to store):
+\begin{equation}
+i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)
+\end{equation}
+
+Candidate cell state (creates new candidate values):
+\begin{equation}
+\tilde{c}_t = \tanh(W_c \cdot [h_{t-1}, x_t] + b_c)
+\end{equation}
+
+Cell state update (combines old and new information):
+\begin{equation}
+c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t
+\end{equation}
+
+Output gate (determines what to output):
+\begin{equation}
+o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)
+\end{equation}
+
+Hidden state (final output at time step $t$):
+\begin{equation}
+h_t = o_t \odot \tanh(c_t)
+\end{equation}
+\noindent where $\sigma$ is the sigmoid activation function, $\tanh$ is the hyperbolic tangent activation function, $\odot$ denotes element-wise (Hadamard) product, $[h_{t-1}, x_t]$ represents concatenation of the previous hidden state and current input, $W_f$, $W_i$, $W_c$, and $W_o$ are weight matrices for each gate, $b_f$, $b_i$, $b_c$, and $b_o$ are bias vectors for each gate, $c_t$ is the cell state that carries long-term memory, and $h_t$ is the hidden state output.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{lstm.png}
+    \caption{Architecture LSTM}
+    \label{fig:lstm_architecture}
+\end{figure}
+
+\subsubsection{Gated Recurrent Unit (GRU)}
+GRU is a streamlined version of LSTM with fewer parameters, combining the forget and input gates into a single update gate and merging the cell state with the hidden state. It often trains faster while achieving comparable performance to LSTM.
+
+\textbf{Mathematical Formulation:}
+
+At each time step $t$, the GRU computes the following:
+
+Update gate (controls how much past information to keep):
+\begin{equation}
+z_t = \sigma(W_z \cdot [h_{t-1}, x_t] + b_z)
+\end{equation}
+
+Reset gate (determines how much past information to forget):
+\begin{equation}
+r_t = \sigma(W_r \cdot [h_{t-1}, x_t] + b_r)
+\end{equation}
+
+Candidate hidden state (computes new candidate activation):
+\begin{equation}
+\tilde{h}_t = \tanh(W_h \cdot [r_t \odot h_{t-1}, x_t] + b_h)
+\end{equation}
+
+Final hidden state (interpolates between previous and candidate state):
+\begin{equation}
+h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t
+\end{equation}
+\noindent where $\sigma$ is the sigmoid activation function, $\tanh$ is the hyperbolic tangent activation function, $\odot$ denotes element-wise (Hadamard) product, $[h_{t-1}, x_t]$ represents concatenation of the previous hidden state and current input, $W_z$, $W_r$, and $W_h$ are weight matrices for the update gate, reset gate, and candidate state, $b_z$, $b_r$, and $b_h$ are bias vectors, $z_t$ controls the balance between old and new information, and $r_t$ controls how much of the previous state influences the candidate.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{gru.png}
+    \caption{Architecture GRU}
+    \label{fig:gru_architecture}
+\end{figure}
+
 \chapter{Methodology}
 This chapter describes the overall research methodology adopted to achieve the objectives of the thesis. It outlines the research design, data acquisition process, preprocessing techniques, and modeling approaches used for short-term electrical load forecasting. The methodology is structured to ensure a systematic analysis, with each step directly linked to the research objectives. A flowchart is used to summarize the overall framework, followed by a detailed explanation of the selected machine learning and deep learning models and the evaluation techniques employed in this study.
 
 \section{Overall Workflow}
-The forecasting framework used in this thesis follows a clear and systematic workflow. Each stage builds on the previous one to ensure that the final model is both reliable and reproducible. The complete process can be broken into six major steps:
-
-\begin{enumerate}
-    \item \textbf{Data Acquisition:} Hourly historical load data from the Baneshwor Feeder is collected alongside weather variables (temperature, humidity, rainfall) and calendar information (weekday/weekend, holidays). These serve as the core inputs to the forecasting models.
-    
-    \item \textbf{Data Preprocessing:} The raw dataset often contains missing readings, outliers, and format inconsistencies. This stage involves cleaning the data, handling missing values, treating outliers, converting timestamps, and engineering new time-based and cyclical features. This step ensures that the dataset is suitable for model development.
-    
-    \item \textbf{Exploratory Data Analysis (EDA):} The cleaned dataset is examined to understand load trends, seasonal patterns, hourly variations, and correlations with weather variables. EDA helps identify which features influence load demand the most and guides feature selection.
-    
-    \item \textbf{Model Development:} Both machine learning models (SVR, Random Forest, XGBoost) and deep learning models (LSTM, GRU) are designed. Input features are standardized and structured depending on the model type---tabular matrices for ML models and sequential inputs for DL models.
-    
-    \item \textbf{Model Training and Validation:} Models are trained using training data and validated using walk-forward validation or hold-out testing. Hyperparameters are optimized (GridSearchCV for ML models and iterative tuning for DL models). This ensures that the models generalize well and avoid overfitting.
-    
-    \item \textbf{Performance Evaluation and Comparison:} All models are evaluated using RMSE, MAE, MAPE, MSE, and R². Their forecasting accuracy, stability, and computational efficiency are compared. The best-performing model is then recommended for operational forecasting in the Baneshwor Feeder.
-\end{enumerate}
-This workflow provides a complete pipeline from raw data to final recommendation and supports both machine learning and deep learning approaches. The overall diagram of the methodology is shown in Figure 3.1.
+The forecasting framework adopted in this thesis follows a structured and sequential workflow in which hourly historical load data from the Baneshwor Feeder are collected together with weather variables (temperature, humidity, rainfall) and calendar information (weekday/weekend, holidays) to form the core input space for the forecasting models. The raw data are first subjected to a comprehensive preprocessing stage that addresses missing readings, outliers, and format inconsistencies through data cleaning, missing-value imputation, outlier treatment, timestamp conversion, and the engineering of time-based and cyclical features, thereby ensuring that the resulting dataset is suitable for model development. On the basis of this cleaned dataset, exploratory data analysis (EDA) is then carried out to examine load trends, seasonal patterns, hourly variations, and correlations with weather variables, so as to identify the most influential features and to guide feature selection. Subsequently, both machine learning models and deep learning models are developed, with input features standardized and organized as tabular matrices for the ML models and as sequential inputs for the DL models. These models are trained using appropriate training subsets and validated through walk-forward validation or hold-out testing, while hyperparameters are optimized using GridSearchCV for the ML models and iterative tuning strategies for the DL models to enhance generalization and mitigate overfitting. Finally, all models are evaluated and compared using RMSE, MAE, MAPE, and R², and their forecasting accuracy, stability, and computational efficiency are analyzed in order to recommend the most suitable model for operational short-term load forecasting in the Baneshwor Feeder. This workflow thus provides a complete pipeline from raw data acquisition to final model recommendation and supports both machine learning and deep learning approaches. The overall diagram of the methodology is shown in Figure 3.1.
 
 \begin{figure}[H]
     \centering
@@ -347,16 +517,14 @@ Since both datasets were obtained as raw Excel files with irregular formats, inc
 Because the raw files came in varying formats---different months, unpredictable sheet names, Bikram Sambat (BS) dates, mixed day formats, half-hour readings, inconsistent header rows, and multiple sheets per month---a custom data acquisition pipeline was required.
 
 \subsection{Load Data Acquisition and Structuring Process}
-The original NEA-provided Excel files were not uniform. Each month contained multiple workbooks, each workbook contained several sheets, and each sheet sometimes mixed headers, irrelevant rows, or inconsistent timestamp formats.
-To convert all raw data into a single unified structure, the following pipeline was implemented:
 
-\begin{enumerate}
-    \item[a)] \textbf{Month-wise Sheet Extraction:} The script automatically scanned each monthly folder, such as those inside dataset/2082MW, and identified all sheets whose names contained ``11KV'' or variations of it. From there, it matched the sheet names to the correct year--month to ensure proper alignment during extraction. Only rows with timestamps ending in HH:00 were selected, and half-hour readings like 7:30 were intentionally ignored. For every sheet, the script compiled a list of valid hourly entries and then stored the extracted results month-wise inside the corresponding extractedDataset/YYYYMM folders. This step produced a clean per-month dataset, but timestamps were still in Nepali calendar (BS) and formats varied.
-    
-    \item[b)] \textbf{Converting BS Dates, Normalizing Hours, and Structuring Daily Sheets:} The process began by extracting the BS date encoded inside each sheet name, such as 2079.02.15, and converting it to the AD calendar using Nepali date conversion libraries. Each sheet was read without assuming a fixed header position, allowing the script to dynamically detect both the Time column and the appropriate POWER (MW) value column. Every day was normalized to 24 hourly records by indexing hours from 1 to 24, and any missing hours were filled using linear interpolation. Clean timestamps were then constructed in the formats YYYY-MM-DD HH:00 and YYYY-MM-DD 24:00 for the final hour. Finally, one clean sheet was generated per day in the AD calendar, ensuring that each day contained exactly twenty-four readings aligned to a consistent timestamp system.
-    
-    \item[c)] \textbf{Combining All Structured Monthly Files:} The script scanned the four yearly folders from 2079 to 2082, and for each folder it opened every Excel file, extracted the valid Time and POWER (MW) columns, removed any remaining header fragments, and concatenated all sheets in that folder into a single file. After processing all four years, the resulting files were merged into one master dataset. At this stage, the study had a fully consolidated file containing all hourly POWER (MW) readings for the entire study period.
-\end{enumerate}
+The original Excel files provided by the Nepal Electricity Authority (NEA) were highly heterogeneous in structure. Each month consisted of multiple workbooks, with each workbook containing several sheets. In many cases, sheets included mixed headers, irrelevant rows, inconsistent timestamp formats, and non-uniform naming conventions. To address these issues and convert the raw data into a single unified structure suitable for analysis, a multi-stage data processing pipeline was implemented.
+
+In the first stage, a month-wise sheet extraction process was carried out. The script automatically scanned all monthly datasets and identified Excel sheets whose names contained ``11KV'' or its variations. The extracted sheets were then aligned with their corresponding time periods to ensure correct temporal ordering. Only rows with timestamps recorded at exact hourly intervals (HH:00) were retained, while half-hour readings such as 7:30 were intentionally excluded to maintain uniform hourly resolution. The valid hourly records from each sheet were compiled to produce clean month-wise datasets. At this stage, although the data were organized chronologically, the timestamps were still recorded in the Nepali calendar (BS) and exhibited format inconsistencies.
+
+The second stage focused on date conversion, hour normalization, and daily data structuring. The BS date embedded within each sheet name was extracted and converted into the Gregorian (AD) calendar using Nepali date conversion libraries. Each sheet was read without assuming a fixed header position, allowing the script to dynamically identify the Time column and the corresponding POWER (MW) values. Every day was standardized to contain exactly twenty-four hourly records by indexing hours from 1 to 24, and any missing hours were filled using linear interpolation. Clean and consistent timestamps were then generated in the standard hourly format, ensuring temporal continuity across the dataset. This process resulted in one clean and complete daily record for each calendar day.
+
+In the final stage, all structured monthly and yearly datasets were merged into a single consolidated file. The script systematically extracted the valid Time and POWER (MW) columns, removed any remaining header fragments, and concatenated the data in chronological order. This process produced a fully unified dataset containing continuous hourly POWER (MW) measurements for the entire study period, which served as the foundation for subsequent data analysis and load forecasting model development.
 
 \subsection{Weather Data Acquisition and Structuring}
 Weather data was also provided in raw format with mixed timestamps. Two scripts were developed to clean and align it with the load data.
@@ -368,41 +536,16 @@ Weather data was also provided in raw format with mixed timestamps. Two scripts 
 \end{enumerate}
 
 \subsection{Final Merging of Load and Weather Data}
-The process involved parsing all load timestamps, including proper handling of ``24:00,'' and parsing the weather timestamps in a consistent format. Weather rows were then aligned precisely to the corresponding load timestamps, and any gaps in the weather variables were filled using linear interpolation. Finally, both datasets were merged into a single unified file. This produced the final dataset containing:
-\begin{enumerate}
-    \item Time
-    \item Power (MW)
-    \item Air Temperature
-    \item Global Solar Radiation
-    \item Relative Humidity
-\end{enumerate}
 
-This dataset is the core input for all ML/DL models used in the thesis.
+In the final stage, load and weather datasets were merged into a single unified file. All load timestamps were carefully parsed, including proper handling of the special \texttt{24:00} time format, while weather timestamps were standardized to a consistent format. Weather observations were then precisely aligned with their corresponding load timestamps, and any missing values in weather variables were filled using linear interpolation. The resulting dataset contained synchronized records of time, electrical load (MW), air temperature, global solar radiation, and relative humidity, and served as the primary input for all machine learning and deep learning models used in this thesis.
 
 \section{Data Preprocessing}
-Once the load and weather datasets were fully acquired and merged into a single hourly dataset, several preprocessing steps were applied to prepare the data for machine learning and deep learning models. These steps ensure data consistency, remove inconsistencies introduced during manual logging, and improve the overall reliability of the models.
 
-\subsection{Timestamp Parsing and Standardization}
-The merged dataset initially contained timestamps in multiple formats, such as ``YYYY-MM-DD HH:MM,'' ``YYYY-MM-DD HH:MM:SS,'' and special cases like ``24:00.'' To prevent errors during model training, the Time column was fully standardized. All timestamps were parsed using a custom parser capable of handling ``24:00'' by shifting it to 00:00 of the following day, and the final format was normalized to ``YYYY-MM-DD HH:00.'' This ensured that every row represented a clean and unambiguous hourly reading.
+Once the load and weather datasets were fully acquired and merged into a single hourly dataset, several preprocessing steps were performed to prepare the data for machine learning and deep learning models. The merged dataset initially contained timestamps in multiple formats, including irregular representations such as ``24:00.'' All timestamps were therefore parsed and standardized using a custom parsing routine, where ``24:00'' was shifted to 00:00 of the following day, and the final format was normalized to a consistent hourly representation. Missing electrical load (MW) values caused by incomplete feeder logs and invalid records were handled using a forward-fill followed by backward-fill strategy to preserve temporal continuity without introducing artificial variations. Similarly, missing weather values were treated using linear interpolation, with nighttime solar radiation values set to zero and extreme humidity or temperature readings smoothed using neighboring observations. These steps ensured a clean, continuous, and time-aligned dataset.
 
-\subsection{Handling Missing Values}
-During the data acquisition process, several power (MW) entries were found to be missing due to incomplete feeder log sheets, damaged or empty records, and files containing no valid measurements. Since the dataset represents time-series load data, preserving temporal continuity was a key consideration during preprocessing.
+After cleaning, temporal feature engineering was applied to capture the inherent daily, weekly, and seasonal patterns in electricity consumption. From each timestamp, multiple time-based features were extracted, including hour, day, month, day of week, week of year, and a weekend indicator. To better represent the cyclical nature of time, sine and cosine transformations were applied to hour, month, and day-of-week values. These cyclic encodings allow machine learning and deep learning models to learn smooth periodic relationships, such as the transition from late night hours to early morning, rather than treating time variables as discontinuous linear values. The resulting feature set combined both weather variables and engineered temporal components, forming a comprehensive input representation for modeling.
 
-To address this issue, a forward-fill followed by backward-fill imputation strategy was employed. In the forward-fill step, missing values were replaced using the most recent valid observation, ensuring continuity with past load behavior. Subsequently, any remaining missing values, typically occurring at the beginning of the dataset, were filled using the next available valid observation through backward filling. This combined approach effectively maintains the temporal structure of the load data while avoiding the introduction of artificial fluctuations or unrealistic load variations.
-
-\subsection{Outlier Detection and Treatment}
-Some load values contained extreme spikes caused by Excel merging errors, mistyped POWER (MW) entries, or abnormally large or zero readings recorded during festivals or outages. Outlier detection was performed using the Interquartile Range (IQR) method, where Q1, Q3, and the IQR were computed, and any values falling below $Q1 - 1.5 \times IQR$ or above $Q3 + 1.5 \times IQR$ were flagged as outliers. Although approximately 0.24 percent of the data was identified as anomalous, these points were not removed, as discarding them would break the continuity of the time-series structure.
-
-\subsection{Weather Data Cleaning and Alignment}
-After merging the weather data with the load dataset, any NaN weather values were filled using linear interpolation. Extreme or zero readings for humidity and temperature were smoothed using nearest-neighbor values, while missing solar radiation entries were replaced with zero under the assumption of nighttime conditions. All weather variables were then aligned precisely to the hourly timestamps. This produced a fully synchronized dataset in which every hour contained both load and weather information.
-
-\subsection{Temporal Feature Engineering}
-To help ML/DL models learn daily/weekly seasonal patterns, several time-based features were added. The timestamp was used to extract several temporal features, including Hour (0--23), Day (1--31), Month (1--12), DayOfWeek (0--6), WeekOfYear, and an IsWeekend flag. These features were designed to capture the natural daily and weekly patterns present in electricity consumption. Since time progresses cyclically---where hour 23 transitions directly back to hour 0---cyclical encodings were also applied. Sine and cosine transformations were created for the hour values, such as $Hour\_sin = \sin(2\pi \times Hour / 24)$ and $Hour\_cos = \cos(2\pi \times Hour / 24)$, and similar cyclic encodings were generated for Month and DayOfWeek. These transformations help machine learning and deep learning models learn smooth periodic relationships instead of treating time variables as abrupt linear steps.
-
-\subsection{Correlation Analysis and Feature Selection}
-Before modeling, a correlation heatmap was created to examine the relationships among variables. Hour showed the strongest correlation with load, while global solar radiation exhibited a moderate positive correlation. Temperature demonstrated a weak but meaningful correlation, and humidity showed a weak negative correlation. All features were retained based on their correlation patterns and domain relevance. The final feature set consisted of fourteen engineered features that combined both temporal components and weather variables.
-
-A correlation matrix was computed using all numerical features in the dataset. The analysis showed that Hour had the strongest correlation with POWER (MW) at +0.457, while global solar radiation contributed a moderate positive correlation of +0.307. Temperature and humidity exhibited weaker correlations, ranging from about +0.18 to --0.18, and calendar-related features such as Month, IsWeekend, and DayOfWeek displayed weak but meaningful trends. Overall, the correlation analysis supported the decision to retain both weather variables and time-based features in the modeling process.
+To understand feature relevance and interdependencies, a correlation analysis was conducted on all numerical variables. The correlation matrix, shown in Figure~\ref{fig:feature_correlation}, indicates that hour of day has the strongest relationship with electrical load, while global solar radiation shows a moderate positive correlation. Temperature and humidity exhibit weaker but meaningful correlations, and calendar-related variables contribute subtle seasonal trends. Based on this analysis and domain knowledge, all engineered features were retained. After preprocessing, the final dataset contained no missing values, no irregular timestamps, and no half-hour entries, resulting in a fully standardized and reliable hourly time-series dataset used for both machine learning and deep learning model development.
 
 \begin{figure}[H]
     \centering
@@ -410,12 +553,6 @@ A correlation matrix was computed using all numerical features in the dataset. T
     \caption{Feature Correlation Matrix}
     \label{fig:feature_correlation}
 \end{figure}
-
-\subsection{Train--Test Split}
-Since machine learning models depend on random data splits, while deep learning models typically require sequential splits, the dataset was divided into 80 percent for training and 20 percent for testing. Shuffling was enabled for the ML models to prevent seasonal clustering from introducing bias during training.
-
-\subsection{Final Processed Dataset Structure}
-After all preprocessing steps were completed, each row of the dataset contained the timestamp, POWER (MW) load value, air temperature, global solar radiation, relative humidity, and fourteen engineered temporal features. The dataset had no missing values, no irregular timestamps, and no half-hour entries, resulting in a fully cleaned, capped, and time-aligned series. This final consolidated dataset was then used for developing the machine learning and deep learning models.
 
 \section{Exploratory Data Analysis (EDA)}
 Exploratory Data Analysis was carried out to understand the statistical behaviour of the load and weather variables, identify underlying temporal patterns, and observe the relationships between different features. This step provides important insights that guide model selection, feature engineering, and the choice of evaluation methods.
@@ -491,329 +628,7 @@ Scatter plots were used to examine how load responds to different weather variab
 A correlation matrix was computed using all numerical features in the dataset. The analysis showed that Hour had the strongest correlation with POWER (MW) at +0.457, while global solar radiation contributed a moderate positive correlation of +0.307. Temperature and humidity exhibited weaker correlations, ranging from about +0.18 to --0.18, and calendar-related features such as Month, IsWeekend, and DayOfWeek displayed weak but meaningful trends. Overall, the correlation analysis supported the decision to retain both weather variables and time-based features in the modeling process.
 
 \section{Model Development}
-Machine learning models were first developed to establish strong baseline performance and evaluate how well traditional ML algorithms can capture the nonlinear, multi-feature dependencies present in feeder load data. All models were trained on the cleaned and feature-engineered dataset described in the earlier sections. Each model received the same input feature set to ensure fair comparison.
-
-The machine learning pipeline involved standard scaling of the numerical features, an 80--20 train--test split, and hyperparameter tuning performed using GridSearchCV. Model performance was evaluated using RMSE, MAE, MAPE, MSE, and R². The following subsections describe each machine learning model used in the study.
-
-\subsection{Machine Learning Models}
-
-\subsubsection{Linear Regression}
-Linear Regression is the simplest baseline model that assumes the relationship between input features and the target load value is linear. Although load patterns are nonlinear, this model helps establish a reference point for evaluating more complex methods.
-
-\textbf{Mathematical Formulation:}
-\begin{equation}
-\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n
-\end{equation}
-\noindent where:
-\begin{quote}
-\begin{itemize}
-    \item $\beta_0$ is the intercept (bias term)
-    \item $\beta_i$ are the coefficients (weights) learned via ordinary least squares minimization
-    \item $x_i$ are the input features
-\end{itemize}
-\end{quote}
-
-\subsubsection{Ridge Regression}
-Ridge Regression adds L2 regularization to the linear model to reduce overfitting and stabilize coefficient estimates. It is more robust than standard Linear Regression when dealing with many correlated features, which is the case in this study.
-
-\textbf{Mathematical Formulation:}
-\begin{equation}
-\min_{\beta} \left( \| y - X\beta \|^2 + \alpha \| \beta \|^2 \right)
-\end{equation}
-\noindent where:
-\begin{quote}
-\begin{itemize}
-    \item $\alpha$ controls the strength of L2 regularization
-    \item $\| y - X\beta \|^2$ is the residual sum of squares
-    \item $\| \beta \|^2$ is the L2 norm of the coefficient vector
-\end{itemize}
-\end{quote}
-
-\textbf{Key Hyperparameters (Tuned):}
-\begin{itemize}
-    \item \texttt{alpha}: Regularization strength
-    \item \texttt{fit\_intercept}: Whether to calculate the intercept
-    \item \texttt{solver}: Algorithm used for optimization
-\end{itemize}
-
-\subsubsection{Support Vector Regression (SVR)}
-SVR models nonlinear relationships by mapping features into a high-dimensional space using kernel functions. It works well for complex regression problems with moderate dataset sizes.
-
-\textbf{Mathematical Formulation:}
-
-SVR finds a function $f(x)$ by solving the following optimization problem:
-\begin{equation}
-\min_{w, b, \xi, \xi^*} \left( \frac{1}{2} \| w \|^2 + C \sum_{i=1}^{n} (\xi_i + \xi_i^*) \right)
-\end{equation}
-\noindent subject to the constraints:
-\begin{quote}
-\begin{align}
-y_i - (w \cdot x_i + b) &\leq \varepsilon + \xi_i \nonumber\\
-(w \cdot x_i + b) - y_i &\leq \varepsilon + \xi_i^* \nonumber\\
-\xi_i, \xi_i^* &\geq 0 \nonumber
-\end{align}
-\end{quote}
-\noindent where:
-\begin{quote}
-\begin{itemize}
-    \item $w$ is the weight vector
-    \item $b$ is the bias term
-    \item $C$ is the regularization parameter controlling the trade-off between flatness and tolerance of deviations
-    \item $\varepsilon$ defines the epsilon-insensitive tube
-    \item $\xi_i$ and $\xi_i^*$ are slack variables for points outside the tube
-\end{itemize}
-\end{quote}
-
-\textbf{Kernel Used:}
-\begin{itemize}
-    \item RBF (Radial Basis Function): Best suited for capturing nonlinear patterns in load data
-\end{itemize}
-
-\textbf{Hyperparameters (Tuned):}
-\begin{itemize}
-    \item \texttt{C}: Regularization parameter
-    \item \texttt{epsilon}: Width of the epsilon-insensitive tube
-    \item \texttt{gamma}: Kernel coefficient for RBF
-    \item \texttt{kernel}: Set to `rbf'
-\end{itemize}
-
-\subsubsection{Random Forest Regressor}
-Random Forest is an ensemble method consisting of multiple decision trees. Each tree is trained on a random subset of features and samples (bootstrap aggregating). It is robust, stable, and handles nonlinearity effectively.
-
-\textbf{Mathematical Formulation:}
-
-The Random Forest prediction is the average of all individual tree predictions:
-\begin{equation}
-\hat{y} = \frac{1}{T} \sum_{t=1}^{T} f_t(x)
-\end{equation}
-\noindent where:
-\begin{quote}
-\begin{itemize}
-    \item $T$ is the total number of trees in the forest
-    \item $f_t(x)$ is the prediction of the $t$-th decision tree
-\end{itemize}
-\end{quote}
-
-\textbf{Hyperparameters (Tuned):}
-\begin{itemize}
-    \item \texttt{n\_estimators}: Number of trees in the forest
-    \item \texttt{max\_depth}: Maximum depth of each tree
-    \item \texttt{min\_samples\_split}: Minimum samples required to split an internal node
-    \item \texttt{min\_samples\_leaf}: Minimum samples required at a leaf node
-    \item \texttt{max\_features}: Number of features considered for the best split
-\end{itemize}
-
-\subsubsection{Gradient Boosting Regressor}
-Gradient Boosting builds trees sequentially, with each new tree correcting the errors (residuals) of the previous ensemble. It is particularly effective for structured tabular data like load forecasting.
-
-\textbf{Mathematical Formulation:}
-
-At each boosting iteration $m$, the model is updated as:
-\begin{equation}
-F_m(x) = F_{m-1}(x) + \nu \cdot h_m(x)
-\end{equation}
-\noindent where:
-\begin{quote}
-\begin{itemize}
-    \item $F_{m-1}(x)$ is the ensemble prediction from the previous iteration
-    \item $h_m(x)$ is the new tree fitted to the negative gradient (pseudo-residuals)
-    \item $\nu$ is the learning rate (shrinkage factor) that controls the contribution of each tree
-\end{itemize}
-\end{quote}
-
-\textbf{Hyperparameters (Tuned):}
-\begin{itemize}
-    \item \texttt{n\_estimators}: Number of boosting stages
-    \item \texttt{learning\_rate}: Shrinkage factor
-    \item \texttt{max\_depth}: Maximum depth of individual trees
-\end{itemize}
-
-\subsubsection{XGBoost Regressor}
-XGBoost (Extreme Gradient Boosting) is an optimized and regularized implementation of gradient boosting designed for efficiency, scalability, and high accuracy. It was one of the best-performing ML models in this study.
-
-\textbf{Mathematical Formulation:}
-
-XGBoost minimizes the following regularized objective function:
-\begin{equation}
-\mathcal{L} = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k)
-\end{equation}
-\noindent where:
-\begin{quote}
-\begin{itemize}
-    \item $l(y_i, \hat{y}_i)$ is the loss function measuring the difference between actual and predicted values
-    \item $\Omega(f_k)$ is the regularization term for the $k$-th tree, defined as:
-\end{itemize}
-\end{quote}
-\begin{equation}
-\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T} w_j^2
-\end{equation}
-\noindent where:
-\begin{quote}
-\begin{itemize}
-    \item $T$ is the number of leaves in the tree
-    \item $w_j$ is the weight (score) of the $j$-th leaf
-    \item $\gamma$ controls the minimum loss reduction required to make a split
-    \item $\lambda$ is the L2 regularization term on leaf weights
-\end{itemize}
-\end{quote}
-
-\textbf{Hyperparameters (Tuned):}
-\begin{itemize}
-    \item \texttt{n\_estimators}: Number of boosting rounds
-    \item \texttt{learning\_rate}: Step size shrinkage
-    \item \texttt{max\_depth}: Maximum tree depth
-    \item \texttt{subsample}: Fraction of samples used per tree
-    \item \texttt{colsample\_bytree}: Fraction of features used per tree
-    \item \texttt{gamma}: Minimum loss reduction for a split
-\end{itemize}
-
-\subsection{Deep Learning Models}
-To model the nonlinear, temporal, and sequential characteristics of feeder load data, three deep learning architectures were implemented. These models were trained on sliding windows of historical hourly sequences, allowing the networks to learn both short-term and long-term dependencies in the dataset.
-
-The models developed are:
-\begin{enumerate}
-    \item Multi-Layer Perceptron (MLP)
-    \item Long Short-Term Memory (LSTM)
-    \item Gated Recurrent Unit (GRU)
-\end{enumerate}
-
-All models were trained with the Adam optimizer, early stopping, and sequence-based inputs where applicable.
-
-\subsubsection{Multi-Layer Perceptron (MLP)}
-The MLP is a feed-forward network consisting of multiple fully connected layers. Although it does not inherently model temporal order, it can extract nonlinear patterns from feature-engineered inputs. In this study, the MLP receives sequences flattened into a fixed-size input vector.
-
-\textbf{Mathematical Formulation:}
-
-Hidden layer activation:
-\begin{equation}
-h = \sigma(W_1 x + b_1)
-\end{equation}
-
-Output layer:
-\begin{equation}
-\hat{y} = W_2 h + b_2
-\end{equation}
-\noindent where:
-\begin{quote}
-\begin{itemize}
-    \item $\sigma$ is the activation function (ReLU in this implementation)
-    \item $W_1, W_2$ are weight matrices for the hidden and output layers respectively
-    \item $b_1, b_2$ are bias terms
-    \item $x$ is the input feature vector
-    \item $h$ is the hidden layer output
-\end{itemize}
-\end{quote}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{mlp.png}
-    \caption{Architecture MLP}
-    \label{fig:mlp_architecture}
-\end{figure}
-
-\subsubsection{Long Short-Term Memory (LSTM)}
-LSTM networks are designed to maintain contextual memory over long sequences through a gating mechanism that controls information flow. This makes them naturally suited for load forecasting, where consumption patterns depend on previous hours. The LSTM architecture addresses the vanishing gradient problem that affects standard RNNs.
-
-\textbf{Mathematical Formulation:}
-
-At each time step $t$, the LSTM computes the following:
-
-Forget gate (determines what information to discard from cell state):
-\begin{equation}
-f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)
-\end{equation}
-
-Input gate (determines what new information to store):
-\begin{equation}
-i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)
-\end{equation}
-
-Candidate cell state (creates new candidate values):
-\begin{equation}
-\tilde{c}_t = \tanh(W_c \cdot [h_{t-1}, x_t] + b_c)
-\end{equation}
-
-Cell state update (combines old and new information):
-\begin{equation}
-c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t
-\end{equation}
-
-Output gate (determines what to output):
-\begin{equation}
-o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)
-\end{equation}
-
-Hidden state (final output at time step $t$):
-\begin{equation}
-h_t = o_t \odot \tanh(c_t)
-\end{equation}
-\noindent where:
-\begin{quote}
-\begin{itemize}
-    \item $\sigma$ is the sigmoid activation function
-    \item $\tanh$ is the hyperbolic tangent activation function
-    \item $\odot$ denotes element-wise (Hadamard) product
-    \item $[h_{t-1}, x_t]$ represents concatenation of the previous hidden state and current input
-    \item $W_f, W_i, W_c, W_o$ are weight matrices for each gate
-    \item $b_f, b_i, b_c, b_o$ are bias vectors for each gate
-    \item $c_t$ is the cell state that carries long-term memory
-    \item $h_t$ is the hidden state output
-\end{itemize}
-\end{quote}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{lstm.png}
-    \caption{Architecture LSTM}
-    \label{fig:lstm_architecture}
-\end{figure}
-
-\subsubsection{Gated Recurrent Unit (GRU)}
-GRU is a streamlined version of LSTM with fewer parameters, combining the forget and input gates into a single update gate and merging the cell state with the hidden state. It often trains faster while achieving comparable performance to LSTM.
-
-\textbf{Mathematical Formulation:}
-
-At each time step $t$, the GRU computes the following:
-
-Update gate (controls how much past information to keep):
-\begin{equation}
-z_t = \sigma(W_z \cdot [h_{t-1}, x_t] + b_z)
-\end{equation}
-
-Reset gate (determines how much past information to forget):
-\begin{equation}
-r_t = \sigma(W_r \cdot [h_{t-1}, x_t] + b_r)
-\end{equation}
-
-Candidate hidden state (computes new candidate activation):
-\begin{equation}
-\tilde{h}_t = \tanh(W_h \cdot [r_t \odot h_{t-1}, x_t] + b_h)
-\end{equation}
-
-Final hidden state (interpolates between previous and candidate state):
-\begin{equation}
-h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t
-\end{equation}
-\noindent where:
-\begin{quote}
-\begin{itemize}
-    \item $\sigma$ is the sigmoid activation function
-    \item $\tanh$ is the hyperbolic tangent activation function
-    \item $\odot$ denotes element-wise (Hadamard) product
-    \item $[h_{t-1}, x_t]$ represents concatenation of the previous hidden state and current input
-    \item $W_z, W_r, W_h$ are weight matrices for the update gate, reset gate, and candidate state
-    \item $b_z, b_r, b_h$ are bias vectors
-    \item $z_t$ controls the balance between old and new information
-    \item $r_t$ controls how much of the previous state influences the candidate
-\end{itemize}
-\end{quote}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{gru.png}
-    \caption{Architecture GRU}
-    \label{fig:gru_architecture}
-\end{figure}
+Based on the theoretical foundations presented in Chapter 2, this study implemented multiple forecasting models to predict short-term electrical load for the Baneshwor Feeder. For machine learning, six models were developed: Linear Regression, Ridge Regression, Support Vector Regression (SVR), Random Forest Regressor, Gradient Boosting Regressor, and XGBoost Regressor. For deep learning, three architectures were implemented: Multi-Layer Perceptron (MLP), Long Short-Term Memory (LSTM), and Gated Recurrent Unit (GRU). All models were trained on the cleaned and feature-engineered dataset described in the earlier sections, with each model receiving the same input feature set to ensure fair comparison. The machine learning pipeline involved standard scaling of the numerical features, an 80--20 train--test split, and hyperparameter tuning performed using GridSearchCV, while the deep learning models were trained on sliding windows of historical hourly sequences using the Adam optimizer with early stopping to prevent overfitting. Model performance was evaluated using RMSE, MAE, MAPE, and R².
 
 \section{Model Training and Validation}
 This stage focuses on how both machine learning (ML) and deep learning (DL) models were trained, tuned, validated, and prepared for final performance comparison. Since ML and DL models require different handling, the training process is presented in two separate parts.
@@ -851,7 +666,7 @@ Each model was trained using its corresponding optimization approach:
     \item Ensemble tree learning for Random Forest and Gradient Boosting
     \item Gradient-boosted tree optimization for XGBoost
 \end{itemize}
-The training process involved fitting the models on the training set, generating predictions on the test set, and evaluating performance using RMSE, MAE, MAPE, MSE, and R².
+The training process involved fitting the models on the training set, generating predictions on the test set, and evaluating performance using RMSE, MAE, MAPE, and R².
 
 \subsubsection{Hyperparameter Tuning}
 All machine learning models were fine-tuned using GridSearchCV, which tested different combinations of hyperparameters:
@@ -926,10 +741,9 @@ A consistent evaluation strategy was applied across all models:
 \end{itemize}
 
 \section{Performance Evaluation}
-To compare the machine learning and deep learning models fairly, a consistent set of standard error metrics was used. These metrics measure the difference between the predicted load values and the actual observed load. In this study, five commonly used regression evaluation metrics were selected:
+To compare the machine learning and deep learning models fairly, a consistent set of standard error metrics was used. These metrics measure the difference between the predicted load values and the actual observed load. In this study, four commonly used regression evaluation metrics were selected:
 \begin{enumerate}
     \item Mean Absolute Error (MAE)
-    \item Mean Squared Error (MSE)
     \item Root Mean Squared Error (RMSE)
     \item Mean Absolute Percentage Error (MAPE)
     \item Coefficient of Determination (R² Score)
@@ -954,26 +768,8 @@ MAE represents the average magnitude of errors between forecasted and actual val
 
 \textbf{Interpretation:} Lower MAE indicates that the model's predictions are consistently closer to the actual load. This metric is robust against the influence of individual large errors.
 
-\subsection{Mean Squared Error (MSE)}
-MSE squares the prediction errors before averaging, which penalizes larger deviations more strongly.
-
-\textbf{Formula:}
-\begin{equation}
-\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
-\end{equation}
-\noindent where:
-\begin{quote}
-\begin{itemize}
-    \item $n$ is the total number of samples
-    \item $y_i$ is the actual load value
-    \item $\hat{y}_i$ is the predicted load value
-\end{itemize}
-\end{quote}
-
-\textbf{Interpretation:} This metric is very sensitive to large errors, making it particularly useful in situations where significant forecasting deviations are unacceptable.
-
 \subsection{Root Mean Squared Error (RMSE)}
-RMSE is the square root of MSE. It is one of the most widely used metrics in load forecasting, and its units are the same as the original POWER (MW) values.
+RMSE is one of the most widely used metrics in load forecasting, and its units are the same as the original POWER (MW) values.
 
 \textbf{Formula:}
 \begin{equation}
@@ -1027,7 +823,7 @@ R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y
 \textbf{Interpretation:} An R² value of 1 represents perfect prediction, while a value of 0 indicates that the model performs no better than simply using the average load. Higher R² values therefore indicate better model performance. Negative R² values are possible when the model performs worse than the mean baseline.
 
 \chapter{Results \& Discussion}
-This chapter presents the performance of all machine learning and deep learning models trained for short-term load forecasting of the Baneshwor Feeder. All models were evaluated using the same performance metrics (MAE, RMSE, MSE, MAPE, R²), ensuring a fair comparison.
+This chapter presents the performance of all machine learning and deep learning models trained for short-term load forecasting of the Baneshwor Feeder. All models were evaluated using the same performance metrics (MAE, RMSE, MAPE, R²), ensuring a fair comparison.
 
 \section{Results}
 
@@ -1062,9 +858,9 @@ All machine learning models were trained on the final feature-engineered dataset
 \end{table}
 
 \subsubsection{Discussion of Results}
-The machine learning models were evaluated using MAE, RMSE, MAPE, R-squared (R²), and prediction accuracy to assess their forecasting effectiveness. Linear Regression and Ridge Regression served as baseline models and produced relatively higher error values and lower R² scores, indicating their limited ability to capture nonlinear relationships between load demand and influencing variables. Support Vector Regression improved upon linear models by reducing error metrics; however, its performance remained inferior to ensemble-based approaches, particularly in terms of RMSE and prediction accuracy.
+The machine learning models were evaluated using MAE, RMSE, MAPE, and R-squared (R²) to assess their forecasting effectiveness. Linear Regression and Ridge Regression served as baseline models and produced relatively higher error values and lower R² scores, indicating their limited ability to capture nonlinear relationships between load demand and influencing variables. Support Vector Regression improved upon linear models by reducing error metrics; however, its performance remained inferior to ensemble-based approaches, particularly in terms of RMSE.
 
-Tree-based ensemble models demonstrated superior performance across all evaluation metrics. Random Forest and Gradient Boosting significantly reduced MAE and RMSE while achieving higher R² values, reflecting improved generalization and better handling of nonlinear patterns. Among these, the tuned XGBoost model outperformed all other machine learning models, achieving the lowest RMSE (0.384 MW), the highest R² (0.831), and the best prediction accuracy (55.77\%). The improvement over other ensemble models can be attributed to XGBoost's gradient-based optimization, regularization mechanisms, and effective handling of feature interactions, which collectively enhanced model robustness and accuracy.
+Tree-based ensemble models demonstrated superior performance across all evaluation metrics. Random Forest and Gradient Boosting significantly reduced MAE and RMSE while achieving higher R² values, reflecting improved generalization and better handling of nonlinear patterns. Among these, the tuned XGBoost model outperformed all other machine learning models, achieving the lowest RMSE (0.384 MW), the highest R² (0.831), and the lowest MAPE (12.693\%). The improvement over other ensemble models can be attributed to XGBoost's gradient-based optimization, regularization mechanisms, and effective handling of feature interactions, which collectively enhanced model robustness.
 
 Overall, the comparative evaluation confirms that ensemble-based machine learning models, particularly XGBoost, provide the most reliable and accurate predictions for feeder-level short-term load forecasting.
 
@@ -1084,23 +880,23 @@ The results obtained for the deep learning models are presented below.
 \centering
 \caption{Deep Learning Models Evaluation Matrix}
 \label{tab:dl_results}
-\begin{tabular}{|c|l|c|c|c|c|c|}
+\begin{tabular}{|c|l|c|c|c|c|}
 \hline
-\textbf{Rank} & \textbf{Model} & \textbf{MAE} & \textbf{RMSE} & \textbf{MAPE} & \textbf{R²} & \textbf{Accuracy} \\
+\textbf{Rank} & \textbf{Model} & \textbf{MAE} & \textbf{RMSE} & \textbf{MAPE} & \textbf{R²} \\
 \hline
-1 & MLP & 0.618 & 0.499 & 20.062 & 0.011 & 77.890 \\
+1 & LSTM & 0.467 & 0.498 & 14.155 & 0.014 \\
 \hline
-2 & LSTM & 0.467 & 0.498 & 14.155 & 0.014 & 83.308 \\
+2 & GRU & 0.482 & 0.499 & 15.186 & 0.012 \\
 \hline
-3 & GRU & 0.482 & 0.499 & 15.186 & 0.012 & 82.754 \\
+3 & MLP & 0.618 & 0.499 & 20.062 & 0.011 \\
 \hline
 \end{tabular}
 \end{table}
 
 \subsubsection{Discussion of Results}
-Deep learning models, including MLP, LSTM, and GRU, were evaluated using the same performance metrics for a fair comparison. Among these models, the MLP produced marginally better results than sequence-based architectures; however, its error values remained high and R² scores were close to zero, indicating weak explanatory power. Sequence-based models such as LSTM and GRU did not show meaningful improvement over MLP, despite their capability to model temporal dependencies.
+Deep learning models, including MLP, LSTM, and GRU, were evaluated using the same performance metrics for a fair comparison. Among these models, the LSTM achieved the best performance with the lowest MAE (0.467) and MAPE (14.155\%), followed closely by GRU. The MLP produced the highest error values among the three architectures, with an MAE of 0.618 and MAPE of 20.062\%. All three models exhibited R² scores close to zero, indicating weak explanatory power and limited ability to capture variance in the load data.
 
-Both LSTM and GRU exhibited high MAE and RMSE values, with RMSE remaining close to 0.499 MW, and very low prediction accuracy. These results suggest that the deep learning models were unable to effectively learn stable temporal patterns from the available dataset. Compared to machine learning models, deep learning approaches showed limited generalization and higher sensitivity to data volume and structure. The lack of performance gains over simpler architectures indicates that increased model complexity did not translate into improved forecasting accuracy in this case.
+Both LSTM and GRU exhibited relatively high MAE and RMSE values compared to the machine learning models, with RMSE remaining close to 0.499 MW for all three architectures. These results suggest that the deep learning models were unable to effectively learn stable temporal patterns from the available dataset. Compared to machine learning models, deep learning approaches showed limited generalization and higher sensitivity to data volume and structure. The lack of performance gains over simpler ML architectures indicates that increased model complexity did not translate into improved forecasting performance in this case.
 
 In comparison to machine learning models, deep learning models were clearly outperformed across all evaluation metrics. This highlights that, for the given data scale, feature representation, and forecasting horizon, traditional machine learning models with explicit feature engineering are more suitable than deep learning architectures for feeder-level short-term load forecasting.
 

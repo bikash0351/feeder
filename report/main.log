@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.1)  2 JAN 2026 00:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.1)  5 JAN 2026 21:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -355,7 +355,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--166
 <Images/feederOutline.png, id=54, 853.1875pt x 636.3775pt>
 File: Images/feederOutline.png Graphic file (type png)
 <use Images/feederOutline.png>
-Package pdftex.def Info: Images/feederOutline.png  used on input line 215.
+Package pdftex.def Info: Images/feederOutline.png  used on input line 214.
 (pdftex.def)             Requested size: 422.77664pt x 315.34283pt.
 [1
 
@@ -363,119 +363,113 @@ Package pdftex.def Info: Images/feederOutline.png  used on input line 215.
 <Images/lineDiagram.png, id=63, 523.35526pt x 511.31026pt>
 File: Images/lineDiagram.png Graphic file (type png)
 <use Images/lineDiagram.png>
-Package pdftex.def Info: Images/lineDiagram.png  used on input line 231.
+Package pdftex.def Info: Images/lineDiagram.png  used on input line 230.
 (pdftex.def)             Requested size: 422.77664pt x 413.05115pt.
  [3 <./Images/lineDiagram.png>] [4] [5]
  2.
 [6
 
-] [7] [8] [9]
- 3.
-[10
-
-]
-<Images/blockDiagram.png, id=90, 1413.28pt x 770.88pt>
-File: Images/blockDiagram.png Graphic file (type png)
-<use Images/blockDiagram.png>
-Package pdftex.def Info: Images/blockDiagram.png  used on input line 327.
-(pdftex.def)             Requested size: 422.77664pt x 230.60707pt.
- [11 <./Images/blockDiagram.png (PNG copy)>] [12] [13] [14]
-Overfull \hbox (2.51233pt too wide) in paragraph at lines 394--395
-\OT1/cmr/m/n/12 Some load val-ues con-tained ex-treme spikes caused by Ex-cel merg-ing er-rors, mistyped POWER
- []
-
-[15]
-<Images/featureCorrelation.png, id=108, 625.1355pt x 549.9747pt>
-File: Images/featureCorrelation.png Graphic file (type png)
-<use Images/featureCorrelation.png>
-Package pdftex.def Info: Images/featureCorrelation.png  used on input line 409.
-(pdftex.def)             Requested size: 328.82707pt x 289.2949pt.
- [16] [17 <./Images/featureCorrelation.png>]
-<Images/lineGraphLoad.png, id=117, 1003.8303pt x 332.442pt>
-File: Images/lineGraphLoad.png Graphic file (type png)
-<use Images/lineGraphLoad.png>
-Package pdftex.def Info: Images/lineGraphLoad.png  used on input line 431.
-(pdftex.def)             Requested size: 422.77664pt x 140.0102pt.
- [18 <./Images/lineGraphLoad.png>]
-<Images/hourlyLoad.png, id=122, 508.7808pt x 323.0469pt>
-File: Images/hourlyLoad.png Graphic file (type png)
-<use Images/hourlyLoad.png>
-Package pdftex.def Info: Images/hourlyLoad.png  used on input line 441.
-(pdftex.def)             Requested size: 422.77664pt x 268.4542pt.
-<Images/loadByHour.png, id=123, 502.2765pt x 323.7696pt>
-File: Images/loadByHour.png Graphic file (type png)
-<use Images/loadByHour.png>
-Package pdftex.def Info: Images/loadByHour.png  used on input line 448.
-(pdftex.def)             Requested size: 422.77664pt x 272.53275pt.
- [19 <./Images/hourlyLoad.png>]
-<Images/averageload.png, id=128, 430.7292pt x 338.9463pt>
-File: Images/averageload.png Graphic file (type png)
-<use Images/averageload.png>
-Package pdftex.def Info: Images/averageload.png  used on input line 458.
-(pdftex.def)             Requested size: 328.82707pt x 258.76038pt.
- [20 <./Images/loadByHour.png>]
-<Images/tempLoad.png, id=133, 437.2335pt x 344.7279pt>
-File: Images/tempLoad.png Graphic file (type png)
-<use Images/tempLoad.png>
-Package pdftex.def Info: Images/tempLoad.png  used on input line 471.
-(pdftex.def)             Requested size: 422.77664pt x 333.33888pt.
- [21 <./Images/averageload.png>]
-<Images/humandityLoad.png, id=138, 427.1157pt x 340.3917pt>
-File: Images/humandityLoad.png Graphic file (type png)
-<use Images/humandityLoad.png>
-Package pdftex.def Info: Images/humandityLoad.png  used on input line 478.
-(pdftex.def)             Requested size: 328.82707pt x 262.07124pt.
-<Images/solarLoad.png, id=139, 428.5611pt x 345.4506pt>
-File: Images/solarLoad.png Graphic file (type png)
-<use Images/solarLoad.png>
-Package pdftex.def Info: Images/solarLoad.png  used on input line 485.
-(pdftex.def)             Requested size: 328.82707pt x 265.07533pt.
- [22 <./Images/tempLoad.png> <./Images/humandityLoad.png>] [23 <./Images/solarLoad.png>] [24] [25] [26] [27] [28]
-<Images/mlp.png, id=170, 853.1875pt x 455.7025pt>
+] [7] [8] [9] [10] [11]
+<Images/mlp.png, id=99, 853.1875pt x 455.7025pt>
 File: Images/mlp.png Graphic file (type png)
 <use Images/mlp.png>
-Package pdftex.def Info: Images/mlp.png  used on input line 709.
+Package pdftex.def Info: Images/mlp.png  used on input line 404.
 (pdftex.def)             Requested size: 328.82707pt x 175.6372pt.
- [29 <./Images/mlp.png>]
-<Images/lstm.png, id=176, 289.83281pt x 260.47313pt>
+ [12] [13 <./Images/mlp.png>]
+<Images/lstm.png, id=107, 289.83281pt x 260.47313pt>
 File: Images/lstm.png Graphic file (type png)
 <use Images/lstm.png>
-Package pdftex.def Info: Images/lstm.png  used on input line 766.
+Package pdftex.def Info: Images/lstm.png  used on input line 449.
 (pdftex.def)             Requested size: 328.82707pt x 295.53548pt.
- [30 <./Images/lstm.png>]
-<Images/gru.png, id=181, 290.58563pt x 260.47313pt>
+ [14 <./Images/lstm.png>]
+<Images/gru.png, id=112, 290.58563pt x 260.47313pt>
 File: Images/gru.png Graphic file (type png)
 <use Images/gru.png>
-Package pdftex.def Info: Images/gru.png  used on input line 813.
+Package pdftex.def Info: Images/gru.png  used on input line 484.
 (pdftex.def)             Requested size: 328.82707pt x 294.77237pt.
- [31] [32 <./Images/gru.png>]
-Overfull \hbox (35.3135pt too wide) in paragraph at lines 860--861
+ [15 <./Images/gru.png>]
+ 3.
+<Images/blockDiagram.png, id=117, 1413.28pt x 770.88pt>
+File: Images/blockDiagram.png Graphic file (type png)
+<use Images/blockDiagram.png>
+Package pdftex.def Info: Images/blockDiagram.png  used on input line 497.
+(pdftex.def)             Requested size: 422.77664pt x 230.60707pt.
+[16
+
+] [17 <./Images/blockDiagram.png (PNG copy)>] [18] [19]
+<Images/featureCorrelation.png, id=132, 625.1355pt x 549.9747pt>
+File: Images/featureCorrelation.png Graphic file (type png)
+<use Images/featureCorrelation.png>
+Package pdftex.def Info: Images/featureCorrelation.png  used on input line 552.
+(pdftex.def)             Requested size: 328.82707pt x 289.2949pt.
+ [20] [21 <./Images/featureCorrelation.png>]
+<Images/lineGraphLoad.png, id=140, 1003.8303pt x 332.442pt>
+File: Images/lineGraphLoad.png Graphic file (type png)
+<use Images/lineGraphLoad.png>
+Package pdftex.def Info: Images/lineGraphLoad.png  used on input line 568.
+(pdftex.def)             Requested size: 422.77664pt x 140.0102pt.
+<Images/hourlyLoad.png, id=141, 508.7808pt x 323.0469pt>
+File: Images/hourlyLoad.png Graphic file (type png)
+<use Images/hourlyLoad.png>
+Package pdftex.def Info: Images/hourlyLoad.png  used on input line 578.
+(pdftex.def)             Requested size: 422.77664pt x 268.4542pt.
+ [22 <./Images/lineGraphLoad.png>]
+<Images/loadByHour.png, id=146, 502.2765pt x 323.7696pt>
+File: Images/loadByHour.png Graphic file (type png)
+<use Images/loadByHour.png>
+Package pdftex.def Info: Images/loadByHour.png  used on input line 585.
+(pdftex.def)             Requested size: 422.77664pt x 272.53275pt.
+ [23 <./Images/hourlyLoad.png> <./Images/loadByHour.png>]
+<Images/averageload.png, id=153, 430.7292pt x 338.9463pt>
+File: Images/averageload.png Graphic file (type png)
+<use Images/averageload.png>
+Package pdftex.def Info: Images/averageload.png  used on input line 595.
+(pdftex.def)             Requested size: 328.82707pt x 258.76038pt.
+ [24 <./Images/averageload.png>]
+<Images/tempLoad.png, id=158, 437.2335pt x 344.7279pt>
+File: Images/tempLoad.png Graphic file (type png)
+<use Images/tempLoad.png>
+Package pdftex.def Info: Images/tempLoad.png  used on input line 608.
+(pdftex.def)             Requested size: 422.77664pt x 333.33888pt.
+<Images/humandityLoad.png, id=159, 427.1157pt x 340.3917pt>
+File: Images/humandityLoad.png Graphic file (type png)
+<use Images/humandityLoad.png>
+Package pdftex.def Info: Images/humandityLoad.png  used on input line 615.
+(pdftex.def)             Requested size: 328.82707pt x 262.07124pt.
+ [25 <./Images/tempLoad.png>]
+<Images/solarLoad.png, id=164, 428.5611pt x 345.4506pt>
+File: Images/solarLoad.png Graphic file (type png)
+<use Images/solarLoad.png>
+Package pdftex.def Info: Images/solarLoad.png  used on input line 622.
+(pdftex.def)             Requested size: 328.82707pt x 265.07533pt.
+ [26 <./Images/humandityLoad.png> <./Images/solarLoad.png>] [27] [28]
+Overfull \hbox (35.3135pt too wide) in paragraph at lines 675--676
 []\OT1/cmr/bx/n/12 Random For-est and Gra-di-ent Boost-ing: \OT1/cmr/m/n/12 n[]estimators, max[]depth, and min[]samples[]split 
  []
 
-[33] [34] [35] [36] [37] [38]
+[29] [30] [31] [32] [33]
  4.
-[39
+[34
 
 ]
-<Images/xboostActual.png, id=213, 3842.355pt x 2637.855pt>
+<Images/xboostActual.png, id=197, 3842.355pt x 2637.855pt>
 File: Images/xboostActual.png Graphic file (type png)
 <use Images/xboostActual.png>
-Package pdftex.def Info: Images/xboostActual.png  used on input line 1073.
+Package pdftex.def Info: Images/xboostActual.png  used on input line 869.
 (pdftex.def)             Requested size: 422.77664pt x 290.2052pt.
- [40 <./Images/xboostActual.png (PNG copy)>]
-<Images/lstmActual.png, id=217, 611.4042pt x 263.0628pt>
+ [35 <./Images/xboostActual.png (PNG copy)>]
+<Images/lstmActual.png, id=202, 611.4042pt x 263.0628pt>
 File: Images/lstmActual.png Graphic file (type png)
 <use Images/lstmActual.png>
-Package pdftex.def Info: Images/lstmActual.png  used on input line 1109.
+Package pdftex.def Info: Images/lstmActual.png  used on input line 905.
 (pdftex.def)             Requested size: 422.77664pt x 181.9109pt.
- [41] [42 <./Images/lstmActual.png>]
+ [36] [37 <./Images/lstmActual.png>]
  5.
-[43
+[38
 
-] [44] (main.bbl [45] [46
+] [39] (main.bbl [40] [41
 
-]) [47] [48
+]) [42] [43
 
 ] (main.aux)
  ***********
@@ -486,15 +480,15 @@ L3 programming layer <2025-12-24>
 Here is how much of TeX's memory you used:
  4369 strings out of 467871
  66417 string characters out of 5428435
- 494908 words of memory out of 5000000
+ 493878 words of memory out of 5000000
  33200 multiletter control sequences out of 15000+600000
  636464 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,10n,65p,988b,293s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,10n,65p,2060b,293s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Haitomns\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1200.pk> <C:\Users\Haitomns\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1440.pk> <C:\Users\Haitomns\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (62 pages, 14009942 bytes).
+Output written on main.pdf (57 pages, 13995968 bytes).
 PDF statistics:
- 311 PDF objects out of 1000 (max. 8388607)
+ 295 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

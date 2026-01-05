@@ -2,20 +2,20 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Baneshwor Feeder View}}{2}{}%
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Substation \& Transmission Line Network Baneshwor}}{3}{}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Architecture MLP}}{13}{}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Architecture LSTM}}{14}{}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Architecture GRU}}{15}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Methodology Block Diagram}}{11}{}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Feature Correlation Matrix}}{17}{}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Daily Average Electricity Load Over Time}}{18}{}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Load Distribution by Hour}}{19}{}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Average Load by Hour of Day}}{20}{}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Average Load by Month}}{21}{}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Air Temperature vs Load}}{22}{}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Load vs Humidity}}{22}{}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Solar Radiation vs Load}}{23}{}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Architecture MLP}}{29}{}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Architecture LSTM}}{30}{}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Architecture GRU}}{32}{}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Methodology Block Diagram}}{17}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Feature Correlation Matrix}}{21}{}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Daily Average Electricity Load Over Time}}{22}{}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Load Distribution by Hour}}{23}{}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Average Load by Hour of Day}}{23}{}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Average Load by Month}}{24}{}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Air Temperature vs Load}}{25}{}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Load vs Humidity}}{26}{}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Solar Radiation vs Load}}{26}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces XBoost (Tuned) Actual vs Predicted}}{40}{}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces LSTM Actual vs Predicted}}{42}{}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces XBoost (Tuned) Actual vs Predicted}}{35}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces LSTM Actual vs Predicted}}{37}{}%
 \addvspace {10\p@ }
