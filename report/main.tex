@@ -312,7 +312,7 @@ Linear Regression is the simplest baseline model that assumes the relationship b
 \noindent where $\beta_0$ is the intercept (bias term), $\beta_i$ are the coefficients (weights) learned via ordinary least squares minimization, and $x_i$ are the input features.
 
 \subsubsection{Ridge Regression}
-Ridge Regression adds L2 regularization to the linear model to reduce overfitting and stabilize coefficient estimates. It is more robust than standard Linear Regression when dealing with many correlated features, which is the case in this study.
+Ridge Regression \cite{hoerl1970ridge} adds L2 regularization to the linear model to reduce overfitting and stabilize coefficient estimates. It is more robust than standard Linear Regression when dealing with many correlated features, which is the case in this study.
 
 \textbf{Mathematical Formulation:}
 \begin{equation}
@@ -321,7 +321,7 @@ Ridge Regression adds L2 regularization to the linear model to reduce overfittin
 \noindent where $\alpha$ controls the strength of L2 regularization, $\| y - X\beta \|^2$ is the residual sum of squares, and $\| \beta \|^2$ is the L2 norm of the coefficient vector.
 
 \subsubsection{Support Vector Regression (SVR)}
-SVR models nonlinear relationships by mapping features into a high-dimensional space using kernel functions. It works well for complex regression problems with moderate dataset sizes.
+SVR \cite{drucker1997svr} models nonlinear relationships by mapping features into a high-dimensional space using kernel functions. It works well for complex regression problems with moderate dataset sizes.
 
 \textbf{Mathematical Formulation:}
 
@@ -340,7 +340,7 @@ y_i - (w \cdot x_i + b) &\leq \varepsilon + \xi_i \nonumber\\
 \noindent where $w$ is the weight vector, $b$ is the bias term, $C$ is the regularization parameter controlling the trade-off between flatness and tolerance of deviations, $\varepsilon$ defines the epsilon-insensitive tube, and $\xi_i$ and $\xi_i^*$ are slack variables for points outside the tube.
 
 \subsubsection{Random Forest Regressor}
-Random Forest is an ensemble method consisting of multiple decision trees. Each tree is trained on a random subset of features and samples (bootstrap aggregating). It is robust, stable, and handles nonlinearity effectively.
+Random Forest \cite{breiman2001random} is an ensemble method consisting of multiple decision trees. Each tree is trained on a random subset of features and samples (bootstrap aggregating). It is robust, stable, and handles nonlinearity effectively.
 
 \textbf{Mathematical Formulation:}
 
@@ -351,7 +351,7 @@ The Random Forest prediction is the average of all individual tree predictions:
 \noindent where $T$ is the total number of trees in the forest and $f_t(x)$ is the prediction of the $t$-th decision tree.
 
 \subsubsection{Gradient Boosting Regressor}
-Gradient Boosting builds trees sequentially, with each new tree correcting the errors (residuals) of the previous ensemble. It is particularly effective for structured tabular data like load forecasting.
+Gradient Boosting \cite{friedman2001gradient} builds trees sequentially, with each new tree correcting the errors (residuals) of the previous ensemble. It is particularly effective for structured tabular data like load forecasting.
 
 \textbf{Mathematical Formulation:}
 
@@ -362,7 +362,7 @@ F_m(x) = F_{m-1}(x) + \nu \cdot h_m(x)
 \noindent where $F_{m-1}(x)$ is the ensemble prediction from the previous iteration, $h_m(x)$ is the new tree fitted to the negative gradient (pseudo-residuals), and $\nu$ is the learning rate (shrinkage factor) that controls the contribution of each tree.
 
 \subsubsection{XGBoost Regressor}
-XGBoost (Extreme Gradient Boosting) is an optimized and regularized implementation of gradient boosting designed for efficiency, scalability, and high accuracy. It was one of the best-performing ML models in this study.
+XGBoost (Extreme Gradient Boosting) \cite{chen2016xgboost} is an optimized and regularized implementation of gradient boosting designed for efficiency, scalability, and high accuracy. It was one of the best-performing ML models in this study.
 
 \textbf{Mathematical Formulation:}
 
@@ -380,7 +380,7 @@ XGBoost minimizes the following regularized objective function:
 To model the nonlinear, temporal, and sequential characteristics of feeder load data, three deep learning architectures were implemented: Multi-Layer Perceptron (MLP), Long Short-Term Memory (LSTM), and Gated Recurrent Unit (GRU). These models were trained on sliding windows of historical hourly sequences, allowing the networks to learn both short-term and long-term dependencies in the dataset. All models were trained with the Adam optimizer, early stopping, and sequence-based inputs where applicable.
 
 \subsubsection{Multi-Layer Perceptron (MLP)}
-The MLP is a feed-forward network consisting of multiple fully connected layers. Although it does not inherently model temporal order, it can extract nonlinear patterns from feature-engineered inputs. In this study, the MLP receives sequences flattened into a fixed-size input vector.
+The MLP \cite{rosenblatt1958perceptron} is a feed-forward network consisting of multiple fully connected layers. Although it does not inherently model temporal order, it can extract nonlinear patterns from feature-engineered inputs. In this study, the MLP receives sequences flattened into a fixed-size input vector.
 
 \textbf{Mathematical Formulation:}
 
@@ -403,7 +403,7 @@ Output layer:
 \end{figure}
 
 \subsubsection{Long Short-Term Memory (LSTM)}
-LSTM networks are designed to maintain contextual memory over long sequences through a gating mechanism that controls information flow. This makes them naturally suited for load forecasting, where consumption patterns depend on previous hours. The LSTM architecture addresses the vanishing gradient problem that affects standard RNNs.
+LSTM networks \cite{hochreiter1997lstm} are designed to maintain contextual memory over long sequences through a gating mechanism that controls information flow. This makes them naturally suited for load forecasting, where consumption patterns depend on previous hours. The LSTM architecture addresses the vanishing gradient problem that affects standard RNNs.
 
 \textbf{Mathematical Formulation:}
 
@@ -448,7 +448,7 @@ h_t = o_t \odot \tanh(c_t)
 \end{figure}
 
 \subsubsection{Gated Recurrent Unit (GRU)}
-GRU is a streamlined version of LSTM with fewer parameters, combining the forget and input gates into a single update gate and merging the cell state with the hidden state. It often trains faster while achieving comparable performance to LSTM.
+GRU \cite{cho2014gru} is a streamlined version of LSTM with fewer parameters, combining the forget and input gates into a single update gate and merging the cell state with the hidden state. It often trains faster while achieving comparable performance to LSTM.
 
 \textbf{Mathematical Formulation:}
 

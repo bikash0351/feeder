@@ -120,4 +120,51 @@ S.~Nabavi, A.~Koohi, and M.~Rahmani.
   forecasting.
 \newblock {\em Energy and Buildings}, 293:113350, 2024.
 
+\bibitem{hoerl1970ridge}
+Arthur~E. Hoerl and Robert~W. Kennard.
+\newblock {\em Ridge regression: Biased estimation for nonorthogonal problems},
+  volume~12.
+\newblock Taylor \& Francis, 1970.
+
+\bibitem{drucker1997svr}
+Harris Drucker, Christopher J.~C. Burges, Linda Kaufman, Alex Smola, and
+  Vladimir Vapnik.
+\newblock Support vector regression machines.
+\newblock {\em Advances in Neural Information Processing Systems}, 9:155--161,
+  1997.
+
+\bibitem{breiman2001random}
+Leo Breiman.
+\newblock Random forests.
+\newblock {\em Machine Learning}, 45(1):5--32, 2001.
+
+\bibitem{friedman2001gradient}
+Jerome~H. Friedman.
+\newblock Greedy function approximation: A gradient boosting machine.
+\newblock {\em Annals of Statistics}, 29(5):1189--1232, 2001.
+
+\bibitem{chen2016xgboost}
+Tianqi Chen and Carlos Guestrin.
+\newblock Xgboost: A scalable tree boosting system.
+\newblock In {\em Proceedings of the 22nd ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, pages 785--794. ACM, 2016.
+
+\bibitem{rosenblatt1958perceptron}
+Frank Rosenblatt.
+\newblock The perceptron: A probabilistic model for information storage and
+  organization in the brain.
+\newblock {\em Psychological Review}, 65(6):386--408, 1958.
+
+\bibitem{hochreiter1997lstm}
+Sepp Hochreiter and J{\"u}rgen Schmidhuber.
+\newblock Long short-term memory.
+\newblock {\em Neural Computation}, 9(8):1735--1780, 1997.
+
+\bibitem{cho2014gru}
+Kyunghyun Cho, Bart Van~Merri{\"e}nboer, Caglar Gulcehre, Dzmitry Bahdanau,
+  Fethi Bougares, Holger Schwenk, and Yoshua Bengio.
+\newblock Learning phrase representations using rnn encoder-decoder for
+  statistical machine translation.
+\newblock {\em arXiv preprint arXiv:1406.1078}, 2014.
+
 \end{thebibliography}
