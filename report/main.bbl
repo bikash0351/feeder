@@ -1,15 +1,24 @@
 \begin{thebibliography}{10}
 
-\bibitem{singla2019electrical}
-M.~K. Singla, J.~Gupta, P.~Nijhawan, and A.~S. Oberoi.
-\newblock Electrical load forecasting using machine learning.
-\newblock {\em International Journal}, 8(3), 2019.
+\bibitem{dong2024decade}
+X.~Dong, Z.~Li, L.~Sun, and Y.~Zhang.
+\newblock A decade of deep learning-based short-term electricity load
+  forecasting: A comprehensive review.
+\newblock {\em Energy AI}, 8:100212, 2024.
 
-\bibitem{desai2021electrical}
-S.~Desai, T.~Dalal, S.~Kadam, and S.~Mishra.
-\newblock Electrical load forecasting using machine learning.
-\newblock In {\em 2021 International Conference on System, Computation,
-  Automation and Networking (ICSCAN)}, pages 1--6, 2021.
+\bibitem{chapagain2021short}
+K.~Chapagain, S.~Acharya, H.~Bhusal, S.~Katuwal, O.~Lakhey, P.~Neupane, R.~K.
+  Sah, B.~Tamang, and Y.~Rajbhandari.
+\newblock Short-term electricity demand forecasting for kathmandu valley,
+  nepal.
+\newblock {\em Kathmandu University Journal of Science, Engineering and
+  Technology}, 15(3), 2021.
+
+\bibitem{acharya2021stlf}
+S.~Acharya, M.~C. Luintel, and M.~Badrudoza.
+\newblock Short-term load forecasting of gothatar feeder of nepal electricity
+  authority using recurrent neural network.
+\newblock {\em Unpublished manuscript}, n.d.
 
 \bibitem{matrenin2022medium}
 P.~Matrenin, M.~Safaraliev, S.~Dmitriev, S.~Kokin, A.~Ghulomzoda, and
@@ -22,6 +31,23 @@ P.~Matrenin, M.~Safaraliev, S.~Dmitriev, S.~Kokin, A.~Ghulomzoda, and
 E.~Aguilar~Madrid and N.~Antonio.
 \newblock Short-term electricity load forecasting with machine learning.
 \newblock {\em Information}, 12(2), 2021.
+
+\bibitem{cordeiro2023load}
+M.~Cordeiro-Costas, D.~Villanueva, P.~Egu{\'i}a-Oller,
+  M.~Mart{\'i}nez-Comesa{\~n}a, and S.~Ramos.
+\newblock Load forecasting with machine learning and deep learning methods.
+\newblock {\em Applied Sciences}, 13(13):7933, 2023.
+
+\bibitem{singla2019electrical}
+M.~K. Singla, J.~Gupta, P.~Nijhawan, and A.~S. Oberoi.
+\newblock Electrical load forecasting using machine learning.
+\newblock {\em International Journal}, 8(3), 2019.
+
+\bibitem{desai2021electrical}
+S.~Desai, T.~Dalal, S.~Kadam, and S.~Mishra.
+\newblock Electrical load forecasting using machine learning.
+\newblock In {\em 2021 International Conference on System, Computation,
+  Automation and Networking (ICSCAN)}, pages 1--6, 2021.
 
 \bibitem{guo2021machine}
 W.~Guo, L.~Che, M.~Shahidehpour, and X.~Wan.
@@ -39,32 +65,6 @@ S.~Jain and A.~Gupta.
 \newblock Comparative analysis of machine learning algorithms for short-term
   power load prediction.
 \newblock {\em International Journal of Energy Systems}, 19(2):55--68, 2024.
-
-\bibitem{chapagain2021short}
-K.~Chapagain, S.~Acharya, H.~Bhusal, S.~Katuwal, O.~Lakhey, P.~Neupane, R.~K.
-  Sah, B.~Tamang, and Y.~Rajbhandari.
-\newblock Short-term electricity demand forecasting for kathmandu valley,
-  nepal.
-\newblock {\em Kathmandu University Journal of Science, Engineering and
-  Technology}, 15(3), 2021.
-
-\bibitem{acharya2021stlf}
-S.~Acharya, M.~C. Luintel, and M.~Badrudoza.
-\newblock Short-term load forecasting of gothatar feeder of nepal electricity
-  authority using recurrent neural network.
-\newblock {\em Unpublished manuscript}, n.d.
-
-\bibitem{cordeiro2023load}
-M.~Cordeiro-Costas, D.~Villanueva, P.~Egu{\'i}a-Oller,
-  M.~Mart{\'i}nez-Comesa{\~n}a, and S.~Ramos.
-\newblock Load forecasting with machine learning and deep learning methods.
-\newblock {\em Applied Sciences}, 13(13):7933, 2023.
-
-\bibitem{dong2024decade}
-X.~Dong, Z.~Li, L.~Sun, and Y.~Zhang.
-\newblock A decade of deep learning-based short-term electricity load
-  forecasting: A comprehensive review.
-\newblock {\em Energy AI}, 8:100212, 2024.
 
 \bibitem{wen2024gru}
 J.~Wen, H.~Li, and T.~Zhao.
@@ -148,6 +148,11 @@ Tianqi Chen and Carlos Guestrin.
 \newblock Xgboost: A scalable tree boosting system.
 \newblock In {\em Proceedings of the 22nd ACM SIGKDD International Conference
   on Knowledge Discovery and Data Mining}, pages 785--794. ACM, 2016.
+
+\bibitem{kingma2014adam}
+Diederik~P. Kingma and Jimmy Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock {\em arXiv preprint arXiv:1412.6980}, 2014.
 
 \bibitem{rosenblatt1958perceptron}
 Frank Rosenblatt.

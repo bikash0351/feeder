@@ -150,18 +150,22 @@ Comprehensive data preprocessing was performed, including missing value imputati
 outlier treatment, temporal feature extraction, and cyclical encoding of time-based
 variables. Several machine learning models were implemented and evaluated, including
 Linear Regression, Ridge Regression, Support Vector Regression, Random Forest, Gradient
-Boosting, and XGBoost. Hyperparameter tuning was applied to improve model
-performance.
+Boosting, and XGBoost. Deep learning models including Multi-Layer Perceptron (MLP),
+Long Short-Term Memory (LSTM), and Gated Recurrent Unit (GRU) were also developed
+and evaluated. Hyperparameter tuning and data augmentation techniques were applied to
+improve model performance.
 
 \noindent The models were assessed using standard evaluation metrics such as Mean Absolute Error
 (MAE), Root Mean Square Error (RMSE), Mean Absolute Percentage Error (MAPE), and
-R-squared ($R^2$). The results show that ensemble-based models, particularly tuned
-XGBoost and Random Forest models, significantly outperform linear and baseline
-methods. The findings highlight the effectiveness of machine learning techniques for
-feeder-level short-term load forecasting and provide valuable insights for operational
-planning and decision-making in power distribution systems.\\
+R-squared ($R^2$). The results show that the MLP deep learning model with extended lag
+features achieved the best overall performance (RMSE: 0.242 MW, $R^2$: 0.915), followed
+by ensemble-based machine learning models, particularly tuned XGBoost (RMSE: 0.384 MW,
+$R^2$: 0.831). The findings highlight the effectiveness of appropriately configured neural
+networks and machine learning techniques for feeder-level short-term load forecasting and
+provide valuable insights for operational planning and decision-making in power
+distribution systems.\\
 \newline
-Keywords: \textit{short-term load forecasting, machine learning, XGBoost, Random Forest, power distribution systems}
+Keywords: \textit{short-term load forecasting, machine learning, deep learning, MLP, XGBoost, power distribution systems}
 \addcontentsline{toc}{chapter}{\numberline{}Abstract}
 \tableofcontents
 \addcontentsline{toc}{chapter}{\numberline{}Contents}
@@ -199,15 +203,15 @@ Keywords: \textit{short-term load forecasting, machine learning, XGBoost, Random
 \end{tabular}
 \chapter{Introduction}
 \pagenumbering{arabic}%start arabic numbering(1,2,3..) from here
-This project focuses on short-term electrical load forecasting at the feeder level using data-driven machine learning and deep learning techniques. Historical load data combined with weather and temporal features were used to model and predict hourly power demand. Multiple forecasting models were developed and evaluated to identify the most effective approach for accurate and reliable load prediction.
+This thesis investigates the application of data-driven forecasting methodologies for predicting hourly electrical demand at the distribution feeder level. By integrating historical consumption records with meteorological observations and temporal characteristics, multiple predictive models were constructed and systematically compared to determine the most suitable approach for the Baneshwor Feeder's operational requirements.
 \section{Background}
-Electricity demand is never constant. It rises and falls with daily routines, temperature changes, business hours, and countless other factors. For a power system operator, being able to predict this demand even just a few hours ahead can make a huge difference. Accurate short-term forecasting helps optimize generation schedules, reduce operational costs, manage peak hours more confidently, and maintain a reliable supply.
+Electrical power consumption exhibits inherent variability driven by human activities, climatic conditions, and economic cycles. The ability to anticipate these fluctuations, even within a short window of several hours, provides grid operators with significant advantages in resource allocation, cost minimization, and service reliability \cite{dong2024decade}.
 
-Short-Term Load Forecasting (STLF) typically focuses on horizons ranging from one hour to a day ahead. These forecasts are critical for economic dispatch, unit commitment, load flow analysis, and real-time operation. Traditionally, utilities relied on statistical approaches such as linear regression, ARIMA, exponential smoothing, and Holt-Winters. These techniques can work well when patterns are simple, but they struggle with real-world load curves that are nonlinear, noisy, and influenced by many interacting variables.
+Short-Term Load Forecasting (STLF) addresses prediction horizons spanning from one hour to approximately 24 hours ahead \cite{chapagain2021short}. Such forecasts directly support critical operational decisions including generation scheduling, reserve allocation, and real-time balancing. Classical statistical methods---including autoregressive integrated moving average (ARIMA), exponential smoothing variants, and linear regression---have historically served as the foundation for utility forecasting practices \cite{acharya2021stlf}. However, these conventional approaches often prove inadequate when confronted with the complex, nonlinear interdependencies present in modern distribution networks.
 
-Machine Learning models like Random Forest, Support Vector Regression, and XGBoost have shown strong results in several energy-related forecasting tasks. Their ability to capture nonlinear relationships makes them a natural fit for electricity load prediction. Likewise, Deep Learning approaches, especially recurrent neural networks such as LSTM and GRU, can learn temporal dependencies more effectively than traditional models.
+Contemporary machine learning algorithms---including Random Forest, Support Vector Regression, and gradient boosting variants such as XGBoost---have demonstrated considerable success in energy system applications \cite{matrenin2022medium, aguilar2021short}. These methods excel at modeling the nonlinear mappings between input features and target variables that characterize electrical demand patterns. Similarly, deep neural network architectures, particularly recurrent designs like Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU), possess inherent capabilities for capturing sequential dependencies across time steps \cite{cordeiro2023load}.
 
-The Baneshwor Feeder of the Nepal Electricity Authority serves a mixed group of consumers in the Baneshwor region. Its load pattern reflects residential lifestyles, commercial activity, seasonal tourism impacts, and local weather changes. Daily and weekly cycles are clearly visible, but there are also irregularities that simple models fail to capture. As power consumption continues to grow and diversify, the ability to forecast the feeder's short-term load accurately has become even more important. This creates a strong motivation to investigate how modern ML and DL models can improve forecasting performance for this specific feeder.
+The Baneshwor Feeder, operated under Nepal Electricity Authority jurisdiction, supplies a heterogeneous consumer base comprising residential households, commercial establishments, and institutional loads within the Baneshwor area of Kathmandu Valley. The consumption profile exhibits pronounced diurnal and hebdomadal periodicity, modulated by ambient temperature variations and seasonal activity patterns. Nevertheless, irregular demand spikes and anomalous consumption events introduce complexities that elementary forecasting techniques cannot adequately address. Given the expanding electricity demand and increasing consumer diversity in this region, developing robust predictive capabilities for this specific feeder presents both practical necessity and academic interest.
 
 \begin{figure}[H]
     \centering
@@ -217,13 +221,13 @@ The Baneshwor Feeder of the Nepal Electricity Authority serves a mixed group of 
 \end{figure}
 
 \section{Problem Statement}
-The current forecasting practices for the Baneshwor Feeder rely heavily on manual estimation or basic statistical techniques. These methods do not fully capture the nonlinear and dynamic nature of the load profile, especially when multiple influencing factors, like temperature, humidity, rainfall, weekends, and special events come into play. As a result, prediction errors tend to increase during peak hours, sudden weather changes, and seasonal transitions.
+Existing demand anticipation practices at the Baneshwor Feeder predominantly depend on operator experience and rudimentary statistical calculations. Such approaches inadequately represent the intricate, nonlinear characteristics of the feeder's consumption profile, particularly when numerous concurrent factors---including ambient temperature, atmospheric moisture, precipitation events, weekly patterns, and public holidays---simultaneously influence demand levels. Consequently, forecasting accuracy deteriorates notably during peak consumption intervals, abrupt meteorological shifts, and inter-seasonal transition periods.
 
-Inaccurate short-term forecasts have several consequences. They can affect how generation is scheduled, leading to either unnecessary reserve margins or inadequate supply. They may increase operational costs and technical losses at the distribution level. In the worst cases, poor foresight during high-demand periods can create voltage drops, reliability concerns, or inefficient load-shedding decisions.
+Suboptimal demand predictions carry substantial operational implications. Generation scheduling inefficiencies may result in either excessive spinning reserves or insufficient supply margins. Distribution-level technical losses and operational expenditures may escalate unnecessarily. Under severe conditions, inadequate demand foresight during high-consumption periods can precipitate voltage instability, service reliability degradation, or suboptimal load curtailment decisions.
 
-Despite the availability of historical load and weather data, there has not been a systematic study applying and comparing advanced machine learning and deep learning approaches specifically for the Baneshwor Feeder. The lack of a data-driven forecasting system means operators do not yet benefit from models that are capable of learning complex relationships within the data.
+Notwithstanding the existence of archived consumption records and meteorological observations, no comprehensive investigation has systematically implemented and benchmarked contemporary machine learning and deep learning methodologies for the Baneshwor Feeder specifically. This absence of an intelligent, data-driven forecasting infrastructure prevents distribution operators from leveraging models capable of discerning complex multivariate relationships embedded within historical observations.
 
-This thesis aims to address these gaps by building a complete forecasting framework using multiple ML and DL models, evaluating their performance, and identifying the most suitable approach for accurate short-term load prediction of the Baneshwor Feeder.
+This research endeavors to bridge these deficiencies by constructing a complete predictive framework encompassing multiple ML and DL algorithms, rigorously evaluating their comparative performance, and recommending the most appropriate methodology for reliable short-term demand forecasting at the Baneshwor Feeder.
 
 \begin{figure}[H]
     \centering
@@ -241,22 +245,22 @@ To develop and evaluate machine learning and deep learning models for short-term
     \item To recommend the most suitable forecasting model for operational use in the Baneshwor Feeder.
 \end{enumerate}
 \section{Scope}
-This study is geographically limited to the Baneshwor Feeder under the Nepal Electricity Authority. The temporal scope focuses on short-term load forecasting with a prediction horizon of up to 24 hours ahead, utilizing historical hourly load data as the primary foundation for model development. The dataset encompasses historical load data from the Baneshwor Feeder, complemented by weather data including temperature, humidity, and rainfall, along with calendar data distinguishing weekdays, weekends, and holidays.
+The geographical boundary of this investigation is circumscribed to the Baneshwor Feeder administered by Nepal Electricity Authority. Temporally, the research concentrates on near-term demand anticipation with forecast horizons extending to 24 hours, leveraging archived hourly consumption records as the foundational modeling substrate. The assembled dataset integrates historical feeder demand observations alongside meteorological measurements encompassing temperature, humidity, and solar irradiance, complemented by calendrical indicators differentiating standard weekdays from weekends and public holidays.
 
-From a technical perspective, the research implements several machine learning models including Support Vector Regression (SVR), Random Forest, and XGBoost, alongside deep learning architectures such as Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) networks. The performance of these models is rigorously evaluated using standard metrics including Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE), Mean Absolute Error (MAE), and the coefficient of determination (R-squared). It should be noted that the accuracy of forecasts is inherently dependent on the quality and completeness of the historical data available. Additionally, this study does not extend to medium-term or long-term forecasting horizons, and the scope explicitly excludes renewable generation forecasting from its analysis.
+From a computational standpoint, this research deploys multiple machine learning implementations including Support Vector Regression, Random Forest ensembles, and XGBoost, alongside deep neural architectures specifically Long Short-Term Memory and Gated Recurrent Unit networks. Predictive performance undergoes rigorous quantification through established statistical measures comprising Root Mean Squared Error, Mean Absolute Percentage Error, Mean Absolute Error, and coefficient of determination (R-squared). It bears noting that forecast precision inherently correlates with underlying data integrity and completeness. Furthermore, this investigation expressly excludes medium-horizon and long-horizon forecasting scenarios, while renewable generation prediction falls outside the defined research boundaries.
 \section{Limitation}
-Despite the promising results obtained in this study, certain limitations were encountered, primarily related to data availability, model assumptions, and scope of analysis.
+Notwithstanding the encouraging outcomes achieved, this investigation encountered specific constraints primarily associated with data accessibility, algorithmic assumptions, and analytical scope.
 \begin{enumerate}
-    \item \textbf{Dependence on data quality:} Forecast accuracy is limited by the completeness and reliability of the historical load and weather data. Missing values, sensor errors, or inconsistent reporting can influence model performance.
-    \item \textbf{Model sensitivity to sudden changes:} Unexpected events such as outages, festivals, abrupt weather shifts, or abnormal consumption patterns are difficult for data-driven models to predict accurately.
-    \item \textbf{Deep learning computation constraints:} Training LSTM and GRU models requires more computational resources and time compared to ML models. Their performance may vary depending on the hardware used.
-    \item \textbf{Limited feature diversity:} Although weather and calendar data are included, other influential factors like economic activities, special events, or industrial load profiles are not part of the dataset.
-    \item \textbf{Generalization across feeders:} The models developed in this study are tailored specifically to the Baneshwor Feeder and may not generalize directly to other feeders without retraining or adaptation.
+    \item \textbf{Data quality dependence:} Predictive accuracy remains fundamentally bounded by the integrity and completeness of archived consumption and meteorological records. Sensor malfunctions, missing entries, or inconsistent reporting practices can adversely influence model performance.
+    \item \textbf{Sensitivity to abrupt transitions:} Unforeseen occurrences including supply disruptions, festival periods, sudden climatic variations, or atypical consumption behaviors present inherent challenges for purely data-driven predictive approaches.
+    \item \textbf{Deep learning computational demands:} LSTM and GRU network training necessitates considerably greater processing resources and temporal investment relative to conventional ML algorithms. Performance outcomes may exhibit variability contingent upon available computational infrastructure.
+    \item \textbf{Restricted feature diversity:} Although meteorological and calendrical variables were incorporated, additional potentially influential factors---including macroeconomic indicators, special event schedules, or industrial consumption profiles---remain absent from the dataset.
+    \item \textbf{Cross-feeder transferability constraints:} The predictive models constructed herein are calibrated exclusively for Baneshwor Feeder characteristics and may not generalize to alternative feeder configurations without substantial recalibration or architectural modification.
 \end{enumerate}
 \chapter{Literature Review}
-The literature review presents a comprehensive overview of existing research related to short-term electrical load forecasting using machine learning and deep learning techniques. It examines previously published studies to understand commonly used methodologies, datasets, and performance evaluation approaches in the domain of power system load forecasting. Reviewing prior work helps to identify current research trends, strengths, and limitations of existing models, while also highlighting gaps that motivate the need for this study. By situating the present research within the context of established knowledge, this chapter provides a foundation for model selection and methodological design adopted in this work.
+This chapter synthesizes relevant scholarly contributions pertaining to electrical demand prediction through computational intelligence approaches. The review systematically examines published investigations to characterize prevalent algorithmic frameworks, dataset configurations, and assessment protocols employed within power system forecasting research. Critical analysis of antecedent work facilitates identification of contemporary methodological trajectories, inherent model strengths and constraints, and unexplored research opportunities that substantiate the present investigation's rationale. Positioning this thesis within the broader academic discourse establishes the theoretical underpinning for subsequent algorithmic selection and experimental design decisions.
 \section{Related Work}
-There are many previous works done for electrical load forecasting from short-term electrical load forecasting, to medium-term and long-term. Most of the studies have done short-term load forecasting.
+Substantial research attention has been directed toward electrical demand forecasting across various temporal horizons, encompassing short-term predictions spanning hours to days, medium-term forecasts extending weeks to months, and long-term projections covering years. The preponderance of scholarly effort has concentrated on short-term forecasting applications given their direct operational relevance.
 
 \subsection{Machine Learning Approaches}
 Singla et al. \cite{singla2019electrical} employed Artificial Neural Networks for 24-hour short-term load forecasting, utilizing dew point temperature, dry bulb temperature, and humidity as input features. Their work demonstrated the effectiveness of ANN in capturing the relationship between weather variables and electrical load demand. Similarly, Desai et al. \cite{desai2021electrical} utilized the Prophet model from Meta to perform short-term load forecasting, incorporating time, temperature, humidity, and weather forecast data as features. The Prophet model's ability to handle seasonal patterns and missing data made it suitable for load forecasting applications.
@@ -298,12 +302,12 @@ Kwon et al. \cite{kwon2020electricity} conducted extensive research on learning 
 Nabavi et al. \cite{nabavi2024wavelet} combined Discrete Wavelet Transform with LSTM to improve electricity load forecasting accuracy. The DWT decomposed load series into multiple frequency components, allowing LSTM to learn from denoised and structured representations. Their research demonstrated that preprocessing techniques significantly enhanced deep learning model performance, particularly for datasets with high noise levels and irregular patterns.
 
 \section{Theoretical Background of Forecasting Models}
-This section provides the theoretical foundations of the machine learning and deep learning models employed in this study. Understanding the mathematical formulations and working principles of these models is essential for interpreting their performance in short-term load forecasting applications.
+This section elucidates the mathematical foundations and operational principles underlying the computational models deployed throughout this investigation. Comprehending these theoretical constructs proves indispensable for meaningful interpretation of model behavior and forecasting outcomes within the distribution system context.
 
 \subsection{Machine Learning Models}
 
 \subsubsection{Linear Regression}
-Linear Regression is the simplest baseline model that assumes the relationship between input features and the target load value is linear. Although load patterns are nonlinear, this model helps establish a reference point for evaluating more complex methods.
+Linear Regression constitutes the most elementary predictive framework, postulating a strictly linear mapping between predictor variables and the response quantity. Despite the inherent nonlinearity characterizing electrical consumption phenomena, this model furnishes a baseline reference against which more sophisticated approaches can be quantitatively benchmarked.
 
 \textbf{Mathematical Formulation:}
 \begin{equation}
@@ -377,7 +381,7 @@ XGBoost minimizes the following regularized objective function:
 \noindent where $T$ is the number of leaves in the tree, $w_j$ is the weight (score) of the $j$-th leaf, $\gamma$ controls the minimum loss reduction required to make a split, and $\lambda$ is the L2 regularization term on leaf weights.
 
 \subsection{Deep Learning Models}
-To model the nonlinear, temporal, and sequential characteristics of feeder load data, three deep learning architectures were implemented: Multi-Layer Perceptron (MLP), Long Short-Term Memory (LSTM), and Gated Recurrent Unit (GRU). These models were trained on sliding windows of historical hourly sequences, allowing the networks to learn both short-term and long-term dependencies in the dataset. All models were trained with the Adam optimizer, early stopping, and sequence-based inputs where applicable.
+To adequately represent the nonlinear dynamics, temporal evolution, and sequential structure inherent in feeder consumption data, three neural network architectures were constructed and evaluated: Multi-Layer Perceptron (MLP), Long Short-Term Memory (LSTM), and Gated Recurrent Unit (GRU). These networks received training on sliding temporal windows comprising consecutive hourly observations, enabling the architectures to assimilate both proximate and extended temporal dependencies embedded within the dataset. Network optimization employed the Adam algorithm \cite{kingma2014adam}, with early termination protocols preventing overtraining and sequence-structured inputs where architecturally appropriate.
 
 \subsubsection{Multi-Layer Perceptron (MLP)}
 The MLP \cite{rosenblatt1958perceptron} is a feed-forward network consisting of multiple fully connected layers. Although it does not inherently model temporal order, it can extract nonlinear patterns from feature-engineered inputs. In this study, the MLP receives sequences flattened into a fixed-size input vector.
@@ -483,10 +487,10 @@ h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t
 \end{figure}
 
 \chapter{Methodology}
-This chapter describes the overall research methodology adopted to achieve the objectives of the thesis. It outlines the research design, data acquisition process, preprocessing techniques, and modeling approaches used for short-term electrical load forecasting. The methodology is structured to ensure a systematic analysis, with each step directly linked to the research objectives. A flowchart is used to summarize the overall framework, followed by a detailed explanation of the selected machine learning and deep learning models and the evaluation techniques employed in this study.
+This chapter delineates the comprehensive research framework implemented to accomplish the stated thesis objectives. The presentation encompasses experimental design rationale, data procurement procedures, preprocessing protocols, and predictive modeling strategies deployed for feeder-level demand forecasting. The methodological structure ensures rigorous analytical progression, with each procedural component maintaining explicit linkage to the defined research goals. A schematic diagram encapsulates the overarching workflow, supplemented by detailed exposition of the chosen machine learning and deep learning algorithms alongside the quantitative assessment techniques applied throughout this investigation.
 
 \section{Overall Workflow}
-The forecasting framework adopted in this thesis follows a structured and sequential workflow in which hourly historical load data from the Baneshwor Feeder are collected together with weather variables (temperature, humidity, rainfall) and calendar information (weekday/weekend, holidays) to form the core input space for the forecasting models. The raw data are first subjected to a comprehensive preprocessing stage that addresses missing readings, outliers, and format inconsistencies through data cleaning, missing-value imputation, outlier treatment, timestamp conversion, and the engineering of time-based and cyclical features, thereby ensuring that the resulting dataset is suitable for model development. On the basis of this cleaned dataset, exploratory data analysis (EDA) is then carried out to examine load trends, seasonal patterns, hourly variations, and correlations with weather variables, so as to identify the most influential features and to guide feature selection. Subsequently, both machine learning models and deep learning models are developed, with input features standardized and organized as tabular matrices for the ML models and as sequential inputs for the DL models. These models are trained using appropriate training subsets and validated through walk-forward validation or hold-out testing, while hyperparameters are optimized using GridSearchCV for the ML models and iterative tuning strategies for the DL models to enhance generalization and mitigate overfitting. Finally, all models are evaluated and compared using RMSE, MAE, MAPE, and R², and their forecasting accuracy, stability, and computational efficiency are analyzed in order to recommend the most suitable model for operational short-term load forecasting in the Baneshwor Feeder. This workflow thus provides a complete pipeline from raw data acquisition to final model recommendation and supports both machine learning and deep learning approaches. The overall diagram of the methodology is shown in Figure 3.1.
+The predictive modeling pipeline employed in this thesis adheres to a methodical, stage-wise progression. Raw hourly demand recordings from the Baneshwor Feeder are aggregated with concurrent meteorological observations (temperature, humidity, precipitation) and temporal markers (weekday/weekend designations, holiday flags) to constitute the comprehensive input feature space. These unprocessed records initially undergo extensive quality assurance procedures addressing missing entries, anomalous values, and formatting discrepancies through systematic cleaning, imputation algorithms, outlier remediation, timestamp normalization, and derivation of temporal and cyclical feature representations---thereby generating analysis-ready datasets. Subsequent exploratory analysis interrogates consumption trends, periodic patterns, hourly variation structures, and weather-demand correlations to identify salient predictive features and inform variable selection decisions. Following these preparatory stages, both traditional ML algorithms and deep neural architectures are instantiated, with input features undergoing standardization and organization as tabular matrices for ML implementations while deep architectures receive sequentially-structured inputs. Model calibration proceeds on designated training partitions with validation through walk-forward protocols or holdout assessment, while hyperparameter optimization employs GridSearchCV for ML algorithms and iterative refinement strategies for neural networks to enhance generalization while mitigating overfitting tendencies. Ultimately, all candidate models undergo comparative evaluation using RMSE, MAE, MAPE, and R\textsuperscript{2} metrics, with predictive accuracy, stability characteristics, and computational efficiency jointly analyzed to recommend optimal forecasting solutions for Baneshwor Feeder operational deployment. This workflow thereby establishes a complete analytical pipeline spanning initial data procurement through final model recommendation, accommodating both conventional and neural network methodologies. Figure~\ref{fig:block_diagram} illustrates the complete methodological structure.
 
 \begin{figure}[H]
     \centering
@@ -496,13 +500,13 @@ The forecasting framework adopted in this thesis follows a structured and sequen
 \end{figure}
 
 \section{Data Acquisition}
-The first step of our methodology is data acquisition. Hourly historical load data from Baneshwor Feeder will be collected. Weather data such as temperature, humidity, and rainfall data will be collected from the Department of Hydrology and Meteorology, Nepal. And finally, the information on weekdays, weekends are obtained from official government calendars.
-The study relies on two primary datasets:
+The initial methodological phase involves systematic data procurement. Archived hourly consumption records from the Baneshwor Feeder constitute the primary dataset. Supplementary meteorological observations---encompassing ambient temperature, atmospheric moisture content, and precipitation measurements---originate from the Department of Hydrology and Meteorology, Nepal. Additionally, weekday and weekend classifications derive from officially published governmental calendrical sources.
+The investigative framework relies upon dual primary data streams:
 \begin{enumerate}
-    \item Hourly electrical load data for the Baneshwor Feeder
-    \item Hourly weather data (temperature, humidity, and solar radiation)
+    \item Hourly electrical consumption measurements for the Baneshwor Feeder
+    \item Concurrent hourly meteorological recordings (temperature, humidity, incident solar radiation)
 \end{enumerate}
-Since both datasets were obtained as raw Excel files with irregular formats, inconsistent timestamps, missing entries, and multiple sheets per day/month, a multi-stage acquisition and structuring pipeline was developed. The sources of both datasets are listed below.
+Given that both datasets arrived as unprocessed Excel workbooks exhibiting irregular structural formats, inconsistent temporal indexing, incomplete entries, and multiple worksheets per temporal unit, a comprehensive multi-stage acquisition and restructuring protocol was necessitated. The provenance of both datasets is documented subsequently.
 
 \subsection{Data Sources}
 \begin{enumerate}
@@ -616,11 +620,37 @@ A sliding window method was used in which the model received the past $N$ hours 
 \subsubsection{Train--Validation--Test Split}
 Deep learning models require sequential integrity, so the dataset was split chronologically:
 \begin{itemize}
-    \item 80 percent for training
-    \item 10 percent for validation
-    \item 10 percent for testing
+    \item 70 percent for training
+    \item 15 percent for validation
+    \item 15 percent for testing
 \end{itemize}
 No shuffling was applied, ensuring that the model learned from the natural temporal progression of the data.
+
+\subsubsection{Lag Feature Configurations}
+To capture temporal dependencies at multiple scales, three different lag configurations were evaluated:
+\begin{itemize}
+    \item \textbf{Short:} Lags at [1, 3, 6] hours
+    \item \textbf{Medium:} Lags at [1, 3, 6, 12, 24] hours
+    \item \textbf{Long:} Lags at [1, 3, 6, 12, 24, 48] hours
+\end{itemize}
+The extended lag configuration proved most effective, particularly for the MLP model, by providing explicit historical context at various temporal resolutions.
+
+\subsubsection{Data Augmentation}
+To improve model generalization and increase the effective training dataset size, data augmentation techniques were applied:
+\begin{itemize}
+    \item \textbf{Noise injection:} Small random noise added to training samples
+    \item \textbf{Jittering:} Slight perturbations to feature values
+    \item \textbf{Scaling:} Random scaling of feature magnitudes
+\end{itemize}
+These augmentation methods doubled the effective training size (2x augmentation factor), helping to reduce overfitting and improve model robustness.
+
+\subsubsection{Feature Scaling}
+Two scaling approaches were evaluated:
+\begin{itemize}
+    \item \textbf{MinMax Scaler:} Scales features to [0, 1] range
+    \item \textbf{Standard Scaler:} Standardizes features to zero mean and unit variance
+\end{itemize}
+The standard scaler combined with the long lag configuration yielded the best results for the MLP model.
 
 \subsubsection{Model Training Configuration}
 All deep learning models were trained with the following configuration:
@@ -642,9 +672,9 @@ To avoid overfitting, several regularization techniques were applied:
 
 \subsubsection{Model-Specific Training Notes}
 \begin{itemize}
-    \item \textbf{MLP:} Used flattened inputs from the sliding window and relied on dense layers to learn nonlinear mappings. Generally converged quickly during training.
-    \item \textbf{LSTM:} Captured long-term temporal dependencies but required more computation. Performed best when extended historical context was important.
-    \item \textbf{GRU:} Provided a faster and lighter alternative to LSTM, often achieving comparable accuracy while offering a strong balance for medium-complexity time-series tasks.
+    \item \textbf{MLP:} Received flattened inputs incorporating lag features and temporal encodings. Achieved exceptional performance with the long lag configuration [1, 3, 6, 12, 24, 48], attaining R\textsuperscript{2} of 0.915. Training converged efficiently, typically within 30--50 epochs before early stopping.
+    \item \textbf{LSTM:} Processed sequential inputs with a 24-hour lookback window. Despite the recurrent architecture's theoretical advantages for sequence modeling, performance was significantly lower than MLP, with negative R\textsuperscript{2} values indicating difficulty in learning stable temporal patterns from the available data.
+    \item \textbf{GRU:} Provided a computationally lighter alternative to LSTM but exhibited similar performance limitations, with negative R\textsuperscript{2} values across all lag and scaling configurations.
 \end{itemize}
 
 \subsection{Validation Approach}
@@ -658,70 +688,71 @@ A consistent evaluation strategy was applied across all models:
 
 \textbf{Deep Learning Models:}
 \begin{itemize}
-    \item Validated using a 10 percent validation split
-    \item Early stopping was used to prevent overfitting
+    \item Validated using a 15 percent validation split (chronologically ordered)
+    \item Early stopping was used to prevent overfitting, with patience of approximately 10 epochs
     \item Best-performing model weights were preserved through checkpointing
+    \item Multiple lag configurations and scaling methods were systematically compared
 \end{itemize}
 
 \section{Performance Evaluation}
-To compare the machine learning and deep learning models fairly, a consistent set of standard error metrics was used. These metrics measure the difference between the predicted load values and the actual observed load. In this study, four commonly used regression evaluation metrics were selected:
+To facilitate equitable comparison across machine learning and deep neural network implementations, a standardized battery of statistical accuracy measures was employed throughout. These metrics quantify the magnitude of discrepancies between model-generated predictions and empirically observed consumption values. This investigation adopted four conventionally utilized regression assessment criteria:
 \begin{enumerate}
     \item Mean Absolute Error (MAE)
     \item Root Mean Squared Error (RMSE)
     \item Mean Absolute Percentage Error (MAPE)
-    \item Coefficient of Determination (R² Score)
+    \item Coefficient of Determination (R\textsuperscript{2} Score)
 \end{enumerate}
-These metrics help assess accuracy, robustness, and the overall predictive performance of the forecasting models.
+These statistical measures collectively characterize predictive accuracy, algorithmic robustness, and overall forecasting efficacy across the candidate models.
 
 \subsection{Mean Absolute Error (MAE)}
-MAE represents the average magnitude of errors between forecasted and actual values, without considering direction. It is simple and easy to interpret.
+MAE quantifies the average magnitude of prediction deviations from observed values, disregarding error directionality. This metric offers straightforward interpretability and practical utility.
 
 \textbf{Formula:}
 \begin{equation}
 \text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
 \end{equation}
-\noindent where $n$ is the total number of samples, $y_i$ is the actual load value, and $\hat{y}_i$ is the predicted load value.
+\noindent where $n$ denotes the sample count, $y_i$ represents the measured consumption value, and $\hat{y}_i$ indicates the corresponding model prediction.
 
-\textbf{Interpretation:} Lower MAE indicates that the model's predictions are consistently closer to the actual load. This metric is robust against the influence of individual large errors.
+\textbf{Interpretation:} Diminished MAE values signify consistently accurate predictions approaching actual consumption levels. This measure demonstrates resilience against distortion from sporadic large-magnitude errors.
 
 \subsection{Root Mean Squared Error (RMSE)}
-RMSE is one of the most widely used metrics in load forecasting, and its units are the same as the original POWER (MW) values.
+RMSE constitutes among the most prevalent metrics in demand forecasting applications, preserving measurement units identical to the original consumption values (MW).
 
 \textbf{Formula:}
 \begin{equation}
 \text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
 \end{equation}
-\noindent where $n$ is the total number of samples, $y_i$ is the actual load value, and $\hat{y}_i$ is the predicted load value.
+\noindent where $n$ represents the observation count, $y_i$ denotes actual consumption, and $\hat{y}_i$ signifies the predicted value.
 
-\textbf{Interpretation:} Lower RMSE reflects a more accurate model overall. Because it strongly penalizes large errors, it serves as a stricter evaluation metric than MAE.
+\textbf{Interpretation:} Reduced RMSE values indicate superior overall predictive accuracy. The quadratic error term imposes heavier penalties on substantial deviations, rendering RMSE a more stringent criterion than MAE for model assessment.
 
 \subsection{Mean Absolute Percentage Error (MAPE)}
-MAPE expresses the prediction error as a percentage of the actual value. This makes it easy to compare forecasting performance across different feeders or scales.
+MAPE articulates prediction errors as proportional deviations from actual observations, facilitating performance comparisons across disparate feeders or demand scales.
 
 \textbf{Formula:}
 \begin{equation}
 \text{MAPE} = \frac{100}{n} \sum_{i=1}^{n} \left| \frac{y_i - \hat{y}_i}{y_i} \right|
 \end{equation}
-\noindent where $n$ is the total number of samples, $y_i$ is the actual load value, and $\hat{y}_i$ is the predicted load value.
+\noindent where $n$ represents the sample size, $y_i$ indicates measured consumption, and $\hat{y}_i$ denotes the model forecast.
 
-\textbf{Interpretation:} This metric shows the average percentage deviation between predictions and actual values, with lower values indicating better performance. It becomes undefined when the actual load equals zero, though this was not an issue here since the feeder load never drops to zero.
+\textbf{Interpretation:} This metric expresses average percentage deviation between predictions and observations, with lower values indicating enhanced performance. The measure becomes mathematically undefined when actual consumption equals zero, though this scenario never materialized given the feeder's continuous operation.
 
-\subsection{Coefficient of Determination (R² Score)}
-R² indicates how much of the variance in the actual load values is explained by the model.
+\subsection{Coefficient of Determination (R\textsuperscript{2} Score)}
+R\textsuperscript{2} quantifies the proportion of target variable variance that the predictive model successfully captures and explains.
 
 \textbf{Formula:}
 \begin{equation}
 R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
 \end{equation}
-\noindent where $y_i$ is the actual load value, $\hat{y}_i$ is the predicted load value, and $\bar{y}$ is the mean of actual values.
+\noindent where $y_i$ represents measured consumption, $\hat{y}_i$ denotes the predicted quantity, and $\bar{y}$ indicates the arithmetic mean of observations.
 
-\textbf{Interpretation:} An R² value of 1 represents perfect prediction, while a value of 0 indicates that the model performs no better than simply using the average load. Higher R² values therefore indicate better model performance. Negative R² values are possible when the model performs worse than the mean baseline.
+\textbf{Interpretation:} An R\textsuperscript{2} coefficient of unity signifies flawless prediction capability, whereas zero indicates performance equivalent to naive mean-based forecasting. Elevated R\textsuperscript{2} values consequently reflect superior model efficacy. Negative coefficients remain theoretically possible when model predictions underperform relative to simple averaging.
 
 \chapter{Results \& Discussion}
 This chapter presents the performance of all machine learning and deep learning models trained for short-term load forecasting of the Baneshwor Feeder. All models were evaluated using the same performance metrics (MAE, RMSE, MAPE, R²), ensuring a fair comparison.
 
 \section{Exploratory Data Analysis}
-Exploratory data analysis was conducted to understand the statistical behavior of the load and weather variables, identify underlying temporal patterns, and observe the relationships between different features before model training. The final dataset consisted of hourly timestamps spanning the entire study period, feeder load values in megawatts, and the key weather variables of air temperature, global solar radiation, and relative humidity. It also included a comprehensive set of engineered temporal features such as hour, day, month, weekday, and the corresponding cyclical encodings. A quick inspection confirmed that there were no missing values after imputation, the dataset maintained a uniform hourly structure with no half-hour gaps, the POWER (MW) readings were clean after capping and smoothing, and all weather and load timestamps were fully synchronized.
+Preliminary statistical examination was undertaken to characterize the distributional properties of consumption and meteorological variables, discern latent temporal structures, and quantify inter-feature associations prior to model construction. The consolidated dataset encompassed hourly timestamps covering the complete observation period, feeder demand measurements expressed in megawatts, and primary meteorological variables comprising ambient temperature, incident solar irradiance, and atmospheric relative humidity. Additionally, an extensive suite of derived temporal descriptors---including hour index, calendar day, month indicator, weekday designation, and their corresponding sinusoidal transformations---augmented the feature space. Verification procedures confirmed successful missing value remediation, consistent hourly temporal resolution without intermediate gaps, cleaned consumption readings following outlier treatment, and precise chronological alignment between demand and weather observations.
 
 To understand how the load varies over time, the hourly POWER (MW) values were resampled into daily averages and visualized across the entire study period. The resulting trend showed clear daily, weekly, and seasonal fluctuations in the feeder's behavior. Winter months displayed slightly lower solar radiation levels along with moderately higher load during certain intervals. Occasional dips in the curve aligned with known outages or special events. Solar radiation exhibited a strong daytime pattern, reinforcing its moderate correlation with load. Overall, this broad visualization confirmed that the Baneshwor Feeder operates as a typical mixed-load distribution feeder with pronounced daily cycles and noticeable seasonal influences.
 
@@ -830,11 +861,11 @@ After tuning, the models were evaluated on the test set. Table~\ref{tab:ml_resul
 \end{table}
 
 \subsubsection{Discussion of Results}
-The machine learning models were evaluated using MAE, RMSE, MAPE, and R-squared (R²) to assess their forecasting effectiveness. Linear Regression and Ridge Regression served as baseline models and produced relatively higher error values and lower R² scores, indicating their limited ability to capture nonlinear relationships between load demand and influencing variables. Support Vector Regression improved upon linear models by reducing error metrics; however, its performance remained inferior to ensemble-based approaches, particularly in terms of RMSE.
+Machine learning algorithm performance was quantified through MAE, RMSE, MAPE, and R-squared (R\textsuperscript{2}) to comprehensively assess forecasting capability. Linear Regression and Ridge Regression functioned as baseline comparators, yielding comparatively elevated error metrics and diminished R\textsuperscript{2} coefficients, thereby evidencing their constrained capacity for capturing nonlinear interdependencies between consumption demand and predictor variables. Support Vector Regression demonstrated improvement over linear alternatives by reducing error magnitudes; nonetheless, its performance remained subordinate to ensemble-based methodologies, particularly regarding RMSE outcomes.
 
-Tree-based ensemble models demonstrated superior performance across all evaluation metrics. Random Forest and Gradient Boosting significantly reduced MAE and RMSE while achieving higher R² values, reflecting improved generalization and better handling of nonlinear patterns. Among these, the tuned XGBoost model outperformed all other machine learning models, achieving the lowest RMSE (0.384 MW), the highest R² (0.831), and the lowest MAPE (12.693\%). The improvement over other ensemble models can be attributed to XGBoost's gradient-based optimization, regularization mechanisms, and effective handling of feature interactions, which collectively enhanced model robustness.
+Tree-based ensemble algorithms exhibited markedly superior performance across all quantitative criteria. Both Random Forest and Gradient Boosting achieved substantial MAE and RMSE reductions while attaining higher R\textsuperscript{2} coefficients, reflecting enhanced generalization capabilities and improved nonlinear pattern recognition. Among these, the hyperparameter-optimized XGBoost implementation surpassed all competing machine learning algorithms, achieving optimal RMSE (0.384 MW), maximal R\textsuperscript{2} (0.831), and minimal MAPE (12.693\%). The performance differential relative to alternative ensemble approaches stems from XGBoost's gradient-based optimization strategy, integrated regularization mechanisms, and effective feature interaction handling, which collectively enhance model robustness and predictive reliability.
 
-Overall, the comparative evaluation confirms that ensemble-based machine learning models, particularly XGBoost, provide the most reliable and accurate predictions for feeder-level short-term load forecasting.
+Collectively, the comparative assessment confirms that ensemble machine learning approaches, particularly XGBoost, deliver the most dependable and precise predictions for distribution feeder-level short-term demand forecasting applications.
 
 \begin{figure}[H]
     \centering
@@ -844,38 +875,50 @@ Overall, the comparative evaluation confirms that ensemble-based machine learnin
 \end{figure}
 
 \subsection{Deep Learning Model Performance}
-Deep learning models were trained using sliding-window sequences to capture temporal dependencies in the feeder load data. Three architectures were implemented: LSTM, GRU, and MLP. Hyperparameter optimization was performed using an iterative search strategy, with configurations evaluated based on validation loss. Table~\ref{tab:dl_hyperparams} presents the hyperparameter search space explored for the deep learning models.
+Deep learning models were trained using lag features and sliding-window sequences to capture temporal dependencies in the feeder load data. Three architectures were implemented: MLP, LSTM, and GRU. Comprehensive experiments were conducted across multiple lag configurations and scaling methods to identify optimal configurations. Table~\ref{tab:dl_hyperparams} presents the hyperparameter and configuration search space explored for the deep learning models.
 
 \begin{table}[H]
 \centering
-\caption{Hyperparameter Search Space for Deep Learning Models}
+\caption{Configuration and Hyperparameter Search Space for Deep Learning Models}
 \label{tab:dl_hyperparams}
 \begin{tabular}{ll}
 \hline
 \textbf{Component} & \textbf{Values} \\
 \hline
-\multicolumn{2}{c}{\textbf{MLP / LSTM / GRU Components}} \\
+\multicolumn{2}{c}{\textbf{Lag Feature Configurations}} \\
 \hline
-Number of layers & [2, 3, 4] \\
+Short lags & [1, 3, 6] hours \\
+Medium lags & [1, 3, 6, 12, 24] hours \\
+Long lags & [1, 3, 6, 12, 24, 48] hours \\
+\hline
+\multicolumn{2}{c}{\textbf{Feature Scaling Methods}} \\
+\hline
+MinMax Scaler & Scales to [0, 1] range \\
+Standard Scaler & Zero mean, unit variance \\
+\hline
+\multicolumn{2}{c}{\textbf{MLP / LSTM / GRU Architecture}} \\
+\hline
 Hidden units & [32, 64, 128] \\
 Dropout rate & [0.0, 0.1, 0.2] \\
 Activation function & ReLU \\
 \hline
-\multicolumn{2}{c}{\textbf{Sequence Modeling Parameters}} \\
+\multicolumn{2}{c}{\textbf{Sequence Modeling (LSTM/GRU)}} \\
 \hline
-Look-back window & [10, 20, 30] \\
-Batch size & [4, 8, 16] \\
+Look-back window & 24 hours \\
+Batch size & 32 \\
 \hline
 \multicolumn{2}{c}{\textbf{Training Parameters}} \\
 \hline
-Learning rate & [0.001, 0.0001] \\
+Learning rate & 0.001 \\
 Optimizer & Adam \\
-Epochs per trial & 30 \\
+Max epochs & 100 \\
+Early stopping patience & 10 epochs \\
+Data augmentation & 2x (noise, jittering, scaling) \\
 \hline
 \end{tabular}
 \end{table}
 
-After conducting extensive training using the cleaned dataset, the models were evaluated using the same metrics as the ML models. The results obtained for the deep learning models are presented in Table~\ref{tab:dl_results}.
+After conducting extensive training using the cleaned and augmented dataset, the models were evaluated using the same metrics as the ML models. The best results obtained for each deep learning architecture are presented in Table~\ref{tab:dl_results}. The MLP model with long lag configuration [1, 3, 6, 12, 24, 48] and standard scaling achieved the best overall performance.
 
 \begin{table}[H]
 \centering
@@ -885,49 +928,49 @@ After conducting extensive training using the cleaned dataset, the models were e
 \hline
 \textbf{Sn.No.} & \textbf{Model} & \textbf{MAE} & \textbf{RMSE} & \textbf{MAPE} & \textbf{R²} \\
 \hline
-1 & LSTM & 0.467 & 0.498 & 14.155 & 0.014 \\
+1 & MLP & 0.155 & 0.242 & 6.339 & 0.915 \\
 \hline
-2 & GRU & 0.482 & 0.499 & 15.186 & 0.012 \\
+2 & LSTM & 0.857 & 0.987 & 30.177 & -0.410 \\
 \hline
-3 & MLP & 0.618 & 0.499 & 20.062 & 0.011 \\
+3 & GRU & 0.856 & 0.991 & 29.897 & -0.421 \\
 \hline
 \end{tabular}
 \end{table}
 
 \subsubsection{Discussion of Results}
-Deep learning models, including MLP, LSTM, and GRU, were evaluated using the same performance metrics for a fair comparison. Among these models, the LSTM achieved the best performance with the lowest MAE (0.467) and MAPE (14.155\%), followed closely by GRU. The MLP produced the highest error values among the three architectures, with an MAE of 0.618 and MAPE of 20.062\%. All three models exhibited R² scores close to zero, indicating weak explanatory power and limited ability to capture variance in the load data.
+Deep neural network implementations---encompassing MLP, LSTM, and GRU architectures---underwent evaluation employing identical performance criteria to ensure equitable cross-model comparison. Among the neural approaches, the MLP architecture achieved exceptional performance with minimal MAE (0.155) and RMSE (0.242), attaining an R\textsuperscript{2} coefficient of 0.915. This outstanding result demonstrates that the feed-forward network, when provided with appropriately engineered lag features and temporal encodings, can effectively capture the nonlinear consumption patterns present in the feeder data.
 
-Both LSTM and GRU exhibited relatively high MAE and RMSE values compared to the machine learning models, with RMSE remaining close to 0.499 MW for all three architectures. These results suggest that the deep learning models were unable to effectively learn stable temporal patterns from the available dataset. Compared to machine learning models, deep learning approaches showed limited generalization and higher sensitivity to data volume and structure. The lack of performance gains over simpler ML architectures indicates that increased model complexity did not translate into improved forecasting performance in this case.
+In contrast, the recurrent architectures LSTM and GRU exhibited substantially inferior performance, with negative R\textsuperscript{2} values (-0.410 and -0.421 respectively) indicating predictions worse than naive mean-based forecasting. Both recurrent models displayed elevated MAE values (approximately 0.857) and MAPE exceeding 29\%, suggesting fundamental difficulties in learning stable sequential patterns from the available dataset. The RMSE values approaching 0.99 MW further corroborate the limited predictive capability of these sequence-based architectures under the present experimental conditions.
 
-In comparison to machine learning models, deep learning models were clearly outperformed across all evaluation metrics. This highlights that, for the given data scale, feature representation, and forecasting horizon, traditional machine learning models with explicit feature engineering are more suitable than deep learning architectures for feeder-level short-term load forecasting.
+The stark performance differential between MLP and recurrent architectures suggests that explicit temporal feature engineering (lag features, cyclical encodings) combined with a simpler feed-forward structure proves more effective than relying on recurrent mechanisms to implicitly learn temporal dependencies. The MLP model, utilizing extended lag configurations [1, 3, 6, 12, 24, 48] with standard scaling, successfully captured both short-term and medium-term consumption patterns. Notably, the MLP achieved performance competitive with the best machine learning models, with its R\textsuperscript{2} of 0.915 surpassing even the tuned XGBoost model (R\textsuperscript{2} = 0.831), demonstrating that neural network approaches can excel when appropriately configured for the forecasting task.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{lstmActual.png}
-    \caption{LSTM Actual vs Predicted}
-    \label{fig:lstm_actual}
+    \includegraphics[width=0.9\textwidth]{mlpActual.png}
+    \caption{MLP Actual vs Predicted}
+    \label{fig:mlp_actual}
 \end{figure}
 
 \chapter{Conclusion}
 
 \section{Conclusion}
-This thesis developed and evaluated a comprehensive short-term electrical load forecasting framework for the Baneshwor Feeder using machine learning and deep learning approaches. The study followed a systematic methodology involving data acquisition, preprocessing, temporal feature engineering, and comparative evaluation of multiple forecasting models under a unified framework.
+This thesis constructed and rigorously assessed an integrated short-term electrical demand forecasting system tailored for the Baneshwor Feeder, employing both conventional machine learning and contemporary deep learning paradigms. The investigation adhered to a structured experimental protocol encompassing data procurement, quality assurance preprocessing, temporal characteristic extraction, and systematic cross-model performance benchmarking within a consistent evaluation framework.
 
-Experimental results show that machine learning models, particularly ensemble-based methods, significantly outperform deep learning architectures for the given dataset. Among all evaluated models, the tuned XGBoost model achieved the best performance, with an RMSE of 0.384 MW and an R² value of 0.831, demonstrating its strong capability to model nonlinear and weather-dependent load behavior. Other tree-based models, such as Random Forest and Gradient Boosting, also produced competitive results, further confirming the effectiveness of ensemble learning techniques for feeder-level load forecasting.
+Empirical findings demonstrate that both machine learning algorithms and appropriately configured deep learning models can achieve excellent forecasting performance. Among deep learning approaches, the Multi-Layer Perceptron (MLP) model with extended lag features attained the best overall predictive accuracy, registering an RMSE of 0.242 MW alongside an R² coefficient of 0.915, thereby evidencing superior capability in representing nonlinear consumption dynamics and meteorologically-influenced demand variations. The hyperparameter-optimized XGBoost model also achieved strong performance with an RMSE of 0.384 MW and R² of 0.831. Complementary tree-based ensemble approaches, including Random Forest and Gradient Boosting, likewise yielded competitive accuracy metrics, corroborating the efficacy of aggregated decision tree methodologies for distribution-level demand prediction.
 
-In contrast, deep learning models including LSTM, GRU, and MLP did not achieve comparable performance. Their high error values and near-zero R² scores indicate limitations in learning meaningful temporal relationships from the available data, suggesting that deep learning models may require larger datasets or different input structures to be effective in this context.
+Among deep neural network implementations, performance varied considerably across architectures. The Multi-Layer Perceptron (MLP) model achieved exceptional results, attaining an RMSE of 0.242 MW and R² coefficient of 0.915---outperforming all machine learning models including the tuned XGBoost. This success demonstrates that feed-forward networks, when provided with comprehensive lag features and appropriate feature engineering, can effectively capture complex consumption dynamics. Conversely, recurrent architectures comprising LSTM and GRU failed to achieve satisfactory performance, exhibiting negative R² values and elevated error magnitudes. These outcomes suggest that recurrent networks may require substantially larger training corpora or alternative sequence representations to realize their theoretical advantages within this application domain.
 
-Overall, this study confirms that accurate feeder-level short-term load forecasting can be achieved through a carefully designed machine learning pipeline. The findings emphasize that model selection should be guided by data characteristics, feature availability, and operational requirements rather than model complexity alone.
+Collectively, this investigation validates that precise distribution feeder-level short-term demand forecasting remains achievable through both judiciously architected machine learning workflows and appropriately configured neural network approaches. The experimental outcomes underscore that algorithmic selection should be principally informed by dataset characteristics, available feature dimensionality, and operational deployment constraints. Notably, the MLP's success with explicit lag features demonstrates that feed-forward architectures with proper feature engineering can outperform both traditional ML models and more complex recurrent neural networks for feeder-level forecasting applications.
 
 \section{Research Limitations}
 Although the study achieved strong forecasting accuracy, several limitations should be acknowledged:
 
 \begin{enumerate}
-    \item \textbf{Limited dataset size:} Deep learning models typically require long historical sequences and larger datasets. After preprocessing and windowing, the amount of usable sequential data became relatively small.
+    \item \textbf{Recurrent architecture limitations:} While MLP achieved excellent performance, LSTM and GRU models exhibited negative R² values, suggesting that recurrent architectures require substantially larger datasets or alternative sequence representations for effective learning.
     
-    \item \textbf{Irregular load behaviour:} Feeder-level load profiles often contain noise, outages, fluctuations, and sudden spikes, which are difficult for DL models to learn without additional contextual variables.
+    \item \textbf{Irregular load behaviour:} Feeder-level load profiles often contain noise, outages, fluctuations, and sudden spikes, which proved particularly challenging for recurrent deep learning models to learn without additional contextual variables.
     
-    \item \textbf{Short sequence window:} The sliding window used for DL models may not fully capture weekly or monthly patterns that influence feeder demand.
+    \item \textbf{Sequence modeling constraints:} The sliding window approach used for LSTM and GRU models may not fully capture the complex weekly or monthly patterns that the lag-feature-based MLP successfully learned through explicit feature engineering.
     
     \item \textbf{Weather data resolution:} Weather data was available at hourly intervals only; finer granularity or additional environmental factors (e.g., wind speed, rainfall intensity) could further improve models.
     
@@ -939,28 +982,28 @@ These limitations provide important context when interpreting results and design
 The findings of this thesis carry several meaningful implications for utilities, researchers, and system planners:
 
 \begin{enumerate}
-    \item \textbf{Practical adoption for distribution feeders:} Ensemble machine learning models---particularly XGBoost---can provide accurate, low-error forecasts suitable for operational planning, peak management, and scheduling.
+    \item \textbf{Practical adoption for distribution feeders:} Both ensemble machine learning models (particularly XGBoost) and the MLP deep learning model can provide accurate, low-error forecasts suitable for operational planning, peak management, and scheduling.
     
-    \item \textbf{Value of feature engineering:} Carefully constructed temporal and weather features significantly improved forecasting accuracy, highlighting the importance of domain knowledge in model design.
+    \item \textbf{Value of feature engineering:} Carefully constructed temporal features, lag variables, and weather features significantly improved forecasting accuracy, highlighting the importance of domain knowledge in model design. The MLP model's superior performance with extended lag configurations demonstrates the critical role of explicit temporal feature engineering.
     
-    \item \textbf{Limitations of DL for smaller datasets:} The underperformance of LSTM and GRU models reinforces that deep learning is not always the optimal choice, especially when data is limited, noisy, or discontinuous.
+    \item \textbf{Architecture-specific considerations for DL:} While the MLP achieved the best overall performance (R² = 0.915), recurrent architectures (LSTM and GRU) underperformed significantly, reinforcing that deep learning architecture selection must be carefully matched to dataset characteristics and forecasting requirements.
     
-    \item \textbf{Foundation for advanced decision-making tools:} Forecasts from XGBoost can support demand-side management, smart grid optimization, load shifting strategies, and distributed energy resource planning.
+    \item \textbf{Foundation for advanced decision-making tools:} Forecasts from both the MLP and XGBoost models can support demand-side management, smart grid optimization, load shifting strategies, and distributed energy resource planning.
     
     \item \textbf{Transferability:} The pipeline developed in this study can be extended to other NEA feeders with minimal modifications, promoting scalable forecasting across the network.
 \end{enumerate}
 
 \section{Future Work}
-Although this study demonstrates effective short-term load forecasting at the feeder level using machine learning models, several extensions can be explored to further enhance forecasting accuracy and practical applicability.
+Although this study demonstrates effective short-term load forecasting at the feeder level using both machine learning and deep learning models, several extensions can be explored to further enhance forecasting accuracy and practical applicability.
 
 \begin{enumerate}
     \item \textbf{Incorporation of Additional Influencing Factors:} Future work may include additional exogenous variables such as holiday indicators, special events, and socio-economic factors to better capture demand variations that are not explained by weather and temporal features alone.
     
     \item \textbf{Extension to Multi-Feeder and Long-Term Forecasting:} The proposed methodology can be extended to multiple feeders and adapted for medium-term and long-term load forecasting to support broader power system planning and expansion studies.
     
-    \item \textbf{Improved Deep Learning Architectures and Data Volume:} Deep learning models such as LSTM and GRU may benefit from larger datasets, finer temporal resolution, and advanced architectures---including attention-based or hybrid ML--DL models---to improve their forecasting capability.
+    \item \textbf{Enhanced Recurrent Architectures:} While MLP achieved excellent results, LSTM and GRU models may benefit from larger datasets, finer temporal resolution, attention mechanisms, or hybrid architectures combining the lag-feature approach with sequence modeling to improve their forecasting capability.
     
-    \item \textbf{Real-Time Deployment and Online Learning:} Future research can focus on deploying the forecasting model in a real-time operational environment, incorporating online or incremental learning techniques to adapt to evolving load patterns.
+    \item \textbf{Real-Time Deployment and Online Learning:} Future research can focus on deploying the best-performing MLP or XGBoost model in a real-time operational environment, incorporating online or incremental learning techniques to adapt to evolving load patterns.
 \end{enumerate}
 
 \addcontentsline{toc}{section}{References}

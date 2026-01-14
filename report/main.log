@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.1)  5 JAN 2026 22:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.1)  14 JAN 2026 17:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -324,7 +324,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--139
 [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 156--166
+Underfull \hbox (badness 10000) in paragraph at lines 158--170
 
  []
 
@@ -352,31 +352,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--166
 
 ]
  1.
-<Images/feederOutline.png, id=51, 853.1875pt x 636.3775pt>
-File: Images/feederOutline.png Graphic file (type png)
-<use Images/feederOutline.png>
-Package pdftex.def Info: Images/feederOutline.png  used on input line 214.
-(pdftex.def)             Requested size: 422.77664pt x 315.34283pt.
 [1
 
-] [2 <./Images/feederOutline.png>]
-<Images/lineDiagram.png, id=60, 523.35526pt x 511.31026pt>
+]
+<Images/feederOutline.png, id=53, 853.1875pt x 636.3775pt>
+File: Images/feederOutline.png Graphic file (type png)
+<use Images/feederOutline.png>
+Package pdftex.def Info: Images/feederOutline.png  used on input line 218.
+(pdftex.def)             Requested size: 422.77664pt x 315.34283pt.
+ [2 <./Images/feederOutline.png>]
+<Images/lineDiagram.png, id=59, 523.35526pt x 511.31026pt>
 File: Images/lineDiagram.png Graphic file (type png)
 <use Images/lineDiagram.png>
-Package pdftex.def Info: Images/lineDiagram.png  used on input line 230.
+Package pdftex.def Info: Images/lineDiagram.png  used on input line 234.
 (pdftex.def)             Requested size: 422.77664pt x 413.05115pt.
- [3 <./Images/lineDiagram.png>] [4] [5]
+ [3 <./Images/lineDiagram.png>] [4]
+Overfull \hbox (1.72034pt too wide) in paragraph at lines 258--259
+[]\OT1/cmr/bx/n/12 Cross-feeder trans-fer-abil-ity con-straints: \OT1/cmr/m/n/12 The pre-dic-tive mod-els con-structed herein
+ []
+
+[5]
  2.
 [6
 
-] [7] [8] [9] [10] [11]
-<Images/mlp.png, id=95, 853.1875pt x 455.7025pt>
+] [7] [8] [9]
+Overfull \hbox (4.21785pt too wide) in paragraph at lines 310--311
+\OT1/cmr/m/n/12 Linear Re-gres-sion con-sti-tutes the most el-e-men-tary pre-dic-tive frame-work, pos-tu-lat-ing a strictly
+ []
+
+[10] [11] [12]
+<Images/mlp.png, id=99, 853.1875pt x 455.7025pt>
 File: Images/mlp.png Graphic file (type png)
 <use Images/mlp.png>
-Package pdftex.def Info: Images/mlp.png  used on input line 400.
+Package pdftex.def Info: Images/mlp.png  used on input line 404.
 (pdftex.def)             Requested size: 328.82707pt x 175.6372pt.
- [12]
-Overfull \hbox (1.30963pt too wide) in paragraph at lines 406--407
+
+Overfull \hbox (1.30963pt too wide) in paragraph at lines 410--411
 \OT1/cmr/m/n/12 LSTM net-works [[]] are de-signed to main-tain con-tex-tual mem-ory over long se-quences through
  []
 
@@ -384,91 +395,102 @@ Overfull \hbox (1.30963pt too wide) in paragraph at lines 406--407
 <Images/lstm.png, id=104, 289.83281pt x 260.47313pt>
 File: Images/lstm.png Graphic file (type png)
 <use Images/lstm.png>
-Package pdftex.def Info: Images/lstm.png  used on input line 445.
+Package pdftex.def Info: Images/lstm.png  used on input line 449.
 (pdftex.def)             Requested size: 328.82707pt x 295.53548pt.
  [14 <./Images/lstm.png>]
 <Images/gru.png, id=109, 290.58563pt x 260.47313pt>
 File: Images/gru.png Graphic file (type png)
 <use Images/gru.png>
-Package pdftex.def Info: Images/gru.png  used on input line 480.
+Package pdftex.def Info: Images/gru.png  used on input line 484.
 (pdftex.def)             Requested size: 328.82707pt x 294.77237pt.
  [15 <./Images/gru.png>]
  3.
-<Images/blockDiagram.png, id=114, 1413.28pt x 770.88pt>
-File: Images/blockDiagram.png Graphic file (type png)
-<use Images/blockDiagram.png>
-Package pdftex.def Info: Images/blockDiagram.png  used on input line 493.
-(pdftex.def)             Requested size: 422.77664pt x 230.60707pt.
 [16
 
-] [17 <./Images/blockDiagram.png (PNG copy)>] [18] [19]
-<Images/featureCorrelation.png, id=129, 625.1355pt x 549.9747pt>
+]
+<Images/blockDiagram.png, id=117, 1413.28pt x 770.88pt>
+File: Images/blockDiagram.png Graphic file (type png)
+<use Images/blockDiagram.png>
+Package pdftex.def Info: Images/blockDiagram.png  used on input line 497.
+(pdftex.def)             Requested size: 422.77664pt x 230.60707pt.
+ [17 <./Images/blockDiagram.png (PNG copy)>] [18] [19] [20]
+<Images/featureCorrelation.png, id=132, 625.1355pt x 549.9747pt>
 File: Images/featureCorrelation.png Graphic file (type png)
 <use Images/featureCorrelation.png>
-Package pdftex.def Info: Images/featureCorrelation.png  used on input line 548.
+Package pdftex.def Info: Images/featureCorrelation.png  used on input line 552.
 (pdftex.def)             Requested size: 328.82707pt x 289.2949pt.
- [20] [21 <./Images/featureCorrelation.png>] [22]
-Overfull \hbox (35.3135pt too wide) in paragraph at lines 598--599
+ [21 <./Images/featureCorrelation.png>] [22]
+Overfull \hbox (35.3135pt too wide) in paragraph at lines 602--603
 []\OT1/cmr/bx/n/12 Random For-est and Gra-di-ent Boost-ing: \OT1/cmr/m/n/12 n[]estimators, max[]depth, and min[]samples[]split 
  []
 
 [23] [24] [25] [26] [27]
+Overfull \hbox (2.06195pt too wide) in paragraph at lines 749--750
+[]\OT1/cmr/bx/n/12 Interpretation: \OT1/cmr/m/n/12 An R$[]$ co-ef-fi-cient of unity sig-ni-fies flaw-less pre-dic-tion ca-pa-bil-ity, whereas
+ []
+
+[28]
  4.
-<Images/lineGraphLoad.png, id=157, 1003.8303pt x 332.442pt>
+<Images/lineGraphLoad.png, id=160, 1003.8303pt x 332.442pt>
 File: Images/lineGraphLoad.png Graphic file (type png)
 <use Images/lineGraphLoad.png>
-Package pdftex.def Info: Images/lineGraphLoad.png  used on input line 730.
+Package pdftex.def Info: Images/lineGraphLoad.png  used on input line 761.
 (pdftex.def)             Requested size: 422.77664pt x 140.0102pt.
-[28
+[29
 
 ]
-<Images/hourlyLoad.png, id=161, 508.7808pt x 323.0469pt>
+<Images/hourlyLoad.png, id=164, 508.7808pt x 323.0469pt>
 File: Images/hourlyLoad.png Graphic file (type png)
 <use Images/hourlyLoad.png>
-Package pdftex.def Info: Images/hourlyLoad.png  used on input line 739.
+Package pdftex.def Info: Images/hourlyLoad.png  used on input line 770.
 (pdftex.def)             Requested size: 422.77664pt x 268.4542pt.
- [29 <./Images/lineGraphLoad.png> <./Images/hourlyLoad.png>]
-<Images/averageload.png, id=167, 430.7292pt x 338.9463pt>
+ [30 <./Images/lineGraphLoad.png> <./Images/hourlyLoad.png>]
+<Images/averageload.png, id=171, 430.7292pt x 338.9463pt>
 File: Images/averageload.png Graphic file (type png)
 <use Images/averageload.png>
-Package pdftex.def Info: Images/averageload.png  used on input line 748.
+Package pdftex.def Info: Images/averageload.png  used on input line 779.
 (pdftex.def)             Requested size: 328.82707pt x 258.76038pt.
- [30 <./Images/averageload.png>] [31]
-<Images/xboostActual.png, id=176, 3842.355pt x 2637.855pt>
+ [31 <./Images/averageload.png>] [32]
+<Images/xboostActual.png, id=179, 3842.355pt x 2637.855pt>
 File: Images/xboostActual.png Graphic file (type png)
 <use Images/xboostActual.png>
-Package pdftex.def Info: Images/xboostActual.png  used on input line 841.
+Package pdftex.def Info: Images/xboostActual.png  used on input line 872.
 (pdftex.def)             Requested size: 422.77664pt x 290.2052pt.
- [32] [33 <./Images/xboostActual.png (PNG copy)>] [34]
-<Images/lstmActual.png, id=187, 611.4042pt x 263.0628pt>
-File: Images/lstmActual.png Graphic file (type png)
-<use Images/lstmActual.png>
-Package pdftex.def Info: Images/lstmActual.png  used on input line 906.
-(pdftex.def)             Requested size: 422.77664pt x 181.9109pt.
- [35 <./Images/lstmActual.png>]
+ [33] [34 <./Images/xboostActual.png (PNG copy)>]
+Overfull \hbox (3.65826pt too wide) in paragraph at lines 941--942
+\OT1/cmr/m/n/12 Deep neu-ral net-work implementations---encompassing MLP, LSTM, and GRU architectures---
+ []
+
+[35]
+<Images/mlpActual.png, id=190, 1606.0pt x 595.22375pt>
+File: Images/mlpActual.png Graphic file (type png)
+<use Images/mlpActual.png>
+Package pdftex.def Info: Images/mlpActual.png  used on input line 949.
+(pdftex.def)             Requested size: 422.77664pt x 156.68907pt.
+ [36 <./Images/mlpActual.png>]
  5.
-[36
+[37
 
-] [37] (main.bbl [38] [39
+] [38] [39] (main.bbl [40] [41
 
-] [40]) [41] (main.aux)
+] [42]) [43] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4357 strings out of 467871
- 66053 string characters out of 5428435
- 492900 words of memory out of 5000000
- 33188 multiletter control sequences out of 15000+600000
- 636464 words of font info for 70 fonts, out of 8000000 for 9000
+ 4360 strings out of 467871
+ 66105 string characters out of 5428435
+ 494916 words of memory out of 5000000
+ 33191 multiletter control sequences out of 15000+600000
+ 636431 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,14n,65p,2060b,325s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Haitomns\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1200.pk> <C:\Users\Haitomns\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1440.pk> <C:\Users\Haitomns\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (54 pages, 13699400 bytes).
+ 57i,14n,65p,2223b,323s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Haitomns\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1200.pk> <C:\Users\Haitomns\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (56 pages, 14071647 bytes).
 PDF statistics:
- 277 PDF objects out of 1000 (max. 8388607)
+ 283 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

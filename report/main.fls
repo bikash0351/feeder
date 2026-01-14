@@ -110,7 +110,6 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
 INPUT .\main.toc
 INPUT .\main.toc
 INPUT main.toc
-INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
 OUTPUT main.toc
 INPUT .\main.lof
 INPUT .\main.lof
@@ -135,6 +134,7 @@ INPUT .\Images\lineDiagram.png
 INPUT .\Images\lineDiagram.png
 INPUT .\Images\lineDiagram.png
 INPUT .\Images\lineDiagram.png
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
 INPUT .\Images\mlp.png
 INPUT .\Images\mlp.png
 INPUT .\Images\mlp.png
@@ -166,7 +166,7 @@ INPUT .\Images\featureCorrelation.png
 INPUT .\Images\featureCorrelation.png
 INPUT .\Images\featureCorrelation.png
 INPUT .\Images\featureCorrelation.png
-INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\tcbx1440.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT .\Images\lineGraphLoad.png
 INPUT .\Images\lineGraphLoad.png
 INPUT .\Images\lineGraphLoad.png
@@ -192,22 +192,22 @@ INPUT .\Images\xboostActual.png
 INPUT .\Images\xboostActual.png
 INPUT .\Images\xboostActual.png
 INPUT .\Images\xboostActual.png
-INPUT .\Images\lstmActual.png
-INPUT .\Images\lstmActual.png
-INPUT .\Images\lstmActual.png
-INPUT .\Images\lstmActual.png
-INPUT .\Images\lstmActual.png
-INPUT .\Images\lstmActual.png
+INPUT .\Images\mlpActual.png
+INPUT .\Images\mlpActual.png
+INPUT .\Images\mlpActual.png
+INPUT .\Images\mlpActual.png
+INPUT .\Images\mlpActual.png
+INPUT .\Images\mlpActual.png
 INPUT .\main.bbl
 INPUT .\main.bbl
 INPUT main.bbl
 INPUT main.aux
 INPUT C:\Users\Haitomns\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcbx1200.pk
 INPUT C:\Users\Haitomns\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcbx1200.pk
-INPUT C:\Users\Haitomns\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcbx1440.pk
-INPUT C:\Users\Haitomns\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcbx1440.pk
 INPUT C:\Users\Haitomns\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
 INPUT C:\Users\Haitomns\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx8.pfb

@@ -9,9 +9,9 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Methodology Block Diagram}}{17}{}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Feature Correlation Matrix}}{21}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Daily Average Electricity Load Over Time}}{29}{}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Load Distribution by Hour}}{29}{}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Average Load by Month}}{30}{}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces XBoost (Tuned) Actual vs Predicted}}{33}{}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces LSTM Actual vs Predicted}}{35}{}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Daily Average Electricity Load Over Time}}{30}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Load Distribution by Hour}}{30}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Average Load by Month}}{31}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces XBoost (Tuned) Actual vs Predicted}}{34}{}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces MLP Actual vs Predicted}}{36}{}%
 \addvspace {10\p@ }
