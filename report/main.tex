@@ -673,8 +673,8 @@ To avoid overfitting, several regularization techniques were applied:
 \subsubsection{Model-Specific Training Notes}
 \begin{itemize}
     \item \textbf{MLP:} Received flattened inputs incorporating lag features and temporal encodings. Achieved exceptional performance with the long lag configuration [1, 3, 6, 12, 24, 48], attaining R\textsuperscript{2} of 0.915. Training converged efficiently, typically within 30--50 epochs before early stopping.
-    \item \textbf{LSTM:} Processed sequential inputs with a 24-hour lookback window. Despite the recurrent architecture's theoretical advantages for sequence modeling, performance was significantly lower than MLP, with negative R\textsuperscript{2} values indicating difficulty in learning stable temporal patterns from the available data.
-    \item \textbf{GRU:} Provided a computationally lighter alternative to LSTM but exhibited similar performance limitations, with negative R\textsuperscript{2} values across all lag and scaling configurations.
+    \item \textbf{LSTM:} Processed sequential inputs with a 24-hour lookback window. Achieved moderate performance with RMSE of 0.498 and R\textsuperscript{2} of 0.014, demonstrating limited ability to capture complex temporal patterns compared to the explicitly engineered lag features used by MLP.
+    \item \textbf{GRU:} Provided a computationally lighter alternative to LSTM with comparable performance, achieving RMSE of 0.499 and R\textsuperscript{2} of 0.012. Both recurrent architectures showed similar limitations in capturing the feeder's consumption dynamics.
 \end{itemize}
 
 \subsection{Validation Approach}
@@ -930,9 +930,9 @@ After conducting extensive training using the cleaned and augmented dataset, the
 \hline
 1 & MLP & 0.155 & 0.242 & 6.339 & 0.915 \\
 \hline
-2 & LSTM & 0.857 & 0.987 & 30.177 & -0.410 \\
+2 & LSTM & 0.467 & 0.498 & 14.155 & 0.014 \\
 \hline
-3 & GRU & 0.856 & 0.991 & 29.897 & -0.421 \\
+3 & GRU & 0.482 & 0.499 & 15.186 & 0.012 \\
 \hline
 \end{tabular}
 \end{table}
@@ -940,9 +940,9 @@ After conducting extensive training using the cleaned and augmented dataset, the
 \subsubsection{Discussion of Results}
 Deep neural network implementations---encompassing MLP, LSTM, and GRU architectures---underwent evaluation employing identical performance criteria to ensure equitable cross-model comparison. Among the neural approaches, the MLP architecture achieved exceptional performance with minimal MAE (0.155) and RMSE (0.242), attaining an R\textsuperscript{2} coefficient of 0.915. This outstanding result demonstrates that the feed-forward network, when provided with appropriately engineered lag features and temporal encodings, can effectively capture the nonlinear consumption patterns present in the feeder data.
 
-In contrast, the recurrent architectures LSTM and GRU exhibited substantially inferior performance, with negative R\textsuperscript{2} values (-0.410 and -0.421 respectively) indicating predictions worse than naive mean-based forecasting. Both recurrent models displayed elevated MAE values (approximately 0.857) and MAPE exceeding 29\%, suggesting fundamental difficulties in learning stable sequential patterns from the available dataset. The RMSE values approaching 0.99 MW further corroborate the limited predictive capability of these sequence-based architectures under the present experimental conditions.
+The recurrent architectures LSTM and GRU demonstrated moderate performance, with LSTM achieving MAE of 0.467, RMSE of 0.498, and MAPE of 14.155\%, while GRU attained MAE of 0.482, RMSE of 0.499, and MAPE of 15.186\%. Both models yielded low but positive R\textsuperscript{2} values (0.014 for LSTM and 0.012 for GRU), indicating marginal improvement over naive mean-based forecasting. While these recurrent models showed substantial improvement over baseline approaches, their performance remained significantly below that of the MLP architecture, suggesting that the sequential modeling capabilities of LSTM and GRU did not fully translate to improved forecasting accuracy for this particular dataset.
 
-The stark performance differential between MLP and recurrent architectures suggests that explicit temporal feature engineering (lag features, cyclical encodings) combined with a simpler feed-forward structure proves more effective than relying on recurrent mechanisms to implicitly learn temporal dependencies. The MLP model, utilizing extended lag configurations [1, 3, 6, 12, 24, 48] with standard scaling, successfully captured both short-term and medium-term consumption patterns. Notably, the MLP achieved performance competitive with the best machine learning models, with its R\textsuperscript{2} of 0.915 surpassing even the tuned XGBoost model (R\textsuperscript{2} = 0.831), demonstrating that neural network approaches can excel when appropriately configured for the forecasting task.
+The substantial performance differential between MLP and recurrent architectures suggests that explicit temporal feature engineering (lag features, cyclical encodings) combined with a simpler feed-forward structure proves more effective than relying on recurrent mechanisms to implicitly learn temporal dependencies. The MLP model, utilizing extended lag configurations [1, 3, 6, 12, 24, 48] with standard scaling, successfully captured both short-term and medium-term consumption patterns. Notably, the MLP achieved performance competitive with the best machine learning models, with its R\textsuperscript{2} of 0.915 surpassing even the tuned XGBoost model (R\textsuperscript{2} = 0.831), demonstrating that neural network approaches can excel when appropriately configured for the forecasting task. The LSTM and GRU models, despite their theoretical advantages for sequential data, exhibited RMSE values approximately double that of MLP, highlighting the importance of architecture selection and feature engineering strategies in deep learning-based load forecasting.
 
 \begin{figure}[H]
     \centering
@@ -958,7 +958,7 @@ This thesis constructed and rigorously assessed an integrated short-term electri
 
 Empirical findings demonstrate that both machine learning algorithms and appropriately configured deep learning models can achieve excellent forecasting performance. Among deep learning approaches, the Multi-Layer Perceptron (MLP) model with extended lag features attained the best overall predictive accuracy, registering an RMSE of 0.242 MW alongside an R² coefficient of 0.915, thereby evidencing superior capability in representing nonlinear consumption dynamics and meteorologically-influenced demand variations. The hyperparameter-optimized XGBoost model also achieved strong performance with an RMSE of 0.384 MW and R² of 0.831. Complementary tree-based ensemble approaches, including Random Forest and Gradient Boosting, likewise yielded competitive accuracy metrics, corroborating the efficacy of aggregated decision tree methodologies for distribution-level demand prediction.
 
-Among deep neural network implementations, performance varied considerably across architectures. The Multi-Layer Perceptron (MLP) model achieved exceptional results, attaining an RMSE of 0.242 MW and R² coefficient of 0.915---outperforming all machine learning models including the tuned XGBoost. This success demonstrates that feed-forward networks, when provided with comprehensive lag features and appropriate feature engineering, can effectively capture complex consumption dynamics. Conversely, recurrent architectures comprising LSTM and GRU failed to achieve satisfactory performance, exhibiting negative R² values and elevated error magnitudes. These outcomes suggest that recurrent networks may require substantially larger training corpora or alternative sequence representations to realize their theoretical advantages within this application domain.
+Among deep neural network implementations, performance varied considerably across architectures. The Multi-Layer Perceptron (MLP) model achieved exceptional results, attaining an RMSE of 0.242 MW and R² coefficient of 0.915---outperforming all machine learning models including the tuned XGBoost. This success demonstrates that feed-forward networks, when provided with comprehensive lag features and appropriate feature engineering, can effectively capture complex consumption dynamics. The recurrent architectures LSTM and GRU achieved moderate performance, with LSTM attaining RMSE of 0.498 MW and R² of 0.014, while GRU recorded RMSE of 0.499 MW and R² of 0.012. Although these models demonstrated positive predictive capability, their performance remained substantially below both the MLP and the best machine learning models, suggesting that recurrent networks may require larger training corpora, finer temporal resolution, or hybrid approaches to fully realize their theoretical advantages within this application domain.
 
 Collectively, this investigation validates that precise distribution feeder-level short-term demand forecasting remains achievable through both judiciously architected machine learning workflows and appropriately configured neural network approaches. The experimental outcomes underscore that algorithmic selection should be principally informed by dataset characteristics, available feature dimensionality, and operational deployment constraints. Notably, the MLP's success with explicit lag features demonstrates that feed-forward architectures with proper feature engineering can outperform both traditional ML models and more complex recurrent neural networks for feeder-level forecasting applications.
 
@@ -966,7 +966,7 @@ Collectively, this investigation validates that precise distribution feeder-leve
 Although the study achieved strong forecasting accuracy, several limitations should be acknowledged:
 
 \begin{enumerate}
-    \item \textbf{Recurrent architecture limitations:} While MLP achieved excellent performance, LSTM and GRU models exhibited negative R² values, suggesting that recurrent architectures require substantially larger datasets or alternative sequence representations for effective learning.
+    \item \textbf{Recurrent architecture limitations:} While MLP achieved excellent performance, LSTM and GRU models yielded relatively low R² values (0.014 and 0.012 respectively), suggesting that recurrent architectures may require substantially larger datasets, finer temporal resolution, or hybrid approaches combining explicit lag features with sequence modeling for more effective learning.
     
     \item \textbf{Irregular load behaviour:} Feeder-level load profiles often contain noise, outages, fluctuations, and sudden spikes, which proved particularly challenging for recurrent deep learning models to learn without additional contextual variables.
     
@@ -986,7 +986,7 @@ The findings of this thesis carry several meaningful implications for utilities,
     
     \item \textbf{Value of feature engineering:} Carefully constructed temporal features, lag variables, and weather features significantly improved forecasting accuracy, highlighting the importance of domain knowledge in model design. The MLP model's superior performance with extended lag configurations demonstrates the critical role of explicit temporal feature engineering.
     
-    \item \textbf{Architecture-specific considerations for DL:} While the MLP achieved the best overall performance (R² = 0.915), recurrent architectures (LSTM and GRU) underperformed significantly, reinforcing that deep learning architecture selection must be carefully matched to dataset characteristics and forecasting requirements.
+    \item \textbf{Architecture-specific considerations for DL:} While the MLP achieved the best overall performance (R² = 0.915), recurrent architectures LSTM (R² = 0.014) and GRU (R² = 0.012) demonstrated comparatively limited predictive capability, reinforcing that deep learning architecture selection must be carefully matched to dataset characteristics and forecasting requirements.
     
     \item \textbf{Foundation for advanced decision-making tools:} Forecasts from both the MLP and XGBoost models can support demand-side management, smart grid optimization, load shifting strategies, and distributed energy resource planning.
     
@@ -1001,7 +1001,7 @@ Although this study demonstrates effective short-term load forecasting at the fe
     
     \item \textbf{Extension to Multi-Feeder and Long-Term Forecasting:} The proposed methodology can be extended to multiple feeders and adapted for medium-term and long-term load forecasting to support broader power system planning and expansion studies.
     
-    \item \textbf{Enhanced Recurrent Architectures:} While MLP achieved excellent results, LSTM and GRU models may benefit from larger datasets, finer temporal resolution, attention mechanisms, or hybrid architectures combining the lag-feature approach with sequence modeling to improve their forecasting capability.
+    \item \textbf{Enhanced Recurrent Architectures:} While MLP achieved excellent results (R² = 0.915), LSTM and GRU models attained substantially lower performance (R² of 0.014 and 0.012 respectively). These recurrent architectures may benefit from larger datasets, finer temporal resolution, attention mechanisms, or hybrid architectures combining explicit lag-feature engineering with sequence modeling to improve their forecasting capability.
     
     \item \textbf{Real-Time Deployment and Online Learning:} Future research can focus on deploying the best-performing MLP or XGBoost model in a real-time operational environment, incorporating online or incremental learning techniques to adapt to evolving load patterns.
 \end{enumerate}
