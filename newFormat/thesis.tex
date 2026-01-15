@@ -1,0 +1,1533 @@
+\documentclass[oneside, 12pt]{book}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\urlstyle{same}
+\usepackage{titlesec}
+\usepackage{mathtools}
+\usepackage{twoopt}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{gensymb}
+\usepackage[style=apa, backend=biber]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{references.bib}
+\renewcommand{\cftdotsep}{2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% Document Dimentions Size %%%%%%%%%%%%%%%%%
+\geometry{a4paper, total={210mm, 297mm}, left=1.5in, top=1in, right = 1in, bottom = 1.59in, footskip = 0.59in}
+\captionsetup{compatibility=false}
+\def\UrlBreaks{\do\/\do-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%% Figure referencing with "Figure" hyperref %%%%%%
+\newcommandtwoopt*{\myref}[3][][]{%
+  \hyperref[{#3}]{%
+    \ifx\\#1\\%
+    \else
+      #1~%
+    \fi
+    \ref*{#3}%
+    \ifx\\#2\\%
+    \else
+      \,#2%
+    \fi
+  }%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%% Figure 2.1 vs Figure 2.1: %%%%%%%%%%%%%%%
+\captionsetup[figure]{labelsep=space}
+\captionsetup[table]{labelsep=space}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%% REMOVE GAP AFTER TOC, LOF, LOT %%%%%%%
+\setlength\cftafterloftitleskip{24pt}
+\setlength\cftafterlottitleskip{24pt}
+\setlength\cftaftertoctitleskip{24pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% Equation numbering style %%%%%%%%%%%%%
+\numberwithin{equation}{chapter}
+\counterwithin{equation}{chapter}	% Chapter wise
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%% Figure and Table numbering style %%%%%%%
+%\counterwithout{figure}{chapter}	% Continuous
+%\counterwithout{table}{chapter}	% Continuous
+\counterwithin{figure}{chapter}		% Chapter wise
+\counterwithin{table}{chapter}		% Chapter wise
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\sizexii}{\fontsize{12pt}{6pt}\selectfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titleformat{\section}{\sizexii\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\sizexii\bfseries}{\thesubsection}{1em}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Colors of text %%%%%%%%%%%%%%%%%%%%
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true,
+%    citecolor=black,
+%    filecolor=black,
+%    linkcolor=black,
+%    urlcolor=black,
+%    anchorcolor=black
+%}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = black,
+  anchorcolor = [rgb]{0.05098,0.50588,0.67451},
+  citecolor = [rgb]{0.05098,0.50588,0.67451},
+  urlcolor = [rgb]{0.05098,0.50588,0.67451}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\cleardoublepage\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%% Section wise indetnt off (a) %%%%%%%%%%%%
+\setlength{\cftsecindent}{0pt}% Remove indent for \section
+\setlength{\cftsubsecindent}{0pt}% Remove indent for \subsection
+\cftsetindents{section}{1em}{3em}
+\cftsetindents{subsection}{1em}{3em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% For dots at chapter heading in TOC %%%%%%%%
+
+\makeatletter
+\renewcommand{\@dotsep}{2}
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\normalfont\leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfill\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%% Remove chapter indent in TOC %%%%%%%%%%
+\newcounter{mysection}
+\renewcommand\themysection{\Alph{mysection}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\ToToC[1]{\addcontentsline{toc}{section}   {\hspace*{4em}\appendixname~\themysection\hspace*{1em}#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%% Section wise indetnt off (b) %%%%%%%%%%%%
+\makeatletter
+\newcommand\mysection{\refstepcounter{mysection}%
+  \@startsection{paragraph}{4}{\z@}%
+  {-3.5ex \@plus -1ex \@minus -.2ex}%
+  {2.3ex \@plus.2ex}%
+  {\normalfont\Large\bfseries}}
+\renewcommand*\l@section{\@dottedtocline{1}{0em}{4em}}%
+\renewcommand*\l@subsection{\@dottedtocline{2}{1em}{4em}}%
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{0em}{4em}}%
+\newcommand*\l@mysection{\@dottedtocline{4}{1em}{1em}}%
+\renewcommand\appendix{\par
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \renewcommand\theparagraph{\Alph{mysection}}
+  \renewcommand\themysection{\@Alph\c@paragraph}}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%% Dot after section 1.1., 1.2.3. %%%%%%%%
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}.{}}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.{}}
+\renewcommand{\thesubsubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0pt}
+\pagestyle{plain}
+\linespread{1.5}
+\setlength{\parskip}{6pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%% DOCUMENTATION FOR SPINE %%%%%%%%%%%%%%%%%%%
+%\usepackage{everypage}
+%
+%\def\PageTopMargin{1in}
+%\def\PageLeftMargin{1.5in}
+%\newcommand\atxy[3]{%
+% \AddThispageHook{\smash{\hspace*{\dimexpr-\PageLeftMargin-\hoffset+#1\relax}%
+%  \raisebox{\dimexpr\PageTopMargin+\voffset-#2\relax}{#3}}}}
+%
+%\setlength{\fboxrule}{0pt} % No boarder in Fbox inserted
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% STARTING OF THE DOCUMENT %%%%%%%%%%%%%
+
+\begin{document}
+
+\titlespacing*{\section}{0pt}{18pt}{6pt}
+\titlespacing*{\subsection}{0pt}{18pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{18pt}{6pt}
+\titlespacing*{\subsubsubsection}{0pt}{6pt}{6pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% TITLE PAGE WITH SPINE %%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% TEXT in SPINE %%%%%%%%%%%%%%%%%%%%%%%
+%\atxy{0.65in}{0.25in}{\rotatebox[origin=l]{-90}{\fbox{\makebox[11in]{\normalfont
+%\textbf{EDM00/075} 
+%\hspace{0.75cm} 
+%\textbf{Title of your thesis work} 
+%\hspace{0.75cm} 
+%\textbf{Author's Name} 
+%\hspace{0.75cm} 
+%\textbf{2021} 
+%\rule[-12pt]{0pt}{25pt}}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{titlepage}
+%\centering
+%
+%\includegraphics[width = 3.5cm, height = 3.5cm]{figures/logos/tu_logo.png}
+%
+%\begin{doublespacing}
+%
+%\bigskip
+%
+%TRIBHUVAN UNIVERSITY\\
+%INSTITUTE OF ENGINEERING\\
+%THAPATHALI CAMPUS
+%
+%\bigskip
+%\bigskip
+%%\bigskip
+%
+%\begin{flushleft} EDM 00/075 \end{flushleft}
+%
+%\textbf{Title of your thesis work}
+%
+%\bigskip
+%\bigskip
+%%\bigskip
+%
+%by
+%
+%%\bigskip
+%\bigskip
+%\bigskip
+%
+%\textbf{Author's Name}
+%
+%\bigskip
+%\bigskip
+%%\bigskip
+%
+%A THESIS\\
+%SUBMITTED TO T
+%
+%\bigskip
+%\bigskip
+%%\bigskip
+%
+%DEPARTMENT OF AUTOMOBILE AND MECHANICAL ENGINEERING\\
+%KATHMANDU, NEPAL\\
+%
+%\bigskip
+%\bigskip
+%
+%SEPTEMBER, 2021 \\
+%
+%\end{doublespacing}
+%\end{titlepage}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% END OF TITLE PAGE WITH SPINE %%%%%%%%%%%%%%%%%%%%
+%
+%\clearpage
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+\centering
+
+\includegraphics[width = 3.5cm, height = 3.5cm]{tu_logo.png}
+
+\begin{doublespacing}
+
+\bigskip
+
+TRIBHUVAN UNIVERSITY\\
+BIRENDRA MULTIPLE CAMPUS
+
+\bigskip
+\bigskip
+%\bigskip
+
+%\begin{flushleft} BEL 016/076 \end{flushleft}
+
+\textbf{............}
+
+\bigskip
+\bigskip
+%\bigskip
+
+Submitted by
+
+%\bigskip
+%\bigskip
+\bigskip
+
+..... \\
+.....
+
+
+
+\bigskip
+\bigskip
+%\bigskip
+
+A THESIS REPORT\\
+SUBMITTED TO THE DEPARTMENT OF AGRICULTURAL ENGINEERING IN PARTIAL FULFILLMENT OF THE REQUIREMENTS FOR THE
+DEGREE OF MASTER OF SCIENCE IN
+SANITATION ENGINEERING
+
+%IN PARTIAL FULFILLMENT OF THE REQUIREMENTS FOR THE DEGREE OF BACHELOR OF ENGINEERING IN ELECTRICAL ENGINEERING
+
+\bigskip
+\bigskip
+%\bigskip
+
+DEPARTMENT OF ELECTRICAL ENGINEERING \\ DHARAN, NEPAL\\
+
+\bigskip
+\bigskip
+
+APRIL, 2025 \\
+
+\end{doublespacing}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% END OF TITLE PAGE %%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\newpage
+
+\pagenumbering{roman}
+
+%%% Add here the file from misc page file
+\section*{\begin{center}  {\sizexii COPYRIGHT} \end{center}}
+\phantomsection \addcontentsline{toc}{section}{Copyright}\vspace{-16pt}
+The author has agreed t
+ \\
+Head \\
+Department of .... Engineering \\
+Purwanchal Campus, Institute of Engineering \\
+Dharan, Sunsari\\
+Nepal 
+\newpage
+\newgeometry{a4paper, total={210mm, 297mm}, left=1.5in, top=1in, right = 1in, bottom = 1in, footskip = 0in}
+
+
+\phantomsection \addcontentsline{toc}{section}{Approval page}
+{\centering
+\textbf{TRIBHUVAN UNIVERSITY}\\
+\textbf{INSTITUTE OF ENGINEERING}\\
+\textbf{PURWANCHAL CAMPUS}\\
+\textbf{DEPARTMENT OF ELECTRICAL ENGINEERING}\\}
+\noindent The undersigned certify that they have read and recommended to the Institute of Engineering for acceptance, a PROJECT entitled \textbf{..................................................r} submitted by ........................... in partial fulfillment of the requirements for the degree of 
+
+\bigskip
+\hspace{2cm}
+\begin{table}[h]
+\begin{tabular}{ll}
+\hspace{3cm} & \rule{9.75cm}{1pt} \\
+\hspace{3cm} & Supervisor, dddd \\
+\hspace{3cm} & Faculty, Department of ... Engineering \\
+\hspace{3cm} &  Purwanchal Campus, IOE, Tribhuvan University \\
+
+\hspace{3cm} & \\
+\hspace{3cm} & \rule{9.75cm}{1pt} \\
+\hspace{3cm} & External Examiner, , . \\
+\hspace{3cm} & , Departmnt. \\
+\hspace{3cm} & C,  University \\
+\hspace{3cm} & \\
+
+\hspace{2cm} & \rule{9.75cm}{1pt} \\
+\hspace{2cm} & HOD, ........ \\
+\hspace{2cm} & Assistant Professor, Department of............ \\
+\hspace{2cm} & Purwanchal Campus, IOE, Tribhuvan University \\ 
+\hspace{2cm} &  \\
+
+\end{tabular}
+\end{table}
+
+Date: April, 2025
+
+\restoregeometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% ABSTRACT PAGE %%%%%%%%%%%%%%%%%%
+
+\section*{\begin{center} {ABSTRACT} \end{center}}
+\phantomsection
+\addcontentsline{toc}{section}{Abstract} \vspace{-16pt}
+
+Accurate short-term electrical load forecasting plays a crucial role in the efficient planning and operation of modern power systems. With increasing load variability influenced by weather conditions, temporal patterns, and socio-economic activities, traditional statistical methods often struggle to capture complex and nonlinear demand behavior. This project focuses on short-term electrical load forecasting for the Lekhnath Feeder using machine learning--based approaches.
+
+Historical hourly load data, along with meteorological variables such as air temperature, global solar radiation, and relative humidity, were used to develop predictive models. Comprehensive data preprocessing was performed, including missing value imputation, outlier treatment, temporal feature extraction, and cyclical encoding of time-based variables. Several machine learning models were implemented and evaluated, including Linear Regression, Ridge Regression, Support Vector Regression, Random Forest, Gradient Boosting, and XGBoost. Deep learning models including Multi-Layer Perceptron (MLP), Long Short-Term Memory (LSTM), and Gated Recurrent Unit (GRU) were also developed and evaluated. Hyperparameter tuning and data augmentation techniques were applied to improve model performance.
+
+The models were assessed using standard evaluation metrics such as Mean Absolute Error (MAE), Root Mean Square Error (RMSE), Mean Absolute Percentage Error (MAPE), and R-squared (R\textsuperscript{2}). The results show that the MLP deep learning model with extended lag features achieved the best overall performance (RMSE: 0.242 MW, R\textsuperscript{2}: 0.915), followed by ensemble-based machine learning models, particularly tuned XGBoost (RMSE: 0.384 MW, R\textsuperscript{2}: 0.831). The findings highlight the effectiveness of appropriately configured neural networks and machine learning techniques for feeder-level short-term load forecasting and provide valuable insights for operational planning and decision-making in power distribution systems.
+
+\textbf{Keywords:} \textit{short-term load forecasting, machine learning, deep learning, MLP, XGBoost, power distribution systems}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% END OF ABSTRACT PAGE %%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% ACKNOWLEDGEMENT PAGE %%%%%%%%%%%%%%
+
+\section*{\begin{center} {\sizexii ACKNOWLEDGEMENTS} \end{center}}
+\phantomsection \addcontentsline{toc}{section}{Acknowledgements}\vspace{-16pt}
+I would like to express my sincere gratitude to my supervisor and faculty members of the Department of Electrical Engineering for their valuable guidance, continuous support, and encouragement throughout the course of this project. Their technical insights and constructive feedback were instrumental in shaping this work.
+
+I am also thankful to the Nepal Electricity Authority and relevant data-providing institutions for making the load and meteorological data available for this study. Their cooperation greatly contributed to the successful completion of the analysis.
+
+Special thanks go to my friends and colleagues for their support, discussions, and motivation during the project period.
+
+Finally, I would like to express my heartfelt appreciation to my family for their constant encouragement and support throughout my academic journey.
+
+\vspace{24pt}
+\hfill Sujit Koirala (PUL075MSPSE016)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% END OF ACKNOWLEDGEMENT PAGE %%%%%%%%%%%
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% TABLE OF CONTENTS %%%%%%%%%%%%%%%
+
+\setlength{\cftbeforetoctitleskip}{-3em}
+\renewcommand{\contentsname}{\centering \sizexii \underline{TABLE OF CONTENTS}}\label{TOC}
+\begin{center}
+\phantomsection  \addcontentsline{toc}{section}{Table of contents}
+\tableofcontents 
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% END OF TABLE OF CONTENTS %%%%%%%%%%%%%
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% LIST OF TABLES %%%%%%%%%%%%%%%%
+
+\setlength{\cftbeforelottitleskip}{-3em}
+\setlength{\cfttabindent}{0pt}
+\renewcommand{\listtablename}{\centering \sizexii LIST OF TABLES}\label{LOT}
+\begin{center}
+{
+\let\oldnumberline\numberline
+\renewcommand{\numberline}{\tablename~\oldnumberline}
+\listoftables
+}
+\phantomsection  \addcontentsline{toc}{section}{List of tables}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% END OF LIST OF TABLES %%%%%%%%%%%%%%
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% LIST OF FIGURES %%%%%%%%%%%%%%%%
+
+\setlength{\cftbeforeloftitleskip}{-3em}
+\setlength{\cftfigindent}{0pt}
+\renewcommand{\listfigurename}{\centering \sizexii LIST OF FIGURES}\label{LOF}
+\begin{center} 
+{
+\let\oldnumberline\numberline
+\renewcommand{\numberline}{\figurename~\oldnumberline}
+\listoffigures 
+}
+\phantomsection \addcontentsline{toc}{section}{List of figures}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% END OF LIST OF FIGURES %%%%%%%%%%%%%%%
+
+\clearpage
+
+
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% LIST OF ACRONYMS AND ABBREVIATIONS %%%%%%%
+
+\setlength{\topmargin}{-0.5in}
+\section*{\begin{center}  {\sizexii LIST OF ACRONYMS AND ABBREVIATIONS} \end{center}}
+\phantomsection  \addcontentsline{toc}{section}{List of acronyms and abbreviations}
+\vspace{-16pt}
+\begin{description}[font=\normalfont, leftmargin=45pt, labelwidth =\dimexpr75pt-\labelsep\relax]
+\item[ANN]          :   \kern 1cm	Artificial Neural Network
+\item[ARIMA]        :   \kern 1cm	Autoregressive Integrated Moving Average
+\item[BS]           :   \kern 1cm	Bikram Sambat (Nepali Calendar)
+\item[CNN]          :   \kern 1cm	Convolutional Neural Network
+\item[DHM]          :   \kern 1cm	Department of Hydrology and Meteorology
+\item[DL]           :   \kern 1cm	Deep Learning
+\item[DWT]          :   \kern 1cm	Discrete Wavelet Transform
+\item[GRU]          :   \kern 1cm	Gated Recurrent Unit
+\item[LSTM]         :   \kern 1cm	Long Short-Term Memory
+\item[MAE]          :   \kern 1cm	Mean Absolute Error
+\item[MAPE]         :   \kern 1cm	Mean Absolute Percentage Error
+\item[ML]           :   \kern 1cm	Machine Learning
+\item[MW]           :   \kern 1cm	Megawatt
+\item[NEA]          :   \kern 1cm	Nepal Electricity Authority
+\item[PCA]          :   \kern 1cm	Principal Component Analysis
+\item[RF]           :   \kern 1cm	Random Forest
+\item[RMSE]         :   \kern 1cm	Root Mean Squared Error
+\item[RNN]          :   \kern 1cm	Recurrent Neural Network
+\item[R\textsuperscript{2}]  :   \kern 1cm	Coefficient of Determination
+\item[STLF]         :   \kern 1cm	Short-Term Load Forecasting
+\item[SVR]          :   \kern 1cm	Support Vector Regression
+\item[TCN]          :   \kern 1cm	Temporal Convolutional Network
+\item[XGBoost]      :   \kern 1cm	Extreme Gradient Boosting
+\end{description} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% END OF LIST OF ACRONYMS AND ABBREVIATIONS %%%%%
+
+\clearpage
+\pagenumbering{arabic}
+%%%%%%%%%%% Roman page no before chapter 1 %%%%%%%%%%%
+%\mainmatter
+%\addtocontents{toc}{\protect\renewcommand{\protect\cftchappagefont}{\mdseries}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% Changing color of hyperlink to blue  %%%%%%%%%%%%%%%%%%%
+\hypersetup{linkcolor = [rgb]{0.05098,0.50588,0.67451}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% CHAPTER ONE %%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{\vspace{-1in}\centering {\sizexii  CHAPTER ONE: INTRODUCTION}}
+\addcontentsline{toc}{chapter}{\textbf{CHAPTER ONE: INTRODUCTION}}
+\setcounter{chapter}{1}
+\setcounter{section}{0}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\vspace{-12pt}
+
+This thesis investigates the application of data-driven forecasting methodologies for predicting hourly electrical demand at the distribution feeder level. By integrating historical consumption records with meteorological observations and temporal characteristics, multiple predictive models were constructed and systematically compared to determine the most suitable approach for the Baneshwor Feeder's operational requirements.
+
+\section{\sizexii Background}
+
+Electrical power consumption exhibits inherent variability driven by human activities, climatic conditions, and economic cycles. The ability to anticipate these fluctuations, even within a short window of several hours, provides grid operators with significant advantages in resource allocation, cost minimization, and service reliability \parencite{dong2024decade}.
+
+Short-Term Load Forecasting (STLF) addresses prediction horizons spanning from one hour to approximately 24 hours ahead \parencite{chapagain2021short}. Such forecasts directly support critical operational decisions including generation scheduling, reserve allocation, and real-time balancing. Classical statistical methods---including autoregressive integrated moving average (ARIMA), exponential smoothing variants, and linear regression---have historically served as the foundation for utility forecasting practices \parencite{acharya2021stlf}. However, these conventional approaches often prove inadequate when confronted with the complex, nonlinear interdependencies present in modern distribution networks.
+
+Contemporary machine learning algorithms---including Random Forest, Support Vector Regression, and gradient boosting variants such as XGBoost---have demonstrated considerable success in energy system applications \parencite{matrenin2022medium, aguilar2021short}. These methods excel at modeling the nonlinear mappings between input features and target variables that characterize electrical demand patterns. Similarly, deep neural network architectures, particularly recurrent designs like Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU), possess inherent capabilities for capturing sequential dependencies across time steps \parencite{cordeiro2023load}.
+
+The Baneshwor Feeder, operated under Nepal Electricity Authority jurisdiction, supplies a heterogeneous consumer base comprising residential households, commercial establishments, and institutional loads within the Baneshwor area of Kathmandu Valley. The consumption profile exhibits pronounced diurnal and hebdomadal periodicity, modulated by ambient temperature variations and seasonal activity patterns. Nevertheless, irregular demand spikes and anomalous consumption events introduce complexities that elementary forecasting techniques cannot adequately address. Given the expanding electricity demand and increasing consumer diversity in this region, developing robust predictive capabilities for this specific feeder presents both practical necessity and academic interest.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/feederOutline.png}
+    \caption{Baneshwor Feeder View}
+    \label{fig:feeder_outline}
+\end{figure}
+
+\section{\sizexii Problem Statement}
+
+Existing demand anticipation practices at the Baneshwor Feeder predominantly depend on operator experience and rudimentary statistical calculations. Such approaches inadequately represent the intricate, nonlinear characteristics of the feeder's consumption profile, particularly when numerous concurrent factors---including ambient temperature, atmospheric moisture, precipitation events, weekly patterns, and public holidays---simultaneously influence demand levels. Consequently, forecasting accuracy deteriorates notably during peak consumption intervals, abrupt meteorological shifts, and inter-seasonal transition periods.
+
+Suboptimal demand predictions carry substantial operational implications. Generation scheduling inefficiencies may result in either excessive spinning reserves or insufficient supply margins. Distribution-level technical losses and operational expenditures may escalate unnecessarily. Under severe conditions, inadequate demand foresight during high-consumption periods can precipitate voltage instability, service reliability degradation, or suboptimal load curtailment decisions.
+
+Notwithstanding the existence of archived consumption records and meteorological observations, no comprehensive investigation has systematically implemented and benchmarked contemporary machine learning and deep learning methodologies for the Baneshwor Feeder specifically. This absence of an intelligent, data-driven forecasting infrastructure prevents distribution operators from leveraging models capable of discerning complex multivariate relationships embedded within historical observations.
+
+This research endeavors to bridge these deficiencies by constructing a complete predictive framework encompassing multiple ML and DL algorithms, rigorously evaluating their comparative performance, and recommending the most appropriate methodology for reliable short-term demand forecasting at the Baneshwor Feeder.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/lineDiagram.png}
+    \caption{Substation \& Transmission Line Network Baneshwor}
+    \label{fig:line_diagram}
+\end{figure}
+
+\section{\sizexii Objectives}
+
+To develop and evaluate machine learning and deep learning models for short-term electrical load forecasting of the Baneshwor Feeder to improve prediction accuracy and operational efficiency.
+
+\begin{enumerate}
+    \item To collect and preprocess historical load data and relevant influencing factors such as weather variables and calendar effects for the Baneshwor Feeder.
+    \item To implement and evaluate various machine learning models including Support Vector Regression (SVR), Random Forest (RF), and XGBoost, as well as deep learning models such as Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU), using standard error metrics (e.g., RMSE, MAPE, MAE, R-squared).
+    \item To recommend the most suitable forecasting model for operational use in the Baneshwor Feeder.
+\end{enumerate}
+
+\section{\sizexii Scope}
+
+The geographical boundary of this investigation is circumscribed to the Baneshwor Feeder administered by Nepal Electricity Authority. Temporally, the research concentrates on near-term demand anticipation with forecast horizons extending to 24 hours, leveraging archived hourly consumption records as the foundational modeling substrate. The assembled dataset integrates historical feeder demand observations alongside meteorological measurements encompassing temperature, humidity, and solar irradiance, complemented by calendrical indicators differentiating standard weekdays from weekends and public holidays.
+
+From a computational standpoint, this research deploys multiple machine learning implementations including Support Vector Regression, Random Forest ensembles, and XGBoost, alongside deep neural architectures specifically Long Short-Term Memory and Gated Recurrent Unit networks. Predictive performance undergoes rigorous quantification through established statistical measures comprising Root Mean Squared Error, Mean Absolute Percentage Error, Mean Absolute Error, and coefficient of determination (R-squared). It bears noting that forecast precision inherently correlates with underlying data integrity and completeness. Furthermore, this investigation expressly excludes medium-horizon and long-horizon forecasting scenarios, while renewable generation prediction falls outside the defined research boundaries.
+
+\section{\sizexii Limitation}
+
+Notwithstanding the encouraging outcomes achieved, this investigation encountered specific constraints primarily associated with data accessibility, algorithmic assumptions, and analytical scope.
+
+\begin{enumerate}
+    \item \textbf{Data quality dependence:} Predictive accuracy remains fundamentally bounded by the integrity and completeness of archived consumption and meteorological records. Sensor malfunctions, missing entries, or inconsistent reporting practices can adversely influence model performance.
+    \item \textbf{Sensitivity to abrupt transitions:} Unforeseen occurrences including supply disruptions, festival periods, sudden climatic variations, or atypical consumption behaviors present inherent challenges for purely data-driven predictive approaches.
+    \item \textbf{Deep learning computational demands:} LSTM and GRU network training necessitates considerably greater processing resources and temporal investment relative to conventional ML algorithms. Performance outcomes may exhibit variability contingent upon available computational infrastructure.
+    \item \textbf{Restricted feature diversity:} Although meteorological and calendrical variables were incorporated, additional potentially influential factors---including macroeconomic indicators, special event schedules, or industrial consumption profiles---remain absent from the dataset.
+    \item \textbf{Cross-feeder transferability constraints:} The predictive models constructed herein are calibrated exclusively for Baneshwor Feeder characteristics and may not generalize to alternative feeder configurations without substantial recalibration or architectural modification.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% END OF  CHAPTER ONE %%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% CHAPTER TWO %%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{\vspace{-1in}\centering {\sizexii  CHAPTER TWO: LITERATURE REVIEW}}
+\addcontentsline{toc}{chapter}{\textbf{CHAPTER TWO: LITERATURE REVIEW}}
+\setcounter{chapter}{2}
+\setcounter{section}{0}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\vspace{-12pt}
+
+This chapter synthesizes relevant scholarly contributions pertaining to electrical demand prediction through computational intelligence approaches. The review systematically examines published investigations to characterize prevalent algorithmic frameworks, dataset configurations, and assessment protocols employed within power system forecasting research. Critical analysis of antecedent work facilitates identification of contemporary methodological trajectories, inherent model strengths and constraints, and unexplored research opportunities that substantiate the present investigation's rationale. Positioning this thesis within the broader academic discourse establishes the theoretical underpinning for subsequent algorithmic selection and experimental design decisions.
+
+\section{\sizexii Related Work}
+
+Substantial research attention has been directed toward electrical demand forecasting across various temporal horizons, encompassing short-term predictions spanning hours to days, medium-term forecasts extending weeks to months, and long-term projections covering years. The preponderance of scholarly effort has concentrated on short-term forecasting applications given their direct operational relevance.
+
+\subsection{\sizexii Machine Learning Approaches}
+
+Singla et al. \parencite{singla2019electrical} employed Artificial Neural Networks for 24-hour short-term load forecasting, utilizing dew point temperature, dry bulb temperature, and humidity as input features. Their work demonstrated the effectiveness of ANN in capturing the relationship between weather variables and electrical load demand. Similarly, Desai et al. \parencite{desai2021electrical} utilized the Prophet model from Meta to perform short-term load forecasting, incorporating time, temperature, humidity, and weather forecast data as features. The Prophet model's ability to handle seasonal patterns and missing data made it suitable for load forecasting applications.
+
+Matrenin et al. \parencite{matrenin2022medium} conducted a study on medium-term load forecasting using ensemble machine learning models. They compared XGBoost and AdaBoost against traditional methods including SVR, decision trees, and Random Forest. Their results highlighted the superior performance of gradient boosting techniques for capturing complex load patterns. Aguilar Madrid \& Antonio \parencite{aguilar2021short} tested five machine learning models and found XGBoost to be the most accurate for predictions, using historical load data, weather information, and holiday indicators as input features. Their comprehensive evaluation demonstrated XGBoost's ability to handle diverse feature sets effectively.
+
+Guo et al. \parencite{guo2021machine} analyzed three popular ML methods for load forecasting: Support Vector Machine, Random Forest, and LSTM. They proposed a fusion forecasting approach that combined outputs from all three models, demonstrating that ensemble methods could improve prediction accuracy beyond individual model performance. Saglam et al. \parencite{saglam2024instantaneous} performed a comparison between optimization methods (Particle Swarm Optimization, Dandelion Optimizer, Growth Optimizer) and machine learning models (SVR, ANN) for instantaneous peak electrical load forecasting. They found that ANN combined with Growth Optimizer outperformed other models and identified a strong positive correlation between GDP and peak load demand.
+
+Jain \& Gupta \parencite{jain2024comparative} conducted a comprehensive evaluation of various machine learning algorithms for power load prediction, including Support Vector Machines, LSTM, ensemble classifiers, and Recurrent Neural Networks. Their study emphasized the importance of data preprocessing methods, feature selection strategies, and performance assessment metrics in achieving accurate forecasts. The research demonstrated that ensemble methods and deep learning approaches consistently outperformed traditional statistical models.
+
+\subsection{\sizexii Deep Learning Architectures}
+
+Chapagain et al. \parencite{chapagain2021short} explored time series regression along with machine learning and deep learning models for electricity demand forecasting in Kathmandu Valley. They found LSTM demonstrating outstanding performance in terms of MAPE and RMSE, using deterministic variables such as day type and temperature. Their work validated the effectiveness of recurrent architectures for capturing temporal dependencies in load data.
+
+Acharya et al. \parencite{acharya2021stlf} performed short-term electrical load forecasting for the Gothatar feeder using six input features. They found that Recurrent Neural Networks outperformed baseline methods including Single Exponential Smoothing, Double Exponential Smoothing, and Holt-Winter's method. This study confirmed that RNNs could better model the nonlinear and time-dependent characteristics of feeder-level load patterns.
+
+Cordeiro-Costas et al. \parencite{cordeiro2023load} conducted a comprehensive comparison of load forecasting methods, including Random Forest, SVR, XGBoost, Multi-Layer Perceptron, and LSTM. They also explored Conv-1D models and found that LSTM achieved the lowest error rates across multiple evaluation metrics. Their research highlighted the trade-off between model complexity and forecasting accuracy in practical applications.
+
+Dong et al. \parencite{dong2024decade} provided a comprehensive survey on deep learning-based short-term electricity load forecasting covering the past decade. They examined the entire forecasting process, including data preprocessing, feature extraction, deep learning modeling and optimization, and results evaluation. The survey identified CNN-LSTM hybrid architectures as widely adopted solutions due to exceptional performance in capturing both spatial and temporal features. Their analysis revealed that most recent studies focused on short-term horizons ranging from one hour to several days ahead.
+
+\subsection{\sizexii Hybrid and Advanced Architectures}
+
+Wen et al. \parencite{wen2024gru} proposed a hybrid deep learning model combining Gated Recurrent Units and Temporal Convolutional Networks with an attention mechanism for short-term load forecasting. The GRU captured long-term dependencies in time series data, while TCN efficiently learned patterns and features. The attention mechanism automatically focused on input components most relevant to the prediction task, significantly enhancing model performance. Their approach demonstrated superior accuracy compared to standalone architectures.
+
+Alhussein et al. \parencite{alhussein2020cnn} developed a hybrid CNN-LSTM framework for short-term individual household load forecasting. The model used CNN layers for feature extraction from input data and LSTM layers for sequence learning. Evaluated on the Smart Grid Smart City dataset, the hybrid model achieved an average MAPE of 40.38\%, outperforming standalone LSTM models that obtained 44.06\% MAPE. This work demonstrated the effectiveness of combining convolutional and recurrent architectures for handling high volatility in household-level load data.
+
+Hasanat et al. \parencite{hasanat2024parallel} proposed a parallel multichannel network approach using 1D CNN and Bidirectional LSTM for load forecasting in smart grids. Unlike traditional stacked CNN-LSTM architectures that use convolutions as preprocessing steps, their model independently processed spatial and temporal characteristics through parallel channels. The research addressed the issue of temporal feature neglect in existing models and incorporated cyclic features through trigonometric transformations, achieving superior accuracy on diverse building types.
+
+\subsection{\sizexii Transformer-Based Models}
+
+Chan \& Yeo \parencite{chan2024sparse} proposed a sparse transformer-based approach for electricity load forecasting that addressed the computational complexity limitations of standard transformer architectures. Their model applied sparse attention mechanisms to capture temporal dependencies more efficiently, achieving comparable accuracy to RNN-based state-of-the-art methods while being up to 5 times faster during inference. The model was enhanced to support multivariate inputs including weather data, demonstrating versatility in forecasting loads from individual households to city levels.
+
+Zhang et al. \parencite{zhang2022time} developed a Time Augmented Transformer model for short-term electrical load forecasting, incorporating temporal features and self-attention mechanisms to capture complex dynamic nonlinear sequence dependencies. Their experimental results showed that multivariate inputs including weather and calendar features produced significantly better predictions than univariate approaches. The attention mechanism's capacity to capture complex dynamical patterns in multivariate data contributed to improved forecasting accuracy.
+
+Lu \& Chen \parencite{lu2024multivariate} proposed a multivariate data slicing transformer neural network for load forecasting in power systems with high-penetration renewables. The transformer model excelled in capturing spatiotemporal relationships by modeling global correlations through self-attention mechanisms. Their approach demonstrated superior performance in handling the intermittency and volatility characteristics brought by renewable energy integration, outperforming traditional statistical models and conventional machine learning methods.
+
+\subsection{\sizexii Comparative Studies and Ensemble Methods}
+
+Banik \& Biswas \parencite{banik2024stacked} developed an enhanced stacked ensemble model combining Random Forest and XGBoost for renewable power and load forecasting. The Random Forest model first forecasted the target variable, followed by XGBoost improving predictions through combination of RF outputs. A meta-model using logistic regression then learned the optimal combination, achieving 99\% accuracy on R² evaluation metrics for both short-term and long-term predictions in Agartala City dataset.
+
+Kwon et al. \parencite{kwon2020electricity} conducted extensive research on learning models combined with data clustering and dimensionality reduction for short-term electricity load forecasting. They adapted k-means clustering for data grouping and utilized kernel PCA, UMAP, and t-SNE for dimensionality reduction. Applied to neural network-based models on large-scale electricity usage data from 4,710 households, their approach demonstrated improved forecasting performance through effective data preprocessing and feature engineering.
+
+Nabavi et al. \parencite{nabavi2024wavelet} combined Discrete Wavelet Transform with LSTM to improve electricity load forecasting accuracy. The DWT decomposed load series into multiple frequency components, allowing LSTM to learn from denoised and structured representations. Their research demonstrated that preprocessing techniques significantly enhanced deep learning model performance, particularly for datasets with high noise levels and irregular patterns.
+
+\section{\sizexii Theoretical Background of Forecasting Models}
+
+This section elucidates the mathematical foundations and operational principles underlying the computational models deployed throughout this investigation. Comprehending these theoretical constructs proves indispensable for meaningful interpretation of model behavior and forecasting outcomes within the distribution system context.
+
+\subsection{\sizexii Machine Learning Models}
+
+\subsubsection{Linear Regression}
+
+Linear Regression constitutes the most elementary predictive framework, postulating a strictly linear mapping between predictor variables and the response quantity. Despite the inherent nonlinearity characterizing electrical consumption phenomena, this model furnishes a baseline reference against which more sophisticated approaches can be quantitatively benchmarked.
+
+\textbf{Mathematical Formulation:}
+\begin{equation}
+\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n
+\end{equation}
+where $\beta_0$ is the intercept (bias term), $\beta_i$ are the coefficients (weights) learned via ordinary least squares minimization, and $x_i$ are the input features.
+
+\subsubsection{Ridge Regression}
+
+Ridge Regression \parencite{hoerl1970ridge} adds L2 regularization to the linear model to reduce overfitting and stabilize coefficient estimates. It is more robust than standard Linear Regression when dealing with many correlated features, which is the case in this study.
+
+\textbf{Mathematical Formulation:}
+\begin{equation}
+\min_{\beta} \left( \| y - X\beta \|^2 + \alpha \| \beta \|^2 \right)
+\end{equation}
+where $\alpha$ controls the strength of L2 regularization, $\| y - X\beta \|^2$ is the residual sum of squares, and $\| \beta \|^2$ is the L2 norm of the coefficient vector.
+
+\subsubsection{Support Vector Regression (SVR)}
+
+SVR \parencite{drucker1997svr} models nonlinear relationships by mapping features into a high-dimensional space using kernel functions. It works well for complex regression problems with moderate dataset sizes.
+
+\textbf{Mathematical Formulation:}
+
+SVR finds a function $f(x)$ by solving the following optimization problem:
+\begin{equation}
+\min_{w, b, \xi, \xi^*} \left( \frac{1}{2} \| w \|^2 + C \sum_{i=1}^{n} (\xi_i + \xi_i^*) \right)
+\end{equation}
+subject to the constraints:
+\begin{align}
+y_i - (w \cdot x_i + b) &\leq \varepsilon + \xi_i \nonumber\\
+(w \cdot x_i + b) - y_i &\leq \varepsilon + \xi_i^* \nonumber\\
+\xi_i, \xi_i^* &\geq 0 \nonumber
+\end{align}
+where $w$ is the weight vector, $b$ is the bias term, $C$ is the regularization parameter controlling the trade-off between flatness and tolerance of deviations, $\varepsilon$ defines the epsilon-insensitive tube, and $\xi_i$ and $\xi_i^*$ are slack variables for points outside the tube.
+
+\subsubsection{Random Forest Regressor}
+
+Random Forest \parencite{breiman2001random} is an ensemble method consisting of multiple decision trees. Each tree is trained on a random subset of features and samples (bootstrap aggregating). It is robust, stable, and handles nonlinearity effectively.
+
+\textbf{Mathematical Formulation:}
+
+The Random Forest prediction is the average of all individual tree predictions:
+\begin{equation}
+\hat{y} = \frac{1}{T} \sum_{t=1}^{T} f_t(x)
+\end{equation}
+where $T$ is the total number of trees in the forest and $f_t(x)$ is the prediction of the $t$-th decision tree.
+
+\subsubsection{Gradient Boosting Regressor}
+
+Gradient Boosting \parencite{friedman2001gradient} builds trees sequentially, with each new tree correcting the errors (residuals) of the previous ensemble. It is particularly effective for structured tabular data like load forecasting.
+
+\textbf{Mathematical Formulation:}
+
+At each boosting iteration $m$, the model is updated as:
+\begin{equation}
+F_m(x) = F_{m-1}(x) + \nu \cdot h_m(x)
+\end{equation}
+where $F_{m-1}(x)$ is the ensemble prediction from the previous iteration, $h_m(x)$ is the new tree fitted to the negative gradient (pseudo-residuals), and $\nu$ is the learning rate (shrinkage factor) that controls the contribution of each tree.
+
+\subsubsection{XGBoost Regressor}
+
+XGBoost (Extreme Gradient Boosting) \parencite{chen2016xgboost} is an optimized and regularized implementation of gradient boosting designed for efficiency, scalability, and high accuracy. It was one of the best-performing ML models in this study.
+
+\textbf{Mathematical Formulation:}
+
+XGBoost minimizes the following regularized objective function:
+\begin{equation}
+\mathcal{L} = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k)
+\end{equation}
+where $l(y_i, \hat{y}_i)$ is the loss function measuring the difference between actual and predicted values, and $\Omega(f_k)$ is the regularization term for the $k$-th tree, defined as:
+\begin{equation}
+\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T} w_j^2
+\end{equation}
+where $T$ is the number of leaves in the tree, $w_j$ is the weight (score) of the $j$-th leaf, $\gamma$ controls the minimum loss reduction required to make a split, and $\lambda$ is the L2 regularization term on leaf weights.
+
+\subsection{\sizexii Deep Learning Models}
+
+To adequately represent the nonlinear dynamics, temporal evolution, and sequential structure inherent in feeder consumption data, two recurrent neural network architectures were constructed and evaluated: Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU). These networks received training on sliding temporal windows comprising consecutive hourly observations, enabling the architectures to assimilate both proximate and extended temporal dependencies embedded within the dataset. Network optimization employed the Adam algorithm \parencite{kingma2014adam}, with early termination protocols preventing overtraining and sequence-structured inputs.
+
+\subsubsection{Long Short-Term Memory (LSTM)}
+
+LSTM networks \parencite{hochreiter1997lstm} are designed to maintain contextual memory over long sequences through a gating mechanism that controls information flow. This makes them naturally suited for load forecasting, where consumption patterns depend on previous hours. The LSTM architecture addresses the vanishing gradient problem that affects standard RNNs.
+
+\textbf{Mathematical Formulation:}
+
+At each time step $t$, the LSTM computes the following:
+
+Forget gate (determines what information to discard from cell state):
+\begin{equation}
+f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)
+\end{equation}
+
+Input gate (determines what new information to store):
+\begin{equation}
+i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)
+\end{equation}
+
+Candidate cell state (creates new candidate values):
+\begin{equation}
+\tilde{c}_t = \tanh(W_c \cdot [h_{t-1}, x_t] + b_c)
+\end{equation}
+
+Cell state update (combines old and new information):
+\begin{equation}
+c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t
+\end{equation}
+
+Output gate (determines what to output):
+\begin{equation}
+o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)
+\end{equation}
+
+Hidden state (final output at time step $t$):
+\begin{equation}
+h_t = o_t \odot \tanh(c_t)
+\end{equation}
+where $\sigma$ is the sigmoid activation function, $\tanh$ is the hyperbolic tangent activation function, $\odot$ denotes element-wise (Hadamard) product, $[h_{t-1}, x_t]$ represents concatenation of the previous hidden state and current input, $W_f$, $W_i$, $W_c$, and $W_o$ are weight matrices for each gate, $b_f$, $b_i$, $b_c$, and $b_o$ are bias vectors for each gate, $c_t$ is the cell state that carries long-term memory, and $h_t$ is the hidden state output.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/lstm.png}
+    \caption{Architecture LSTM}
+    \label{fig:lstm_architecture}
+\end{figure}
+
+\subsubsection{Gated Recurrent Unit (GRU)}
+
+GRU \parencite{cho2014gru} is a streamlined version of LSTM with fewer parameters, combining the forget and input gates into a single update gate and merging the cell state with the hidden state. It often trains faster while achieving comparable performance to LSTM.
+
+\textbf{Mathematical Formulation:}
+
+At each time step $t$, the GRU computes the following:
+
+Update gate (controls how much past information to keep):
+\begin{equation}
+z_t = \sigma(W_z \cdot [h_{t-1}, x_t] + b_z)
+\end{equation}
+
+Reset gate (determines how much past information to forget):
+\begin{equation}
+r_t = \sigma(W_r \cdot [h_{t-1}, x_t] + b_r)
+\end{equation}
+
+Candidate hidden state (computes new candidate activation):
+\begin{equation}
+\tilde{h}_t = \tanh(W_h \cdot [r_t \odot h_{t-1}, x_t] + b_h)
+\end{equation}
+
+Final hidden state (interpolates between previous and candidate state):
+\begin{equation}
+h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t
+\end{equation}
+where $\sigma$ is the sigmoid activation function, $\tanh$ is the hyperbolic tangent activation function, $\odot$ denotes element-wise (Hadamard) product, $[h_{t-1}, x_t]$ represents concatenation of the previous hidden state and current input, $W_z$, $W_r$, and $W_h$ are weight matrices for the update gate, reset gate, and candidate state, $b_z$, $b_r$, and $b_h$ are bias vectors, $z_t$ controls the balance between old and new information, and $r_t$ controls how much of the previous state influences the candidate.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/gru.png}
+    \caption{Architecture GRU}
+    \label{fig:gru_architecture}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% END OF CHAPTER TWO %%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% CHAPTER THREE %%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{\vspace{-1in}\centering {\sizexii CHAPTER THREE: RESEARCH METHODOLOGY}}
+\addcontentsline{toc}{chapter}{\textbf{CHAPTER THREE: RESEARCH METHODOLOGY}}
+\setcounter{chapter}{3}
+\setcounter{section}{0}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\vspace{-12pt}
+
+This chapter delineates the comprehensive research framework implemented to accomplish the stated thesis objectives. The presentation encompasses experimental design rationale, data procurement procedures, preprocessing protocols, and predictive modeling strategies deployed for feeder-level demand forecasting. The methodological structure ensures rigorous analytical progression, with each procedural component maintaining explicit linkage to the defined research goals. A schematic diagram encapsulates the overarching workflow, supplemented by detailed exposition of the chosen machine learning and deep learning algorithms alongside the quantitative assessment techniques applied throughout this investigation.
+
+\section{\sizexii Overall Workflow}
+
+The predictive modeling pipeline employed in this thesis adheres to a methodical, stage-wise progression. Raw hourly demand recordings from the Baneshwor Feeder are aggregated with concurrent meteorological observations (temperature, humidity, precipitation) and temporal markers (weekday/weekend designations, holiday flags) to constitute the comprehensive input feature space. These unprocessed records initially undergo extensive quality assurance procedures addressing missing entries, anomalous values, and formatting discrepancies through systematic cleaning, imputation algorithms, outlier remediation, timestamp normalization, and derivation of temporal and cyclical feature representations---thereby generating analysis-ready datasets. Subsequent exploratory analysis interrogates consumption trends, periodic patterns, hourly variation structures, and weather-demand correlations to identify salient predictive features and inform variable selection decisions. Following these preparatory stages, both traditional ML algorithms and deep neural architectures are instantiated, with input features undergoing standardization and organization as tabular matrices for ML implementations while deep architectures receive sequentially-structured inputs. Model calibration proceeds on designated training partitions with validation through walk-forward protocols or holdout assessment, while hyperparameter optimization employs GridSearchCV for ML algorithms and iterative refinement strategies for neural networks to enhance generalization while mitigating overfitting tendencies. Ultimately, all candidate models undergo comparative evaluation using RMSE, MAE, MAPE, and R\textsuperscript{2} metrics, with predictive accuracy, stability characteristics, and computational efficiency jointly analyzed to recommend optimal forecasting solutions for Baneshwor Feeder operational deployment. This workflow thereby establishes a complete analytical pipeline spanning initial data procurement through final model recommendation, accommodating both conventional and neural network methodologies. Figure~\ref{fig:block_diagram} illustrates the complete methodological structure.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/blockDiagram.png}
+    \caption{Methodology Block Diagram}
+    \label{fig:block_diagram}
+\end{figure}
+
+\section{\sizexii Data Acquisition}
+
+The initial methodological phase involves systematic data procurement. Archived hourly consumption records from the Baneshwor Feeder constitute the primary dataset. Supplementary meteorological observations---encompassing ambient temperature, atmospheric moisture content, and precipitation measurements---originate from the Department of Hydrology and Meteorology, Nepal. Additionally, weekday and weekend classifications derive from officially published governmental calendrical sources.
+
+The investigative framework relies upon dual primary data streams:
+\begin{enumerate}
+    \item Hourly electrical consumption measurements for the Baneshwor Feeder
+    \item Concurrent hourly meteorological recordings (temperature, humidity, incident solar radiation)
+\end{enumerate}
+
+Given that both datasets arrived as unprocessed Excel workbooks exhibiting irregular structural formats, inconsistent temporal indexing, incomplete entries, and multiple worksheets per temporal unit, a comprehensive multi-stage acquisition and restructuring protocol was necessitated. The provenance of both datasets is documented subsequently.
+
+\subsection{\sizexii Data Sources}
+
+\begin{enumerate}
+    \item[a)] \textbf{Electrical Load Data:} The electrical load data used in this study was obtained from the Baneshwor Substation, which operates under the Nepal Electricity Authority (NEA). Hourly feeder load readings were collected from archived operational log sheets maintained by the substation for the years 2079 to 2082 BS. These records provided raw POWER (MW) measurements for the Baneshwor Feeder, along with associated timestamp information. Since the data originated from manually recorded and distributed Excel files, several preprocessing steps---such as header correction, timestamp standardization, and quality checks---were required before the dataset could be used for modeling. This substation-provided dataset forms the core of the forecasting analysis, representing real operational feeder behavior across multiple years.
+    
+    \item[b)] \textbf{Weather Data:} Weather data was sourced from Nepal's Department of Hydrology and Meteorology (DHM), the official governmental agency responsible for climate and atmospheric measurements. The dataset included hourly records of air temperature, relative humidity, and global solar radiation for the corresponding study period. These variables were essential for capturing the environmental conditions influencing electricity consumption patterns. The DHM dataset required timestamp alignment, interpolation for missing values, and smoothing of extreme readings to ensure compatibility with the load dataset. Once cleaned and synchronized, the weather data served as an important set of exogenous features for both machine learning and deep learning models.
+\end{enumerate}
+
+Because the raw files came in varying formats---different months, unpredictable sheet names, Bikram Sambat (BS) dates, mixed day formats, half-hour readings, inconsistent header rows, and multiple sheets per month---a custom data acquisition pipeline was required.
+
+\subsection{\sizexii Load Data Acquisition and Structuring Process}
+
+The original Excel files provided by the Nepal Electricity Authority (NEA) were highly heterogeneous in structure. Each month consisted of multiple workbooks, with each workbook containing several sheets. In many cases, sheets included mixed headers, irrelevant rows, inconsistent timestamp formats, and non-uniform naming conventions. To address these issues and convert the raw data into a single unified structure suitable for analysis, a multi-stage data processing pipeline was implemented.
+
+In the first stage, a month-wise sheet extraction process was carried out. The script automatically scanned all monthly datasets and identified Excel sheets whose names contained ``11KV'' or its variations. The extracted sheets were then aligned with their corresponding time periods to ensure correct temporal ordering. Only rows with timestamps recorded at exact hourly intervals (HH:00) were retained, while half-hour readings such as 7:30 were intentionally excluded to maintain uniform hourly resolution. The valid hourly records from each sheet were compiled to produce clean month-wise datasets. At this stage, although the data were organized chronologically, the timestamps were still recorded in the Nepali calendar (BS) and exhibited format inconsistencies.
+
+The second stage focused on date conversion, hour normalization, and daily data structuring. The BS date embedded within each sheet name was extracted and converted into the Gregorian (AD) calendar using Nepali date conversion libraries. Each sheet was read without assuming a fixed header position, allowing the script to dynamically identify the Time column and the corresponding POWER (MW) values. Every day was standardized to contain exactly twenty-four hourly records by indexing hours from 1 to 24, and any missing hours were filled using linear interpolation. Clean and consistent timestamps were then generated in the standard hourly format, ensuring temporal continuity across the dataset. This process resulted in one clean and complete daily record for each calendar day.
+
+In the final stage, all structured monthly and yearly datasets were merged into a single consolidated file. The script systematically extracted the valid Time and POWER (MW) columns, removed any remaining header fragments, and concatenated the data in chronological order. This process produced a fully unified dataset containing continuous hourly POWER (MW) measurements for the entire study period, which served as the foundation for subsequent data analysis and load forecasting model development.
+
+\subsection{\sizexii Weather Data Acquisition and Structuring}
+
+Weather data was also provided in raw format with mixed timestamps. Two scripts were developed to clean and align it with the load data.
+
+\begin{enumerate}
+    \item[a)] \textbf{Extracting and Cleaning Raw Weather File:} The script located the correct columns for time, temperature, humidity, and solar radiation, then removed any unusable rows. All timestamps were parsed into a consistent datetime format, after which the weather data was filtered to match the exact date range of the load dataset. The timestamps were then formatted as YYYY-MM-DD HH:MM. This stage produced a clean hourly weather dataset.
+    
+    \item[b)] \textbf{Structuring Weather Timestamp Alignment:} Timestamps were shifted so that values such as ``HH:45'' were aligned to the next hour at ``HH+1:00,'' and all ``24:00'' rollover cases were handled correctly. Missing or zero weather values were replaced using nearest-neighbor averages, while NaN solar radiation entries were set to zero. These steps produced the final clean weather file and ensured that all weather variables followed the exact hourly structure required for forecasting.
+\end{enumerate}
+
+\subsection{\sizexii Final Merging of Load and Weather Data}
+
+In the final stage, load and weather datasets were merged into a single unified file. All load timestamps were carefully parsed, including proper handling of the special \texttt{24:00} time format, while weather timestamps were standardized to a consistent format. Weather observations were then precisely aligned with their corresponding load timestamps, and any missing values in weather variables were filled using linear interpolation. The resulting dataset contained synchronized records of time, electrical load (MW), air temperature, global solar radiation, and relative humidity, and served as the primary input for all machine learning and deep learning models used in this thesis.
+
+\section{\sizexii Data Preprocessing}
+
+Once the load and weather datasets were fully acquired and merged into a single hourly dataset, several preprocessing steps were performed to prepare the data for machine learning and deep learning models. The merged dataset initially contained timestamps in multiple formats, including irregular representations such as ``24:00.'' All timestamps were therefore parsed and standardized using a custom parsing routine, where ``24:00'' was shifted to 00:00 of the following day, and the final format was normalized to a consistent hourly representation. Missing electrical load (MW) values caused by incomplete feeder logs and invalid records were handled using a forward-fill followed by backward-fill strategy to preserve temporal continuity without introducing artificial variations. Similarly, missing weather values were treated using linear interpolation, with nighttime solar radiation values set to zero and extreme humidity or temperature readings smoothed using neighboring observations. These steps ensured a clean, continuous, and time-aligned dataset.
+
+After cleaning, temporal feature engineering was applied to capture the inherent daily, weekly, and seasonal patterns in electricity consumption. From each timestamp, multiple time-based features were extracted, including hour, day, month, day of week, week of year, and a weekend indicator. To better represent the cyclical nature of time, sine and cosine transformations were applied to hour, month, and day-of-week values. These cyclic encodings allow machine learning and deep learning models to learn smooth periodic relationships, such as the transition from late night hours to early morning, rather than treating time variables as discontinuous linear values. The resulting feature set combined both weather variables and engineered temporal components, forming a comprehensive input representation for modeling.
+
+To understand feature relevance and interdependencies, a correlation analysis was conducted on all numerical variables. The correlation matrix, shown in Figure~\ref{fig:feature_correlation}, indicates that hour of day has the strongest relationship with electrical load, while global solar radiation shows a moderate positive correlation. Temperature and humidity exhibit weaker but meaningful correlations, and calendar-related variables contribute subtle seasonal trends. Based on this analysis and domain knowledge, all engineered features were retained. After preprocessing, the final dataset contained no missing values, no irregular timestamps, and no half-hour entries, resulting in a fully standardized and reliable hourly time-series dataset used for both machine learning and deep learning model development.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/featureCorrelation.png}
+    \caption{Feature Correlation Matrix}
+    \label{fig:feature_correlation}
+\end{figure}
+
+\section{\sizexii Model Development}
+
+Based on the theoretical foundations presented in Chapter 2, this study implemented multiple forecasting models to predict short-term electrical load for the Baneshwor Feeder. For machine learning, six models were developed: Linear Regression, Ridge Regression, Support Vector Regression (SVR), Random Forest Regressor, Gradient Boosting Regressor, and XGBoost Regressor. For deep learning, two recurrent architectures were implemented: Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU). All models were trained on the cleaned and feature-engineered dataset described in the earlier sections, with each model receiving the same input feature set to ensure fair comparison. The machine learning pipeline involved standard scaling of the numerical features, an 80--20 train--test split, and hyperparameter tuning performed using GridSearchCV, while the deep learning models were trained on sliding windows of historical hourly sequences using the Adam optimizer with early stopping to prevent overfitting. Model performance was evaluated using RMSE, MAE, MAPE, and R².
+
+\section{\sizexii Model Training and Validation}
+
+This stage focuses on how both machine learning (ML) and deep learning (DL) models were trained, tuned, validated, and prepared for final performance comparison. Since ML and DL models require different handling, the training process is presented in two separate parts.
+
+\subsection{\sizexii Training of Machine Learning Models}
+
+The machine learning models trained in this study include:
+\begin{enumerate}
+    \item Support Vector Regression (SVR)
+    \item Random Forest Regressor (RF)
+    \item Gradient Boosting Regressor (GBR)
+    \item Extreme Gradient Boosting (XGBoost)
+    \item Linear Regression and Ridge Regression (baseline models)
+\end{enumerate}
+
+All models used the same final preprocessed dataset described earlier, containing weather features, temporal encodings, and cleaned load values.
+
+\subsubsection{Input Preparation}
+
+For ML models, the dataset was used in a tabular format:
+\begin{enumerate}
+    \item \textbf{Features (X):} Time features (hour, month, weekday), cyclical encodings, weather variables, and lag features if applied.
+    \item \textbf{Target (y):} Load at the next hour.
+\end{enumerate}
+
+Since ML models do not operate on sequences, no sliding window was required.
+
+\subsubsection{Data Splitting}
+
+The dataset was split into 80 percent for training and 20 percent for testing. Shuffling was applied during the split to prevent temporal clustering and to ensure that the machine learning models were exposed to a diverse mix of seasonal and temporal patterns during training.
+
+\subsubsection{Feature Scaling}
+
+Some models required normalized inputs, so StandardScaler was applied to Linear Regression, Ridge, and SVR. Tree-based models such as Random Forest, Gradient Boosting, and XGBoost did not require any scaling.
+
+\subsubsection{Training Procedure}
+
+Each model was trained using its corresponding optimization approach:
+\begin{itemize}
+    \item Least squares optimization for Linear Regression and Ridge
+    \item Kernel-based optimization for SVR
+    \item Ensemble tree learning for Random Forest and Gradient Boosting
+    \item Gradient-boosted tree optimization for XGBoost
+\end{itemize}
+
+The training process involved fitting the models on the training set, generating predictions on the test set, and evaluating performance using RMSE, MAE, MAPE, and R².
+
+\subsubsection{Hyperparameter Tuning}
+
+All machine learning models were fine-tuned using GridSearchCV, which tested different combinations of hyperparameters:
+\begin{itemize}
+    \item \textbf{SVR:} C, epsilon, and gamma
+    \item \textbf{Random Forest and Gradient Boosting:} n\_estimators, max\_depth, and min\_samples\_split
+    \item \textbf{XGBoost:} learning\_rate, max\_depth, subsample, and colsample\_bytree
+    \item \textbf{Ridge:} alpha
+\end{itemize}
+
+The best configurations were selected based on the lowest validation error.
+
+\subsection{\sizexii Training of Deep Learning Models}
+
+Two deep learning models were implemented:
+\begin{enumerate}
+    \item Long Short-Term Memory (LSTM)
+    \item Gated Recurrent Unit (GRU)
+\end{enumerate}
+
+Since deep learning models learn from sequences rather than static features, the training process follows a different pipeline.
+
+\subsubsection{Sequence Construction}
+
+A sliding window method was used in which the model received the past $N$ hours as input and predicted the load for the next hour. A typical window size of 24 hours was used, although this value can be adjusted in the implementation.
+
+\subsubsection{Train--Validation--Test Split}
+
+Deep learning models require sequential integrity, so the dataset was split chronologically:
+\begin{itemize}
+    \item 70 percent for training
+    \item 15 percent for validation
+    \item 15 percent for testing
+\end{itemize}
+
+No shuffling was applied, ensuring that the model learned from the natural temporal progression of the data.
+
+\subsubsection{Lag Feature Configurations}
+
+To capture temporal dependencies at multiple scales, three different lag configurations were evaluated:
+\begin{itemize}
+    \item \textbf{Short:} Lags at [1, 3, 6] hours
+    \item \textbf{Medium:} Lags at [1, 3, 6, 12, 24] hours
+    \item \textbf{Long:} Lags at [1, 3, 6, 12, 24, 48] hours
+\end{itemize}
+
+The extended lag configuration proved most effective for the recurrent models by providing explicit historical context at various temporal resolutions.
+
+\subsubsection{Data Augmentation}
+
+To improve model generalization and increase the effective training dataset size, data augmentation techniques were applied:
+\begin{itemize}
+    \item \textbf{Noise injection:} Small random noise added to training samples
+    \item \textbf{Jittering:} Slight perturbations to feature values
+    \item \textbf{Scaling:} Random scaling of feature magnitudes
+\end{itemize}
+
+These augmentation methods doubled the effective training size (2x augmentation factor), helping to reduce overfitting and improve model robustness.
+
+\subsubsection{Feature Scaling}
+
+Two scaling approaches were evaluated:
+\begin{itemize}
+    \item \textbf{MinMax Scaler:} Scales features to [0, 1] range
+    \item \textbf{Standard Scaler:} Standardizes features to zero mean and unit variance
+\end{itemize}
+
+The standard scaler combined with the long lag configuration yielded the best results for the recurrent models.
+
+\subsubsection{Model Training Configuration}
+
+All deep learning models were trained with the following configuration:
+\begin{itemize}
+    \item \textbf{Optimizer:} Adam
+    \item \textbf{Loss Function:} Mean Squared Error (MSE)
+    \item \textbf{Batch Size:} Typically 32 or 64
+    \item \textbf{Epochs:} Training continued for multiple epochs until early stopping criteria were met
+    \item \textbf{Weight Initialization:} Xavier/Glorot initialization (TensorFlow defaults)
+\end{itemize}
+
+\subsubsection{Regularization and Stability}
+
+To avoid overfitting, several regularization techniques were applied:
+\begin{itemize}
+    \item Dropout layers were included in the LSTM and GRU models
+    \item Batch normalization was applied where appropriate
+    \item Early stopping was used to monitor validation loss, and training automatically stopped when the validation loss stopped improving for several consecutive epochs
+\end{itemize}
+
+\subsubsection{Model-Specific Training Notes}
+
+\begin{itemize}
+    \item \textbf{LSTM:} Processed sequential inputs with a 24-hour lookback window. Achieved strong performance with RMSE of 0.314 and R\textsuperscript{2} of 0.857, demonstrating effective capability in capturing temporal patterns in the load data.
+    \item \textbf{GRU:} Provided a computationally lighter alternative to LSTM with slightly better performance, achieving RMSE of 0.289 and R\textsuperscript{2} of 0.879. The GRU architecture proved most effective among the deep learning models for this forecasting task.
+\end{itemize}
+
+\subsection{\sizexii Validation Approach}
+
+A consistent evaluation strategy was applied across all models:
+
+\textbf{Machine Learning Models:}
+\begin{itemize}
+    \item Validated using GridSearchCV with five-fold cross-validation
+    \item Best hyperparameters were chosen based on the minimum validation loss
+\end{itemize}
+
+\textbf{Deep Learning Models:}
+\begin{itemize}
+    \item Validated using a 15 percent validation split (chronologically ordered)
+    \item Early stopping was used to prevent overfitting, with patience of approximately 10 epochs
+    \item Best-performing model weights were preserved through checkpointing
+    \item Multiple lag configurations and scaling methods were systematically compared
+\end{itemize}
+
+\section{\sizexii Performance Evaluation}
+
+To facilitate equitable comparison across machine learning and deep neural network implementations, a standardized battery of statistical accuracy measures was employed throughout. These metrics quantify the magnitude of discrepancies between model-generated predictions and empirically observed consumption values. This investigation adopted four conventionally utilized regression assessment criteria:
+\begin{enumerate}
+    \item Mean Absolute Error (MAE)
+    \item Root Mean Squared Error (RMSE)
+    \item Mean Absolute Percentage Error (MAPE)
+    \item Coefficient of Determination (R\textsuperscript{2} Score)
+\end{enumerate}
+
+These statistical measures collectively characterize predictive accuracy, algorithmic robustness, and overall forecasting efficacy across the candidate models.
+
+\subsection{\sizexii Mean Absolute Error (MAE)}
+
+MAE quantifies the average magnitude of prediction deviations from observed values, disregarding error directionality. This metric offers straightforward interpretability and practical utility.
+
+\textbf{Formula:}
+\begin{equation}
+\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+\end{equation}
+where $n$ denotes the sample count, $y_i$ represents the measured consumption value, and $\hat{y}_i$ indicates the corresponding model prediction.
+
+\textbf{Interpretation:} Diminished MAE values signify consistently accurate predictions approaching actual consumption levels. This measure demonstrates resilience against distortion from sporadic large-magnitude errors.
+
+\subsection{\sizexii Root Mean Squared Error (RMSE)}
+
+RMSE constitutes among the most prevalent metrics in demand forecasting applications, preserving measurement units identical to the original consumption values (MW).
+
+\textbf{Formula:}
+\begin{equation}
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+\end{equation}
+where $n$ represents the observation count, $y_i$ denotes actual consumption, and $\hat{y}_i$ signifies the predicted value.
+
+\textbf{Interpretation:} Reduced RMSE values indicate superior overall predictive accuracy. The quadratic error term imposes heavier penalties on substantial deviations, rendering RMSE a more stringent criterion than MAE for model assessment.
+
+\subsection{\sizexii Mean Absolute Percentage Error (MAPE)}
+
+MAPE articulates prediction errors as proportional deviations from actual observations, facilitating performance comparisons across disparate feeders or demand scales.
+
+\textbf{Formula:}
+\begin{equation}
+\text{MAPE} = \frac{100}{n} \sum_{i=1}^{n} \left| \frac{y_i - \hat{y}_i}{y_i} \right|
+\end{equation}
+where $n$ represents the sample size, $y_i$ indicates measured consumption, and $\hat{y}_i$ denotes the model forecast.
+
+\textbf{Interpretation:} This metric expresses average percentage deviation between predictions and observations, with lower values indicating enhanced performance. The measure becomes mathematically undefined when actual consumption equals zero, though this scenario never materialized given the feeder's continuous operation.
+
+\subsection{\sizexii Coefficient of Determination (R\textsuperscript{2} Score)}
+
+R\textsuperscript{2} quantifies the proportion of target variable variance that the predictive model successfully captures and explains.
+
+\textbf{Formula:}
+\begin{equation}
+R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
+\end{equation}
+where $y_i$ represents measured consumption, $\hat{y}_i$ denotes the predicted quantity, and $\bar{y}$ indicates the arithmetic mean of observations.
+
+\textbf{Interpretation:} An R\textsuperscript{2} coefficient of unity signifies flawless prediction capability, whereas zero indicates performance equivalent to naive mean-based forecasting. Elevated R\textsuperscript{2} values consequently reflect superior model efficacy. Negative coefficients remain theoretically possible when model predictions underperform relative to simple averaging.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% END OF CHAPTER THREE %%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% CHAPTER FOUR %%%%%%%%%%%%%%%%%%%%
+
+\chapter*{\vspace{-1in}\centering {\sizexii CHAPTER FOUR: RESULTS AND DISCUSSION}}
+\addcontentsline{toc}{chapter}{\textbf{CHAPTER FOUR: RESULTS AND DISCUSSION}}
+\setcounter{chapter}{4}
+\setcounter{section}{0}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\vspace{-12pt}
+
+This chapter presents the performance of all machine learning and deep learning models trained for short-term load forecasting of the Baneshwor Feeder. All models were evaluated using the same performance metrics (MAE, RMSE, MAPE, R²), ensuring a fair comparison.
+
+\section{\sizexii Exploratory Data Analysis}
+
+Preliminary statistical examination was undertaken to characterize the distributional properties of consumption and meteorological variables, discern latent temporal structures, and quantify inter-feature associations prior to model construction. The consolidated dataset encompassed hourly timestamps covering the complete observation period, feeder demand measurements expressed in megawatts, and primary meteorological variables comprising ambient temperature, incident solar irradiance, and atmospheric relative humidity. Additionally, an extensive suite of derived temporal descriptors---including hour index, calendar day, month indicator, weekday designation, and their corresponding sinusoidal transformations---augmented the feature space. Verification procedures confirmed successful missing value remediation, consistent hourly temporal resolution without intermediate gaps, cleaned consumption readings following outlier treatment, and precise chronological alignment between demand and weather observations.
+
+To understand how the load varies over time, the hourly POWER (MW) values were resampled into daily averages and visualized across the entire study period. The resulting trend showed clear daily, weekly, and seasonal fluctuations in the feeder's behavior. Winter months displayed slightly lower solar radiation levels along with moderately higher load during certain intervals. Occasional dips in the curve aligned with known outages or special events. Solar radiation exhibited a strong daytime pattern, reinforcing its moderate correlation with load. Overall, this broad visualization confirmed that the Baneshwor Feeder operates as a typical mixed-load distribution feeder with pronounced daily cycles and noticeable seasonal influences.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/lineGraphLoad.png}
+    \caption{Daily Average Electricity Load Over Time}
+    \label{fig:line_graph_load}
+\end{figure}
+
+The hourly load values were averaged across the full dataset to understand the feeder's daily consumption pattern. The analysis showed that the minimum load typically occurs around 3:00 AM, which reflects low residential and commercial activity during that time. Load levels begin to rise through the morning and reach a peak at around 19:00, with the average peak load reaching approximately 3.16 MW. This aligns with evening lighting needs and heightened residential usage. A boxplot comparing load against hour of day further illustrated that evening hours exhibit higher variance, while midnight to early-morning hours display more stable and lower demand. These observations confirm that the hour of the day is one of the strongest predictors of load in this feeder.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/hourlyLoad.png}
+    \caption{Load Distribution by Hour}
+    \label{fig:hourly_load}
+\end{figure}
+
+Monthly averages revealed that warmer months experience higher temperatures, although the corresponding load behavior varies across the year. Seasonal patterns are present but not as dominant as the daily cycles observed in the feeder. Consumption typically increases during festival seasons when household activity rises. These seasonal shifts are effectively captured through the Month feature and its corresponding cyclical encodings.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/averageload.png}
+    \caption{Average Load by Month}
+    \label{fig:average_load_month}
+\end{figure}
+
+All weather variables were examined individually to understand their behavior and potential influence on load. Air temperature ranged from roughly 1°C to 33°C and followed a clear daily cycle, with warmer afternoons and cooler nights. Global solar radiation showed a distinct daytime-only pattern, peaking sharply around midday and dropping to zero during nighttime hours. Relative humidity tended to be higher during nighttime and rainy months and displayed a slight inverse relationship with temperature. The temperature--load relationship showed a weak positive correlation, with load increasing moderately as temperatures rise, which is typical for mixed-load areas where fans and cooling appliances see greater use. Solar radiation displayed a moderate positive correlation with load, as higher midday radiation often coincides with active residential and commercial activity. Humidity exhibited a weak negative correlation, since high humidity is generally associated with cloudy or rainy conditions during which daytime load may decrease slightly.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/timeAirTemp.png}
+    \caption{Air Temperature Variation Over the Study Period}
+    \label{fig:time_air_temp}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/timeRadiation.png}
+    \caption{Global Solar Radiation Variation Over the Study Period}
+    \label{fig:time_radiation}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/timeHumidity.png}
+    \caption{Relative Humidity Variation Over the Study Period}
+    \label{fig:time_humidity}
+\end{figure}
+
+\section{\sizexii Model Performance Results}
+
+\subsection{\sizexii Machine Learning Model Performance}
+
+All machine learning models were trained on the final feature-engineered dataset and evaluated on the test set. To optimize model performance, hyperparameter tuning was conducted using GridSearchCV with five-fold cross-validation. Table~\ref{tab:ml_hyperparams} summarizes the hyperparameter search space explored for each machine learning model. The best-performing configurations were selected based on the lowest validation error.
+
+\begin{table}[H]
+\centering
+\caption{Hyperparameter Search Space for Machine Learning Models}
+\label{tab:ml_hyperparams}
+\begin{tabular}{ll}
+\hline
+\textbf{Model} & \textbf{Hyperparameters} \\
+\hline
+Ridge Regression & $\alpha$ = [0.001, 0.01, 0.1, 1, 10, 100] \\
+\hline
+Random Forest & 
+\begin{tabular}[c]{@{}l@{}}
+Number of trees = [100, 200] \\
+Max depth = [10, 15, 20] \\
+Min samples split = [2, 5] \\
+Min samples leaf = [1, 2]
+\end{tabular} \\
+\hline
+Gradient Boosting &
+\begin{tabular}[c]{@{}l@{}}
+Estimators = [100, 150, 200] \\
+Learning rate = [0.05, 0.1, 0.15] \\
+Max depth = [3, 5, 7]
+\end{tabular} \\
+\hline
+XGBoost &
+\begin{tabular}[c]{@{}l@{}}
+Estimators = [100, 200] \\
+Max depth = [4, 6, 8] \\
+Learning rate = [0.05, 0.1] \\
+Subsample = [0.8, 1.0]
+\end{tabular} \\
+\hline
+SVR &
+\begin{tabular}[c]{@{}l@{}}
+C = [1, 10, 100] \\
+Gamma = [scale, 0.01, 0.1] \\
+Epsilon = [0.01, 0.1, 0.5]
+\end{tabular} \\
+\hline
+\end{tabular}
+\end{table}
+
+After tuning, the models were evaluated on the test set. Table~\ref{tab:ml_results} presents the performance of all machine learning models.
+
+\begin{table}[H]
+\centering
+\caption{Machine Learning Models Evaluation Matrix}
+\label{tab:ml_results}
+\begin{tabular}{|c|l|c|c|c|c|}
+\hline
+\textbf{Sn.No.} & \textbf{Model} & \textbf{MAE} & \textbf{RMSE} & \textbf{MAPE} & \textbf{R²} \\
+\hline
+1 & XGBoost (Tuned) & 0.257 & 0.384 & 12.693 & 0.831 \\
+\hline
+2 & Random Forest (Tuned) & 0.294 & 0.435 & 14.290 & 0.783 \\
+\hline
+3 & Random Forest & 0.305 & 0.444 & 14.825 & 0.774 \\
+\hline
+4 & XGBoost & 0.313 & 0.449 & 15.242 & 0.769 \\
+\hline
+5 & Gradient Boosting & 0.330 & 0.469 & 16.062 & 0.749 \\
+\hline
+6 & SVR & 0.318 & 0.483 & 15.193 & 0.732 \\
+\hline
+7 & Ridge Regression & 0.502 & 0.649 & 25.021 & 0.518 \\
+\hline
+8 & Linear Regression & 0.502 & 0.649 & 25.021 & 0.518 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Discussion of Results}
+
+Machine learning algorithm performance was quantified through MAE, RMSE, MAPE, and R-squared (R\textsuperscript{2}) to comprehensively assess forecasting capability. Linear Regression and Ridge Regression functioned as baseline comparators, yielding comparatively elevated error metrics and diminished R\textsuperscript{2} coefficients, thereby evidencing their constrained capacity for capturing nonlinear interdependencies between consumption demand and predictor variables. Support Vector Regression demonstrated improvement over linear alternatives by reducing error magnitudes; nonetheless, its performance remained subordinate to ensemble-based methodologies, particularly regarding RMSE outcomes.
+
+Tree-based ensemble algorithms exhibited markedly superior performance across all quantitative criteria. Both Random Forest and Gradient Boosting achieved substantial MAE and RMSE reductions while attaining higher R\textsuperscript{2} coefficients, reflecting enhanced generalization capabilities and improved nonlinear pattern recognition. Among these, the hyperparameter-optimized XGBoost implementation surpassed all competing machine learning algorithms, achieving optimal RMSE (0.384 MW), maximal R\textsuperscript{2} (0.831), and minimal MAPE (12.693\%). The performance differential relative to alternative ensemble approaches stems from XGBoost's gradient-based optimization strategy, integrated regularization mechanisms, and effective feature interaction handling, which collectively enhance model robustness and predictive reliability.
+
+Collectively, the comparative assessment confirms that ensemble machine learning approaches, particularly XGBoost, deliver the most dependable and precise predictions for distribution feeder-level short-term demand forecasting applications.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/xboostActual.png}
+    \caption{XBoost (Tuned) Actual vs Predicted}
+    \label{fig:xboost_actual}
+\end{figure}
+
+\subsection{\sizexii Deep Learning Model Performance}
+
+Deep learning models were trained using lag features and sliding-window sequences to capture temporal dependencies in the feeder load data. Two recurrent architectures were implemented: LSTM and GRU. Comprehensive experiments were conducted across multiple lag configurations and scaling methods to identify optimal configurations. Table~\ref{tab:dl_hyperparams} presents the hyperparameter and configuration search space explored for the deep learning models.
+
+\begin{table}[H]
+\centering
+\caption{Hyperparameter Search Space for Deep Learning Models}
+\label{tab:dl_hyperparams}
+\begin{tabular}{ll}
+\hline
+\textbf{Component} & \textbf{Values} \\
+\hline
+\multicolumn{2}{c}{\textbf{Lag Feature Configurations}} \\
+\hline
+Short lags & [1, 3, 6] hours \\
+Medium lags & [1, 3, 6, 12, 24] hours \\
+Long lags & [1, 3, 6, 12, 24, 48] hours \\
+\hline
+\multicolumn{2}{c}{\textbf{Feature Scaling Methods}} \\
+\hline
+MinMax Scaler & Scales to [0, 1] range \\
+Standard Scaler & Zero mean, unit variance \\
+\hline
+\multicolumn{2}{c}{\textbf{LSTM / GRU Architecture}} \\
+\hline
+Hidden units & [32, 64, 128] \\
+Dropout rate & [0.0, 0.1, 0.2] \\
+Activation function & ReLU \\
+\hline
+\multicolumn{2}{c}{\textbf{Sequence Modeling (LSTM/GRU)}} \\
+\hline
+Look-back window & 24 hours \\
+Batch size & 32 \\
+\hline
+\multicolumn{2}{c}{\textbf{Training Parameters}} \\
+\hline
+Learning rate & 0.001 \\
+Optimizer & Adam \\
+Max epochs & 100 \\
+Early stopping patience & 10 epochs \\
+Data augmentation & 2x (noise, jittering, scaling) \\
+\hline
+\end{tabular}
+\end{table}
+
+After conducting extensive training using the cleaned and augmented dataset, the models were evaluated using the same metrics as the ML models. The best results obtained for each deep learning architecture are presented in Table~\ref{tab:dl_results}. The GRU model with long lag configuration [1, 3, 6, 12, 24, 48] and standard scaling achieved the best overall performance among the deep learning models.
+
+\begin{table}[H]
+\centering
+\caption{Deep Learning Models Evaluation Matrix}
+\label{tab:dl_results}
+\begin{tabular}{|c|l|c|c|c|c|}
+\hline
+\textbf{Sn.No.} & \textbf{Model} & \textbf{MAE} & \textbf{RMSE} & \textbf{MAPE} & \textbf{R²} \\
+\hline
+1 & GRU & 0.192 & 0.289 & 7.364 & 0.879 \\
+\hline
+2 & LSTM & 0.205 & 0.314 & 7.612 & 0.857 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Discussion of Results}
+
+Deep neural network implementations---encompassing LSTM and GRU architectures---underwent evaluation employing identical performance criteria to ensure equitable cross-model comparison. Both recurrent architectures demonstrated strong forecasting performance, with GRU achieving the best results among deep learning models.
+
+The GRU architecture achieved MAE of 0.192, RMSE of 0.289, and MAPE of 7.364\%, attaining an R\textsuperscript{2} coefficient of 0.879. The LSTM model also performed well, with MAE of 0.205, RMSE of 0.314, and MAPE of 7.612\%, achieving an R\textsuperscript{2} of 0.857. Both models demonstrated strong predictive capability, with R\textsuperscript{2} values exceeding 0.85, indicating that the recurrent architectures effectively captured the temporal dependencies present in the feeder load data.
+
+The GRU model's slightly superior performance over LSTM can be attributed to its simpler gating mechanism, which proved more efficient for this particular dataset while requiring fewer parameters and less computational overhead. Both recurrent models successfully learned the sequential patterns in electricity consumption, with the sliding window approach and lag feature configurations enabling effective temporal pattern recognition. Notably, the GRU achieved performance competitive with the tuned XGBoost model (R\textsuperscript{2} = 0.831), demonstrating that recurrent neural network approaches can provide accurate forecasts when appropriately configured for feeder-level load forecasting tasks.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Figures/gruActual.png}
+    \caption{GRU Model Actual vs Predicted Values (Last 200 Test Points)}
+    \label{fig:gru_actual}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% END OF CHAPTER FOUR %%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% CHAPTER FIVE %%%%%%%%%%%%%%%%%%%%
+
+\chapter*{\vspace{-1in}\centering {\sizexii CHAPTER FIVE: CONCLUSION}}
+\addcontentsline{toc}{chapter}{\textbf{CHAPTER FIVE: CONCLUSION}}
+\setcounter{chapter}{5}
+\setcounter{section}{0}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\vspace{-12pt}
+
+\section{\sizexii Conclusion}
+
+This thesis constructed and rigorously assessed an integrated short-term electrical demand forecasting system tailored for the Baneshwor Feeder, employing both conventional machine learning and contemporary deep learning paradigms. The investigation adhered to a structured experimental protocol encompassing data procurement, quality assurance preprocessing, temporal characteristic extraction, and systematic cross-model performance benchmarking within a consistent evaluation framework.
+
+Empirical findings demonstrate that both machine learning algorithms and appropriately configured deep learning models can achieve excellent forecasting performance. Among machine learning approaches, the hyperparameter-optimized XGBoost model achieved strong performance with an RMSE of 0.384 MW and R² of 0.831. Complementary tree-based ensemble approaches, including Random Forest and Gradient Boosting, likewise yielded competitive accuracy metrics, corroborating the efficacy of aggregated decision tree methodologies for distribution-level demand prediction.
+
+Among deep neural network implementations, both recurrent architectures demonstrated strong forecasting capability. The GRU model achieved the best deep learning performance with RMSE of 0.289 MW and R² coefficient of 0.879, while LSTM attained RMSE of 0.314 MW and R² of 0.857. Both models demonstrated effective temporal pattern recognition, with R² values exceeding 0.85, indicating that recurrent neural networks can successfully capture the sequential dependencies present in feeder load data when appropriately configured with sliding window inputs and lag feature engineering.
+
+Collectively, this investigation validates that precise distribution feeder-level short-term demand forecasting remains achievable through both judiciously architected machine learning workflows and appropriately configured recurrent neural network approaches. The experimental outcomes underscore that algorithmic selection should be principally informed by dataset characteristics, available feature dimensionality, and operational deployment constraints. The GRU model's success demonstrates that recurrent architectures with proper sequence modeling can achieve performance competitive with the best ensemble machine learning models for feeder-level forecasting applications.
+
+\section{\sizexii Research Limitations}
+
+Although the study achieved strong forecasting accuracy, several limitations should be acknowledged:
+
+\begin{enumerate}
+    \item \textbf{Dataset size constraints:} While the recurrent models achieved strong performance (GRU R² = 0.879, LSTM R² = 0.857), larger datasets spanning additional years could potentially improve model generalization and seasonal pattern recognition.
+    
+    \item \textbf{Irregular load behaviour:} Feeder-level load profiles often contain noise, outages, fluctuations, and sudden spikes, which can affect deep learning model training without additional contextual variables.
+    
+    \item \textbf{Weather data resolution:} Weather data was available at hourly intervals only; finer granularity or additional environmental factors (e.g., wind speed, rainfall intensity) could further improve models.
+    
+    \item \textbf{No real-time deployment environment:} The study focused on model development and evaluation, and did not include live deployment, automation, or integration with NEA's operational systems.
+\end{enumerate}
+
+These limitations provide important context when interpreting results and designing future enhancements.
+
+\section{\sizexii Implications}
+
+The findings of this thesis carry several meaningful implications for utilities, researchers, and system planners:
+
+\begin{enumerate}
+    \item \textbf{Practical adoption for distribution feeders:} Both ensemble machine learning models (particularly XGBoost with R² = 0.831) and recurrent deep learning models (GRU with R² = 0.879) can provide accurate, low-error forecasts suitable for operational planning, peak management, and scheduling.
+    
+    \item \textbf{Value of feature engineering:} Carefully constructed temporal features, lag variables, and weather features significantly improved forecasting accuracy, highlighting the importance of domain knowledge in model design. The extended lag configurations combined with sliding window sequences proved effective for both LSTM and GRU architectures.
+    
+    \item \textbf{Recurrent architecture effectiveness:} Both GRU (R² = 0.879) and LSTM (R² = 0.857) demonstrated strong predictive capability, confirming that recurrent neural networks are well-suited for capturing temporal dependencies in electricity load forecasting when properly configured.
+    
+    \item \textbf{Foundation for advanced decision-making tools:} Forecasts from both the GRU and XGBoost models can support demand-side management, smart grid optimization, load shifting strategies, and distributed energy resource planning.
+    
+    \item \textbf{Transferability:} The pipeline developed in this study can be extended to other NEA feeders with minimal modifications, promoting scalable forecasting across the network.
+\end{enumerate}
+
+\section{\sizexii Future Work}
+
+Although this study demonstrates effective short-term load forecasting at the feeder level using both machine learning and deep learning models, several extensions can be explored to further enhance forecasting accuracy and practical applicability.
+
+\begin{enumerate}
+    \item \textbf{Incorporation of Additional Influencing Factors:} Future work may include additional exogenous variables such as holiday indicators, special events, and socio-economic factors to better capture demand variations that are not explained by weather and temporal features alone.
+    
+    \item \textbf{Extension to Multi-Feeder and Long-Term Forecasting:} The proposed methodology can be extended to multiple feeders and adapted for medium-term and long-term load forecasting to support broader power system planning and expansion studies.
+    
+    \item \textbf{Advanced Deep Learning Architectures:} Building upon the strong performance of GRU (R² = 0.879) and LSTM (R² = 0.857), future work could explore attention mechanisms, transformer-based architectures, or hybrid CNN-RNN models to potentially further improve forecasting accuracy.
+    
+    \item \textbf{Real-Time Deployment and Online Learning:} Future research can focus on deploying the best-performing GRU or XGBoost model in a real-time operational environment, incorporating online or incremental learning techniques to adapt to evolving load patterns.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% END OF CHAPTER FIVE %%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\bibname}{\vspace{-1in}\centering \sizexii \textbf{REFERENCES}}
+\addcontentsline{toc}{chapter}{\normalfont REFERENCES}
+
+
+%\bibliographystyle{apalike}
+\setlength{\bibhang}{0pt}
+%\bibliography{references}
+\printbibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% END OF REFERENCES %%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% END OF DOCUMENT %%%%%%%%%%%%%%%%%%%
