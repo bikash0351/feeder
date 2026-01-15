@@ -71,9 +71,9 @@
 \contentsline {subsubsection}{Discussion of Results}{33}{}%
 \contentsline {subsection}{\numberline {4.2.2}Deep Learning Model Performance}{34}{}%
 \contentsline {subsubsection}{Discussion of Results}{36}{}%
-\contentsline {chapter}{\numberline {5}Conclusion}{37}{}%
-\contentsline {section}{\numberline {5.1}Conclusion}{37}{}%
-\contentsline {section}{\numberline {5.2}Research Limitations}{38}{}%
-\contentsline {section}{\numberline {5.3}Implications}{38}{}%
-\contentsline {section}{\numberline {5.4}Future Work}{39}{}%
-\contentsline {section}{References}{40}{}%
+\contentsline {chapter}{\numberline {5}Conclusion}{38}{}%
+\contentsline {section}{\numberline {5.1}Conclusion}{38}{}%
+\contentsline {section}{\numberline {5.2}Research Limitations}{39}{}%
+\contentsline {section}{\numberline {5.3}Implications}{39}{}%
+\contentsline {section}{\numberline {5.4}Future Work}{40}{}%
+\contentsline {section}{References}{41}{}%
