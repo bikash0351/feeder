@@ -57,7 +57,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Unpublished manuscript}
       \field{title}{Short-term load forecasting of Gothatar feeder of Nepal Electricity Authority using Recurrent Neural Network}
-      \field{year}{n.d.}
+      \field{year}{2021}
     \endentry
     \entry{aguilar2021short}{article}{}{}
       \name{author}{2}{}{%
@@ -944,50 +944,6 @@
       \field{title}{Adam: A method for stochastic optimization}
       \field{year}{2014}
     \endentry
-    \entry{kwon2020electricity}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=fd9a688744dd866a4fed1e07007ec682}{%
-           family={Kwon},
-           familyi={K\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e57d0b1f72e19c844023fb5ae360f752}{%
-           family={Lee},
-           familyi={L\bibinitperiod},
-           given={K.},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a751353273269dd04e3592da348ed973}{%
-           family={Park},
-           familyi={P\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{05f2b88a40c658f9d17e5467f5567b95}
-      \strng{fullhash}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \strng{fullhashraw}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \strng{bibnamehash}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \strng{authorbibnamehash}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \strng{authornamehash}{05f2b88a40c658f9d17e5467f5567b95}
-      \strng{authorfullhash}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \strng{authorfullhashraw}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Smart Grid}
-      \field{number}{5}
-      \field{title}{Electricity load forecasting using clustering and dimensionality reduction with advanced neural models}
-      \field{volume}{11}
-      \field{year}{2020}
-      \field{pages}{3980\bibrangedash 3992}
-      \range{pages}{13}
-    \endentry
     \entry{lu2024multivariate}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=583118bcdce8bd887283e311b95ef384}{%
@@ -1089,49 +1045,6 @@
       \verb 10.1016/j.egyr.2021.11.175
       \endverb
     \endentry
-    \entry{nabavi2024wavelet}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=5dfb8cdd70658d468b670a27476efbe2}{%
-           family={Nabavi},
-           familyi={N\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0dfd827fdaf23c2d51b85dc56b600641}{%
-           family={Koohi},
-           familyi={K\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ff927efc74b0fc5b07168f881946e0db}{%
-           family={Rahmani},
-           familyi={R\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{19e7f8602bb5b97ec0f5b2120c4979e0}
-      \strng{fullhash}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \strng{fullhashraw}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \strng{bibnamehash}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \strng{authorbibnamehash}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \strng{authornamehash}{19e7f8602bb5b97ec0f5b2120c4979e0}
-      \strng{authorfullhash}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \strng{authorfullhashraw}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Energy and Buildings}
-      \field{title}{Wavelet-transform-enhanced LSTM for short-term electricity load forecasting}
-      \field{volume}{293}
-      \field{year}{2024}
-      \field{pages}{113350}
-      \range{pages}{1}
-    \endentry
     \entry{saglam2024instantaneous}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=267df5f4417ff467a087d95450bc7f66}{%
@@ -1230,6 +1143,77 @@
       \field{title}{Electrical load forecasting using machine learning}
       \field{volume}{8}
       \field{year}{2019}
+    \endentry
+    \entry{vaswani2017attention}{article}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=06649ebab1ea5cac0250746a19764975}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Niki},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=831027ee0ebf22375e2a86afc1881909}{%
+           family={Uszkoreit},
+           familyi={U\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2fd2982e30ebcec93ec1cf76e0d797fd}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Llion},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=27b07e4eacbf4ef7a1438e3badb7dd8d}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Aidan\bibnamedelima N},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=540fcd72e1fa4bbed46604f4e6cff817}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={{Ł}ukasz},
+           giveni={Ł\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=95595a0fefb86187cbc36e551017d332}{%
+           family={Polosukhin},
+           familyi={P\bibinitperiod},
+           given={Illia},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{fullhash}{cb26e47f6b8133865271fc8483132297}
+      \strng{fullhashraw}{cb26e47f6b8133865271fc8483132297}
+      \strng{bibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authorbibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authornamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorfullhash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authorfullhashraw}{cb26e47f6b8133865271fc8483132297}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in neural information processing systems}
+      \field{title}{Attention is all you need}
+      \field{volume}{30}
+      \field{year}{2017}
     \endentry
     \entry{wen2024gru}{article}{}{}
       \name{author}{3}{}{%
@@ -1358,7 +1342,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Unpublished manuscript}
       \field{title}{Short-term load forecasting of Gothatar feeder of Nepal Electricity Authority using Recurrent Neural Network}
-      \field{year}{n.d.}
+      \field{year}{2021}
     \endentry
     \entry{aguilar2021short}{article}{}{}
       \name{author}{2}{}{%
@@ -2245,50 +2229,6 @@
       \field{title}{Adam: A method for stochastic optimization}
       \field{year}{2014}
     \endentry
-    \entry{kwon2020electricity}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=fd9a688744dd866a4fed1e07007ec682}{%
-           family={Kwon},
-           familyi={K\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e57d0b1f72e19c844023fb5ae360f752}{%
-           family={Lee},
-           familyi={L\bibinitperiod},
-           given={K.},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a751353273269dd04e3592da348ed973}{%
-           family={Park},
-           familyi={P\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{05f2b88a40c658f9d17e5467f5567b95}
-      \strng{fullhash}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \strng{fullhashraw}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \strng{bibnamehash}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \strng{authorbibnamehash}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \strng{authornamehash}{05f2b88a40c658f9d17e5467f5567b95}
-      \strng{authorfullhash}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \strng{authorfullhashraw}{cc63bf6b5d546cdf0b23f98e9ffe596a}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Smart Grid}
-      \field{number}{5}
-      \field{title}{Electricity load forecasting using clustering and dimensionality reduction with advanced neural models}
-      \field{volume}{11}
-      \field{year}{2020}
-      \field{pages}{3980\bibrangedash 3992}
-      \range{pages}{13}
-    \endentry
     \entry{lu2024multivariate}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=583118bcdce8bd887283e311b95ef384}{%
@@ -2390,49 +2330,6 @@
       \verb 10.1016/j.egyr.2021.11.175
       \endverb
     \endentry
-    \entry{nabavi2024wavelet}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=5dfb8cdd70658d468b670a27476efbe2}{%
-           family={Nabavi},
-           familyi={N\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0dfd827fdaf23c2d51b85dc56b600641}{%
-           family={Koohi},
-           familyi={K\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ff927efc74b0fc5b07168f881946e0db}{%
-           family={Rahmani},
-           familyi={R\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{19e7f8602bb5b97ec0f5b2120c4979e0}
-      \strng{fullhash}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \strng{fullhashraw}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \strng{bibnamehash}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \strng{authorbibnamehash}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \strng{authornamehash}{19e7f8602bb5b97ec0f5b2120c4979e0}
-      \strng{authorfullhash}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \strng{authorfullhashraw}{b5dba184e5d3e66dec2beabbaaf8d68f}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Energy and Buildings}
-      \field{title}{Wavelet-transform-enhanced LSTM for short-term electricity load forecasting}
-      \field{volume}{293}
-      \field{year}{2024}
-      \field{pages}{113350}
-      \range{pages}{1}
-    \endentry
     \entry{saglam2024instantaneous}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=267df5f4417ff467a087d95450bc7f66}{%
@@ -2531,6 +2428,77 @@
       \field{title}{Electrical load forecasting using machine learning}
       \field{volume}{8}
       \field{year}{2019}
+    \endentry
+    \entry{vaswani2017attention}{article}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=06649ebab1ea5cac0250746a19764975}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Niki},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=831027ee0ebf22375e2a86afc1881909}{%
+           family={Uszkoreit},
+           familyi={U\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2fd2982e30ebcec93ec1cf76e0d797fd}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Llion},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=27b07e4eacbf4ef7a1438e3badb7dd8d}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Aidan\bibnamedelima N},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=540fcd72e1fa4bbed46604f4e6cff817}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={{Ł}ukasz},
+           giveni={Ł\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=95595a0fefb86187cbc36e551017d332}{%
+           family={Polosukhin},
+           familyi={P\bibinitperiod},
+           given={Illia},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{fullhash}{cb26e47f6b8133865271fc8483132297}
+      \strng{fullhashraw}{cb26e47f6b8133865271fc8483132297}
+      \strng{bibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authorbibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authornamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorfullhash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authorfullhashraw}{cb26e47f6b8133865271fc8483132297}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in neural information processing systems}
+      \field{title}{Attention is all you need}
+      \field{volume}{30}
+      \field{year}{2017}
     \endentry
     \entry{wen2024gru}{article}{}{}
       \name{author}{3}{}{%

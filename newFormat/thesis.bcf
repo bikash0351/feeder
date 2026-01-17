@@ -3071,12 +3071,13 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">references.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">dong2024decade</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">chapagain2021short</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">acharya2021stlf</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">matrenin2022medium</bcf:citekey>
-    <bcf:citekey order="4" intorder="2">aguilar2021short</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">cordeiro2023load</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">aguilar2021short</bcf:citekey>
+    <bcf:citekey order="1" intorder="2">chapagain2021short</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">acharya2021stlf</bcf:citekey>
+    <bcf:citekey order="2" intorder="2">singla2019electrical</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">aguilar2021short</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">chapagain2021short</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">singla2019electrical</bcf:citekey>
     <bcf:citekey order="6" intorder="1">singla2019electrical</bcf:citekey>
     <bcf:citekey order="7" intorder="1">desai2021electrical</bcf:citekey>
     <bcf:citekey order="8" intorder="1">matrenin2022medium</bcf:citekey>
@@ -3091,20 +3092,19 @@
     <bcf:citekey order="17" intorder="1">wen2024gru</bcf:citekey>
     <bcf:citekey order="18" intorder="1">alhussein2020cnn</bcf:citekey>
     <bcf:citekey order="19" intorder="1">hasanat2024parallel</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">chan2024sparse</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">zhang2022time</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">lu2024multivariate</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">banik2024stacked</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">kwon2020electricity</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">nabavi2024wavelet</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">hoerl1970ridge</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">drucker1997svr</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">breiman2001random</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">friedman2001gradient</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">chen2016xgboost</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">kingma2014adam</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">hochreiter1997lstm</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">cho2014gru</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">vaswani2017attention</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">chan2024sparse</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">zhang2022time</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">lu2024multivariate</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">banik2024stacked</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">hoerl1970ridge</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">drucker1997svr</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">breiman2001random</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">friedman2001gradient</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">chen2016xgboost</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">kingma2014adam</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">hochreiter1997lstm</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">cho2014gru</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

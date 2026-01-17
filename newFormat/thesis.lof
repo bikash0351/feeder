@@ -1,14 +1,14 @@
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Baneshwor Feeder View}}{2}{figure.caption.11}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Substation \& Transmission Line Network Baneshwor}}{4}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Architecture LSTM}}{18}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Architecture GRU}}{19}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Methodology Block Diagram}}{21}{figure.caption.17}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Feature Correlation Matrix}}{27}{figure.caption.18}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Daily Average Electricity Load Over Time}}{38}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Load Distribution by Hour}}{39}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Average Load by Month}}{40}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Air Temperature Variation Over the Study Period}}{41}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Global Solar Radiation Variation Over the Study Period}}{41}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Relative Humidity Variation Over the Study Period}}{42}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces XBoost (Tuned) Actual vs Predicted}}{45}{figure.caption.28}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces GRU Model Actual vs Predicted Values (Last 200 Test Points)}}{48}{figure.caption.31}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Substation \& Transmission Line Network Baneshwor}}{2}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Architecture LSTM}}{16}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Architecture GRU}}{17}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Methodology Block Diagram}}{19}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Feature Correlation Matrix}}{25}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Daily Average Electricity Load Over Time}}{36}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Load Distribution by Hour}}{37}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Average Load by Month}}{38}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Air Temperature Variation Over the Study Period}}{39}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Global Solar Radiation Variation Over the Study Period}}{39}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Relative Humidity Variation Over the Study Period}}{40}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Boxplot of MW Column Before and After Outlier Removal}}{41}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces XBoost (Tuned) Actual vs Predicted}}{44}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces GRU Model Actual vs Predicted Values (Last 200 Test Points)}}{47}{figure.caption.32}%
