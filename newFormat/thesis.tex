@@ -7,6 +7,7 @@
 \usepackage{geometry}
 \usepackage{setspace}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{enumitem}
 \usepackage{subcaption}
 \usepackage{array}
@@ -19,8 +20,7 @@
 \usepackage{caption}
 \usepackage{float}
 \usepackage{gensymb}
-\usepackage[style=apa, backend=biber]{biblatex}
-\DeclareLanguageMapping{english}{english-apa}
+\usepackage[style=numeric-comp, backend=biber, sorting=none]{biblatex}
 \addbibresource{references.bib}
 \renewcommand{\cftdotsep}{2}
 
@@ -363,19 +363,7 @@ JANUARY, 2026 \\
 %%% Add here the file from misc page file
 \section*{\begin{center}  {\sizexii COPYRIGHT} \end{center}}
 \phantomsection \addcontentsline{toc}{section}{Copyright}\vspace{-16pt}
-The author has agreed that the Library, Department of Electrical Engineering, Pul
-chowk Campus, and Institute of Engineering may make this report available for in
-spection. Moreover, the author has agreed that permission for extensive copying of
-this project report for scholarly purposes may be granted by the supervisors who
-supervised the work recorded herein or, in their absence, by the Head of the Depart
-ment wherein the project report was done. It is understood that recognition will be
-given to the author of this report and the Department of Electronics and Computer
-Engineering, Pulchowk Campus, Institute of Engineering for any use of the material
-of this project report. Copying publication or the other use of this report for finan
-cial gain without the approval of the Department of Electrical Engineering, Pulchowk
-Campus, Institute of Engineering, and the author’s written permission is prohibited.
-Request for permission to copy or to make any other use of the material in this report
-in whole or in part should be addressed to:
+This thesis may be accessed for academic and research purposes at the Library, Department of Electrical Engineering, Pulchowk Campus, and Institute of Engineering. Permission for substantial reproduction of this report for scholarly use may be granted by the supervisors or, if unavailable, by the Head of Department. Proper acknowledgment must be given to the author and the Department of Electrical Engineering, Pulchowk Campus, Institute of Engineering, for any use of the material herein. Any reproduction or use of this report for commercial purposes without written consent from both the Department and the author is strictly prohibited. Requests for such permissions should be directed to:
 
 \bigskip
 \bigskip
@@ -383,59 +371,55 @@ Head \\
 Department of Electrical Engineering \\
 Pulchowk Campus, Institute of Engineering \\
 Pulchowk, Lalitpur \\
-Nepal 
+Nepal
 \newpage
 \newgeometry{a4paper, total={210mm, 297mm}, left=1.5in, top=1in, right = 1in, bottom = 1in, footskip = 0in}
 
 %%% Approval page
 \phantomsection \addcontentsline{toc}{section}{Approval page}
+\vspace*{2.5cm}% Space for college letterhead
 {\centering
-	\textbf{TRIBHUVAN UNIVERSITY}\\
-	\textbf{INSTITUTE OF ENGINEERING}\\
-	\textbf{PULCHOWK CAMPUS}\\
-	\textbf{DEPARTMENT OF ELECTRICAL ENGINEERING}\\}
+    \textbf{Certificate of Approval}\\}
 \noindent The undersigned certify that they have read and recommended to the Institute of Engineering for acceptance, a THESIS entitled \textbf{Short-Term Electrical Load Fore
-	casting for Baneshwor Feeder Using Machine and Deep Learning Models} submitted by Sujit Koirala (PUL075MSPSE016) in partial fulfillment of the requirements for the degree of Masters of Science in Power System Engineering.
+	casting for Baneshwor Feeder Using Machine and Deep Learning Models} submitted by Sujit Koirala (PUL075MSPSE016) as a partial requirement for the Master of Science in Power System Engineering. After review, we recommend its acceptance by the Institute of Engineering.
 
 \bigskip
-\hspace{2cm}
+
 \begin{table}[h]
-	\begin{tabular}{ll}
-	
-		\hspace{3cm} & \rule{9.75cm}{1pt} \\
-		\hspace{3cm} & Supervisor: Amrit Dhakal\\
-		\hspace{2cm} & Assistant Professor, Department of Electrical Engineering \\
-		\hspace{3cm} &  Pulchowk Campus, IOE, Tribhuvan University \\
-		
-		\\
-		\\
-		
-		\hspace{3cm} & \rule{9.75cm}{1pt} \\
-		\hspace{3cm} & Supervisor: Deependra Neupane\\
-		\hspace{2cm} & Assistant Professor, Department of Electrical Engineering \\
-		\hspace{3cm} &  Pulchowk Campus, IOE, Tribhuvan University \\
-		
-		\\
-		\\
-		
-		
-		\hspace{3cm} & \\
-		\hspace{3cm} & \rule{9.75cm}{1pt} \\
-		\hspace{3cm} & External Examiner: \\
-		\hspace{3cm} & Department \\
-		\hspace{3cm} & University \\
-		\hspace{3cm} & \\
-		
-		\\
-		\\
-				
-		\hspace{2cm} & \rule{9.75cm}{1pt} \\
-		\hspace{2cm} & HOD, Bishal Silwal\\
-		\hspace{2cm} & Assistant Professor, Department of Electrical Engineering \\
-		\hspace{2cm} & Pulchowk Campus, IOE, Tribhuvan University \\ 
-		\hspace{2cm} &  \\
-		
-	\end{tabular}
+    \centering
+    \begin{tabular}{p{7cm} p{7cm}}
+        
+        % --- ROW 1 ---
+        % 1. Create space for the signature (ink)
+        & \\[0.8cm] 
+        % 2. The Line (reduced space after to keep name close)
+        \rule{7cm}{0.5pt} & \rule{7cm}{0.5pt} \\[5pt] 
+        % 3. The Details
+        Amrit Dhakal & Deependra Neupane \\
+        Supervisor & Supervisor \\
+        Assistant Professor, Department of Electrical Engineering & Assistant Professor, Department of Electrical Engineering \\
+        Pulchowk Campus, IOE, Tribhuvan University & Pulchowk Campus, IOE, Tribhuvan University \\
+
+        % --- ROW 2 ---
+        % 1. Create space for the signature (ink)
+        & \\[0.8cm]
+        % 2. The Line
+        \rule{7cm}{0.5pt} & \rule{7cm}{0.5pt} \\[5pt]
+        % 3. The Details
+        Dr. Kamal Chapagain & Dr. Bishal Silwal \\
+        External Examineer, Department of Electrical and Electronics Engineering & Program Coordinator, Msc. in Power System Engineering \\
+        Kathmandu University & Pulchowk Campus, IOE, Tribhuvan University \\
+
+        % --- ROW 3 ---
+        % 1. Create space for the signature (ink)
+        & \\[0.8cm]
+        % 2. The Line
+        \rule{7cm}{0.5pt} &  \\[5pt]
+        % 3. The Details
+        Assoc. Prof. Jeetendra Chaudhary &  \\
+        HoD, Department of Electrical Engineering &  \\
+        Pulchowk Campus, IOE, Tribhuvan University & \\
+    \end{tabular}
 \end{table}
 
 Date: January, 2026
@@ -448,9 +432,9 @@ Date: January, 2026
 \phantomsection
 \addcontentsline{toc}{section}{Abstract} \vspace{-16pt}
 
-Accurate short-term electrical load forecasting plays a crucial role in the efficient planning and operation of modern power systems. With increasing load variability influenced by weather conditions, temporal patterns, and socio-economic activities, traditional statistical methods often struggle to capture complex and nonlinear demand behavior. This project focuses on short-term electrical load forecasting for the Baneshwor Feeder using machine learning--based approaches. Historical hourly load data, along with meteorological variables such as air temperature, global solar radiation, and relative humidity, were used to develop predictive models. Comprehensive data preprocessing was performed, including missing value imputation, outlier treatment, temporal feature extraction, and cyclical encoding of time-based variables. Several machine learning models were implemented and evaluated, including Linear Regression, Ridge Regression, Support Vector Regression, Random Forest, Gradient Boosting, and XGBoost. Deep learning models including Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) were also developed and evaluated. Hyperparameter tuning are tuned to improve model performance. The models were assessed using standard evaluation metrics such as Mean Absolute Error (MAE), Root Mean Square Error (RMSE), Mean Absolute Percentage Error (MAPE), and R-squared (R\textsuperscript{2}). The results show that the GRU deep learning model with extended lag features achieved the best overall performance (RMSE: 0.289, R\textsuperscript{2}: 0.879), followed by LSTM (RMSE: 0.314, R\textsuperscript{2}: 0.857). Among machine learning models, the tuned XGBoost achieved the best performance (RMSE: 0.384, R\textsuperscript{2}: 0.831). The findings highlight the effectiveness of appropriately configured recurrent neural networks and ensemble machine learning techniques for feeder-level short-term load forecasting and provide valuable insights for operational planning and decision-making in power distribution systems.
+Reliable short-term forecasting of electrical load is essential for the optimal management and planning of modern power systems and electricity markets. As load patterns become more variable due to weather, time-based trends, and social factors, traditional statistical approaches often fail to capture the underlying nonlinearities. In this study, short-term load forecasting for the Baneshwor Feeder is addressed using a range of machine learning and deep learning models, with forecast intervals tailored to market operations. The analysis utilizes historical hourly load data and meteorological features such as temperature, solar radiation, and humidity. Data preparation included handling missing values, treating outliers, extracting temporal features, and encoding cyclical time variables. The models explored include Linear Regression, Ridge Regression, Support Vector Regression, Random Forest, Gradient Boosting, and XGBoost, as well as deep learning models like LSTM and GRU. Hyperparameters were optimized to enhance predictive accuracy. Model performance was evaluated using Mean Absolute Error (MAE), Root Mean Square Error (RMSE), Mean Absolute Percentage Error (MAPE), and R-squared (R\textsuperscript{2}). The GRU model with additional lag features delivered the highest accuracy (RMSE: 0.289, R\textsuperscript{2}: 0.879, MAPE: 7.364\%), with LSTM as the next best (RMSE: 0.314, R\textsuperscript{2}: 0.857, MAPE: 7.612\%). Among machine learning models, XGBoost performed best (RMSE: 0.384, R\textsuperscript{2}: 0.831, MAPE: 12.693\%). These results indicate that the models are suitable for hour-ahead intraday market forecasting. The study demonstrates the value of advanced neural networks and ensemble methods for feeder-level load prediction, supporting operational planning and market participation in power distribution.
 
-\textbf{Keywords:} \textit{short-term load forecasting, machine learning, deep learning, GRU, LSTM, XGBoost, power distribution systems}
+\textbf{Keywords:} \textit{short-term load forecasting, machine learning, deep learning, GRU, LSTM, XGBoost, electricity markets, day-ahead market, intraday market, power distribution systems}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%% END OF ABSTRACT PAGE %%%%%%%%%%%%%%%
 
@@ -548,10 +532,12 @@ Finally, I would like to express my heartfelt appreciation to my family for thei
 \item[ARIMA]        :   \kern 1cm	Autoregressive Integrated Moving Average
 \item[BS]           :   \kern 1cm	Bikram Sambat (Nepali Calendar)
 \item[CNN]          :   \kern 1cm	Convolutional Neural Network
+\item[DAM]          :   \kern 1cm	Day-Ahead Market
 \item[DHM]          :   \kern 1cm	Department of Hydrology and Meteorology
 \item[DL]           :   \kern 1cm	Deep Learning
 \item[DWT]          :   \kern 1cm	Discrete Wavelet Transform
 \item[GRU]          :   \kern 1cm	Gated Recurrent Unit
+\item[IDM]          :   \kern 1cm	Intraday Market
 \item[LSTM]         :   \kern 1cm	Long Short-Term Memory
 \item[MAE]          :   \kern 1cm	Mean Absolute Error
 \item[MAPE]         :   \kern 1cm	Mean Absolute Percentage Error
@@ -563,6 +549,7 @@ Finally, I would like to express my heartfelt appreciation to my family for thei
 \item[RMSE]         :   \kern 1cm	Root Mean Squared Error
 \item[RNN]          :   \kern 1cm	Recurrent Neural Network
 \item[R\textsuperscript{2}]  :   \kern 1cm	Coefficient of Determination
+\item[RTM]          :   \kern 1cm	Real-Time Market
 \item[STLF]         :   \kern 1cm	Short-Term Load Forecasting
 \item[SVR]          :   \kern 1cm	Support Vector Regression
 \item[TCN]          :   \kern 1cm	Temporal Convolutional Network
@@ -601,36 +588,39 @@ This research focuses on short-term electrical load forecasting at the feeder le
 using data-driven machine learning and deep learning techniques. Historical load
 data combined with weather and temporal features were used to model and predict
 hourly power demand. Multiple forecasting models were developed and evaluated to
-identify the most effective approach for accurate and reliable load prediction.
+identify the most effective approach for accurate and reliable load prediction, with particular relevance to electricity market operations and grid management.
 
 Electricity demand is never constant. It rises and falls with daily routines, tem
 perature changes, business hours, and countless other factors. For a power system
 operator, being able to predict this demand even just a few hours ahead can make
 a huge difference. Accurate short-term forecasting helps optimize generation sched
 ules, reduce operational costs, manage peak hours more confidently, and maintain a
-reliable supply \parencite{aguilar2021short, chapagain2021short}.
+reliable supply \cite{aguilar2021short, chapagain2021short}. In modern electricity markets, such forecasts are fundamental to efficient market clearing, optimal bidding strategies, and maintaining supply-demand balance in real-time \cite{weron2014electricity, kirschen2018fundamentals}.
+
+\textbf{The Need for Short-Term Electricity Load Forecasting:}
+Short-term load forecasting has become indispensable in today's power systems for several interconnected reasons. First, from an \textit{operational perspective}, accurate hour-ahead and day-ahead forecasts enable system operators to commit the optimal mix of generating units, schedule maintenance without compromising reliability, and procure reserves efficiently. Second, from an \textit{economic perspective}, forecasting errors translate directly into financial costs---either through over-procurement of expensive peaking generation or through penalties incurred in imbalance settlement mechanisms. Third, from a \textit{market participation perspective}, utilities and load-serving entities must submit bids and offers based on anticipated demand; the accuracy of these forecasts determines their competitiveness and profitability in day-ahead and intraday markets \cite{weron2014electricity}. Fourth, as power systems integrate more \textit{variable renewable energy sources}, the ability to accurately predict net load (demand minus renewable generation) becomes crucial for maintaining system stability and minimizing curtailment \cite{hong2016energy}.
 
 Short-Term Load Forecasting (STLF) typically focuses on horizons ranging from
 one hour to a day ahead. These forecasts are critical for economic dispatch, unit
-commitment, load flow analysis, and real-time operation. Traditionally, utilities relied
+commitment, load flow analysis, and real-time operation. In the context of electricity markets, STLF plays a pivotal role across multiple market timelines: intraday markets depend on rolling hour-ahead predictions for position adjustments and real-time balancing, while real-time balancing markets utilize very short-term forecasts for ancillary services and imbalance management \cite{lago2021dayahead, shahidehpour2002market}. Hour-ahead forecasting is particularly critical as it enables utilities to make timely adjustments to their market positions based on the most recent demand patterns and weather conditions. Traditionally, utilities relied
 on statistical approaches such as linear regression, ARIMA, exponential smoothing,
-and Holt-Winters \parencite{acharya2021stlf, singla2019electrical}. These techniques can work well when patterns are simple,
+and Holt-Winters \cite{acharya2021stlf, singla2019electrical}. These techniques can work well when patterns are simple,
 but they struggle with real-world load curves that are nonlinear, noisy, and influenced
 by many interacting variables.
 
 Machine Learning models like Random Forest, Support Vector Regression, and
-XGBoost have shown strong results in energy-related forecasting tasks \parencite{aguilar2021short}. Their
+XGBoost have shown strong results in energy-related forecasting tasks \cite{aguilar2021short}. Their
 ability to capture nonlinear relationships makes them a natural fit for electricity load
 prediction. Likewise, Deep Learning approaches, especially recurrent neural networks
 such as LSTM and GRU, can learn temporal dependencies more effectively than
-traditional models \parencite{chapagain2021short}.
+traditional models \cite{chapagain2021short}.
 
 The Baneshwor Feeder of the Nepal Electricity Authority serves a mixed group of
 consumers in the Baneshwor region of Kathmandu Valley, which is shown in single line
 diagram shown in Figure 1.1. Its load pattern reflects residential lifestyles, commercial
 activity, seasonal tourism impacts, and local weather changes. Daily and weekly cycles
 are clearly visible, but there are also irregularities that simple models fail to capture.
-As power consumption continues to grow and diversify, the ability to forecast the feeder’s short-term load accurately has become even more important \parencite{singla2019electrical}. This creates	a strong motivation to investigate how modern ML and DL models can improve forecasting performance for this specific feeder.
+As power consumption continues to grow and diversify, the ability to forecast the feeder’s short-term load accurately has become even more important \cite{singla2019electrical}. This creates	a strong motivation to investigate how modern ML and DL models can improve forecasting performance for this specific feeder.
 
 \begin{figure}[h]
 	\centering
@@ -645,13 +635,13 @@ estimation or basic statistical techniques. These methods do not fully capture t
 nonlinear and dynamic nature of the load profile, especially when multiple influencing
 factors, like temperature, humidity, rainfall, weekends, and special events come into
 play. As a result, prediction errors tend to increase during peak hours, sudden weather
-changes, and seasonal transitions. Although some of studies have studied short-term electrical load forecasting for Kathmandu valley, more comprehensive study is lagging, such as using comprehensive study on different machine learning models, and deep learning models with hyperparameter tuning.
+changes, and seasonal transitions. Although some studies have explored short-term electrical load forecasting for Kathmandu valley, more comprehensive research is lacking, particularly studies that systematically compare multiple machine learning and deep learning models with hyperparameter tuning, and that frame the forecasting problem within the context of electricity market operations.
 
-Inaccurate short-term forecasts have several consequences. They can affect how
+Inaccurate short-term forecasts have several consequences for both grid operation and market efficiency. They can affect how
 generation is scheduled, leading to either unnecessary reserve margins or inadequate
 supply. They may increase operational costs and technical losses at the distribution
 level. In the worst cases, poor foresight during high-demand periods can create voltage
-drops, reliability concerns, or inefficient load-shedding decisions.
+drops, reliability concerns, or inefficient load-shedding decisions. From an electricity market perspective, forecasting errors directly impact bidding accuracy in intraday markets, lead to costly imbalance settlements in real-time markets, and reduce the economic efficiency of power procurement \cite{conejo2010decision}. As Nepal's power sector moves toward market liberalization and increased cross-border electricity trade, the financial implications of forecast errors become increasingly significant. Hour-ahead predictions are particularly critical for intraday market operations, where utilities must adjust their positions based on updated demand expectations and respond rapidly to changing load conditions \cite{zareipour2010electricity}.
 
 Despite the availability of historical load and weather data, there has not been
 a systematic study applying and comparing advanced machine learning and deep
@@ -666,23 +656,24 @@ evaluating their performance, hyperparameter tuning and identifying the most sui
 \section{\sizexii Objectives}
 To develop and evaluate machine learning and deep learning models for short-term
 electrical load forecasting of the Baneshwor Feeder to improve prediction accuracy
-and operational efficiency.
+and operational efficiency, with forecasting horizons aligned to hour-ahead intraday market operational timelines.
 \begin{enumerate}
 	\item To collect and preprocess historical load data and relevant influencing factors
 	such as weather variables and calendar effects for the Baneshwor Feeder.
 	\item To implement and evaluate various machine learning models including Support
 	Vector Regression (SVR), Random Forest (RF), and XGBoost, as well as deep
-	learning models such as Multi-Layer Perceptron (MLP), Long Short-Term Mem
-	ory (LSTM), and Gated Recurrent Unit (GRU), using standard error metrics (e.g., RMSE, MAPE, MAE, R-squared).
+	learning models such as Long Short-Term Mem
+	ory (LSTM) and Gated Recurrent Unit (GRU), using standard error metrics (e.g., RMSE, MAPE, MAE, R-squared).
+	\item To develop forecasting capabilities suitable for day-ahead scheduling and hour-ahead market operations, enabling accurate demand prediction for electricity market participation and grid balancing.
 	\item To recommend the most suitable forecasting model for operational use in the
-	Baneshwor Feeder.
+	Baneshwor Feeder, considering both prediction accuracy and applicability to energy market requirements.
 \end{enumerate}
 
 \section{\sizexii Scope and Limitations}
 This study is geographically limited to the Baneshwor Feeder under the Nepal Elec
 tricity Authority. The temporal scope focuses on short-term load forecasting with a
-prediction horizon of up to 24 hours ahead, utilizing historical hourly load data as
-the primary foundation for model development. The dataset encompasses historical
+prediction horizon of one hour ahead, utilizing historical hourly load data as
+the primary foundation for model development. This forecasting horizon is specifically designed to support hour-ahead intraday market operations, which represent the most dynamic and frequently traded timescale in modern electricity markets \cite{weron2014electricity}. Hour-ahead forecasting enables utilities to make rapid position adjustments, optimize real-time dispatch, and minimize imbalance costs in competitive market environments. The dataset encompasses historical
 load data from the Baneshwor Feeder, complemented by weather data including tem
 perature, humidity, and rainfall, along with calendar data distinguishing weekdays,
 weekends, and holidays.
@@ -693,11 +684,11 @@ alongside deep learning architectures such as Long Short-Term Memory (LSTM) and
 Gated Recurrent Unit (GRU) networks. The performance of these models is rigor
 ously evaluated using standard metrics including Root Mean Squared Error (RMSE),
 Mean Absolute Percentage Error (MAPE), Mean Absolute Error (MAE), and the
-coefficient of determination (R-squared). It should be noted that the accuracy of
+coefficient of determination (R-squared). These metrics are directly relevant for assessing model suitability for hour-ahead electricity market applications, where forecast accuracy determines the ability to adjust market positions and minimize imbalance costs \cite{conejo2010decision}. It should be noted that the accuracy of
 forecasts is inherently dependent on the quality and completeness of the historical
 data available. Additionally, this study does not extend to medium-term or long
 term forecasting horizons, and the scope explicitly excludes renewable generation
-forecasting from its analysis.
+forecasting and electricity price forecasting from its analysis.
 
 Despite the promising results obtained in this study, certain limitations were en
 countered, primarily related to data availability, model assumptions, and scope of
@@ -707,13 +698,14 @@ analysis.
 	\item Dependence on data quality: Forecast accuracy is limited by the completeness and reliability of the historical load and weather data. Missing values, sensor errors, or inconsistent reporting can influence model performance.
 	\item Model sensitivity to sudden changes: Unexpected events such as outages, festivals, abrupt weather shifts, or abnormal consumption patterns are difficult for data-driven models to predict accurately.
 	\item Deep learning computation constraints: Training LSTM and GRU models requires more computational resources and time compared to ML models. Their performance may vary depending on the hardware used.
-	\item Limited feature diversity: Although weather and calendar data are included, other influential factors like economic activities, special events, or industrial load profiles are not part of the dataset.
+	\item Limited feature diversity: Although weather and calendar data are included, other influential factors like economic activities, special events, industrial load profiles, or electricity price signals are not part of the dataset.
 	\item Generalization across feeders: The models developed in this study are tailored specifically to the Baneshwor Feeder and may not generalize directly to other feeders without retraining or adaptation.
+	\item Electricity market scope: While the forecasting framework is designed with hour-ahead market timelines in mind, actual market bidding optimization and price forecasting are beyond the scope of this study. The focus remains on load quantity prediction rather than price-volume optimization.
 \end{enumerate}
 
 
 \section{\sizexii Report Organization}
-Thesis structure is as follows; Chapter 1 describe about electrical load, importance of short-term electrical load forecasting, methods and techniques developed and used for electrical load forecasting, as well as objective, scope and limitation. Chapter 2 is review of literature, where we will critically review the previous study, find the potential gap and our approach to solve the problem. This chapter also describes about forecasting methods, machine learning models and deep learning models theoretical aspects. Chapter 3 describes overall workflow, data acquisition, model development, training, validation and hyperparameter tuning, and model evaluation. Chapter 4 shows exploratory data analysis, models configuration and hyperparameters search spaces and finally models comparison based on evaluation metrics. Chapter 5 is conclusion, where we conclude our thesis with research limitations, practical implications and future directions.
+Thesis structure is as follows; Chapter 1 describes electrical load, importance of short-term electrical load forecasting in the context of both grid operations and electricity markets, methods and techniques developed and used for electrical load forecasting, as well as objectives, scope, and limitations. Chapter 2 is a review of literature, where we critically review previous studies, identify potential gaps, and describe our approach to solve the problem. This chapter also covers the theoretical background of electricity markets and their relationship with load forecasting, as well as the mathematical foundations of machine learning and deep learning models. Chapter 3 describes the overall workflow, data acquisition, model development, training, validation, hyperparameter tuning, and model evaluation. Chapter 4 presents exploratory data analysis, model configurations, hyperparameter search spaces, and comparative model analysis based on evaluation metrics relevant to both operational planning and hour-ahead market participation. Chapter 5 concludes the thesis with research limitations, practical implications for hour-ahead energy market operations, and future directions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%% END OF  CHAPTER ONE %%%%%%%%%%%%%%%%%%%
@@ -746,22 +738,86 @@ There are many previous works done for electrical load forecasting from short-te
 electrical load forecasting, to medium-term and long-term. Most of the studies have
 done short-term load forecasting.
 
-\parencite{singla2019electrical} employed Artificial Neural Networks for 24-hour short-term load forecasting, utilizing dew point temperature, dry bulb temperature, and humidity as input features. Their work demonstrated the effectiveness of ANN in capturing the relationship between weather variables and electrical load demand. Similarly, \parencite{desai2021electrical} utilized the Prophet model from Meta to perform short-term load forecasting, incorporating time, temperature, humidity, and weather forecast data as features. \parencite{matrenin2022medium} conducted a study on medium-term load forecasting using ensemble  machine learning models. They compared XGBoost and AdaBoost against traditional methods including SVR, decision trees, and Random Forest. Their results highlighted the superior performance of gradient boosting techniques for capturing complex load patterns. \parencite{aguilar2021short} tested five machine learning models and found XGBoost to be the most accurate for predictions, using historical load data, weather information, and holiday indicators as input features. \parencite{guo2021machine} analyzed three popular ML methods for load forecasting: Support Vector Machine, Random Forest, and LSTM. They proposed a fusion forecasting approach that combined outputs from all three models, demonstrating that ensemble methods could improve prediction accuracy beyond individual model performance. 
-Different from above studies, \parencite{saglam2024instantaneous} performed a comparison between optimization methods (Particle Swarm Optimization, Dandelion Optimizer, Growth Optimizer) and machine learning models (SVR, ANN) for instantaneous peak electrical load forecasting. They found that ANN combined with Growth Optimizer outperformed other models and identified a strong positive correlation between GDP and peak load demand. \parencite{jain2024comparative} conducted a comprehensive evaluation of various machine learning algorithms for power load prediction, including Support Vector Machines, LSTM, ensemble classifiers, and Recurrent Neural Networks. They emphasized the importance of data preprocessing methods, feature selection strategies, and performance assessment metrics in achieving accurate forecasts, they demonstrated that ensemble methods and deep learning approaches consistently outperformed traditional
+\cite{singla2019electrical} employed Artificial Neural Networks for 24-hour short-term load forecasting, utilizing dew point temperature, dry bulb temperature, and humidity as input features. Their work demonstrated the effectiveness of ANN in capturing the relationship between weather variables and electrical load demand. Similarly, \cite{desai2021electrical} utilized the Prophet model from Meta to perform short-term load forecasting, incorporating time, temperature, humidity, and weather forecast data as features. \cite{matrenin2022medium} conducted a study on medium-term load forecasting using ensemble  machine learning models. They compared XGBoost and AdaBoost against traditional methods including SVR, decision trees, and Random Forest. Their results highlighted the superior performance of gradient boosting techniques for capturing complex load patterns. \cite{aguilar2021short} tested five machine learning models and found XGBoost to be the most accurate for predictions, using historical load data, weather information, and holiday indicators as input features. \cite{guo2021machine} analyzed three popular ML methods for load forecasting: Support Vector Machine, Random Forest, and LSTM. They proposed a fusion forecasting approach that combined outputs from all three models, demonstrating that ensemble methods could improve prediction accuracy beyond individual model performance. 
+Different from above studies, \cite{saglam2024instantaneous} performed a comparison between optimization methods (Particle Swarm Optimization, Dandelion Optimizer, Growth Optimizer) and machine learning models (SVR, ANN) for instantaneous peak electrical load forecasting. They found that ANN combined with Growth Optimizer outperformed other models and identified a strong positive correlation between GDP and peak load demand. \cite{jain2024comparative} conducted a comprehensive evaluation of various machine learning algorithms for power load prediction, including Support Vector Machines, LSTM, ensemble classifiers, and Recurrent Neural Networks. They emphasized the importance of data preprocessing methods, feature selection strategies, and performance assessment metrics in achieving accurate forecasts, they demonstrated that ensemble methods and deep learning approaches consistently outperformed traditional
 statistical models.
 
-Deep learning is also widely used method for electrical load forecasting, \parencite{chapagain2021short} explored deep learning models for electricity demand forecasting in Kathmandu Valley along with machine learning model. They found LSTM demonstrating outstanding performance in terms of MAPE and RMSE. \parencite{acharya2021stlf} also performed short-term electrical load forecasting for the Gothatar feeder, uses six input features and found that Recurrent Neural Networks outperformed baseline methods including Single Exponential Smoothing, Double Exponential Smoothing, and Hot-Winter's method. \parencite{cordeiro2023load} conducted a comprehensive comparison of load forecasting methods, including Random Forest, SVR, XGBoost, Multi-Layer Perceptron, LSTM, Conv-1D models and found that LSTM achieved the lowest error rates across multiple evaluation metrics. \parencite{dong2024decade} provided a comprehensive survey on deep learning-based short-term electricity load forecasting covering the past decade. They identified CNN-LSTM hybrid architectures as widely adopted solutions due to exceptional performance in capturing both spatial and temporal features. 
+Deep learning is also widely used method for electrical load forecasting, \cite{chapagain2021short} explored deep learning models for electricity demand forecasting in Kathmandu Valley along with machine learning model. They found LSTM demonstrating outstanding performance in terms of MAPE and RMSE. \cite{acharya2021stlf} also performed short-term electrical load forecasting for the Gothatar feeder, uses six input features and found that Recurrent Neural Networks outperformed baseline methods including Single Exponential Smoothing, Double Exponential Smoothing, and Hot-Winter's method. \cite{cordeiro2023load} conducted a comprehensive comparison of load forecasting methods, including Random Forest, SVR, XGBoost, Multi-Layer Perceptron, LSTM, Conv-1D models and found that LSTM achieved the lowest error rates across multiple evaluation metrics. \cite{dong2024decade} provided a comprehensive survey on deep learning-based short-term electricity load forecasting covering the past decade. They identified CNN-LSTM hybrid architectures as widely adopted solutions due to exceptional performance in capturing both spatial and temporal features. 
 
-Hybrid architecture are also widely adopted for time series forecasting. \parencite{wen2024gru}  proposed a hybrid deep learning model combining Gated Recurrent Units and Temporal Convolutional Networks with an attention mechanism for short-term load forecasting. GRU captured long-term dependencies in time series data, while TCNefficiently learned patterns and features. Their approach demonstrated superior accuracy compared to standalone architectures. \parencite{alhussein2020cnn} developed a hybrid CNN-LSTM framework for short-term individual household load forecasting, CNN layers for feature extraction from input data and LSTM layers for sequence
+Hybrid architecture are also widely adopted for time series forecasting. \cite{wen2024gru}  proposed a hybrid deep learning model combining Gated Recurrent Units and Temporal Convolutional Networks with an attention mechanism for short-term load forecasting. GRU captured long-term dependencies in time series data, while TCNefficiently learned patterns and features. Their approach demonstrated superior accuracy compared to standalone architectures. \cite{alhussein2020cnn} developed a hybrid CNN-LSTM framework for short-term individual household load forecasting, CNN layers for feature extraction from input data and LSTM layers for sequence
 learning. This work demonstrated the effectiveness of combining convolutional and
 recurrent architectures for handling high volatility in household-level load data. In
-contrast, \parencite{hasanat2024parallel} proposed a parallel multichannel network approach using 1D CNN and Bidirectional LSTM for load forecasting in smart grids. Unlike
+contrast, \cite{hasanat2024parallel} proposed a parallel multichannel network approach using 1D CNN and Bidirectional LSTM for load forecasting in smart grids. Unlike
 traditional stacked CNN-LSTM architectures, their model independently processed
 spatial and temporal characteristics through parallel channels.
 
-\parencite{vaswani2017attention} model are also widely used in time-series forecasting task. \parencite{chan2024sparse} proposed a sparse transformer-based approach for electricity load forecasting that addressed the computational complexity limitations of standard transformer architectures, sparse attention mechanisms capture temporal dependencies more efficiently, achieving comparable accuracy to RNN-based state-of-the-art methods while being up to 5 times faster during inference. \parencite{zhang2022time} developed a Time Augmented Transformer model for short-term electrical load forecasting, incorporating temporal features and self-attention mechanisms to capture complex dynamic non-linear sequence dependencies. Attention mechanism’s capacity to capture complex dynamical patterns in multivariate data contributed to improved forecasting accuracy. \parencite{lu2024multivariate} proposed a multivariate data slicing transformer neural network for load forecasting in power systems. The transformer model excelled in capturing spatiotemporal relationships by self-attention mechanisms. Their approach demonstrated superior performance in handling the intermittency and volatility characteristics, outperforming traditional statistical models and conventional machine learning methods.
+\cite{vaswani2017attention} model are also widely used in time-series forecasting task. \cite{chan2024sparse} proposed a sparse transformer-based approach for electricity load forecasting that addressed the computational complexity limitations of standard transformer architectures, sparse attention mechanisms capture temporal dependencies more efficiently, achieving comparable accuracy to RNN-based state-of-the-art methods while being up to 5 times faster during inference. \cite{zhang2022time} developed a Time Augmented Transformer model for short-term electrical load forecasting, incorporating temporal features and self-attention mechanisms to capture complex dynamic non-linear sequence dependencies. Attention mechanism’s capacity to capture complex dynamical patterns in multivariate data contributed to improved forecasting accuracy. \cite{lu2024multivariate} proposed a multivariate data slicing transformer neural network for load forecasting in power systems. The transformer model excelled in capturing spatiotemporal relationships by self-attention mechanisms. Their approach demonstrated superior performance in handling the intermittency and volatility characteristics, outperforming traditional statistical models and conventional machine learning methods.
 
-Ensemble methods are also applied in electrical load forecasting task. \parencite{banik2024stacked} developed an enhanced stacked ensemble model combining Random Forest and XGBoost for renewable power and load forecasting, Random Forest first forecast the target variable, followed by XGBoost improving predictions through combination. 
+Ensemble methods are also applied in electrical load forecasting task. \cite{banik2024stacked} developed an enhanced stacked ensemble model combining Random Forest and XGBoost for renewable power and load forecasting, Random Forest first forecast the target variable, followed by XGBoost improving predictions through combination. 
+
+
+\section{\sizexii Electricity Markets and Load Forecasting}
+
+Electricity markets have fundamentally transformed how power systems are operated, moving from vertically integrated monopolies to competitive market structures where generation, transmission, and distribution are unbundled \cite{kirschen2018fundamentals}. In this market-based environment, accurate load forecasting has evolved from a purely technical function to a critical economic activity that directly impacts market efficiency, operational costs, and financial outcomes for all market participants \cite{weron2014electricity}.
+
+\subsection{\sizexii Structure of Electricity Markets}
+
+Modern electricity markets typically operate across multiple timeframes, each serving distinct operational and economic purposes \cite{shahidehpour2002market}. Understanding these market structures is essential for appreciating why accurate load forecasting at different time horizons has become critically important:
+
+\begin{enumerate}
+    \item \textbf{Day-Ahead Market (DAM):} The day-ahead market is typically the primary market for electricity trading, where participants submit bids and offers for delivery during each hour of the following day. Gate closure typically occurs at noon on the day before delivery (D-1). Market clearing determines hourly prices and scheduled quantities based on the intersection of supply and demand curves. Day-ahead load forecasts (24--48 hours ahead) form the foundation of bidding strategies, generation scheduling, and unit commitment decisions. Forecast accuracy at this horizon directly impacts the economic efficiency of day-ahead market outcomes and the financial performance of market participants \cite{conejo2010decision}.
+    
+    \item \textbf{Intraday Market (IDM):} The intraday market enables continuous trading of electricity for delivery within the same day, typically with gate closure times ranging from one hour to 15 minutes before delivery. Market participants can adjust their positions based on updated load forecasts and changing conditions. Hour-ahead load forecasts are critical for intraday market operations, as they enable utilities to optimize their trading positions, reduce imbalance exposure, and respond to demand variations that were not anticipated in day-ahead planning. The intraday market serves as a correction mechanism where participants can ``true up'' their positions as delivery approaches and more accurate demand information becomes available. The accuracy of hour-ahead forecasts directly determines the effectiveness of intraday trading strategies and the magnitude of imbalance costs \cite{zareipour2010electricity}.
+        
+    \item \textbf{Real-Time Balancing Market (RTM):} The real-time or balancing market operates continuously to maintain instantaneous balance between generation and load. System operators procure ancillary services (frequency regulation, spinning reserves, non-spinning reserves) and manage imbalances through this market. Very short-term forecasts (minutes to one hour ahead) are crucial for efficient real-time operations and minimizing costly emergency interventions. Imbalance settlement typically occurs at prices that are less favorable than day-ahead or intraday prices, creating strong economic incentives for accurate forecasting \cite{hobbs2001evaluation}.
+\end{enumerate}
+
+Figure~\ref{fig:market_timeline} illustrates the relationship between forecasting horizons and electricity market operational timelines.
+
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf{Market} & \textbf{Trading Horizon} & \textbf{Forecast Need} & \textbf{Key Use} \\
+    \hline
+    Day-Ahead & D-1 (noon) & 24--48 hours & Unit commitment, bidding \\
+    \hline
+    Intraday & Same day & 1--12 hours & Position adjustment \\
+    \hline
+    Real-Time & Continuous & Minutes--1 hour & Balancing, reserves \\
+    \hline
+    \end{tabular}
+    \caption{Electricity Market Timeline and Forecasting Requirements}
+    \label{fig:market_timeline}
+\end{figure}
+
+\subsection{\sizexii Role of Load Forecasting in Market Operations}
+
+Load forecasting serves multiple critical functions in electricity market operations \cite{hong2016energy, conejo2010decision}:
+
+\textbf{Day-Ahead Bidding and Scheduling:} The day-ahead market represents the primary venue for electricity trading, where participants commit to buy or sell electricity for each hour of the following day. Utilities must submit their demand forecasts typically by noon on the day before delivery. These forecasts directly inform bidding strategies, generation scheduling, and unit commitment decisions. Under-forecasting leads to expensive purchases in intraday or real-time markets, while over-forecasting results in selling excess power at potentially unfavorable prices. The economic consequences of day-ahead forecast errors can be substantial, particularly for large load-serving entities managing gigawatt-scale portfolios \cite{conejo2010decision}.
+
+\textbf{Intraday Position Adjustment:} As the delivery hour approaches, updated forecasts allow utilities to adjust their market positions through intraday trading. This ``fine-tuning'' mechanism is essential because day-ahead forecasts, made 24--48 hours in advance, inevitably contain errors due to weather forecast uncertainties and unpredictable demand events. Hour-ahead forecasts enable utilities to respond to changing conditions and minimize the gap between contracted and actual consumption. Accurate hour-ahead predictions reduce reliance on more expensive real-time balancing mechanisms and allow for optimal use of intraday trading opportunities.
+
+\textbf{Imbalance Cost Management:} Deviations between forecasted and actual load create imbalances that must be settled in real-time markets, often at unfavorable prices. The financial impact of imbalances is significant---imbalance prices can be several times higher than day-ahead prices during system stress events, or even negative during periods of oversupply. Accurate hour-ahead forecasts are the most critical tool for minimizing imbalance volumes, as they capture the most recent demand patterns and weather conditions. This enables utilities to make timely adjustments through intraday trading, reducing exposure to volatile real-time prices and imbalance penalties \cite{zareipour2010electricity}.
+
+\textbf{Grid Security and Reliability:} System operators rely on aggregate load forecasts to ensure sufficient generation reserves, manage transmission constraints, and maintain system frequency. Forecast accuracy at the feeder and substation level contributes to improved aggregate forecasts and more reliable grid operations.
+
+\textbf{Economic Dispatch Optimization:} Generation scheduling and economic dispatch algorithms use load forecasts as primary inputs. More accurate forecasts enable tighter operating reserves, reduced fuel costs, and more efficient utilization of generation assets.
+
+\subsection{\sizexii Relevance to Nepal's Power Sector}
+
+While Nepal's electricity sector currently operates under a centralized utility model through the Nepal Electricity Authority (NEA), the sector is undergoing significant transformation. Cross-border power trading with India through the India-Nepal electricity exchange, increasing private sector participation in generation, and evolving regulatory frameworks suggest movement toward market-oriented operations. In this context, developing robust load forecasting capabilities at the feeder level becomes strategically important for:
+
+\begin{itemize}
+    \item Optimizing power purchase agreements and import scheduling
+    \item Preparing for potential wholesale market development
+    \item Supporting demand-side management programs
+    \item Enabling efficient integration of distributed energy resources
+    \item Reducing technical and commercial losses through better operational planning
+\end{itemize}
+
+The hour-ahead and day-ahead forecasting capabilities developed in this thesis are directly aligned with these market-relevant timescales, ensuring that the forecasting framework can support both current operational needs and future market participation requirements.
 
 
 \section{\sizexii Theoretical Background of Forecasting Models}
@@ -782,7 +838,7 @@ where $\beta_0$ is the intercept (bias term), $\beta_i$ are the coefficients (we
 
 \subsubsection{Ridge Regression}
 
-Ridge Regression \parencite{hoerl1970ridge} adds L2 regularization to the linear model to reduce overfitting and stabilize coefficient estimates. It is more robust than standard Linear Regression when dealing with many correlated features, which is the case in this study.
+Ridge Regression \cite{hoerl1970ridge} adds L2 regularization to the linear model to reduce overfitting and stabilize coefficient estimates. It is more robust than standard Linear Regression when dealing with many correlated features, which is the case in this study.
 
 \textbf{Mathematical Formulation:}
 \begin{equation}
@@ -792,7 +848,7 @@ where $\alpha$ controls the strength of L2 regularization, $\| y - X\beta \|^2$ 
 
 \subsubsection{Support Vector Regression (SVR)}
 
-SVR \parencite{drucker1997svr} models nonlinear relationships by mapping features into a high-dimensional space using kernel functions. It works well for complex regression problems with moderate dataset sizes.
+SVR \cite{drucker1997svr} models nonlinear relationships by mapping features into a high-dimensional space using kernel functions. It works well for complex regression problems with moderate dataset sizes.
 
 \textbf{Mathematical Formulation:}
 
@@ -810,7 +866,7 @@ where $w$ is the weight vector, $b$ is the bias term, $C$ is the regularization 
 
 \subsubsection{Random Forest Regressor}
 
-Random Forest \parencite{breiman2001random} is an ensemble method consisting of multiple decision trees. Each tree is trained on a random subset of features and samples (bootstrap aggregating). It is robust, stable, and handles nonlinearity effectively.
+Random Forest \cite{breiman2001random} is an ensemble method consisting of multiple decision trees. Each tree is trained on a random subset of features and samples (bootstrap aggregating). It is robust, stable, and handles nonlinearity effectively.
 
 \textbf{Mathematical Formulation:}
 
@@ -822,7 +878,7 @@ where $T$ is the total number of trees in the forest and $f_t(x)$ is the predict
 
 \subsubsection{Gradient Boosting Regressor}
 
-Gradient Boosting \parencite{friedman2001gradient} builds trees sequentially, with each new tree correcting the errors (residuals) of the previous ensemble. It is particularly effective for structured tabular data like load forecasting.
+Gradient Boosting \cite{friedman2001gradient} builds trees sequentially, with each new tree correcting the errors (residuals) of the previous ensemble. It is particularly effective for structured tabular data like load forecasting.
 
 \textbf{Mathematical Formulation:}
 
@@ -834,7 +890,7 @@ where $F_{m-1}(x)$ is the ensemble prediction from the previous iteration, $h_m(
 
 \subsubsection{XGBoost Regressor}
 
-XGBoost (Extreme Gradient Boosting) \parencite{chen2016xgboost} is an optimized and regularized implementation of gradient boosting designed for efficiency, scalability, and high accuracy. It was one of the best-performing ML models in this study.
+XGBoost (Extreme Gradient Boosting) \cite{chen2016xgboost} is an optimized and regularized implementation of gradient boosting designed for efficiency, scalability, and high accuracy. It was one of the best-performing ML models in this study.
 
 \textbf{Mathematical Formulation:}
 
@@ -850,11 +906,11 @@ where $T$ is the number of leaves in the tree, $w_j$ is the weight (score) of th
 
 \subsection{\sizexii Deep Learning Models}
 
-To adequately represent the nonlinear dynamics, temporal evolution, and sequential structure inherent in feeder consumption data, two recurrent neural network architectures were constructed and evaluated: Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU). These networks received training on sliding temporal windows comprising consecutive hourly observations, enabling the architectures to assimilate both proximate and extended temporal dependencies embedded within the dataset. Network optimization employed the Adam algorithm \parencite{kingma2014adam}, with early termination protocols preventing overtraining and sequence-structured inputs.
+To adequately represent the nonlinear dynamics, temporal evolution, and sequential structure inherent in feeder consumption data, two recurrent neural network architectures were constructed and evaluated: Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU). These networks received training on sliding temporal windows comprising consecutive hourly observations, enabling the architectures to assimilate both proximate and extended temporal dependencies embedded within the dataset. Network optimization employed the Adam algorithm \cite{kingma2014adam}, with early termination protocols preventing overtraining and sequence-structured inputs.
 
 \subsubsection{Long Short-Term Memory (LSTM)}
 
-LSTM networks \parencite{hochreiter1997lstm} are designed to maintain contextual memory over long sequences through a gating mechanism that controls information flow. This makes them naturally suited for load forecasting, where consumption patterns depend on previous hours. The LSTM architecture addresses the vanishing gradient problem that affects standard RNNs.
+LSTM networks \cite{hochreiter1997lstm} are designed to maintain contextual memory over long sequences through a gating mechanism that controls information flow. This makes them naturally suited for load forecasting, where consumption patterns depend on previous hours. The LSTM architecture addresses the vanishing gradient problem that affects standard RNNs.
 
 \textbf{Mathematical Formulation:}
 
@@ -900,7 +956,7 @@ where $\sigma$ is the sigmoid activation function, $\tanh$ is the hyperbolic tan
 
 \subsubsection{Gated Recurrent Unit (GRU)}
 
-GRU \parencite{cho2014gru} is a streamlined version of LSTM with fewer parameters, combining the forget and input gates into a single update gate and merging the cell state with the hidden state. It often trains faster while achieving comparable performance to LSTM.
+GRU \cite{cho2014gru} is a streamlined version of LSTM with fewer parameters, combining the forget and input gates into a single update gate and merging the cell state with the hidden state. It often trains faster while achieving comparable performance to LSTM.
 
 \textbf{Mathematical Formulation:}
 
@@ -950,11 +1006,11 @@ where $\sigma$ is the sigmoid activation function, $\tanh$ is the hyperbolic tan
 \setcounter{table}{0}
 \vspace{-12pt}
 
-This chapter delineates the comprehensive research framework implemented to accomplish the stated thesis objectives. The presentation encompasses experimental design rationale, data procurement procedures, preprocessing protocols, and predictive modeling strategies deployed for feeder-level demand forecasting. The methodological structure ensures rigorous analytical progression, with each procedural component maintaining explicit linkage to the defined research goals. A schematic diagram encapsulates the overarching workflow, supplemented by detailed exposition of the chosen machine learning and deep learning algorithms alongside the quantitative assessment techniques applied throughout this investigation.
+This chapter delineates the comprehensive research framework implemented to accomplish the stated thesis objectives. The presentation encompasses experimental design rationale, data procurement procedures, preprocessing protocols, and predictive modeling strategies deployed for feeder-level demand forecasting. The methodological structure ensures rigorous analytical progression, with each procedural component maintaining explicit linkage to the defined research goals. The forecasting framework is specifically designed to support electricity market operational timelines, with hourly predictions enabling both day-ahead scheduling and hour-ahead intraday market operations. A schematic diagram encapsulates the overarching workflow, supplemented by detailed exposition of the chosen machine learning and deep learning algorithms alongside the quantitative assessment techniques applied throughout this investigation.
 
 \section{\sizexii Overall Workflow}
 
-The predictive modeling pipeline employed in this thesis adheres to a methodical, stage-wise progression. Raw hourly demand recordings from the Baneshwor Feeder are aggregated with concurrent meteorological observations (temperature, humidity, precipitation) and temporal markers (weekday/weekend designations, holiday flags) to constitute the comprehensive input feature space. These unprocessed records initially undergo extensive quality assurance procedures addressing missing entries, anomalous values, and formatting discrepancies through systematic cleaning, imputation algorithms, outlier remediation, timestamp normalization, and derivation of temporal and cyclical feature representations---thereby generating analysis-ready datasets. Subsequent exploratory analysis interrogates consumption trends, periodic patterns, hourly variation structures, and weather-demand correlations to identify salient predictive features and inform variable selection decisions. Following these preparatory stages, both traditional ML algorithms and deep neural architectures are instantiated, with input features undergoing standardization and organization as tabular matrices for ML implementations while deep architectures receive sequentially-structured inputs. Model calibration proceeds on designated training partitions with validation through walk-forward protocols or holdout assessment, while hyperparameter optimization employs GridSearchCV for ML algorithms and iterative refinement strategies for neural networks to enhance generalization while mitigating overfitting tendencies. Ultimately, all candidate models undergo comparative evaluation using RMSE, MAE, MAPE, and R\textsuperscript{2} metrics, with predictive accuracy, stability characteristics, and computational efficiency jointly analyzed to recommend optimal forecasting solutions for Baneshwor Feeder operational deployment. This workflow thereby establishes a complete analytical pipeline spanning initial data procurement through final model recommendation, accommodating both conventional and neural network methodologies. Figure~\ref{fig:block_diagram} illustrates the complete methodological structure.
+The predictive modeling pipeline employed in this thesis adheres to a methodical, stage-wise progression, designed to produce forecasts aligned with hour-ahead electricity market operational requirements. Raw hourly demand recordings from the Baneshwor Feeder are aggregated with concurrent meteorological observations (temperature, humidity, precipitation) and temporal markers (weekday/weekend designations, holiday flags) to constitute the comprehensive input feature space. The hourly resolution of the data directly corresponds to the standard settlement periods used in intraday electricity markets, where hour-ahead position adjustments represent the most dynamic and frequently utilized trading mechanism \cite{weron2014electricity}. These unprocessed records initially undergo extensive quality assurance procedures addressing missing entries, anomalous values, and formatting discrepancies through systematic cleaning, imputation algorithms, outlier remediation, timestamp normalization, and derivation of temporal and cyclical feature representations---thereby generating analysis-ready datasets. Subsequent exploratory analysis interrogates consumption trends, periodic patterns, hourly variation structures, and weather-demand correlations to identify salient predictive features and inform variable selection decisions. Following these preparatory stages, both traditional ML algorithms and deep neural architectures are instantiated, with input features undergoing standardization and organization as tabular matrices for ML implementations while deep architectures receive sequentially-structured inputs. Model calibration proceeds on designated training partitions with validation through walk-forward protocols or holdout assessment, while hyperparameter optimization employs GridSearchCV for ML algorithms and iterative refinement strategies for neural networks to enhance generalization while mitigating overfitting tendencies. Ultimately, all candidate models undergo comparative evaluation using RMSE, MAE, MAPE, and R\textsuperscript{2} metrics---standard measures used in electricity market forecasting literature \cite{hong2016energy}---with predictive accuracy, stability characteristics, and computational efficiency jointly analyzed to recommend optimal forecasting solutions for Baneshwor Feeder hour-ahead operational deployment. This workflow thereby establishes a complete analytical pipeline spanning initial data procurement through final model recommendation, accommodating both conventional and neural network methodologies. Figure~\ref{fig:block_diagram} illustrates the complete methodological structure.
 
 \begin{figure}[H]
     \centering
@@ -1023,6 +1079,213 @@ To understand feature relevance and interdependencies, a correlation analysis wa
     \caption{Feature Correlation Matrix}
     \label{fig:feature_correlation}
 \end{figure}
+
+\section{\sizexii Data Input Structure}
+
+This section describes the structure and format of the input data used for training the machine learning and deep learning models. Understanding the data input structure is essential for reproducibility and for applying similar methodologies to other forecasting problems.
+
+\subsection{\sizexii Raw Data Format}
+
+The final merged dataset consists of hourly records with the following structure:
+
+\begin{table}[H]
+\centering
+\caption{Raw Input Data Format}
+\label{tab:raw_data_format}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Column} & \textbf{Data Type} & \textbf{Unit} & \textbf{Description} \\
+\hline
+Time & Datetime & YYYY-MM-DD HH:MM & Hourly timestamp \\
+\hline
+MW & Float & Megawatt (MW) & Electrical load (target variable) \\
+\hline
+Air Temperature & Float & \textdegree C & Ambient temperature \\
+\hline
+Global Solar Radiation & Float & W/m\textsuperscript{2} & Solar irradiance \\
+\hline
+Relative Humidity & Float & \% & Atmospheric humidity \\
+\hline
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:sample_data} shows a sample of the cleaned dataset used in this study:
+
+\begin{table}[H]
+\centering
+\caption{Sample Data Records from Cleaned Dataset}
+\label{tab:sample_data}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Time} & \textbf{MW} & \textbf{Air Temp (\textdegree C)} & \textbf{Solar Rad (W/m\textsuperscript{2})} & \textbf{RH (\%)} \\
+\hline
+2022-10-19 01:00 & 0.8 & 14.5 & 0.0 & 88.8 \\
+2022-10-19 02:00 & 0.8 & 14.4 & 0.0 & 87.9 \\
+2022-10-19 06:00 & 1.2 & 12.1 & 0.0 & 100.0 \\
+2022-10-19 12:00 & 1.8 & 22.0 & 822.0 & 46.5 \\
+2022-10-19 19:00 & 2.8 & 17.9 & 0.0 & 76.7 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{\sizexii Feature Engineering and Input Vector}
+
+After preprocessing and feature engineering, each input sample contains the following features that are fed into the model nodes:
+
+\begin{table}[H]
+\centering
+\caption{Engineered Feature Set for Model Input}
+\label{tab:feature_set}
+\begin{tabular}{|c|l|l|l|}
+\hline
+\textbf{No.} & \textbf{Feature} & \textbf{Type} & \textbf{Description} \\
+\hline
+1 & Hour & Integer (0--23) & Hour of day \\
+2 & Day & Integer (1--31) & Day of month \\
+3 & Month & Integer (1--12) & Month of year \\
+4 & Day\_of\_Week & Integer (0--6) & Day of week (Mon=0) \\
+5 & Week\_of\_Year & Integer (1--52) & Week number \\
+6 & Is\_Weekend & Binary (0/1) & Weekend indicator \\
+7 & Hour\_Sin & Float (-1 to 1) & $\sin(2\pi \cdot \text{Hour}/24)$ \\
+8 & Hour\_Cos & Float (-1 to 1) & $\cos(2\pi \cdot \text{Hour}/24)$ \\
+9 & Month\_Sin & Float (-1 to 1) & $\sin(2\pi \cdot \text{Month}/12)$ \\
+10 & Month\_Cos & Float (-1 to 1) & $\cos(2\pi \cdot \text{Month}/12)$ \\
+11 & DoW\_Sin & Float (-1 to 1) & $\sin(2\pi \cdot \text{DoW}/7)$ \\
+12 & DoW\_Cos & Float (-1 to 1) & $\cos(2\pi \cdot \text{DoW}/7)$ \\
+13 & Air\_Temperature & Float & Scaled temperature \\
+14 & Global\_Solar\_Radiation & Float & Scaled solar radiation \\
+15 & Relative\_Humidity & Float & Scaled humidity \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{\sizexii Input Structure for Machine Learning Models}
+
+For machine learning models (Linear Regression, Ridge, SVR, Random Forest, Gradient Boosting, XGBoost), the input is structured as a 2D feature matrix:
+
+\begin{equation}
+X_{ML} = \begin{bmatrix}
+x_1^{(1)} & x_2^{(1)} & \cdots & x_n^{(1)} \\
+x_1^{(2)} & x_2^{(2)} & \cdots & x_n^{(2)} \\
+\vdots & \vdots & \ddots & \vdots \\
+x_1^{(m)} & x_2^{(m)} & \cdots & x_n^{(m)}
+\end{bmatrix}
+\end{equation}
+
+where $m$ is the number of samples and $n$ is the number of features. The target vector is:
+
+\begin{equation}
+y = \begin{bmatrix} y^{(1)} \\ y^{(2)} \\ \vdots \\ y^{(m)} \end{bmatrix}
+\end{equation}
+
+where $y^{(i)}$ represents the load value (MW) at the next hour that the model predicts.
+
+\subsection{\sizexii Input Structure for Deep Learning Models (LSTM/GRU)}
+
+For recurrent neural networks (LSTM and GRU), the input is structured as a 3D tensor to capture temporal sequences:
+
+\begin{equation}
+X_{DL} \in \mathbb{R}^{m \times T \times n}
+\end{equation}
+
+where $m$ is the number of samples, $T$ is the sequence length (lookback window, typically 24 hours), and $n$ is the number of features per timestep.
+
+Figure~\ref{fig:lstm_input} illustrates how the sliding window approach creates input sequences for the LSTM/GRU models:
+
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    & \multicolumn{4}{c|}{\textbf{Input Sequence (T=24 hours)}} & \textbf{Target} \\
+    \hline
+    Sample & $t-24$ & $t-23$ & $\cdots$ & $t-1$ & $t$ \\
+    \hline
+    1 & $\mathbf{x}_{1}$ & $\mathbf{x}_{2}$ & $\cdots$ & $\mathbf{x}_{24}$ & $y_{25}$ \\
+    2 & $\mathbf{x}_{2}$ & $\mathbf{x}_{3}$ & $\cdots$ & $\mathbf{x}_{25}$ & $y_{26}$ \\
+    3 & $\mathbf{x}_{3}$ & $\mathbf{x}_{4}$ & $\cdots$ & $\mathbf{x}_{26}$ & $y_{27}$ \\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$ \\
+    \hline
+    \end{tabular}
+    \caption{Sliding Window Sequence Construction for LSTM/GRU Input}
+    \label{fig:lstm_input}
+\end{figure}
+
+Each $\mathbf{x}_t$ represents the feature vector at timestep $t$:
+\begin{equation}
+\mathbf{x}_t = [\text{Hour}_t, \text{Hour\_Sin}_t, \text{Hour\_Cos}_t, \ldots, \text{Lag}_1, \text{Lag}_3, \ldots, \text{Lag}_{48}]
+\end{equation}
+
+\subsection{\sizexii Lag Feature Configuration for Deep Learning}
+
+To enhance temporal pattern recognition, lag features are added to the input vector. Three configurations were tested:
+
+\begin{table}[H]
+\centering
+\caption{Lag Feature Configurations for Deep Learning Models}
+\label{tab:lag_config}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Configuration} & \textbf{Lag Hours} & \textbf{Purpose} \\
+\hline
+Short & [1, 3, 6] & Recent hour patterns \\
+\hline
+Medium & [1, 3, 6, 12, 24] & Daily patterns \\
+\hline
+Long (Best) & [1, 3, 6, 12, 24, 48] & Multi-day dependencies \\
+\hline
+\end{tabular}
+\end{table}
+
+For example, with the long lag configuration, the lag features for predicting load at time $t$ include:
+\begin{itemize}
+    \item $\text{Lag}_1$: Load at $t-1$ (1 hour ago)
+    \item $\text{Lag}_3$: Load at $t-3$ (3 hours ago)
+    \item $\text{Lag}_6$: Load at $t-6$ (6 hours ago)
+    \item $\text{Lag}_{12}$: Load at $t-12$ (12 hours ago)
+    \item $\text{Lag}_{24}$: Load at $t-24$ (same hour yesterday)
+    \item $\text{Lag}_{48}$: Load at $t-48$ (same hour two days ago)
+\end{itemize}
+
+\subsection{\sizexii Complete Input Pipeline Summary}
+
+Figure~\ref{fig:data_pipeline} summarizes the complete data input pipeline from raw data to model nodes:
+
+\begin{figure}[H]
+    \centering
+    \fbox{\parbox{0.9\textwidth}{
+    \centering
+    \textbf{Data Input Pipeline}
+    \vspace{6pt}
+    
+    \textbf{Step 1: Raw Data} $\rightarrow$ Time, MW, Weather Variables
+    
+    $\downarrow$
+    
+    \textbf{Step 2: Preprocessing} $\rightarrow$ Cleaning, Outlier Removal, Missing Value Imputation
+    
+    $\downarrow$
+    
+    \textbf{Step 3: Feature Engineering} $\rightarrow$ Temporal Features, Cyclical Encoding, Lag Features
+    
+    $\downarrow$
+    
+    \textbf{Step 4: Scaling} $\rightarrow$ StandardScaler (zero mean, unit variance)
+    
+    $\downarrow$
+    
+    \textbf{Step 5a: ML Input} $\rightarrow$ 2D Matrix $[m \times n]$ $\rightarrow$ ML Model Nodes
+    
+    \textbf{Step 5b: DL Input} $\rightarrow$ 3D Tensor $[m \times T \times n]$ $\rightarrow$ LSTM/GRU Nodes
+    
+    $\downarrow$
+    
+    \textbf{Output:} Predicted Load (MW) for next hour
+    }}
+    \caption{Complete Data Input Pipeline from Raw Data to Model Nodes}
+    \label{fig:data_pipeline}
+\end{figure}
+
+This structured input representation ensures that both machine learning and deep learning models receive appropriately formatted data that captures temporal patterns, weather influences, and historical load dependencies necessary for accurate hour-ahead load forecasting.
 
 \section{\sizexii Model Development}
 
@@ -1336,6 +1599,29 @@ Figure~\ref{fig:boxplot_outlier} presents boxplots of the MW column before and a
     \label{fig:boxplot_outlier}
 \end{figure}
 
+In addition to active power, the exogenous weather variables were also screened for anomalous values. Relative humidity readings below physically realistic levels and a few saturated values above the upper bound were removed, yielding a more compact distribution centered between roughly 60\% and 100\%. Air temperature exhibited a small number of extreme low and high values that were inconsistent with the local climate; these were treated using the same boxplot-based rule, resulting in a stable range of approximately 1\textcelsius{} to 33\textcelsius{}. Global solar radiation initially contained several unrealistically high spikes (exceeding 1000~W/m\textsuperscript{2}), which were removed so that the cleaned series remained within a plausible envelope of about 0--800~W/m\textsuperscript{2}. Figures~\ref{fig:humidity_outlier}--\ref{fig:solar_outlier} summarize the effect of the outlier removal procedure on these three weather variables, where the left panel shows the original distribution and the right panel shows the cleaned distribution used for model training.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/relativeHumidity.png}
+    \caption{Relative Humidity -- Outlier Removal Comparison}
+    \label{fig:humidity_outlier}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/airTemperature.png}
+    \caption{Air Temperature -- Outlier Removal Comparison}
+    \label{fig:air_temp_outlier}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/globalSolar.png}
+    \caption{Global Solar Radiation -- Outlier Removal Comparison}
+    \label{fig:solar_outlier}
+\end{figure}
+
 Table~\ref{tab:mw_stats} presents the descriptive statistics of the MW column after outlier removal. The mean load of 2.35 MW and median of 2.30 MW indicate a relatively symmetric distribution. The standard deviation of 0.92 MW reflects moderate variability in hourly demand, while the minimum (0.00 MW) and maximum (8.50 MW) values confirm that all records now fall within the technically feasible range for the Baneshwor Feeder.
 
 \begin{table}[H]
@@ -1440,7 +1726,9 @@ Machine learning algorithm performance was quantified through MAE, RMSE, MAPE, a
 
 Tree-based ensemble algorithms exhibited markedly superior performance across all quantitative criteria. Both Random Forest and Gradient Boosting achieved substantial MAE and RMSE reductions while attaining higher R\textsuperscript{2} coefficients, reflecting enhanced generalization capabilities and improved nonlinear pattern recognition. Among these, the hyperparameter-optimized XGBoost implementation surpassed all competing machine learning algorithms, achieving optimal RMSE (0.384), maximal R\textsuperscript{2} (0.831), and minimal MAPE (12.693\%). The performance differential relative to alternative ensemble approaches stems from XGBoost's gradient-based optimization strategy, integrated regularization mechanisms, and effective feature interaction handling, which collectively enhance model robustness and predictive reliability.
 
-Collectively, the comparative assessment confirms that ensemble machine learning approaches, particularly XGBoost, deliver the most dependable and precise predictions for distribution feeder-level short-term demand forecasting applications.
+From an electricity market perspective, the XGBoost model's MAPE of 12.693\% represents a significant improvement over baseline statistical methods and provides forecasts of sufficient accuracy for hour-ahead intraday market position adjustments \cite{weron2014electricity}. In typical market operations, forecast errors translate directly into imbalance costs; therefore, reducing MAPE by even a few percentage points can yield substantial economic benefits over time. The model's consistent performance across different load levels, as evidenced by the high R\textsuperscript{2} value, indicates reliable predictions during both peak and off-peak periods---a critical requirement for utilities managing their hour-ahead market positions and minimizing real-time imbalance exposure.
+
+Collectively, the comparative assessment confirms that ensemble machine learning approaches, particularly XGBoost, deliver the most dependable and precise predictions for distribution feeder-level short-term demand forecasting applications, with performance characteristics suitable for supporting electricity market operations.
 
 \begin{figure}[H]
     \centering
@@ -1519,6 +1807,8 @@ The GRU architecture achieved MAE of 0.192, RMSE of 0.289, and MAPE of 7.364\%, 
 
 The GRU model's slightly superior performance over LSTM can be attributed to its simpler gating mechanism, which proved more efficient for this particular dataset while requiring fewer parameters and less computational overhead. Both recurrent models successfully learned the sequential patterns in electricity consumption, with the sliding window approach and lag feature configurations enabling effective temporal pattern recognition. Notably, the GRU achieved performance competitive with the tuned XGBoost model (R\textsuperscript{2} = 0.831), demonstrating that recurrent neural network approaches can provide accurate forecasts when appropriately configured for feeder-level load forecasting tasks.
 
+From an electricity market operations standpoint, the GRU model's MAPE of 7.364\% represents excellent forecasting accuracy that would significantly reduce imbalance costs in hour-ahead market participation scenarios. According to \cite{lago2021dayahead}, forecast errors in the range of 5--10\% MAPE are considered acceptable for intraday market operations in most electricity markets, placing both the GRU and LSTM models within the range suitable for practical hour-ahead market applications. The extended lag configuration [1, 3, 6, 12, 24, 48] hours effectively captures dependencies across multiple temporal scales, with particular emphasis on hour-ahead patterns critical for intraday trading and real-time position adjustments. This temporal learning capability makes the recurrent architectures particularly valuable for utilities that must rapidly adjust their market positions based on the most recent demand patterns and conditions.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{Figures/gruActual.png}
@@ -1544,13 +1834,17 @@ The GRU model's slightly superior performance over LSTM can be attributed to its
 
 \section{\sizexii Conclusion}
 
-This thesis constructed and rigorously assessed an integrated short-term electrical demand forecasting system tailored for the Baneshwor Feeder, employing both conventional machine learning and contemporary deep learning paradigms. The investigation adhered to a structured experimental protocol encompassing data procurement, quality assurance preprocessing, temporal characteristic extraction, and systematic cross-model performance benchmarking within a consistent evaluation framework.
+This thesis constructed and rigorously assessed an integrated short-term electrical demand forecasting system tailored for the Baneshwor Feeder, employing both conventional machine learning and contemporary deep learning paradigms. The investigation adhered to a structured experimental protocol encompassing data procurement, quality assurance preprocessing, temporal characteristic extraction, and systematic cross-model performance benchmarking within a consistent evaluation framework. Importantly, the forecasting framework was designed with electricity market operational timelines in mind---specifically targeting the hour-ahead intraday market horizon, which represents the most dynamic trading window where utilities must rapidly adjust their positions based on the most recent demand information.
 
-Empirical findings demonstrate that both machine learning algorithms and appropriately configured deep learning models can achieve excellent forecasting performance. Among machine learning approaches, the hyperparameter-optimized XGBoost model achieved strong performance with an RMSE of 0.384 and R² of 0.831. Complementary tree-based ensemble approaches, including Random Forest and Gradient Boosting, likewise yielded competitive accuracy metrics, corroborating the efficacy of aggregated decision tree methodologies for distribution-level demand prediction.
+In modern electricity markets, the need for accurate short-term load forecasting cannot be overstated. Day-ahead markets require forecasts 24--48 hours in advance for unit commitment and initial position taking, while intraday markets depend on rolling hour-ahead predictions for position adjustments and real-time balancing. The forecasting models developed in this thesis are specifically aligned with these market operational requirements, enabling utilities to minimize imbalance costs, optimize trading strategies, and maintain supply-demand equilibrium efficiently \cite{weron2014electricity, zareipour2010electricity}.
 
-Among deep neural network implementations, both recurrent architectures demonstrated strong forecasting capability. The GRU model achieved the best deep learning performance with RMSE of 0.289 and R² coefficient of 0.879, while LSTM attained RMSE of 0.314 and R² of 0.857. Both models demonstrated effective temporal pattern recognition, with R² values exceeding 0.85, indicating that recurrent neural networks can successfully capture the sequential dependencies present in feeder load data when appropriately configured with sliding window inputs and lag feature engineering.
+Empirical findings demonstrate that both machine learning algorithms and appropriately configured deep learning models can achieve excellent forecasting performance that meets the accuracy requirements for electricity market participation. Among machine learning approaches, the hyperparameter-optimized XGBoost model achieved strong performance with an RMSE of 0.384, R² of 0.831, and MAPE of 12.693%. Complementary tree-based ensemble approaches, including Random Forest and Gradient Boosting, likewise yielded competitive accuracy metrics, corroborating the efficacy of aggregated decision tree methodologies for distribution-level demand prediction.
 
-Collectively, this investigation validates that precise distribution feeder-level short-term demand forecasting remains achievable through both judiciously architected machine learning workflows and appropriately configured recurrent neural network approaches. The experimental outcomes underscore that algorithmic selection should be principally informed by dataset characteristics, available feature dimensionality, and operational deployment constraints. The GRU model's success demonstrates that recurrent architectures with proper sequence modeling can achieve performance competitive with the best ensemble machine learning models for feeder-level forecasting applications.
+Among deep neural network implementations, both recurrent architectures demonstrated strong forecasting capability with MAPE values below 8%, which is within the acceptable range for practical hour-ahead market applications \cite{lago2021dayahead}. The GRU model achieved the best overall performance with RMSE of 0.289, R² coefficient of 0.879, and MAPE of 7.364%, while LSTM attained RMSE of 0.314, R² of 0.857, and MAPE of 7.612%. Both models demonstrated effective temporal pattern recognition across multiple temporal scales, with the extended lag configuration [1, 3, 6, 12, 24, 48] hours enabling the capture of hour-ahead dependencies critical for intraday electricity market operations.
+
+Collectively, this investigation validates that precise distribution feeder-level short-term demand forecasting remains achievable through both judiciously architected machine learning workflows and appropriately configured recurrent neural network approaches. The forecasting accuracies achieved---particularly the GRU model's MAPE of 7.364%---are suitable for supporting hour-ahead intraday market position adjustments and real-time balancing operations. The experimental outcomes underscore that algorithmic selection should be principally informed by dataset characteristics, available feature dimensionality, hour-ahead market operational requirements, and deployment constraints.
+
+As Nepal's power sector evolves toward market-based operations and cross-border trading, the hour-ahead forecasting capabilities demonstrated in this thesis provide a foundation for efficient intraday market participation and grid management. Beyond technical operational efficiency, the implementation of such high-fidelity forecasting systems holds profound implications for the national economy. By minimizing demand-supply mismatches, utility providers can optimize the dispatch of domestic hydroelectric resources, significantly reducing energy wastage and the financial burden of unforeseen power imports. Furthermore, accurate intraday prediction empowers Nepal to maximize revenue in the regional power exchange market by strategically trading surplus energy, thereby strengthening the national trade balance. Ultimately, ensuring a reliable, data-driven, and economically viable power supply fosters industrial productivity and secures the long-term sustainability of the nation's energy infrastructure.
 
 \section{\sizexii Research Limitations}
 
@@ -1564,38 +1858,44 @@ Although the study achieved strong forecasting accuracy, several limitations sho
     \item \textbf{Weather data resolution:} Weather data was available at hourly intervals only; finer granularity or additional environmental factors (e.g., wind speed, rainfall intensity) could further improve models.
     
     \item \textbf{No real-time deployment environment:} The study focused on model development and evaluation, and did not include live deployment, automation, or integration with NEA's operational systems.
+    
+    \item \textbf{Electricity market validation:} While the forecasting framework is designed with market timelines in mind, the models have not been validated in actual market trading scenarios. Real market performance may differ due to factors such as price volatility, bidding constraints, and regulatory requirements that were beyond the scope of this study.
 \end{enumerate}
 
 These limitations provide important context when interpreting results and designing future enhancements.
 
 \section{\sizexii Implications}
 
-The findings of this thesis carry several meaningful implications for utilities, researchers, and system planners:
+The findings of this thesis carry several meaningful implications for utilities, researchers, system planners, and electricity market participants:
 
 \begin{enumerate}
-    \item \textbf{Practical adoption for distribution feeders:} Both ensemble machine learning models (particularly XGBoost with R² = 0.831) and recurrent deep learning models (GRU with R² = 0.879) can provide accurate, low-error forecasts suitable for operational planning, peak management, and scheduling.
+    \item \textbf{Practical adoption for distribution feeders:} Both ensemble machine learning models (particularly XGBoost with R² = 0.831, MAPE = 12.693\%) and recurrent deep learning models (GRU with R² = 0.879, MAPE = 7.364\%) can provide accurate, low-error forecasts suitable for operational planning, peak management, and scheduling.
     
-    \item \textbf{Value of feature engineering:} Carefully constructed temporal features, lag variables, and weather features significantly improved forecasting accuracy, highlighting the importance of domain knowledge in model design. The extended lag configurations combined with sliding window sequences proved effective for both LSTM and GRU architectures.
+    \item \textbf{Hour-ahead market readiness:} The forecasting accuracies achieved, particularly the GRU model's MAPE of 7.364\%, fall within the acceptable range for hour-ahead intraday market participation \cite{weron2014electricity}. This positions the forecasting framework as a viable tool for supporting intraday position adjustments, reducing imbalance costs, and optimizing real-time power procurement decisions as Nepal's electricity sector evolves toward market-based operations.
+    
+    \item \textbf{Value of feature engineering:} Carefully constructed temporal features, lag variables, and weather features significantly improved forecasting accuracy, highlighting the importance of domain knowledge in model design. The extended lag configurations [1, 3, 6, 12, 24, 48] hours combined with sliding window sequences proved effective for capturing hour-ahead temporal dependencies critical for intraday market operations.
     
     \item \textbf{Recurrent architecture effectiveness:} Both GRU (R² = 0.879) and LSTM (R² = 0.857) demonstrated strong predictive capability, confirming that recurrent neural networks are well-suited for capturing temporal dependencies in electricity load forecasting when properly configured.
     
-    \item \textbf{Foundation for advanced decision-making tools:} Forecasts from both the GRU and XGBoost models can support demand-side management, smart grid optimization, load shifting strategies, and distributed energy resource planning.
+    \item \textbf{Foundation for hour-ahead market participation tools:} Forecasts from both the GRU and XGBoost models can support hour-ahead intraday market position adjustments, real-time balancing operations, demand-side management, smart grid optimization, load shifting strategies, and cross-border power trading decisions.
     
-    \item \textbf{Transferability:} The pipeline developed in this study can be extended to other NEA feeders with minimal modifications, promoting scalable forecasting across the network.
+    \item \textbf{Transferability:} The pipeline developed in this study can be extended to other NEA feeders with minimal modifications, promoting scalable forecasting across the network and enabling system-wide load aggregation for hour-ahead market operations.
 \end{enumerate}
 
-\section{\sizexii Future Work}
+\section{\sizexii Recommendation}
 
-Although this study demonstrates effective short-term load forecasting at the feeder level using both machine learning and deep learning models, several extensions can be explored to further enhance forecasting accuracy and practical applicability.
+Although this study demonstrates effective short-term load forecasting at the feeder level using both machine learning and deep learning models, several extensions can be explored to further enhance forecasting accuracy, practical applicability, and market relevance.
 
 \begin{enumerate}
-    \item \textbf{Incorporation of Additional Influencing Factors:} Future work may include additional exogenous variables such as holiday indicators, special events, and socio-economic factors to better capture demand variations that are not explained by weather and temporal features alone.
+    \item \textbf{Incorporation of Additional Influencing Factors:} Future work may include additional exogenous variables such as holiday indicators, special events, electricity price signals, and socio-economic factors to better capture demand variations that are not explained by weather and temporal features alone.
     
-    \item \textbf{Extension to Multi-Feeder and Long-Term Forecasting:} The proposed methodology can be extended to multiple feeders and adapted for medium-term and long-term load forecasting to support broader power system planning and expansion studies.
+    \item \textbf{Advanced Deep Learning Architectures:} Building upon the strong performance of GRU (R² = 0.879) and LSTM (R² = 0.857), future work could explore attention mechanisms, transformer-based architectures, or hybrid CNN-RNN models to potentially further improve hour-ahead forecasting accuracy.
     
-    \item \textbf{Advanced Deep Learning Architectures:} Building upon the strong performance of GRU (R² = 0.879) and LSTM (R² = 0.857), future work could explore attention mechanisms, transformer-based architectures, or hybrid CNN-RNN models to potentially further improve forecasting accuracy.
+    \item \textbf{Real-Time Deployment and Online Learning:} Future research can focus on deploying the best-performing GRU or XGBoost model in a real-time operational environment, incorporating online or incremental learning techniques to adapt to evolving load patterns and enable continuous hour-ahead predictions.
     
-    \item \textbf{Real-Time Deployment and Online Learning:} Future research can focus on deploying the best-performing GRU or XGBoost model in a real-time operational environment, incorporating online or incremental learning techniques to adapt to evolving load patterns.
+    \item \textbf{Integration with Hour-Ahead Market Systems:} As Nepal's power sector moves toward market liberalization and cross-border trading, future work could integrate load forecasts with intraday market optimization algorithms, developing decision support systems that translate hour-ahead demand predictions into optimal position adjustment strategies for intraday markets \cite{conejo2010decision}.
+    
+    \item \textbf{Probabilistic Forecasting for Market Risk Management:} Extending the deterministic forecasts developed in this thesis to probabilistic forecasts (prediction intervals, quantile forecasts) would enable better risk quantification for hour-ahead market participation, helping utilities manage the financial uncertainty associated with forecast errors and volatile real-time market prices \cite{weron2014electricity}.
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

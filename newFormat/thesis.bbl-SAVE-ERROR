@@ -1,0 +1,1358 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{aguilar2021short}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bde70e91ab6778b550707df9bc59f1fa}{%
+           family={Aguilar\bibnamedelima Madrid},
+           familyi={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=d1afbd4ac4c769c346f668067174ed47}{%
+           family={Antonio},
+           familyi={A\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{52201d66e4af18f812d2e70b91479e16}
+      \strng{fullhash}{52201d66e4af18f812d2e70b91479e16}
+      \strng{bibnamehash}{52201d66e4af18f812d2e70b91479e16}
+      \strng{authorbibnamehash}{52201d66e4af18f812d2e70b91479e16}
+      \strng{authornamehash}{52201d66e4af18f812d2e70b91479e16}
+      \strng{authorfullhash}{52201d66e4af18f812d2e70b91479e16}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Information}
+      \field{number}{2}
+      \field{title}{Short-term electricity load forecasting with machine learning}
+      \field{volume}{12}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.3390/info12020050
+      \endverb
+    \endentry
+    \entry{chapagain2021short}{article}{}
+      \name{author}{9}{}{%
+        {{hash=a830f0b0519ff0233dc5018b3c96baac}{%
+           family={Chapagain},
+           familyi={C\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=a6d034e788892c6f4ee179f5a4e6bf36}{%
+           family={Acharya},
+           familyi={A\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ccfae68a85ed86aa091f691c6018c2e7}{%
+           family={Bhusal},
+           familyi={B\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=8274f5725bc2ebbaa637005d1ca8142c}{%
+           family={Katuwal},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bcce1cee9e3e4da01ba6f86ca534c6ce}{%
+           family={Lakhey},
+           familyi={L\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod}}}%
+        {{hash=5ab3be9a75810925fd2f24f1bff65732}{%
+           family={Neupane},
+           familyi={N\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=508f8778a37292af4c8c43eafd23a051}{%
+           family={Sah},
+           familyi={S\bibinitperiod},
+           given={R.\bibnamedelimi K.},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=27bfb453c9d3534498121247a6034790}{%
+           family={Tamang},
+           familyi={T\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=c83433e74fcabd50ff3e6c2a22c092a2}{%
+           family={Rajbhandari},
+           familyi={R\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{9be701042a1fa8453744c1a15ba2e6db}
+      \strng{fullhash}{8bcce284eabfb93e8056d34d4c3cae72}
+      \strng{bibnamehash}{9be701042a1fa8453744c1a15ba2e6db}
+      \strng{authorbibnamehash}{9be701042a1fa8453744c1a15ba2e6db}
+      \strng{authornamehash}{9be701042a1fa8453744c1a15ba2e6db}
+      \strng{authorfullhash}{8bcce284eabfb93e8056d34d4c3cae72}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Kathmandu University Journal of Science, Engineering and Technology}
+      \field{number}{3}
+      \field{title}{Short-term electricity demand forecasting for Kathmandu Valley, Nepal}
+      \field{volume}{15}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.3126/kuset.v15i3.63328
+      \endverb
+    \endentry
+    \entry{weron2014electricity}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e1f0ef6630db56bf45bb6ba2fbf8f108}{%
+           family={Weron},
+           familyi={W\bibinitperiod},
+           given={Rafa{ł}},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{e1f0ef6630db56bf45bb6ba2fbf8f108}
+      \strng{fullhash}{e1f0ef6630db56bf45bb6ba2fbf8f108}
+      \strng{bibnamehash}{e1f0ef6630db56bf45bb6ba2fbf8f108}
+      \strng{authorbibnamehash}{e1f0ef6630db56bf45bb6ba2fbf8f108}
+      \strng{authornamehash}{e1f0ef6630db56bf45bb6ba2fbf8f108}
+      \strng{authorfullhash}{e1f0ef6630db56bf45bb6ba2fbf8f108}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Forecasting}
+      \field{number}{4}
+      \field{title}{Electricity price forecasting: A review of the state-of-the-art with a look into the future}
+      \field{volume}{30}
+      \field{year}{2014}
+      \field{pages}{1030\bibrangedash 1081}
+      \range{pages}{52}
+    \endentry
+    \entry{kirschen2018fundamentals}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d2686b705d3d1ed06c68cf5f83c7be8b}{%
+           family={Kirschen},
+           familyi={K\bibinitperiod},
+           given={Daniel\bibnamedelima S},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=02dd4035dc9104b7f2a8286b30211d00}{%
+           family={Strbac},
+           familyi={S\bibinitperiod},
+           given={Goran},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{75baf699d10a5e3afa5619346a8375b7}
+      \strng{fullhash}{75baf699d10a5e3afa5619346a8375b7}
+      \strng{bibnamehash}{75baf699d10a5e3afa5619346a8375b7}
+      \strng{authorbibnamehash}{75baf699d10a5e3afa5619346a8375b7}
+      \strng{authornamehash}{75baf699d10a5e3afa5619346a8375b7}
+      \strng{authorfullhash}{75baf699d10a5e3afa5619346a8375b7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{journaltitle}{John Wiley \& Sons}
+      \field{title}{Fundamentals of Power System Economics}
+      \field{year}{2018}
+    \endentry
+    \entry{hong2016energy}{article}{}
+      \name{author}{2}{}{%
+        {{hash=5cad3fcd4cbb017aeae7aad601ceaa36}{%
+           family={Hong},
+           familyi={H\bibinitperiod},
+           given={Tao},
+           giveni={T\bibinitperiod}}}%
+        {{hash=bacc081a26c2e26e75a6d9353056335a}{%
+           family={Fan},
+           familyi={F\bibinitperiod},
+           given={Shu},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{ae2a2338ed37f7dd79724b9872f6af87}
+      \strng{fullhash}{ae2a2338ed37f7dd79724b9872f6af87}
+      \strng{bibnamehash}{ae2a2338ed37f7dd79724b9872f6af87}
+      \strng{authorbibnamehash}{ae2a2338ed37f7dd79724b9872f6af87}
+      \strng{authornamehash}{ae2a2338ed37f7dd79724b9872f6af87}
+      \strng{authorfullhash}{ae2a2338ed37f7dd79724b9872f6af87}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Foresight: The International Journal of Applied Forecasting}
+      \field{title}{Energy forecasting: Past, present, and future}
+      \field{volume}{40}
+      \field{year}{2016}
+      \field{pages}{43\bibrangedash 48}
+      \range{pages}{6}
+    \endentry
+    \entry{lago2021dayahead}{article}{}
+      \name{author}{4}{}{%
+        {{hash=e6d8a5b4cb4cd4ec0c45b4b15eaecce7}{%
+           family={Lago},
+           familyi={L\bibinitperiod},
+           given={Jesus},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d049c99fa3e5674ec00d202decf5a142}{%
+           family={Marcjasz},
+           familyi={M\bibinitperiod},
+           given={Grzegorz},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3aa279196551f6d4f6429776156250b6}{%
+           family={De\bibnamedelima Schutter},
+           familyi={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Bart},
+           giveni={B\bibinitperiod}}}%
+        {{hash=e1f0ef6630db56bf45bb6ba2fbf8f108}{%
+           family={Weron},
+           familyi={W\bibinitperiod},
+           given={Rafa{ł}},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{f35b7b3a425f597f35f5713c0d0b0192}
+      \strng{fullhash}{6272e89d6c171cab4b86aef60364d063}
+      \strng{bibnamehash}{f35b7b3a425f597f35f5713c0d0b0192}
+      \strng{authorbibnamehash}{f35b7b3a425f597f35f5713c0d0b0192}
+      \strng{authornamehash}{f35b7b3a425f597f35f5713c0d0b0192}
+      \strng{authorfullhash}{6272e89d6c171cab4b86aef60364d063}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Energy}
+      \field{title}{Forecasting day-ahead electricity prices: A review of state-of-the-art algorithms, best practices and an open-access benchmark}
+      \field{volume}{293}
+      \field{year}{2021}
+      \field{pages}{116983}
+      \range{pages}{1}
+    \endentry
+    \entry{shahidehpour2002market}{article}{}
+      \name{author}{3}{}{%
+        {{hash=181f09b6e6ed41238f81c55087fdb979}{%
+           family={Shahidehpour},
+           familyi={S\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2dbcbcd5f23ed74ab2898911504e1193}{%
+           family={Yamin},
+           familyi={Y\bibinitperiod},
+           given={Hatim},
+           giveni={H\bibinitperiod}}}%
+        {{hash=16f746f260d166eb7b0a717d424ccad8}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zuyi},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{9282bfff551461ac12fbb761f6154ae5}
+      \strng{fullhash}{9282bfff551461ac12fbb761f6154ae5}
+      \strng{bibnamehash}{9282bfff551461ac12fbb761f6154ae5}
+      \strng{authorbibnamehash}{9282bfff551461ac12fbb761f6154ae5}
+      \strng{authornamehash}{9282bfff551461ac12fbb761f6154ae5}
+      \strng{authorfullhash}{9282bfff551461ac12fbb761f6154ae5}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{John Wiley \& Sons}
+      \field{title}{Market operations in electric power systems: Forecasting, scheduling, and risk management}
+      \field{year}{2002}
+    \endentry
+    \entry{acharya2021stlf}{article}{}
+      \name{author}{3}{}{%
+        {{hash=a6d034e788892c6f4ee179f5a4e6bf36}{%
+           family={Acharya},
+           familyi={A\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=cbb55cfc7be6ea5c5d630f8409d70dc1}{%
+           family={Luintel},
+           familyi={L\bibinitperiod},
+           given={M.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=b051ae71036db09bf6d121668e6c0ccc}{%
+           family={Badrudoza},
+           familyi={B\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{8f46417760f258e8b20deecf084eb38d}
+      \strng{fullhash}{8f46417760f258e8b20deecf084eb38d}
+      \strng{bibnamehash}{8f46417760f258e8b20deecf084eb38d}
+      \strng{authorbibnamehash}{8f46417760f258e8b20deecf084eb38d}
+      \strng{authornamehash}{8f46417760f258e8b20deecf084eb38d}
+      \strng{authorfullhash}{8f46417760f258e8b20deecf084eb38d}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Unpublished manuscript}
+      \field{title}{Short-term load forecasting of Gothatar feeder of Nepal Electricity Authority using Recurrent Neural Network}
+      \field{year}{2021}
+    \endentry
+    \entry{singla2019electrical}{article}{}
+      \name{author}{4}{}{%
+        {{hash=863993ee605f675b57e0e86e2303b9da}{%
+           family={Singla},
+           familyi={S\bibinitperiod},
+           given={M.\bibnamedelimi K.},
+           giveni={M\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=2f639675edcdad30d8b3b80f7d83902d}{%
+           family={Gupta},
+           familyi={G\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2cafa68f9b1ca8e276f4e108166e3fd7}{%
+           family={Nijhawan},
+           familyi={N\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2a57500183498aca48760b7e9ae260e3}{%
+           family={Oberoi},
+           familyi={O\bibinitperiod},
+           given={A.\bibnamedelimi S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{4ddf957678b4fcf20eaa57caa9a1f822}
+      \strng{fullhash}{391b727b8ef4f1c3d8ff9c99c641fdf3}
+      \strng{bibnamehash}{4ddf957678b4fcf20eaa57caa9a1f822}
+      \strng{authorbibnamehash}{4ddf957678b4fcf20eaa57caa9a1f822}
+      \strng{authornamehash}{4ddf957678b4fcf20eaa57caa9a1f822}
+      \strng{authorfullhash}{391b727b8ef4f1c3d8ff9c99c641fdf3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal}
+      \field{number}{3}
+      \field{title}{Electrical load forecasting using machine learning}
+      \field{volume}{8}
+      \field{year}{2019}
+    \endentry
+    \entry{conejo2010decision}{article}{}
+      \name{author}{3}{}{%
+        {{hash=aba88c01ff0b7da344a4e8188170b122}{%
+           family={Conejo},
+           familyi={C\bibinitperiod},
+           given={Antonio\bibnamedelima J},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=574bc3e3d15747a290c9697dc7b9b4cf}{%
+           family={Carrión},
+           familyi={C\bibinitperiod},
+           given={Miguel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1ad1a3cf42ddbc09f577b64b66413a0b}{%
+           family={Morales},
+           familyi={M\bibinitperiod},
+           given={Juan\bibnamedelima M},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e7245494a534ebed320be6e0c31ff278}
+      \strng{fullhash}{e7245494a534ebed320be6e0c31ff278}
+      \strng{bibnamehash}{e7245494a534ebed320be6e0c31ff278}
+      \strng{authorbibnamehash}{e7245494a534ebed320be6e0c31ff278}
+      \strng{authornamehash}{e7245494a534ebed320be6e0c31ff278}
+      \strng{authorfullhash}{e7245494a534ebed320be6e0c31ff278}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Series in Operations Research \& Management Science}
+      \field{title}{Decision making under uncertainty in electricity markets}
+      \field{volume}{153}
+      \field{year}{2010}
+    \endentry
+    \entry{zareipour2010electricity}{article}{}
+      \name{author}{3}{}{%
+        {{hash=52328139e92c1c357c7366f2f65ccc0d}{%
+           family={Zareipour},
+           familyi={Z\bibinitperiod},
+           given={Hamidreza},
+           giveni={H\bibinitperiod}}}%
+        {{hash=87257f475a3c9e5b10ef86f0ba5a2218}{%
+           family={Bhattacharya},
+           familyi={B\bibinitperiod},
+           given={Kankar},
+           giveni={K\bibinitperiod}}}%
+        {{hash=094ba7d45af45c97db8e81932f8f80a0}{%
+           family={Canizares},
+           familyi={C\bibinitperiod},
+           given={Claudio\bibnamedelima A},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{e076f3d47bcc742acadb58a8c6f26a12}
+      \strng{fullhash}{e076f3d47bcc742acadb58a8c6f26a12}
+      \strng{bibnamehash}{e076f3d47bcc742acadb58a8c6f26a12}
+      \strng{authorbibnamehash}{e076f3d47bcc742acadb58a8c6f26a12}
+      \strng{authornamehash}{e076f3d47bcc742acadb58a8c6f26a12}
+      \strng{authorfullhash}{e076f3d47bcc742acadb58a8c6f26a12}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energy Policy}
+      \field{number}{9}
+      \field{title}{Electricity market price volatility: The case of Ontario}
+      \field{volume}{35}
+      \field{year}{2007}
+      \field{pages}{4739\bibrangedash 4748}
+      \range{pages}{10}
+    \endentry
+    \entry{desai2021electrical}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=ca10b3905115b23a735f741a9476441b}{%
+           family={Desai},
+           familyi={D\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=91dc2e0e4b24e6778c3c74010bf65331}{%
+           family={Dalal},
+           familyi={D\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=8065be3e54dad55a37f4f6715f6cec74}{%
+           family={Kadam},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=cf6175868a36df58c12a4f225404732a}{%
+           family={Mishra},
+           familyi={M\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{372d0250053bc121525e267748ccf766}
+      \strng{fullhash}{1dc69b73977c32283d4edfde311568eb}
+      \strng{bibnamehash}{372d0250053bc121525e267748ccf766}
+      \strng{authorbibnamehash}{372d0250053bc121525e267748ccf766}
+      \strng{authornamehash}{372d0250053bc121525e267748ccf766}
+      \strng{authorfullhash}{1dc69b73977c32283d4edfde311568eb}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2021 International Conference on System, Computation, Automation and Networking (ICSCAN)}
+      \field{title}{Electrical load forecasting using machine learning}
+      \field{year}{2021}
+      \field{pages}{1\bibrangedash 6}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ICSCAN53069.2021.9526444
+      \endverb
+    \endentry
+    \entry{matrenin2022medium}{article}{}
+      \name{author}{6}{}{%
+        {{hash=8d233fcdd2c32e56284a4dc9fbd6869f}{%
+           family={Matrenin},
+           familyi={M\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=f9b1b661994e144f3009d978c4bf25f3}{%
+           family={Safaraliev},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9f1e6ca897f2015174d444a06a9fe1a5}{%
+           family={Dmitriev},
+           familyi={D\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=7cfcb5a65ee8c383a8d7f80030a2fbea}{%
+           family={Kokin},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=69161089d67377c35bc17a930fedc666}{%
+           family={Ghulomzoda},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e35c2ac34f35427da02d9ad0da9af1b2}{%
+           family={Mitrofanov},
+           familyi={M\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{a38de4a5b409f86608147ded182100db}
+      \strng{fullhash}{e3753703db75489b6b3bdd3f85078b57}
+      \strng{bibnamehash}{a38de4a5b409f86608147ded182100db}
+      \strng{authorbibnamehash}{a38de4a5b409f86608147ded182100db}
+      \strng{authornamehash}{a38de4a5b409f86608147ded182100db}
+      \strng{authorfullhash}{e3753703db75489b6b3bdd3f85078b57}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energy Reports}
+      \field{title}{Medium-term load forecasting in isolated power systems based on ensemble machine learning models}
+      \field{volume}{8}
+      \field{year}{2022}
+      \field{pages}{612\bibrangedash 618}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/j.egyr.2021.11.175
+      \endverb
+    \endentry
+    \entry{guo2021machine}{article}{}
+      \name{author}{4}{}{%
+        {{hash=e313f35522a5fbabdce43b506313ccb3}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=d7f32b9749dceea78e8b5f71043b5deb}{%
+           family={Che},
+           familyi={C\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=cc851f4b7f98500bb7a208b6e8bd24f6}{%
+           family={Shahidehpour},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=40a156736220380336743b1e0712efb4}{%
+           family={Wan},
+           familyi={W\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{3121805f9d149f83642f37e38e7feafc}
+      \strng{fullhash}{6f70afa3c9f32bfc1b4f8a38cc119db4}
+      \strng{bibnamehash}{3121805f9d149f83642f37e38e7feafc}
+      \strng{authorbibnamehash}{3121805f9d149f83642f37e38e7feafc}
+      \strng{authornamehash}{3121805f9d149f83642f37e38e7feafc}
+      \strng{authorfullhash}{6f70afa3c9f32bfc1b4f8a38cc119db4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Electricity Journal}
+      \field{number}{1}
+      \field{title}{Machine learning-based methods in short-term load forecasting}
+      \field{volume}{34}
+      \field{year}{2021}
+      \field{pages}{106884}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.tej.2020.106884
+      \endverb
+    \endentry
+    \entry{saglam2024instantaneous}{article}{}
+      \name{author}{4}{}{%
+        {{hash=267df5f4417ff467a087d95450bc7f66}{%
+           family={Saglam},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=497802d77c479d4ef6ed98a8adfd49ad}{%
+           family={Lv},
+           familyi={L\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+        {{hash=69c92cad0a5e19bf367569a0f6b7ab8c}{%
+           family={Spataru},
+           familyi={S\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=cf96fd4cb5fe5788fa59de699dae4960}{%
+           family={Karaman},
+           familyi={K\bibinitperiod},
+           given={O.\bibnamedelimi A.},
+           giveni={O\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{c7596a441c7bb2fb677b53e3ae23c8ab}
+      \strng{fullhash}{82610729ac5977a9ead3f5242d2a8d35}
+      \strng{bibnamehash}{c7596a441c7bb2fb677b53e3ae23c8ab}
+      \strng{authorbibnamehash}{c7596a441c7bb2fb677b53e3ae23c8ab}
+      \strng{authornamehash}{c7596a441c7bb2fb677b53e3ae23c8ab}
+      \strng{authorfullhash}{82610729ac5977a9ead3f5242d2a8d35}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energies}
+      \field{number}{4}
+      \field{title}{Instantaneous electricity peak load forecasting using optimization and machine learning}
+      \field{volume}{17}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.3390/en17040777
+      \endverb
+    \endentry
+    \entry{jain2024comparative}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d7d1bd8209e81bbe9d5e9d62e26cedec}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=29941a55ce9570d3258751081c4834e7}{%
+           family={Gupta},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{6f8690f11de225e14dc20fda8f831a4f}
+      \strng{fullhash}{6f8690f11de225e14dc20fda8f831a4f}
+      \strng{bibnamehash}{6f8690f11de225e14dc20fda8f831a4f}
+      \strng{authorbibnamehash}{6f8690f11de225e14dc20fda8f831a4f}
+      \strng{authornamehash}{6f8690f11de225e14dc20fda8f831a4f}
+      \strng{authorfullhash}{6f8690f11de225e14dc20fda8f831a4f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Energy Systems}
+      \field{number}{2}
+      \field{title}{Comparative analysis of machine learning algorithms for short-term power load prediction}
+      \field{volume}{19}
+      \field{year}{2024}
+      \field{pages}{55\bibrangedash 68}
+      \range{pages}{14}
+    \endentry
+    \entry{cordeiro2023load}{article}{}
+      \name{author}{5}{}{%
+        {{hash=6e07a1e973c9baf920fb6654dbf89533}{%
+           family={Cordeiro-Costas},
+           familyi={C\bibinithyphendelim C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1d11d5eb84ebb2bc007fc1f6f82d02cf}{%
+           family={Villanueva},
+           familyi={V\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f24a5643312830d1102ed6f14e9dffe2}{%
+           family={Eguía-Oller},
+           familyi={E\bibinithyphendelim O\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=f736760b9da61f6ecd430d2dc8e0d6dc}{%
+           family={Martínez-Comesaña},
+           familyi={M\bibinithyphendelim C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=bc45e7f67930d7d3031edc7f265d5132}{%
+           family={Ramos},
+           familyi={R\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{26d6eb60c392a4baecad4c2f81d5876f}
+      \strng{fullhash}{0210881a73ca78c2d1490b07d75fedc8}
+      \strng{bibnamehash}{26d6eb60c392a4baecad4c2f81d5876f}
+      \strng{authorbibnamehash}{26d6eb60c392a4baecad4c2f81d5876f}
+      \strng{authornamehash}{26d6eb60c392a4baecad4c2f81d5876f}
+      \strng{authorfullhash}{0210881a73ca78c2d1490b07d75fedc8}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Sciences}
+      \field{number}{13}
+      \field{title}{Load forecasting with machine learning and deep learning methods}
+      \field{volume}{13}
+      \field{year}{2023}
+      \field{pages}{7933}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/app13137933
+      \endverb
+    \endentry
+    \entry{dong2024decade}{article}{}
+      \name{author}{4}{}{%
+        {{hash=2c316314514e08f9ae63c7ffc277ad1e}{%
+           family={Dong},
+           familyi={D\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+        {{hash=ae6f64f7b429f6425fbe070323390f1b}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=abe54d71a8749221df19e0ecf976f01c}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=1f26f664835ac6c347db22001b657f1a}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{2036b3e8b63ab4bb8fa7efbf911a3534}
+      \strng{fullhash}{91bb89fb93c7c0bf8250d1ae54d49a2a}
+      \strng{bibnamehash}{2036b3e8b63ab4bb8fa7efbf911a3534}
+      \strng{authorbibnamehash}{2036b3e8b63ab4bb8fa7efbf911a3534}
+      \strng{authornamehash}{2036b3e8b63ab4bb8fa7efbf911a3534}
+      \strng{authorfullhash}{91bb89fb93c7c0bf8250d1ae54d49a2a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energy AI}
+      \field{title}{A decade of deep learning-based short-term electricity load forecasting: A comprehensive review}
+      \field{volume}{8}
+      \field{year}{2024}
+      \field{pages}{100212}
+      \range{pages}{1}
+    \endentry
+    \entry{wen2024gru}{article}{}
+      \name{author}{3}{}{%
+        {{hash=5697a66ca4254743e8f12262bf8d99cc}{%
+           family={Wen},
+           familyi={W\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e2e65bc31792929cfaa15cecf7f23965}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=8dd86696c5f4cffef5a0dd2c8e864f45}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c0baee92b4f7b2d95881d4a940e5ce9}
+      \strng{fullhash}{9c0baee92b4f7b2d95881d4a940e5ce9}
+      \strng{bibnamehash}{9c0baee92b4f7b2d95881d4a940e5ce9}
+      \strng{authorbibnamehash}{9c0baee92b4f7b2d95881d4a940e5ce9}
+      \strng{authornamehash}{9c0baee92b4f7b2d95881d4a940e5ce9}
+      \strng{authorfullhash}{9c0baee92b4f7b2d95881d4a940e5ce9}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energy}
+      \field{title}{GRU--TCN hybrid neural network with attention for short-term load forecasting}
+      \field{volume}{290}
+      \field{year}{2024}
+      \field{pages}{130423}
+      \range{pages}{1}
+    \endentry
+    \entry{alhussein2020cnn}{article}{}
+      \name{author}{4}{}{%
+        {{hash=e6dab4529b3783a5052c1f64d2e01432}{%
+           family={Alhussein},
+           familyi={A\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod}}}%
+        {{hash=e54dd9279132e52a139bc4e43dd020f8}{%
+           family={Aurangzeb},
+           familyi={A\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=c44fa7452fce3a90e2fa19fe71765240}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={S.-B.},
+           giveni={S\bibinithyphendelim B\bibinitperiod}}}%
+        {{hash=940703af1359373492012fcc10e1d715}{%
+           family={Baek},
+           familyi={B\bibinitperiod},
+           given={J.-H.},
+           giveni={J\bibinithyphendelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{6938ad9c0c2f5ece5ebe0827c6e17332}
+      \strng{fullhash}{b35ba646abac426551f32b57b412d122}
+      \strng{bibnamehash}{6938ad9c0c2f5ece5ebe0827c6e17332}
+      \strng{authorbibnamehash}{6938ad9c0c2f5ece5ebe0827c6e17332}
+      \strng{authornamehash}{6938ad9c0c2f5ece5ebe0827c6e17332}
+      \strng{authorfullhash}{b35ba646abac426551f32b57b412d122}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energies}
+      \field{number}{19}
+      \field{title}{Convolutional neural network and long short-term memory hybrid deep learning model for individual load forecasting}
+      \field{volume}{13}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.3390/en13195396
+      \endverb
+    \endentry
+    \entry{hasanat2024parallel}{article}{}
+      \name{author}{3}{}{%
+        {{hash=107359a241f687f9b2b96c1b11ba3477}{%
+           family={Hasanat},
+           familyi={H\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=deb1ff5cf559dfa734d695478db46b4b}{%
+           family={Biswas},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=310e70203db3f64cb9432b68942d7a09}{%
+           family={Abdullah},
+           familyi={A\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba0365027b1397fefadf0cd652b4e318}
+      \strng{fullhash}{ba0365027b1397fefadf0cd652b4e318}
+      \strng{bibnamehash}{ba0365027b1397fefadf0cd652b4e318}
+      \strng{authorbibnamehash}{ba0365027b1397fefadf0cd652b4e318}
+      \strng{authornamehash}{ba0365027b1397fefadf0cd652b4e318}
+      \strng{authorfullhash}{ba0365027b1397fefadf0cd652b4e318}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{Parallel multichannel CNN--BiLSTM architecture for smart-grid load forecasting}
+      \field{volume}{12}
+      \field{year}{2024}
+      \field{pages}{33211\bibrangedash 33225}
+      \range{pages}{15}
+    \endentry
+    \entry{vaswani2017attention}{article}{}
+      \name{author}{8}{}{%
+        {{hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod}}}%
+        {{hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod}}}%
+        {{hash=06649ebab1ea5cac0250746a19764975}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Niki},
+           giveni={N\bibinitperiod}}}%
+        {{hash=831027ee0ebf22375e2a86afc1881909}{%
+           family={Uszkoreit},
+           familyi={U\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2fd2982e30ebcec93ec1cf76e0d797fd}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Llion},
+           giveni={L\bibinitperiod}}}%
+        {{hash=27b07e4eacbf4ef7a1438e3badb7dd8d}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Aidan\bibnamedelima N},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=540fcd72e1fa4bbed46604f4e6cff817}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={{Ł}ukasz},
+           giveni={Ł\bibinitperiod}}}%
+        {{hash=95595a0fefb86187cbc36e551017d332}{%
+           family={Polosukhin},
+           familyi={P\bibinitperiod},
+           given={Illia},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{fullhash}{cb26e47f6b8133865271fc8483132297}
+      \strng{bibnamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorbibnamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authornamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorfullhash}{cb26e47f6b8133865271fc8483132297}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in neural information processing systems}
+      \field{title}{Attention is all you need}
+      \field{volume}{30}
+      \field{year}{2017}
+    \endentry
+    \entry{chan2024sparse}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bb62ccab7499ec096dbc3157e410601a}{%
+           family={Chan},
+           familyi={C\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=ab77ed12c0c038651631eefe7ce0ab7f}{%
+           family={Yeo},
+           familyi={Y\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{3f67389a6aa01f09e4218e05e0ccf15e}
+      \strng{fullhash}{3f67389a6aa01f09e4218e05e0ccf15e}
+      \strng{bibnamehash}{3f67389a6aa01f09e4218e05e0ccf15e}
+      \strng{authorbibnamehash}{3f67389a6aa01f09e4218e05e0ccf15e}
+      \strng{authornamehash}{3f67389a6aa01f09e4218e05e0ccf15e}
+      \strng{authorfullhash}{3f67389a6aa01f09e4218e05e0ccf15e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Energy}
+      \field{title}{Sparse transformer-based architecture for electricity load forecasting}
+      \field{volume}{352}
+      \field{year}{2024}
+      \field{pages}{122211}
+      \range{pages}{1}
+    \endentry
+    \entry{zhang2022time}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1f26f664835ac6c347db22001b657f1a}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=34eb0d3545d5a6175d27a342936002b1}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Q.},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=802879972afa5bd206c5988365d10ca8}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{fd628e6c841f1561f511de3272a43360}
+      \strng{fullhash}{fd628e6c841f1561f511de3272a43360}
+      \strng{bibnamehash}{fd628e6c841f1561f511de3272a43360}
+      \strng{authorbibnamehash}{fd628e6c841f1561f511de3272a43360}
+      \strng{authornamehash}{fd628e6c841f1561f511de3272a43360}
+      \strng{authorfullhash}{fd628e6c841f1561f511de3272a43360}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Power Systems}
+      \field{number}{6}
+      \field{title}{Time-augmented transformer for short-term electrical load forecasting}
+      \field{volume}{37}
+      \field{year}{2022}
+      \field{pages}{5214\bibrangedash 5225}
+      \range{pages}{12}
+    \endentry
+    \entry{lu2024multivariate}{article}{}
+      \name{author}{2}{}{%
+        {{hash=583118bcdce8bd887283e311b95ef384}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+        {{hash=ff38b98d2dc65002f66d028a85b9d58d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{8fc512b30488c0628d7cb997e7b423ae}
+      \strng{fullhash}{8fc512b30488c0628d7cb997e7b423ae}
+      \strng{bibnamehash}{8fc512b30488c0628d7cb997e7b423ae}
+      \strng{authorbibnamehash}{8fc512b30488c0628d7cb997e7b423ae}
+      \strng{authornamehash}{8fc512b30488c0628d7cb997e7b423ae}
+      \strng{authorfullhash}{8fc512b30488c0628d7cb997e7b423ae}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Electric Power Systems Research}
+      \field{title}{Multivariate data-slicing transformer neural network for load forecasting in renewable-integrated power systems}
+      \field{volume}{229}
+      \field{year}{2024}
+      \field{pages}{110138}
+      \range{pages}{1}
+    \endentry
+    \entry{banik2024stacked}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f1f2bbe7af78e1483ccf8d9bf8e802ab}{%
+           family={Banik},
+           familyi={B\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=825a83ce02c225a3dc332f391381e3c1}{%
+           family={Biswas},
+           familyi={B\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{187620f14d6530697b9143ff64f99757}
+      \strng{fullhash}{187620f14d6530697b9143ff64f99757}
+      \strng{bibnamehash}{187620f14d6530697b9143ff64f99757}
+      \strng{authorbibnamehash}{187620f14d6530697b9143ff64f99757}
+      \strng{authornamehash}{187620f14d6530697b9143ff64f99757}
+      \strng{authorfullhash}{187620f14d6530697b9143ff64f99757}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energy Reports}
+      \field{title}{A stacked ensemble learning model for renewable power and load forecasting}
+      \field{volume}{10}
+      \field{year}{2024}
+      \field{pages}{112\bibrangedash 123}
+      \range{pages}{12}
+    \endentry
+    \entry{hobbs2001evaluation}{article}{}
+      \name{author}{4}{}{%
+        {{hash=1125a43be0239d613b5094cfdd3fabed}{%
+           family={Hobbs},
+           familyi={H\bibinitperiod},
+           given={Benjamin\bibnamedelima F},
+           giveni={B\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=765eda8a40bdb24899690715f4e8bc76}{%
+           family={Rothkopf},
+           familyi={R\bibinitperiod},
+           given={Michael\bibnamedelima H},
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=39409fe149111355c82eee93a83c4502}{%
+           family={Hyde},
+           familyi={H\bibinitperiod},
+           given={Laurel\bibnamedelima C},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=442755fe01717bbf8dade86865b7d0f8}{%
+           family={O'Neill},
+           familyi={O\bibinitperiod},
+           given={Richard\bibnamedelima P},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{a00f700be54229ec8f0384820ff6cf6c}
+      \strng{fullhash}{21f4557d735390a06491cd01098d57ac}
+      \strng{bibnamehash}{a00f700be54229ec8f0384820ff6cf6c}
+      \strng{authorbibnamehash}{a00f700be54229ec8f0384820ff6cf6c}
+      \strng{authornamehash}{a00f700be54229ec8f0384820ff6cf6c}
+      \strng{authorfullhash}{21f4557d735390a06491cd01098d57ac}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Regulatory Economics}
+      \field{number}{1}
+      \field{title}{Evaluation of a truthful revelation auction in the context of energy markets with nonconcave benefits}
+      \field{volume}{18}
+      \field{year}{2001}
+      \field{pages}{5\bibrangedash 32}
+      \range{pages}{28}
+    \endentry
+    \entry{hoerl1970ridge}{book}{}
+      \name{author}{2}{}{%
+        {{hash=073bf156684ab93b481fb9a5dd6a82c7}{%
+           family={Hoerl},
+           familyi={H\bibinitperiod},
+           given={Arthur\bibnamedelima E.},
+           giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=39f4e06a9e51f345e243e2b24175e7e4}{%
+           family={Kennard},
+           familyi={K\bibinitperiod},
+           given={Robert\bibnamedelima W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{5ca383125b65b015cb46067f1150f462}
+      \strng{fullhash}{5ca383125b65b015cb46067f1150f462}
+      \strng{bibnamehash}{5ca383125b65b015cb46067f1150f462}
+      \strng{authorbibnamehash}{5ca383125b65b015cb46067f1150f462}
+      \strng{authornamehash}{5ca383125b65b015cb46067f1150f462}
+      \strng{authorfullhash}{5ca383125b65b015cb46067f1150f462}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Technometrics}
+      \field{number}{1}
+      \field{title}{Ridge regression: Biased estimation for nonorthogonal problems}
+      \field{volume}{12}
+      \field{year}{1970}
+      \field{pages}{55\bibrangedash 67}
+      \range{pages}{13}
+    \endentry
+    \entry{drucker1997svr}{article}{}
+      \name{author}{5}{}{%
+        {{hash=e4edd88c0b3e80515990a333458f69a4}{%
+           family={Drucker},
+           familyi={D\bibinitperiod},
+           given={Harris},
+           giveni={H\bibinitperiod}}}%
+        {{hash=57683730ceb22e5d170051dedfc04a8e}{%
+           family={Burges},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelimb J.\bibnamedelimi C.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=effc3d6435ce22d99e832f7c76ff823b}{%
+           family={Kaufman},
+           familyi={K\bibinitperiod},
+           given={Linda},
+           giveni={L\bibinitperiod}}}%
+        {{hash=a4d2eb3aadfce48c1b00303f0988e905}{%
+           family={Smola},
+           familyi={S\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c2b3e05872463585b4be6aab10d10d63}{%
+           family={Vapnik},
+           familyi={V\bibinitperiod},
+           given={Vladimir},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{be38c8fcad68eec6049260afef6dd455}
+      \strng{fullhash}{c5b035bef5bad49dcda2bf536ce3f303}
+      \strng{bibnamehash}{be38c8fcad68eec6049260afef6dd455}
+      \strng{authorbibnamehash}{be38c8fcad68eec6049260afef6dd455}
+      \strng{authornamehash}{be38c8fcad68eec6049260afef6dd455}
+      \strng{authorfullhash}{c5b035bef5bad49dcda2bf536ce3f303}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Support vector regression machines}
+      \field{volume}{9}
+      \field{year}{1997}
+      \field{pages}{155\bibrangedash 161}
+      \range{pages}{7}
+    \endentry
+    \entry{breiman2001random}{article}{}
+      \name{author}{1}{}{%
+        {{hash=132b7100417675d55d5d4d8b244f7a34}{%
+           family={Breiman},
+           familyi={B\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{132b7100417675d55d5d4d8b244f7a34}
+      \strng{fullhash}{132b7100417675d55d5d4d8b244f7a34}
+      \strng{bibnamehash}{132b7100417675d55d5d4d8b244f7a34}
+      \strng{authorbibnamehash}{132b7100417675d55d5d4d8b244f7a34}
+      \strng{authornamehash}{132b7100417675d55d5d4d8b244f7a34}
+      \strng{authorfullhash}{132b7100417675d55d5d4d8b244f7a34}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Machine Learning}
+      \field{number}{1}
+      \field{title}{Random forests}
+      \field{volume}{45}
+      \field{year}{2001}
+      \field{pages}{5\bibrangedash 32}
+      \range{pages}{28}
+    \endentry
+    \entry{friedman2001gradient}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ce884cc144616c39e723a8fe2eb3c879}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={Jerome\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Institute of Mathematical Statistics}%
+      }
+      \strng{namehash}{ce884cc144616c39e723a8fe2eb3c879}
+      \strng{fullhash}{ce884cc144616c39e723a8fe2eb3c879}
+      \strng{bibnamehash}{ce884cc144616c39e723a8fe2eb3c879}
+      \strng{authorbibnamehash}{ce884cc144616c39e723a8fe2eb3c879}
+      \strng{authornamehash}{ce884cc144616c39e723a8fe2eb3c879}
+      \strng{authorfullhash}{ce884cc144616c39e723a8fe2eb3c879}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Statistics}
+      \field{number}{5}
+      \field{title}{Greedy function approximation: A gradient boosting machine}
+      \field{volume}{29}
+      \field{year}{2001}
+      \field{pages}{1189\bibrangedash 1232}
+      \range{pages}{44}
+    \endentry
+    \entry{chen2016xgboost}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=48461ccdf50ba5a54e29a354aa734c0b}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Tianqi},
+           giveni={T\bibinitperiod}}}%
+        {{hash=c9ab8ac486d7f85ac914b1a8e51e512b}{%
+           family={Guestrin},
+           familyi={G\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \strng{fullhash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \strng{bibnamehash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \strng{authorbibnamehash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \strng{authornamehash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \strng{authorfullhash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining}
+      \field{title}{XGBoost: A scalable tree boosting system}
+      \field{year}{2016}
+      \field{pages}{785\bibrangedash 794}
+      \range{pages}{10}
+    \endentry
+    \entry{kingma2014adam}{article}{}
+      \name{author}{2}{}{%
+        {{hash=b6fbd171848aad4edf3925543f1f1522}{%
+           family={Kingma},
+           familyi={K\bibinitperiod},
+           given={Diederik\bibnamedelima P.},
+           giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=8aa66e8231cc2fdbe67aa4f18ca970c6}{%
+           family={Ba},
+           familyi={B\bibinitperiod},
+           given={Jimmy},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{fullhash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{bibnamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorbibnamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authornamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorfullhash}{a09df9f123146b8e2c7f1134c9496932}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1412.6980}
+      \field{title}{Adam: A method for stochastic optimization}
+      \field{year}{2014}
+    \endentry
+    \entry{hochreiter1997lstm}{article}{}
+      \name{author}{2}{}{%
+        {{hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
+           family={Hochreiter},
+           familyi={H\bibinitperiod},
+           given={Sepp},
+           giveni={S\bibinitperiod}}}%
+        {{hash=288bdbcfe1b91ad7484d7a24f74f99ed}{%
+           family={Schmidhuber},
+           familyi={S\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{fullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{bibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorbibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authornamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorfullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Computation}
+      \field{number}{8}
+      \field{title}{Long short-term memory}
+      \field{volume}{9}
+      \field{year}{1997}
+      \field{pages}{1735\bibrangedash 1780}
+      \range{pages}{46}
+    \endentry
+    \entry{cho2014gru}{article}{}
+      \name{author}{7}{}{%
+        {{hash=3da7501a79d9346572c7fd6e41b615df}{%
+           family={Cho},
+           familyi={C\bibinitperiod},
+           given={Kyunghyun},
+           giveni={K\bibinitperiod}}}%
+        {{hash=2835acd2493c54182c074a35cd04ad4d}{%
+           family={Van\bibnamedelima Merriënboer},
+           familyi={V\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Bart},
+           giveni={B\bibinitperiod}}}%
+        {{hash=2adc0c92c308f233c731321d55efe58f}{%
+           family={Gulcehre},
+           familyi={G\bibinitperiod},
+           given={Caglar},
+           giveni={C\bibinitperiod}}}%
+        {{hash=6d80adec79a13a33e73215c5f46f1605}{%
+           family={Bahdanau},
+           familyi={B\bibinitperiod},
+           given={Dzmitry},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6deedc795e51da1bc7fd6289ab321a48}{%
+           family={Bougares},
+           familyi={B\bibinitperiod},
+           given={Fethi},
+           giveni={F\bibinitperiod}}}%
+        {{hash=449689e8c1ced50f608244e3a96fe6d3}{%
+           family={Schwenk},
+           familyi={S\bibinitperiod},
+           given={Holger},
+           giveni={H\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{9b1920db887fe0d658725c1e606b61f4}
+      \strng{fullhash}{f15ca920f15dc82592d8124096139969}
+      \strng{bibnamehash}{9b1920db887fe0d658725c1e606b61f4}
+      \strng{authorbibnamehash}{9b1920db887fe0d658725c1e606b61f4}
+      \strng{authornamehash}{9b1920db887fe0d658725c1e606b61f4}
+      \strng{authorfullhash}{f15ca920f15dc82592d8124096139969}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1406.1078}
+      \field{title}{Learning phrase representations using RNN encoder-decoder for statistical machine translation}
+      \field{year}{2014}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

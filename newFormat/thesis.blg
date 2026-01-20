@@ -1,19 +1,15 @@
-[0] Config.pm:328> INFO - This is Biber 2.21
-[0] Config.pm:331> INFO - Logfile is 'thesis.blg'
-[123] biber-MSWIN64:342> INFO - === 
-[170] Biber.pm:421> INFO - Reading 'thesis.bcf'
-[310] Biber.pm:1002> INFO - Found 27 citekeys in bib section 0
-[331] Biber.pm:4487> INFO - Processing section 0
-[343] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
-[428] bibtex.pm:1713> INFO - LaTeX decoding ...
-[485] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[756] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[756] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[756] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
-[757] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[840] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[840] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[840] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
-[840] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[871] bbl.pm:676> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[923] bbl.pm:779> INFO - Output to thesis.bbl
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'thesis.blg'
+[68] biber:340> INFO - === Mon Jan 19, 2026, 17:03:59
+[82] Biber.pm:419> INFO - Reading 'thesis.bcf'
+[137] Biber.pm:979> INFO - Found 35 citekeys in bib section 0
+[147] Biber.pm:4419> INFO - Processing section 0
+[155] Biber.pm:4610> INFO - Looking for bibtex file 'references.bib' for section 0
+[156] bibtex.pm:1713> INFO - LaTeX decoding ...
+[184] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[436] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[436] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[436] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[436] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[453] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[467] bbl.pm:763> INFO - Output to thesis.bbl
